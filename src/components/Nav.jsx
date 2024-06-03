@@ -17,15 +17,15 @@ function Nav() {
         <button>Connect</button>
       </section>
 
-      <button className={navStyles.theme}>
+      <section className={navStyles.theme}>
         <div className={navStyles.bar}>
           <span></span>
         </div>
         <div className={navStyles.switch}>
-          <span>ON</span>
-          <span>OFF</span>
+          <button>ON</button>
+          <button>OFF</button>
         </div>
-      </button>
+      </section>
     </nav>
   );
 }
