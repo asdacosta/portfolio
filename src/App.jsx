@@ -1,12 +1,23 @@
 import "./reset.css";
 import "./App.css";
-import { Nav } from "./components/Nav";
+import { Nav } from "./components/Nav/Nav";
+import { Load } from "./components/Load/Load";
+import { useState } from "react";
+import { useEffect } from "react";
 
 function App() {
+  const [loadDisplay, setLoadDisplay] = useState("flex");
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoadDisplay("none");
+    }, 3100);
+  }, []);
+
   return (
     <>
-      <Nav></Nav>
-      <h1>Ace</h1>
+      <Load displayValue={loadDisplay} />
+      <Nav />
     </>
   );
 }
