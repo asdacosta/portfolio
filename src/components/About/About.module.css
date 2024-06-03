@@ -1,0 +1,71 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 10rem 0 0 5rem;
+  border: 0.2rem solid red;
+  height: 100vh;
+}
+
+.header {
+  font-size: 3.5rem;
+  font-weight: 600;
+  cursor: context-menu;
+}
+
+.intro {
+  font-size: 2rem;
+  cursor: context-menu;
+}
+
+.resume {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 0.5rem;
+  color: white;
+  border: 0.2rem solid rgb(0, 204, 255);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  background-color: rgb(0, 6, 26);
+  cursor: pointer;
+}
+
+.resume::before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  content: "📄";
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: rgba(0, 6, 26, 0);
+  background-color: rgb(0, 204, 255);
+  z-index: 2;
+  transition: width 0.5s ease, color 0.5s ease;
+}
+
+.resume:hover::before {
+  color: rgba(0, 6, 26, 1);
+  width: 100%;
+}
+
+.resume > svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  fill: white;
+  animation: scale 0.5s ease-in-out alternate infinite;
+}
+
+@keyframes scale {
+  to {
+    transform: scale(1.15);
+  }
+}
