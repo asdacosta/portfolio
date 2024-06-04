@@ -7,7 +7,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
 const loadVariants = {
-  exit: { opacity: 0, transition: { duration: 0.2 } },
+  exit: {
+    opacity: 0,
+    scale: 0.1,
+    transition: { duration: 0.5 },
+  },
 };
 
 function App() {
