@@ -10,7 +10,9 @@ function Load({ onComplete }) {
     if (!animation) return;
 
     animation.addEventListener("complete", () => {
-      onComplete();
+      if (onComplete) {
+        onComplete();
+      }
     });
   }, []);
 
