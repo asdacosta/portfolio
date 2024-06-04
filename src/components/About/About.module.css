@@ -2,10 +2,20 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  position: absolute;
+  top: 15rem;
   gap: 1rem;
-  padding: 10rem 0 0 5rem;
-  border: 0.2rem solid red;
+  padding-left: 5rem;
   height: 100vh;
+  opacity: 0;
+  animation: slideUp 1s 0.5s forwards;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    top: 13rem;
+  }
 }
 
 .header {
@@ -17,6 +27,30 @@
 .intro {
   font-size: 2rem;
   cursor: context-menu;
+}
+
+.expertise {
+  color: rgb(0, 204, 255);
+}
+
+.cursor {
+  position: relative;
+}
+
+.cursor > svg {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  fill: rgb(0, 204, 255);
+}
+
+.info {
+  font-size: 1.2rem;
+  width: 30rem;
+  height: 7rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  padding: 0.5rem;
 }
 
 .resume {
@@ -57,11 +91,42 @@
   width: 100%;
 }
 
-.resume > svg {
+.resume svg {
   width: 1.3rem;
   height: 1.3rem;
   fill: white;
   animation: scale 0.5s ease-in-out alternate infinite;
+}
+
+.infoBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.progress {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 30rem;
+  height: 0.4rem;
+  border-radius: 1rem;
+}
+
+.progress::before {
+  position: absolute;
+  top: 0;
+  content: "";
+  width: 0;
+  height: 100%;
+  border-radius: 1rem;
+  background-color: rgb(0, 204, 255);
+  animation: load 5s 3s backwards;
+}
+
+@keyframes load {
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes scale {
