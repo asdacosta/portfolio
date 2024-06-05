@@ -5,22 +5,32 @@ import ReactTypingEffect from "react-typing-effect";
 
 function About() {
   const [displayedText, setDisplayedText] = useState("");
+  const [currentInfo, setCurrentInfo] = useState(
+    "I create functionalities and features that make a website work smoothly, ensuring it's interactive and responsive across various devices."
+  );
   const [index, setIndex] = useState(0);
   const [textIndex, setTextIndex] = useState(0);
   const [slideUpNow, setSlideUpNow] = useState(false);
   const [hideCursor, setHideCursor] = useState(false);
+  const [fillProgress, setFillProgress] = useState(false);
   const text = [
     "Web Developer.",
     "Web Designer.",
     "Front-end Developer.",
     "UI/UX Designer.",
   ];
-  const infos = [];
+  const infos = [
+    "I create functionalities and features that make a website work smoothly, ensuring it's interactive and responsive across various devices.",
+    "I design visually appealing and user-friendly websites, focusing on layout, aesthetics, and user experience.",
+    "I code the interactive elements of websites, ensuring seamless user interfaces in close collaboration with designers and back-end developers.",
+    "I design interfaces that are easy to use and visually attractive by studying user behavior, crafting prototypes, and refining the user experience through continuous research and improvement.",
+  ];
 
   useEffect(() => {
     const currentText = text[textIndex];
     if (displayedText.charAt(displayedText.length - 1) === ".") {
       setHideCursor(true);
+      setFillProgress(true);
       const timeoutId = setTimeout(() => {
         setSlideUpNow(true);
       }, 8500);
@@ -42,8 +52,10 @@ function About() {
     if (slideUpNow) {
       const timeoutId = setTimeout(() => {
         setDisplayedText("");
+        setCurrentInfo(infos[textIndex]);
         setHideCursor(false);
         setSlideUpNow(false);
+        setFillProgress(false);
         setIndex(0);
         setTextIndex((prev) => {
           if (prev === 3) {
@@ -130,10 +142,17 @@ function About() {
         className={aboutStyles.infoBox}
       >
         <p className={aboutStyles.info}>
-          I create and maintain websites, ensuring they are visually appealing,
-          user-friendly, and function smoothly across devices.
+          <span className={slideUpNow ? `${aboutStyles.slideUp}` : null}>
+            {currentInfo}
+          </span>
         </p>
-        <p className={aboutStyles.progress}></p>
+        <p
+          className={
+            fillProgress
+              ? `${aboutStyles.progress} ${aboutStyles.fill}`
+              : aboutStyles.progress
+          }
+        ></p>
       </motion.section>
       <motion.button
         key="resume"
