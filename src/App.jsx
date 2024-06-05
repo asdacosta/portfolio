@@ -16,9 +16,14 @@ const loadVariants = {
 
 function App() {
   const [loadDisplay, setLoadDisplay] = useState(true);
+  const [navDisplay, setNavDisplay] = useState(false);
 
   function completeLoad() {
     setLoadDisplay(false);
+  }
+
+  function completeNav() {
+    setNavDisplay(true);
   }
 
   return (
@@ -30,8 +35,8 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
-      {!loadDisplay && <Nav />}
-      {!loadDisplay && <About />}
+      {!loadDisplay && <Nav onComplete={completeNav} />}
+      {navDisplay && <About />}
     </>
   );
 }
