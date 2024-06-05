@@ -22,7 +22,7 @@ const buttonVariant = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.2 } },
 };
 
-function Nav() {
+function Nav({ onComplete }) {
   return (
     <nav className={navStyles.nav}>
       <motion.button
@@ -43,6 +43,7 @@ function Nav() {
         variants={containerVariant}
         initial="hidden"
         animate="visible"
+        onAnimationComplete={onComplete}
       >
         <motion.button key="about" variants={buttonVariant}>
           About
