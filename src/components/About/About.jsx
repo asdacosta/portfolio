@@ -33,7 +33,7 @@ function About() {
       setFillProgress(true);
       const timeoutId = setTimeout(() => {
         setSlideUpNow(true);
-      }, 8500);
+      }, 9000);
       return () => {
         clearTimeout(timeoutId);
       };
