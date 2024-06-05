@@ -7,8 +7,6 @@
   gap: 1rem;
   padding-left: 5rem;
   height: 100vh;
-  opacity: 0;
-  animation: slideUp 1s 0.5s forwards;
 }
 
 @keyframes slideUp {
@@ -30,11 +28,36 @@
 }
 
 .expertise {
+  position: relative;
+  top: 0;
   color: rgb(0, 204, 255);
+  opacity: 1;
+}
+
+.slideUp {
+  animation: slideUpNow 0.5s ease forwards;
+}
+
+@keyframes slideUpNow {
+  to {
+    opacity: 0;
+    top: -0.5rem;
+  }
 }
 
 .cursor {
   position: relative;
+}
+
+.cursor.hideCursor > svg {
+  animation: hide 0.5s 0.2s ease forwards;
+}
+
+@keyframes hide {
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
 }
 
 .cursor > svg {
@@ -77,8 +100,8 @@
   left: 0;
   width: 0;
   height: 100%;
-  content: "📄";
-  font-size: 1.8rem;
+  content: "Download";
+  font-size: 1rem;
   font-weight: 600;
   color: rgba(0, 6, 26, 0);
   background-color: rgb(0, 204, 255);
@@ -120,7 +143,7 @@
   height: 100%;
   border-radius: 1rem;
   background-color: rgb(0, 204, 255);
-  animation: load 5s 3s backwards;
+  animation: load 5s 4s backwards;
 }
 
 @keyframes load {
