@@ -181,18 +181,22 @@
   position: relative;
 }
 
-.socialIcons > svg {
+.socialIcons > div {
   position: absolute;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.socialIcons svg {
+  position: relative;
   width: 3rem;
   height: 3rem;
   fill: white;
   stroke: white;
-  z-index: 1;
-  cursor: pointer;
-  transition: fill 0.2s ease-in-out, filter 0.5s ease-in-out;
+  transition: fill 0.2s ease-in-out, filter 0.3s ease-in-out;
 }
 
-.socialIcons:hover > svg {
+.socialIcons:hover > div {
   animation-play-state: paused;
 }
 
@@ -200,9 +204,29 @@
   filter: blur(0.3rem);
 }
 
-.linkedIn {
+.linkedInBox {
   top: 37%;
   left: 25%;
+}
+
+.linkedInBox::before {
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: 600;
+  content: "LinkedIn";
+  color: rgba(255, 255, 255, 0.6);
+  bottom: -2rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.linkedInBox:hover::before {
+  opacity: 1;
+}
+
+.linkedInBox {
   animation: floatLinkedIn 8s 2s infinite ease-in-out;
 }
 
@@ -231,9 +255,29 @@
   fill: rgb(10, 102, 194);
 }
 
-.x {
+.xBox {
   top: 25%;
   left: 25%;
+}
+
+.xBox::before {
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: 600;
+  content: "X";
+  color: rgba(255, 255, 255, 0.6);
+  bottom: -2rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.xBox:hover::before {
+  opacity: 1;
+}
+
+.xBox {
   animation: floatX 8s 3s infinite ease-in-out;
 }
 
@@ -263,9 +307,29 @@
   stroke-width: 1rem;
 }
 
-.ig {
+.igBox {
   top: 16%;
   left: 46%;
+}
+
+.igBox::before {
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: 600;
+  content: "Instagram";
+  color: rgba(255, 255, 255, 0.6);
+  bottom: -2rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.igBox:hover::before {
+  opacity: 1;
+}
+
+.igBox {
   animation: floatIg 8s 4s infinite ease-in-out;
 }
 
@@ -294,9 +358,29 @@
   fill: rgb(193, 53, 132);
 }
 
-.fb {
+.fbBox {
   top: 25%;
   right: 25%;
+}
+
+.fbBox::before {
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: 600;
+  content: "Facebook";
+  color: rgba(255, 255, 255, 0.6);
+  bottom: -2rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.fbBox:hover::before {
+  opacity: 1;
+}
+
+.fbBox {
   animation: floatFb 8s 5s infinite ease-in-out;
 }
 
@@ -325,9 +409,29 @@
   fill: rgb(24, 119, 242);
 }
 
-.youtube {
+.youtubeBox {
   top: 37%;
   right: 25%;
+}
+
+.youtubeBox::before {
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: 600;
+  content: "YouTube";
+  color: rgba(255, 255, 255, 0.6);
+  bottom: -2rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.youtubeBox:hover::before {
+  opacity: 1;
+}
+
+.youtubeBox {
   animation: floatTube 8s 6s infinite ease-in-out;
 }
 
@@ -356,9 +460,29 @@
   fill: rgb(252, 39, 39);
 }
 
-.github {
+.githubBox {
   top: 46%;
   left: 46%;
+}
+
+.githubBox::before {
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: 600;
+  content: "GitHub";
+  color: rgba(255, 255, 255, 0.6);
+  bottom: -2rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.githubBox:hover::before {
+  opacity: 1;
+}
+
+.githubBox {
   animation: floatHub 8s 7s infinite ease-in-out;
 }
 
@@ -388,9 +512,29 @@
   stroke-width: 1rem;
 }
 
-svg.medium {
+.mediumBox {
   top: 31%;
   left: 46%;
+}
+
+.mediumBox::before {
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: 600;
+  content: "Medium";
+  color: rgba(255, 255, 255, 0.6);
+  bottom: -2rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.mediumBox:hover::before {
+  opacity: 1;
+}
+
+svg.medium {
   width: 2.7rem;
 }
 
