@@ -177,6 +177,228 @@
   animation: pop 0.4s forwards ease-in-out;
 }
 
+.aboutSocials {
+  position: relative;
+}
+
+.socialIcons > svg {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  fill: white;
+  stroke: white;
+  z-index: 1;
+  cursor: pointer;
+  transition: fill 0.2s ease-in-out, filter 0.5s ease-in-out;
+}
+
+.socialIcons:hover > svg {
+  animation-play-state: paused;
+}
+
+.blurIcon {
+  filter: blur(0.3rem);
+}
+
+.linkedIn {
+  top: 37%;
+  left: 25%;
+  animation: floatLinkedIn 8s 2s infinite ease-in-out;
+}
+
+@keyframes floatLinkedIn {
+  15% {
+    transform: translate(0, -3rem) scale(0.8);
+  }
+  30% {
+    transform: translate(0, 0);
+  }
+  45% {
+    transform: translate(-0.5rem, -0.5rem);
+  }
+  60% {
+    transform: translate(-1rem, 0rem);
+  }
+  75% {
+    transform: translate(0.5rem, -0.5rem);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.linkedIn:hover {
+  fill: rgb(10, 102, 194);
+}
+
+.x {
+  top: 25%;
+  left: 25%;
+  animation: floatX 8s 3s infinite ease-in-out;
+}
+
+@keyframes floatX {
+  15% {
+    transform: translate(4.5rem, -2.5rem) scale(0.8);
+  }
+  30% {
+    transform: translate(0, 0);
+  }
+  45% {
+    transform: translate(-0.5rem, -0.5rem);
+  }
+  60% {
+    transform: translate(-1rem, 0rem);
+  }
+  75% {
+    transform: translate(0.5rem, -0.5rem);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.x:hover {
+  fill: rgb(0, 0, 0);
+  stroke-width: 1rem;
+}
+
+.ig {
+  top: 16%;
+  left: 46%;
+  animation: floatIg 8s 4s infinite ease-in-out;
+}
+
+@keyframes floatIg {
+  15% {
+    transform: translate(5.5rem, 2rem) scale(0.8);
+  }
+  30% {
+    transform: translate(0, 0);
+  }
+  45% {
+    transform: translate(-0.5rem, -0.5rem);
+  }
+  60% {
+    transform: translate(-1rem, 0rem);
+  }
+  75% {
+    transform: translate(0.5rem, -0.5rem);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.ig:hover {
+  fill: rgb(193, 53, 132);
+}
+
+.fb {
+  top: 25%;
+  right: 25%;
+  animation: floatFb 8s 5s infinite ease-in-out;
+}
+
+@keyframes floatFb {
+  15% {
+    transform: translate(0, 3rem) scale(0.8);
+  }
+  30% {
+    transform: translate(0, 0);
+  }
+  45% {
+    transform: translate(-0.5rem, -0.5rem);
+  }
+  60% {
+    transform: translate(-1rem, 0rem);
+  }
+  75% {
+    transform: translate(0.5rem, -0.5rem);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.fb:hover {
+  fill: rgb(24, 119, 242);
+}
+
+.youtube {
+  top: 37%;
+  right: 25%;
+  animation: floatTube 8s 6s infinite ease-in-out;
+}
+
+@keyframes floatTube {
+  15% {
+    transform: translate(-5.2rem, 2.2rem) scale(0.8);
+  }
+  30% {
+    transform: translate(0, 0);
+  }
+  45% {
+    transform: translate(-0.5rem, -0.5rem);
+  }
+  60% {
+    transform: translate(-1rem, 0rem);
+  }
+  75% {
+    transform: translate(0.5rem, -0.5rem);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.youtube:hover {
+  fill: rgb(252, 39, 39);
+}
+
+.github {
+  top: 46%;
+  left: 46%;
+  animation: floatHub 8s 7s infinite ease-in-out;
+}
+
+@keyframes floatHub {
+  15% {
+    transform: translate(-5rem, -2rem) scale(0.8);
+  }
+  30% {
+    transform: translate(0, 0);
+  }
+  45% {
+    transform: translate(-0.5rem, -0.5rem);
+  }
+  60% {
+    transform: translate(-1rem, 0rem);
+  }
+  75% {
+    transform: translate(0.5rem, -0.5rem);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.github:hover {
+  fill: rgb(0, 0, 0);
+  stroke-width: 1rem;
+}
+
+svg.medium {
+  top: 31%;
+  left: 46%;
+  width: 2.7rem;
+}
+
+.medium:hover {
+  fill: rgb(0, 0, 0);
+  stroke-width: 1rem;
+}
+
 @keyframes pop {
   0% {
     opacity: 1;
