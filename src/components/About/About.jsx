@@ -18,15 +18,15 @@ function About() {
   const animationRef = useRef(null);
   const helloRef = useRef(null);
 
-  const handleMouseEnter = () => {
+  const slowDown = () => {
     if (animationRef.current) {
-      animationRef.current.pause();
+      animationRef.current.setSpeed(0.2);
     }
   };
 
-  const handleMouseLeave = () => {
+  const toNormal = () => {
     if (animationRef.current) {
-      animationRef.current.play();
+      animationRef.current.setSpeed(1);
     }
   };
 
@@ -210,12 +210,13 @@ function About() {
       <section className={aboutStyles.aboutSocials}>
         <dotlottie-player
           ref={animationRef}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onMouseEnter={slowDown}
+          onMouseLeave={toNormal}
           className={aboutStyles.lottie}
+          speed="1"
           autoplay
           loop
-          mode="normal"
+          mode="bounce"
           src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/0BpLlOouLt.lottie"
           style={{ width: "650px", height: "650px" }}
         ></dotlottie-player>
