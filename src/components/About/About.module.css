@@ -7,7 +7,7 @@
 
 .aboutSocials {
   position: relative;
-  top: 5rem;
+  top: 2rem;
 }
 
 .aboutMe {
@@ -15,7 +15,7 @@
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  top: 12rem;
+  top: 15rem;
   gap: 1rem;
   height: 100vh;
 }
@@ -23,7 +23,7 @@
 @keyframes slideUp {
   to {
     opacity: 1;
-    top: 10rem;
+    top: 12rem;
   }
 }
 
@@ -182,7 +182,7 @@
     opacity: 1;
   }
   70% {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
   100% {
     transform: scale(0.9);
