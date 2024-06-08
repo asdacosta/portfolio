@@ -1,8 +1,8 @@
 .about {
   display: flex;
-  justify-content: space-between;
-  padding: 0 10rem;
-  /* border: 1rem solid tan; */
+  justify-content: center;
+  gap: 20rem;
+  height: 100vh;
 }
 
 .aboutSocials {
@@ -51,7 +51,7 @@
     background-position: 0% 50%;
   }
   100% {
-    background-position: 100% 50%;
+    background-position: 200% 100%;
   }
 }
 
