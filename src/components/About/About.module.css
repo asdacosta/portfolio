@@ -57,7 +57,7 @@
 
 .header:hover {
   color: white;
-  text-shadow: 2px 2px 5px rgb(0, 204, 255);
+  text-shadow: 2px 2px 5px rgb(0, 156, 196);
   animation-play-state: paused;
 }
 
@@ -241,7 +241,8 @@
   position: absolute;
   font-size: 1.2rem;
   font-weight: 600;
-  content: "LinkedIn";
+  content: "LinkedIn ➚";
+  width: max-content;
   color: rgba(255, 255, 255, 0.6);
   bottom: -2rem;
   left: 50%;
@@ -292,7 +293,8 @@
   position: absolute;
   font-size: 1.2rem;
   font-weight: 600;
-  content: "X";
+  content: "X ➚";
+  width: max-content;
   color: rgba(255, 255, 255, 0.6);
   bottom: -2rem;
   left: 50%;
@@ -344,7 +346,8 @@
   position: absolute;
   font-size: 1.2rem;
   font-weight: 600;
-  content: "Instagram";
+  content: "Instagram ➚";
+  width: max-content;
   color: rgba(255, 255, 255, 0.6);
   bottom: -2rem;
   left: 50%;
@@ -395,7 +398,8 @@
   position: absolute;
   font-size: 1.2rem;
   font-weight: 600;
-  content: "Facebook";
+  content: "Facebook ➚";
+  width: max-content;
   color: rgba(255, 255, 255, 0.6);
   bottom: -2rem;
   left: 50%;
@@ -446,7 +450,8 @@
   position: absolute;
   font-size: 1.2rem;
   font-weight: 600;
-  content: "YouTube";
+  content: "YouTube ➚";
+  width: max-content;
   color: rgba(255, 255, 255, 0.6);
   bottom: -2rem;
   left: 50%;
@@ -497,7 +502,8 @@
   position: absolute;
   font-size: 1.2rem;
   font-weight: 600;
-  content: "GitHub";
+  content: "GitHub ➚";
+  width: max-content;
   color: rgba(255, 255, 255, 0.6);
   bottom: -2rem;
   left: 50%;
@@ -549,7 +555,8 @@
   position: absolute;
   font-size: 1.2rem;
   font-weight: 600;
-  content: "Medium";
+  content: "Medium ➚";
+  width: max-content;
   color: rgba(255, 255, 255, 0.6);
   bottom: -2rem;
   left: 50%;
