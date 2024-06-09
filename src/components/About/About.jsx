@@ -471,6 +471,9 @@ function About() {
             src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/toConnect.lottie"
             style={{ width: "230px", height: "70px" }}
           ></dotlottie-player>
+          <div className={aboutStyles.bubbleBox}>
+            <div className={aboutStyles.bubble}></div>
+          </div>
         </section>
       </section>
     </section>
