@@ -579,11 +579,44 @@ svg.medium {
 }
 
 .toConnect {
+  display: flex;
   position: absolute;
   bottom: 12rem;
   left: 13rem;
   /* right: 28rem; */
   cursor: pointer;
+}
+
+.bubbleBox {
+  position: relative;
+}
+
+.bubble {
+  position: absolute;
+  top: 0.3rem;
+  right: 1rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 1rem;
+  background-color: rgb(0, 204, 255);
+  animation: letsBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes letsBounce {
+  0%,
+  20%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+  80% {
+    transform: translateY(-8px);
+  }
 }
 
 @keyframes pop {
