@@ -445,6 +445,13 @@ function About() {
           style={{ width: "650px", height: "650px" }}
         ></dotlottie-player>
       </section>
+      <dotlottie-player
+        autoplay
+        loop
+        mode="normal"
+        src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/0klmikSYOp.lottie"
+        style={{ width: "400px", height: "400px" }}
+      ></dotlottie-player>
     </section>
   );
 }
