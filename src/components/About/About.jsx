@@ -13,6 +13,7 @@ function About() {
   const [slideUpNow, setSlideUpNow] = useState(false);
   const [hideCursor, setHideCursor] = useState(false);
   const [fillProgress, setFillProgress] = useState(false);
+  const [isBubbling, setIsBubbling] = useState(true);
 
   const githubRef = useRef(null);
   const linkedInRef = useRef(null);
@@ -41,14 +42,16 @@ function About() {
       toConnectRef.current.play();
       toConnectRef.current.setSpeed(1.5);
     }
+    setIsBubbling(false);
   }
 
   function revertFill() {
     if (toConnectRef.current) {
       toConnectRef.current.setDirection(-1);
       toConnectRef.current.play();
-      toConnectRef.current.setSpeed(2);
+      toConnectRef.current.setSpeed(4);
     }
+    setIsBubbling(true);
   }
 
   function blurOthers(event) {
@@ -471,9 +474,11 @@ function About() {
             src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/toConnect.lottie"
             style={{ width: "230px", height: "70px" }}
           ></dotlottie-player>
-          <div className={aboutStyles.bubbleBox}>
-            <div className={aboutStyles.bubble}></div>
-          </div>
+          {isBubbling && (
+            <div className={aboutStyles.bubbleBox}>
+              <div className={aboutStyles.bubble}></div>
+            </div>
+          )}
         </section>
       </section>
     </section>
