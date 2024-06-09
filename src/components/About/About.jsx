@@ -33,6 +33,23 @@ function About() {
 
   const animationRef = useRef(null);
   const helloRef = useRef(null);
+  const toConnectRef = useRef(null);
+
+  function fillUp() {
+    if (toConnectRef.current) {
+      toConnectRef.current.setDirection(1);
+      toConnectRef.current.play();
+      toConnectRef.current.setSpeed(1.5);
+    }
+  }
+
+  function revertFill() {
+    if (toConnectRef.current) {
+      toConnectRef.current.setDirection(-1);
+      toConnectRef.current.play();
+      toConnectRef.current.setSpeed(2);
+    }
+  }
 
   function blurOthers(event) {
     switch (event.currentTarget) {
@@ -444,14 +461,18 @@ function About() {
           src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/0BpLlOouLt.lottie"
           style={{ width: "650px", height: "650px" }}
         ></dotlottie-player>
+        <section className={aboutStyles.toConnect}>
+          <dotlottie-player
+            ref={toConnectRef}
+            onMouseEnter={fillUp}
+            onMouseLeave={revertFill}
+            delay="0"
+            mode="normal"
+            src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/toConnect.lottie"
+            style={{ width: "230px", height: "70px" }}
+          ></dotlottie-player>
+        </section>
       </section>
-      <dotlottie-player
-        autoplay
-        loop
-        mode="normal"
-        src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/0klmikSYOp.lottie"
-        style={{ width: "400px", height: "400px" }}
-      ></dotlottie-player>
     </section>
   );
 }

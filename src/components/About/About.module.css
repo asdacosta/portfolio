@@ -578,6 +578,14 @@ svg.medium {
   stroke-width: 1rem;
 }
 
+.toConnect {
+  position: absolute;
+  bottom: 12rem;
+  left: 13rem;
+  /* right: 28rem; */
+  cursor: pointer;
+}
+
 @keyframes pop {
   0% {
     opacity: 1;
