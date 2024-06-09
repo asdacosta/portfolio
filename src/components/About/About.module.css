@@ -593,7 +593,7 @@ svg.medium {
 
 .bubble {
   position: absolute;
-  top: 0.3rem;
+  top: -0.2rem;
   right: 1rem;
   width: 0.8rem;
   height: 0.8rem;
