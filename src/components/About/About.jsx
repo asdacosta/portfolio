@@ -51,7 +51,9 @@ function About() {
       toConnectRef.current.play();
       toConnectRef.current.setSpeed(4);
     }
-    setIsBubbling(true);
+    setTimeout(() => {
+      setIsBubbling(true);
+    }, 200);
   }
 
   function blurOthers(event) {
