@@ -42,7 +42,7 @@
   color: transparent;
   font-weight: 600;
   cursor: context-menu;
-  animation: gradient-animation 2s linear 2s infinite reverse;
+  animation: gradient-animation 2s linear infinite reverse;
   transition: color 0.3s ease-in-out;
 }
 
