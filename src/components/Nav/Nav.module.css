@@ -2,7 +2,7 @@
   align-self: center;
   display: flex;
   justify-content: center;
-  position: relative;
+  position: fixed;
   top: -2rem;
   border-radius: 0.5rem;
   border: 0.1rem inset rgba(255, 255, 255, 0.6);
