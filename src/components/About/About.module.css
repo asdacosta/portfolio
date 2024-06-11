@@ -1,13 +1,14 @@
 .about {
   display: flex;
   justify-content: center;
-  gap: 20rem;
+  gap: 30rem;
   height: 100vh;
 }
 
 .aboutSocials {
   position: relative;
-  top: 2rem;
+  top: 4rem;
+  height: max-content;
 }
 
 .aboutMe {
@@ -15,15 +16,16 @@
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  top: 15rem;
+  top: 20rem;
   gap: 1rem;
-  height: 100vh;
+  height: max-content;
+  animation: slideUp 1.5s ease-in-out forwards;
 }
 
 @keyframes slideUp {
   to {
     opacity: 1;
-    top: 12rem;
+    top: 18rem;
   }
 }
 
@@ -205,10 +207,6 @@
   animation: pop 0.4s forwards ease-in-out;
 }
 
-.aboutSocials {
-  position: relative;
-}
-
 .socialIcons > div {
   position: absolute;
   z-index: 1;
@@ -233,7 +231,7 @@
 }
 
 .linkedInBox {
-  top: 37%;
+  top: 54%;
   left: 25%;
 }
 
@@ -285,7 +283,7 @@
 }
 
 .xBox {
-  top: 25%;
+  top: 38%;
   left: 25%;
 }
 
@@ -313,7 +311,7 @@
 
 @keyframes floatX {
   15% {
-    transform: translate(4.5rem, -2.5rem) scale(0.8);
+    transform: translate(5.2rem, -2.2rem) scale(0.8);
   }
   30% {
     transform: translate(0, 0);
@@ -338,7 +336,7 @@
 }
 
 .igBox {
-  top: 16%;
+  top: 26%;
   left: 46%;
 }
 
@@ -390,7 +388,7 @@
 }
 
 .fbBox {
-  top: 25%;
+  top: 38%;
   right: 25%;
 }
 
@@ -442,7 +440,7 @@
 }
 
 .youtubeBox {
-  top: 37%;
+  top: 54%;
   right: 25%;
 }
 
@@ -470,7 +468,7 @@
 
 @keyframes floatTube {
   15% {
-    transform: translate(-5.2rem, 2.2rem) scale(0.8);
+    transform: translate(-5.5rem, 2.2rem) scale(0.8);
   }
   30% {
     transform: translate(0, 0);
@@ -494,7 +492,7 @@
 }
 
 .githubBox {
-  top: 46%;
+  top: 66%;
   left: 46%;
 }
 
@@ -522,7 +520,7 @@
 
 @keyframes floatHub {
   15% {
-    transform: translate(-5rem, -2rem) scale(0.8);
+    transform: translate(-5.2rem, -2rem) scale(0.8);
   }
   30% {
     transform: translate(0, 0);
@@ -547,7 +545,7 @@
 }
 
 .mediumBox {
-  top: 31%;
+  top: 46%;
   left: 46%;
 }
 
@@ -581,7 +579,7 @@ svg.medium {
 .toConnect {
   display: flex;
   position: absolute;
-  bottom: 12rem;
+  bottom: -10rem;
   left: 13rem;
   /* right: 28rem; */
   cursor: pointer;
