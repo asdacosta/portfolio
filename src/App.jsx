@@ -5,6 +5,7 @@ import { Load } from "./components/Load/Load";
 import { About } from "./components/About/About";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { Skill } from "./components/Skill/Skill";
 
 const loadVariants = {
   exit: {
@@ -37,6 +38,7 @@ function App() {
       </AnimatePresence>
       {!loadDisplay && <Nav onComplete={completeNav} />}
       {navDisplay && <About />}
+      {navDisplay && <Skill />}
     </>
   );
 }
