@@ -10,6 +10,8 @@
 .skill > section {
   display: flex;
   gap: 10rem;
+  border-bottom: 0.5rem solid rgb(0, 204, 255);
+  border-radius: 2rem;
 }
 
 .info {
@@ -20,15 +22,48 @@
   gap: 3rem;
   padding: 0 2rem;
   width: 35rem;
+  cursor: context-menu;
 }
 
 .info > h2 {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    rgb(0, 204, 255) 0%,
+    rgb(0, 204, 255) 30%,
+    white 50%,
+    rgb(0, 204, 255) 70%,
+    rgb(0, 204, 255) 100%
+  );
+  background-clip: text;
+  background-size: 200% 200%;
+  color: transparent;
+  animation: gradient-animation 2s linear infinite reverse;
+  transition: color 0.3s ease-in-out;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 100%;
+  }
+}
+
+.info > h2:hover {
+  color: rgb(0, 204, 255);
+  text-shadow: 2px 2px 5px rgb(90, 90, 90);
+  animation-play-state: paused;
 }
 
 .info > p {
   text-align: justify;
+}
+
+.allDevices {
+  padding-bottom: 5rem;
 }
 
 .allDevices > svg {
@@ -36,14 +71,28 @@
   height: 35rem;
 }
 
+section.mobile {
+  display: none;
+  padding-bottom: 5rem;
+}
+
 .mobile > svg {
   width: 45rem;
   height: 33rem;
 }
 
+.analytics {
+  flex-direction: row-reverse;
+}
+
 .analytics > svg {
   width: 45rem;
   height: 35rem;
+}
+
+section.bot {
+  display: none;
+  padding-bottom: 5rem;
 }
 
 .bot > svg {
@@ -56,9 +105,21 @@
   height: 35rem;
 }
 
+.author {
+  flex-direction: row-reverse;
+}
+
+.author {
+  padding-bottom: 3rem;
+}
+
 .author > svg {
   width: 45rem;
   height: 33rem;
+}
+
+.research {
+  padding-bottom: 5rem;
 }
 
 .research > svg {
