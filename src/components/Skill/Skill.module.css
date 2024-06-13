@@ -7,9 +7,15 @@
   background-color: rgb(0, 6, 26);
 }
 
-.skill > section {
+.allDevices,
+.analytics,
+.author,
+.bot,
+.mobile,
+.research,
+.team {
   display: flex;
-  gap: 10rem;
+  gap: 15rem;
   border-bottom: 0.5rem solid rgb(0, 204, 255);
   border-radius: 2rem;
 }
@@ -125,4 +131,170 @@ section.bot {
 .research > svg {
   width: 45rem;
   height: 33rem;
+}
+
+/* Education */
+.education {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 5rem 12rem;
+}
+
+.eduSection {
+  display: grid;
+  grid-template: repeat(5, 9rem) / repeat(auto-fit, minmax(35rem, 45rem));
+  justify-content: center;
+  gap: 2rem;
+}
+
+.eduSection > section {
+  display: grid;
+  grid-template: 1fr 2fr / 1fr 4fr;
+  background-color: #333848;
+  border-radius: 2rem;
+  cursor: context-menu;
+  transition: transform 0.2s ease-in-out;
+}
+
+.eduSection > section:hover {
+  transform: scale(1.03);
+}
+
+.icon {
+  grid-row: 1 / -1;
+  grid-column: 1 / 2;
+}
+
+.context {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  transform: translateY(1rem);
+}
+
+.context > span:first-child {
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.context > span:first-child:hover {
+  border-bottom: 0.15rem solid rgb(0, 204, 255);
+}
+
+.context > span:nth-child(2) {
+  font-size: 0.9rem;
+}
+
+.context > span:last-child {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgb(0, 204, 255);
+}
+
+.eduBar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.eduBar > span:first-child {
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  flex: 1;
+  border: 0.15rem solid white;
+  padding: 0 0.25rem;
+  border-radius: 1rem;
+  position: relative;
+}
+
+.fill {
+  position: absolute;
+  height: 65%;
+  width: 0;
+  background-color: rgb(0, 204, 255);
+  border-radius: 1rem 0 0 1rem;
+}
+
+.odin1 .fill,
+.uni .fill {
+  animation: fill100 1.5s ease-in-out forwards;
+}
+
+@keyframes fill100 {
+  80% {
+    border-radius: 1rem 0 0 1rem;
+  }
+  to {
+    border-radius: 1rem;
+    width: 97.7%;
+  }
+}
+
+.alx1 .fill {
+  animation: fill75 1.5s ease-in-out forwards;
+}
+
+@keyframes fill75 {
+  to {
+    width: 75%;
+  }
+}
+
+.alx2 .fill {
+  animation: fill40 1.5s ease-in-out forwards;
+}
+
+@keyframes fill40 {
+  to {
+    width: 40%;
+  }
+}
+
+.odin2 .fill {
+  animation: fill15 1.5s ease-in-out forwards;
+}
+
+@keyframes fill15 {
+  to {
+    width: 15%;
+  }
+}
+
+.eduBar > span:last-child {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 2rem;
+  width: 6rem;
+  font-weight: 600;
+}
+
+.percent {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.education > h2 {
+  font-size: 3rem;
+  color: rgb(0, 204, 255);
+  font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    rgb(0, 204, 255) 0%,
+    rgb(0, 204, 255) 40%,
+    white 50%,
+    rgb(0, 204, 255) 60%,
+    rgb(0, 204, 255) 100%
+  );
+  background-clip: text;
+  background-size: 200% 200%;
+  color: transparent;
+  animation: gradient-animation 3.5s linear infinite reverse;
+  text-align: center;
 }
