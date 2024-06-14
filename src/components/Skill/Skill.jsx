@@ -8,6 +8,7 @@ import { Mobile } from "./Mobile";
 import { Research } from "./Research";
 import skillStyles from "./Skill.module.css";
 import { Team } from "./Team";
+import { Technologies } from "./Technologies";
 
 function Skill() {
   return (
@@ -20,6 +21,7 @@ function Skill() {
       <Author />
       <Research />
       <Education />
+      <Technologies />
     </section>
   );
 }
