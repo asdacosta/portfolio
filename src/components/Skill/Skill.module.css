@@ -144,7 +144,7 @@ section.bot {
 
 .eduSection {
   display: grid;
-  grid-template: repeat(5, 9rem) / repeat(auto-fit, minmax(35rem, 45rem));
+  grid-template: repeat(3, 9rem) / repeat(auto-fit, minmax(35rem, 45rem));
   justify-content: center;
   gap: 2rem;
 }
@@ -295,6 +295,157 @@ section.bot {
   background-clip: text;
   background-size: 200% 200%;
   color: transparent;
-  animation: gradient-animation 3.5s linear infinite reverse;
   text-align: center;
+}
+
+.education > h2 {
+  animation: gradient-animation 3.5s linear infinite reverse;
+}
+
+/* Technologies */
+.technologies {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 5rem 12rem;
+}
+
+.techSection {
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+  justify-items: center;
+  gap: 5rem;
+}
+
+.tools {
+  grid-row: 1 / 2;
+  grid-column: 1 / -1;
+}
+
+.techSection > section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: fit-content;
+  /* overflow: hidden; */
+}
+
+.langSection,
+.toolSection,
+.frontSection,
+.backSection {
+  display: flex;
+  gap: 2.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.langSection,
+.frontSection,
+.backSection {
+  max-width: 20rem;
+}
+
+.langSection > section,
+.toolSection > section,
+.frontSection > section,
+.backSection > section {
+  display: flex;
+  gap: 2.5rem;
+  white-space: nowrap;
+  padding: 1rem 0;
+}
+
+.langSection > section,
+.frontSection > section,
+.backSection > section {
+  animation: scrollShort 10s linear infinite;
+}
+
+@keyframes scrollShort {
+  0% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translate(-113%);
+  }
+}
+
+.toolSection > section {
+  animation: scrollLong 25s linear infinite;
+}
+
+@keyframes scrollLong {
+  0% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translate(-103.5%);
+  }
+}
+
+.langSection:hover > section,
+.toolSection:hover > section,
+.frontSection:hover > section,
+.backSection:hover > section {
+  animation-play-state: paused;
+}
+
+.toolSection {
+  max-width: 69rem;
+}
+
+.langSection > section,
+.toolSection > section,
+.toolSection > section,
+.frontSection > section,
+.backSection > section {
+  flex-shrink: 0;
+}
+
+.techSection h3,
+.technologies > h2 {
+  font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    rgb(0, 204, 255) 0%,
+    rgb(0, 204, 255) 40%,
+    white 50%,
+    rgb(0, 204, 255) 60%,
+    rgb(0, 204, 255) 100%
+  );
+  background-clip: text;
+  background-size: 200% 200%;
+  color: transparent;
+  text-align: center;
+  animation: gradient-animation 3s linear infinite reverse;
+}
+
+.techSection h3 {
+  font-size: 2rem;
+}
+
+.technologies > h2 {
+  font-size: 3rem;
+}
+
+.techSection svg,
+.techSection img {
+  width: 5rem;
+  height: 5rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.techSection svg:hover,
+.techSection img:hover {
+  transform: scale(1.15);
 }
