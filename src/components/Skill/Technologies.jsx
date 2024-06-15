@@ -24,7 +24,7 @@ function Technologies() {
           </section>
         </section>
         <section className={skillStyles.frontEnd}>
-          <h3>Front-end</h3>
+          <h3>Front-End</h3>
           <section className={skillStyles.frontSection}>
             <FrontSection />
             <FrontSection />
