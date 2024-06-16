@@ -45,6 +45,24 @@ function Work() {
     animateTrackAndImages(nextPercentage);
   };
 
+  const handleOnScroll = (deltaX) => {
+    const maxDelta = window.innerWidth / 2;
+
+    const speedFactor = 0.2;
+    const newPercentage = (deltaX / maxDelta) * -100 * speedFactor;
+
+    const nextPercentageUnconstrained = percentage + newPercentage;
+    const nextPercentage = Math.max(
+      Math.min(nextPercentageUnconstrained, 0),
+      -100
+    );
+
+    setPercentage(nextPercentage);
+    setPrevPercentage(nextPercentage); // Ensure continuity when switching between scroll and drag
+
+    animateTrackAndImages(nextPercentage);
+  };
+
   const animateTrackAndImages = (nextPercentage) => {
     if (trackRef.current) {
       trackRef.current.animate(
@@ -76,6 +94,14 @@ function Work() {
   const handleMouseUp = () => handleOnUp();
   const handleTouchEnd = () => handleOnUp();
 
+  const handleWheel = (event) => {
+    if (event.deltaY === 0) {
+      // Only handle horizontal scroll
+      event.preventDefault();
+      handleOnScroll(event.deltaX);
+    }
+  };
+
   return (
     <section className={workStyles.work}>
       <section
@@ -88,6 +114,7 @@ function Work() {
         onTouchMove={handleTouchMove}
         onMouseUp={handleMouseUp}
         onTouchEnd={handleTouchEnd}
+        onWheel={handleWheel}
         className={workStyles.workSlide}
       >
         <section>
