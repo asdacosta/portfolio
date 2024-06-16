@@ -1,0 +1,18 @@
+.work {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+  padding: 2rem 12rem;
+}
+
+.workSlide img {
+  width: 80rem;
+  height: 40rem;
+}
+
+.workSlide {
+  display: flex;
+  gap: 2rem;
+  overflow-x: scroll;
+  height: fit-content;
+}
