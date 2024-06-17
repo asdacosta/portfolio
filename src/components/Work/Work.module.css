@@ -1,18 +1,87 @@
 .work {
   display: flex;
   flex-direction: column;
-  gap: 8rem;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  gap: 10rem;
   padding: 2rem 12rem;
 }
 
 .workSlide img {
-  width: 80rem;
-  height: 40rem;
+  width: 55vmin;
+  height: 66vmin;
+  object-fit: cover;
+  object-position: 100% center;
 }
 
 .workSlide {
   display: flex;
-  gap: 2rem;
-  overflow-x: scroll;
-  height: fit-content;
+  align-items: center;
+  gap: 3vmin;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(0%, -50%);
+  user-select: none;
+}
+
+.experience {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.experience > p {
+  font-size: 2rem;
+}
+
+.experience > h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    rgb(0, 204, 255) 0%,
+    rgb(0, 204, 255) 40%,
+    white 50%,
+    rgb(0, 204, 255) 60%,
+    rgb(0, 204, 255) 100%
+  );
+  background-clip: text;
+  background-size: 200% 200%;
+  color: transparent;
+  text-align: center;
+  animation: gradient-animation 3s linear infinite reverse;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 100%;
+  }
+}
+
+.experience > h2:hover {
+  color: rgb(0, 204, 255);
+  text-shadow: 2px 2px 5px rgb(90, 90, 90);
+  animation-play-state: paused;
+}
+
+.wheelIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.wheelIcon svg {
+  fill: white;
+  width: 2.5rem;
 }
