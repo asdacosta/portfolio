@@ -39,10 +39,12 @@
   gap: 2rem;
   position: absolute;
   bottom: 0;
-  height: 20%;
+  /* height: 20%; */
+  height: 0;
+  opacity: 0;
   width: 100%;
   background-color: rgba(0, 0, 0);
-  opacity: 0.3;
+  /* opacity: 0.3; */
   transition: all 0.3s ease-in-out;
 }
 
@@ -58,6 +60,11 @@
 
 .imgTechnologies span {
   display: flex;
+}
+
+.imgLinkBox.revealLinkBox {
+  height: 20%;
+  opacity: 0.3;
 }
 
 .imgLinkBox:hover {
