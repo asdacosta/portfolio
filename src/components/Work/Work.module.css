@@ -76,12 +76,12 @@
   width: 2rem;
   height: 2rem;
   fill: white;
-  transition: all 0.25s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .imgLinkBox svg:hover {
   fill: rgb(0, 204, 255);
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 /* .workSlide > section::after {
@@ -157,4 +157,31 @@
 .wheelIcon svg {
   fill: white;
   width: 2.5rem;
+}
+
+.livePreview::after,
+.sourceCode::after {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgb(0, 204, 255);
+  position: absolute;
+  left: 50%;
+  top: 2rem;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.livePreview::after {
+  content: "Live Preview";
+}
+
+.sourceCode::after {
+  content: "Source Code";
+}
+
+.livePreview:hover::after,
+.sourceCode:hover::after {
+  opacity: 1;
+  top: 1rem;
 }
