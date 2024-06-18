@@ -197,6 +197,10 @@ function Work() {
           <LinkBox
             revealBox={revealLinkBox.firstImg}
             technologies={["React", "CSS", "Vite"]}
+            links={{
+              live: "https://resume-nu-lake.vercel.app/",
+              code: "https://github.com/asdacosta/resume",
+            }}
           />
         </section>
         <section
@@ -208,6 +212,10 @@ function Work() {
           <LinkBox
             revealBox={revealLinkBox.secImg}
             technologies={["JavaScript", "CSS", "Webpack"]}
+            links={{
+              live: "https://asdacosta.github.io/weather-forecast/",
+              code: "https://github.com/asdacosta/weather-forecast",
+            }}
           />
         </section>
         <section
@@ -219,6 +227,10 @@ function Work() {
           <LinkBox
             revealBox={revealLinkBox.thirdImg}
             technologies={["JavaScript", "CSS", "Webpack"]}
+            links={{
+              live: "https://asdacosta.github.io/todo-list/",
+              code: "https://github.com/asdacosta/todo-list",
+            }}
           />
         </section>
         <section
@@ -231,6 +243,10 @@ function Work() {
           <LinkBox
             revealBox={revealLinkBox.fourthImg}
             technologies={["JavaScript", "CSS", null]}
+            links={{
+              live: "https://asdacosta.github.io/tic-tac-toe-game/",
+              code: "https://github.com/asdacosta/tic-tac-toe-game",
+            }}
           />
         </section>
         <section
@@ -243,6 +259,10 @@ function Work() {
           <LinkBox
             revealBox={revealLinkBox.fifthImg}
             technologies={["React", "CSS", "Vite"]}
+            links={{
+              live: "https://shopping-cart-sage-three.vercel.app/",
+              code: "https://github.com/asdacosta/shopping-cart",
+            }}
           />
         </section>
         <section
@@ -255,6 +275,10 @@ function Work() {
           <LinkBox
             revealBox={revealLinkBox.sixthImg}
             technologies={["JavaScript", "CSS", "Webpack"]}
+            links={{
+              live: "https://asdacosta.github.io/battleship/",
+              code: "https://github.com/asdacosta/battleship",
+            }}
           />
         </section>
         <section
@@ -267,6 +291,10 @@ function Work() {
           <LinkBox
             revealBox={revealLinkBox.seventhImg}
             technologies={["React", "CSS", "Vite"]}
+            links={{
+              live: "https://memory-card-snowy-three.vercel.app/",
+              code: "https://github.com/asdacosta/memory-card",
+            }}
           />
         </section>
         <section
@@ -279,6 +307,10 @@ function Work() {
           <LinkBox
             revealBox={revealLinkBox.eigthImg}
             technologies={["HTML", "CSS", null]}
+            links={{
+              live: "https://asdacosta.github.io/admin-dashboard/",
+              code: "https://github.com/asdacosta/admin-dashboard",
+            }}
           />
         </section>
         <section
@@ -291,6 +323,10 @@ function Work() {
           <LinkBox
             revealBox={revealLinkBox.ninthImg}
             technologies={["HTML", "CSS", null]}
+            links={{
+              live: "https://asdacosta.github.io/landing-page/",
+              code: "https://github.com/asdacosta/landing-page",
+            }}
           />
         </section>
         {/* <section>
