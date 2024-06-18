@@ -194,7 +194,10 @@ function Work() {
           ref={firstBox}
         >
           <img src={resumeImg} alt="Resume" draggable="false" />
-          <LinkBox revealBox={revealLinkBox.firstImg} />
+          <LinkBox
+            revealBox={revealLinkBox.firstImg}
+            technologies={["React", "CSS", "Vite"]}
+          />
         </section>
         <section
           onMouseEnter={handleImgBoxEnter}
@@ -202,7 +205,10 @@ function Work() {
           ref={secBox}
         >
           <img src={weatherImg} alt="Weather Forecast" draggable="false" />
-          <LinkBox revealBox={revealLinkBox.secImg} />
+          <LinkBox
+            revealBox={revealLinkBox.secImg}
+            technologies={["JavaScript", "CSS", "Webpack"]}
+          />
         </section>
         <section
           onMouseEnter={handleImgBoxEnter}
@@ -210,7 +216,10 @@ function Work() {
           ref={thirdBox}
         >
           <img src={todoImg} alt="Todo list" draggable="false" />
-          <LinkBox revealBox={revealLinkBox.thirdImg} />
+          <LinkBox
+            revealBox={revealLinkBox.thirdImg}
+            technologies={["JavaScript", "CSS", "Webpack"]}
+          />
         </section>
         <section
           onMouseEnter={handleImgBoxEnter}
@@ -219,7 +228,10 @@ function Work() {
         >
           <img src={tictacImg} alt="Tic-tac-toe Game" draggable="false" />
 
-          <LinkBox revealBox={revealLinkBox.fourthImg} />
+          <LinkBox
+            revealBox={revealLinkBox.fourthImg}
+            technologies={["JavaScript", "CSS", null]}
+          />
         </section>
         <section
           onMouseEnter={handleImgBoxEnter}
@@ -228,7 +240,10 @@ function Work() {
         >
           <img src={shopCartImg} alt="Shopping Cart" draggable="false" />
 
-          <LinkBox revealBox={revealLinkBox.fifthImg} />
+          <LinkBox
+            revealBox={revealLinkBox.fifthImg}
+            technologies={["React", "CSS", "Vite"]}
+          />
         </section>
         <section
           onMouseEnter={handleImgBoxEnter}
@@ -237,7 +252,10 @@ function Work() {
         >
           <img src={battleShipImg} alt="Battleship Game" draggable="false" />
 
-          <LinkBox revealBox={revealLinkBox.sixthImg} />
+          <LinkBox
+            revealBox={revealLinkBox.sixthImg}
+            technologies={["JavaScript", "CSS", "Webpack"]}
+          />
         </section>
         <section
           onMouseEnter={handleImgBoxEnter}
@@ -246,7 +264,10 @@ function Work() {
         >
           <img src={memoryImg} alt="Memory Game" draggable="false" />
 
-          <LinkBox revealBox={revealLinkBox.seventhImg} />
+          <LinkBox
+            revealBox={revealLinkBox.seventhImg}
+            technologies={["React", "CSS", "Vite"]}
+          />
         </section>
         <section
           onMouseEnter={handleImgBoxEnter}
@@ -255,7 +276,10 @@ function Work() {
         >
           <img src={dashboardImg} alt="Dashboard" draggable="false" />
 
-          <LinkBox revealBox={revealLinkBox.eigthImg} />
+          <LinkBox
+            revealBox={revealLinkBox.eigthImg}
+            technologies={["HTML", "CSS", null]}
+          />
         </section>
         <section
           onMouseEnter={handleImgBoxEnter}
@@ -264,7 +288,10 @@ function Work() {
         >
           <img src={landingPageImg} alt="Landing Page" draggable="false" />
 
-          <LinkBox revealBox={revealLinkBox.ninthImg} />
+          <LinkBox
+            revealBox={revealLinkBox.ninthImg}
+            technologies={["HTML", "CSS", null]}
+          />
         </section>
         {/* <section>
           <img src={coffeeImg} alt="Coffee shop" />
