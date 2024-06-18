@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import workStyles from "./Work.module.css";
 import { useState } from "react";
 
-function LinkBox({ revealBox }) {
+function LinkBox({ revealBox, technologies }) {
   const [displayImgTechnologies, setDisplayImgTechnologies] = useState(false);
 
   const containerVariant = {
@@ -70,20 +70,24 @@ function LinkBox({ revealBox }) {
             className={workStyles.imgTechnologies}
           >
             <motion.span key="first1" variants={textVariant}>
-              React
+              {technologies[0]}
             </motion.span>
             <motion.span key="sec1" variants={dotVariant}>
               ⚫
             </motion.span>
             <motion.span key="third1" variants={textVariant}>
-              CSS
+              {technologies[1]}
             </motion.span>
-            <motion.span key="fourth1" variants={dotVariant}>
-              ⚫
-            </motion.span>
-            <motion.span key="fifth1" variants={textVariant}>
-              Vite
-            </motion.span>
+            {technologies[2] !== null ? (
+              <>
+                <motion.span key="fourth1" variants={dotVariant}>
+                  ⚫
+                </motion.span>
+                <motion.span key="fifth1" variants={textVariant}>
+                  {technologies[2]}
+                </motion.span>
+              </>
+            ) : null}
           </motion.p>
         </AnimatePresence>
       )}
