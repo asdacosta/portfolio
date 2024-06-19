@@ -185,3 +185,23 @@
   opacity: 1;
   top: 1rem;
 }
+
+.slider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  bottom: 5rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgb(255, 255, 255, 0.3);
+  cursor: context-menu;
+}
+
+.slider svg {
+  width: 2rem;
+  fill: rgb(255, 255, 255, 0.5);
+  transition: transform 1s cubic-bezier(0.17, 0.67, 0.64, 2.03);
+}
