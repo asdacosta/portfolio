@@ -8,7 +8,7 @@ import battleShipImg from "../../assets/Works/battleshipWork.png";
 import memoryImg from "../../assets/Works/memoryWork.png";
 import dashboardImg from "../../assets/Works/dashBoardWork.png";
 import landingPageImg from "../../assets/Works/landingPageWork.png";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { LinkBox } from "./LinkBox";
 // import coffeeImg from "../../assets/Works/coffeeShopWork.jpg";
@@ -18,6 +18,8 @@ function Work() {
   const [prevPercentage, setPrevPercentage] = useState(0);
   const [percentage, setPercentage] = useState(0);
   const [rotation, setRotation] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const wheelIconRef = useRef(null);
   const trackRef = useRef(null);
 
   const [revealLinkBox, setRevealLinkBox] = useState({
@@ -41,6 +43,44 @@ function Work() {
   const seventhBox = useRef(null);
   const eightBox = useRef(null);
   const ninthBox = useRef(null);
+  const boxRefs = [
+    firstBox,
+    secBox,
+    thirdBox,
+    fourthBox,
+    fifthBox,
+    sixthBox,
+    seventhBox,
+    eightBox,
+    ninthBox,
+  ];
+
+  useEffect(() => {
+    const checkCollision = () => {
+      const wheelIconBound = wheelIconRef.current.getBoundingClientRect();
+
+      boxRefs.forEach((boxRef, index) => {
+        const targetImg = boxRef.current.getBoundingClientRect();
+        if (
+          wheelIconBound.top < targetImg.bottom &&
+          wheelIconBound.bottom > targetImg.top &&
+          wheelIconBound.left < targetImg.right &&
+          wheelIconBound.right > targetImg.left
+        ) {
+          setCurrentImageIndex(index);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", checkCollision);
+    window.addEventListener("resize", checkCollision);
+    checkCollision();
+
+    return () => {
+      window.removeEventListener("scroll", checkCollision);
+      window.removeEventListener("resize", checkCollision);
+    };
+  }, [percentage]);
 
   const handleOnDown = (clientX) => {
     setMouseDownAt(clientX);
@@ -177,7 +217,7 @@ function Work() {
 
   return (
     <section className={workStyles.work}>
-      <div className={workStyles.wheelIcon}>
+      <div className={workStyles.wheelIcon} ref={wheelIconRef}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M6.45,17.45L1,12L6.45,6.55L7.86,7.96L4.83,11H19.17L16.14,7.96L17.55,6.55L23,12L17.55,17.45L16.14,16.04L19.17,13H4.83L7.86,16.04L6.45,17.45Z" />
         </svg>
@@ -338,7 +378,7 @@ function Work() {
         </section>
       </section>
       <section className={workStyles.slider}>
-        <span>1</span>
+        <span className={workStyles.index}>{currentImageIndex + 1}</span>
         <span>
           <svg
             className={workStyles.wheel}
