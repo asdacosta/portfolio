@@ -76,9 +76,19 @@ function Work() {
     window.addEventListener("resize", checkCollision);
     checkCollision();
 
+    // Set intervals to update currentImageIndex realtime after initial scroll trigger.
+    const interval = setInterval(() => {
+      if (mouseDownAt === 0) checkCollision();
+    }, 200);
+    const timeout = setTimeout(() => {
+      clearInterval(interval);
+    }, 5000);
+
     return () => {
       window.removeEventListener("scroll", checkCollision);
       window.removeEventListener("resize", checkCollision);
+      clearTimeout(timeout);
+      clearInterval(interval);
     };
   }, [percentage]);
 
