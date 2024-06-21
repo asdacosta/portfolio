@@ -21,8 +21,8 @@
 }
 
 .workSlide img {
-  width: 50vmin;
-  height: 66vmin;
+  width: 45vmin;
+  height: 60vmin;
   object-fit: cover;
   object-position: 100% center;
 }
@@ -60,21 +60,22 @@
 
 .imgTechnologies span {
   display: flex;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .imgLinkBox.revealLinkBox {
   height: 20%;
-  opacity: 0.3;
+  opacity: 0.35;
 }
 
 .imgLinkBox:hover {
-  opacity: 0.7;
+  opacity: 0.75;
   height: 25%;
 }
 
 .imgLinkBox svg {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
   fill: white;
   transition: all 0.2s ease-in-out;
 }
@@ -200,7 +201,7 @@
   cursor: context-menu;
 }
 
-.slider svg {
+.wheel {
   width: 2rem;
   fill: rgb(255, 255, 255, 0.5);
   transition: transform 1s cubic-bezier(0.17, 0.67, 0.64, 2.03);
