@@ -82,8 +82,8 @@ function Work() {
     };
   }, [percentage]);
 
-  const handleOnDown = (clientX) => {
-    setMouseDownAt(clientX);
+  const handleOnDown = (event) => {
+    setMouseDownAt(event.clientX || event.touches[0].clientX);
   };
 
   const handleOnUp = () => {
@@ -91,14 +91,17 @@ function Work() {
     setPrevPercentage(percentage);
   };
 
-  const handleOnMove = (clientX) => {
+  const handleOnMove = (event) => {
     if (mouseDownAt === 0) return;
 
-    const mouseDelta = mouseDownAt - clientX;
+    const mouseDelta =
+      parseFloat(mouseDownAt) - event.clientX || event.touches[0].clientX;
     const maxDelta = window.innerWidth / 2;
     const speedFactor = 0.2;
     const newPercentage = (mouseDelta / maxDelta) * -100 * speedFactor;
-    const nextPercentageUnconstrained = prevPercentage + newPercentage;
+    const nextPercentageUnconstrained = parseFloat(
+      prevPercentage + newPercentage
+    );
     const nextPercentage = Math.max(
       Math.min(nextPercentageUnconstrained, 0),
       -100
@@ -149,13 +152,6 @@ function Work() {
       }
     }
   };
-
-  const handleMouseDown = (event) => handleOnDown(event.clientX);
-  const handleTouchStart = (event) => handleOnDown(event.touches[0].clientX);
-  const handleMouseMove = (event) => handleOnMove(event.clientX);
-  const handleTouchMove = (event) => handleOnMove(event.touches[0].clientX);
-  const handleMouseUp = () => handleOnUp();
-  const handleTouchEnd = () => handleOnUp();
 
   const handleWheel = (event) => {
     if (event.deltaY === 0) {
@@ -218,12 +214,12 @@ function Work() {
         ref={trackRef}
         data-mouse-down-at={mouseDownAt}
         data-prev-percentage={prevPercentage}
-        onMouseDown={handleMouseDown}
-        onTouchStart={handleTouchStart}
-        onMouseMove={handleMouseMove}
-        onTouchMove={handleTouchMove}
-        onMouseUp={handleMouseUp}
-        onTouchEnd={handleTouchEnd}
+        onTouchStart={handleOnDown}
+        onMouseDown={handleOnDown}
+        onTouchEnd={handleOnUp}
+        onMouseUp={handleOnUp}
+        onTouchMove={handleOnMove}
+        onMouseMove={handleOnMove}
         onWheel={handleWheel}
         className={workStyles.workSlide}
       >
