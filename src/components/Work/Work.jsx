@@ -2,6 +2,7 @@ import workStyles from "./Work.module.css";
 import { useEffect, useRef, useState } from "react";
 import { LinkBox } from "./LinkBox";
 import { images } from "./imageDetails.js";
+import { objectPosition } from "three/examples/jsm/nodes/Nodes.js";
 
 function Work() {
   const [mouseDownAt, setMouseDownAt] = useState(0);
@@ -118,9 +119,14 @@ function Work() {
     const speedFactor = 0.05;
     const newPercentage = (deltaX / maxDelta) * -100 * speedFactor;
     const nextPercentageUnconstrained = parseFloat(percentage + newPercentage);
+
+    const imgs = trackRef.current.getElementsByTagName("img");
+    const imgHalfWidth = imgs[0].offsetWidth / 2.2;
+    const imgHalfWidthInPercent = (imgHalfWidth / window.innerWidth) * 100;
+
     const nextPercentage = Math.max(
       Math.min(nextPercentageUnconstrained, 0),
-      -100
+      -100 + imgHalfWidthInPercent
     );
     const newRotation = rotation + (deltaX / maxDelta) * 360 * speedFactor;
 
@@ -132,20 +138,24 @@ function Work() {
 
   const animateTrackAndImages = (nextPercentage) => {
     if (trackRef.current) {
+      const imgs = trackRef.current.getElementsByTagName("img");
+      const imgHalfWidth = imgs[0].offsetWidth / 2;
+      // const translate = `${nextPercentage - imgHalfWidth}%`
+      const translate = `calc(${nextPercentage}% - ${imgHalfWidth}px)`;
+
       trackRef.current.animate(
         {
-          transform: `translate(${nextPercentage}%, -50%)`,
+          transform: `translate(${translate}, -50%)`,
         },
         { duration: 1500, fill: "forwards" }
       );
 
-      const imgs = trackRef.current.getElementsByTagName("img");
-      const imagePositionMultiplier = 1;
       for (const image of imgs) {
-        const imageNextPercentage = nextPercentage * imagePositionMultiplier;
+        const objectPosition = `${100 + nextPercentage}%`;
+        // const objectPosition = `calc(100% + ${nextPercentage}% - ${imgHalfWidth}px)`;
         image.animate(
           {
-            objectPosition: `${100 + imageNextPercentage}% center`,
+            objectPosition: `${objectPosition} center`,
           },
           { duration: 1500, fill: "forwards" }
         );
