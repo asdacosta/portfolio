@@ -48,6 +48,10 @@ function Work() {
   ];
 
   useEffect(() => {
+    animateTrackAndImages(0);
+  }, []);
+
+  useEffect(() => {
     const checkCollision = () => {
       const wheelIconBound = wheelIconRef.current.getBoundingClientRect();
       boxRefs.forEach((boxRef, index) => {
@@ -103,9 +107,14 @@ function Work() {
     const nextPercentageUnconstrained = parseFloat(
       prevPercentage + newPercentage
     );
+
+    const imgs = trackRef.current.getElementsByTagName("img");
+    const imgHalfWidth = imgs[0].offsetWidth / 2.2;
+    const imgHalfWidthInPercent = (imgHalfWidth / window.innerWidth) * 100;
+
     const nextPercentage = Math.max(
       Math.min(nextPercentageUnconstrained, 0),
-      -100
+      -100 + imgHalfWidthInPercent
     );
     const newRotation = rotation + (mouseDelta / maxDelta) * 360 * speedFactor;
 
@@ -140,7 +149,6 @@ function Work() {
     if (trackRef.current) {
       const imgs = trackRef.current.getElementsByTagName("img");
       const imgHalfWidth = imgs[0].offsetWidth / 2;
-      // const translate = `${nextPercentage - imgHalfWidth}%`
       const translate = `calc(${nextPercentage}% - ${imgHalfWidth}px)`;
 
       trackRef.current.animate(
@@ -152,7 +160,6 @@ function Work() {
 
       for (const image of imgs) {
         const objectPosition = `${100 + nextPercentage}%`;
-        // const objectPosition = `calc(100% + ${nextPercentage}% - ${imgHalfWidth}px)`;
         image.animate(
           {
             objectPosition: `${objectPosition} center`,
