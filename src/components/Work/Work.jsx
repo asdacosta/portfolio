@@ -1,4 +1,7 @@
 import workStyles from "./Work.module.css";
+import { useEffect, useRef, useState } from "react";
+import { LinkBox } from "./LinkBox";
+
 import resumeImg from "../../assets/Works/resumeWork.png";
 import weatherImg from "../../assets/Works/weatherWork.png";
 import todoImg from "../../assets/Works/todoListWork.png";
@@ -8,10 +11,6 @@ import battleShipImg from "../../assets/Works/battleshipWork.png";
 import memoryImg from "../../assets/Works/memoryWork.png";
 import dashboardImg from "../../assets/Works/dashBoardWork.png";
 import landingPageImg from "../../assets/Works/landingPageWork.png";
-import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { LinkBox } from "./LinkBox";
-// import coffeeImg from "../../assets/Works/coffeeShopWork.jpg";
 
 function Work() {
   const [mouseDownAt, setMouseDownAt] = useState(0);
@@ -21,6 +20,99 @@ function Work() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const wheelIconRef = useRef(null);
   const trackRef = useRef(null);
+
+  const images = [
+    {
+      src: resumeImg,
+      alt: "Resume",
+      technologies: ["React", "CSS", "Vite"],
+      links: {
+        live: "https://resume-nu-lake.vercel.app/",
+        code: "https://github.com/asdacosta/resume",
+      },
+      index: "firstImg",
+    },
+    {
+      src: weatherImg,
+      alt: "Weather Forecast",
+      technologies: ["JavaScript", "CSS", "Webpack"],
+      links: {
+        live: "https://asdacosta.github.io/weather-forecast/",
+        code: "https://github.com/asdacosta/weather-forecast",
+      },
+      index: "secImg",
+    },
+    {
+      src: todoImg,
+      alt: "Todo list",
+      technologies: ["JavaScript", "CSS", "Webpack"],
+      links: {
+        live: "https://asdacosta.github.io/todo-list/",
+        code: "https://github.com/asdacosta/todo-list",
+      },
+      index: "thirdImg",
+    },
+    {
+      src: tictacImg,
+      alt: "Tic-tac-toe Game",
+      technologies: ["JavaScript", "CSS", null],
+      links: {
+        live: "https://asdacosta.github.io/tic-tac-toe-game/",
+        code: "https://github.com/asdacosta/tic-tac-toe-game",
+      },
+      index: "fourthImg",
+    },
+    {
+      src: shopCartImg,
+      alt: "Shopping Cart",
+      technologies: ["React", "CSS", "Vite"],
+      links: {
+        live: "https://shopping-cart-sage-three.vercel.app/",
+        code: "https://github.com/asdacosta/shopping-cart",
+      },
+      index: "fifthImg",
+    },
+    {
+      src: battleShipImg,
+      alt: "Battleship Game",
+      technologies: ["JavaScript", "CSS", "Webpack"],
+      links: {
+        live: "https://asdacosta.github.io/battleship/",
+        code: "https://github.com/asdacosta/battleship",
+      },
+      index: "sixthImg",
+    },
+    {
+      src: memoryImg,
+      alt: "Memory Game",
+      technologies: ["React", "CSS", "Vite"],
+      links: {
+        live: "https://memory-card-snowy-three.vercel.app/",
+        code: "https://github.com/asdacosta/memory-card",
+      },
+      index: "seventhImg",
+    },
+    {
+      src: dashboardImg,
+      alt: "Dashboard",
+      technologies: ["HTML", "CSS", null],
+      links: {
+        live: "https://asdacosta.github.io/admin-dashboard/",
+        code: "https://github.com/asdacosta/admin-dashboard",
+      },
+      index: "eigthImg",
+    },
+    {
+      src: landingPageImg,
+      alt: "Landing Page",
+      technologies: ["HTML", "CSS", null],
+      links: {
+        live: "https://asdacosta.github.io/landing-page/",
+        code: "https://github.com/asdacosta/landing-page",
+      },
+      index: "ninthImg",
+    },
+  ];
 
   const [revealLinkBox, setRevealLinkBox] = useState({
     firstImg: false,
@@ -117,6 +209,8 @@ function Work() {
     );
 
     setPercentage(nextPercentage);
+    // setPrevPercentage(nextPercentage);
+
     animateTrackAndImages(nextPercentage);
 
     const newRotation = rotation + (mouseDelta / maxDelta) * 360 * speedFactor;
@@ -245,147 +339,23 @@ function Work() {
         onWheel={handleWheel}
         className={workStyles.workSlide}
       >
-        <section
-          onMouseEnter={handleImgBoxEnter}
-          onMouseLeave={handleImgBoxLeave}
-          ref={firstBox}
-        >
-          <img src={resumeImg} alt="Resume" draggable="false" />
-          <LinkBox
-            revealBox={revealLinkBox.firstImg}
-            technologies={["React", "CSS", "Vite"]}
-            links={{
-              live: "https://resume-nu-lake.vercel.app/",
-              code: "https://github.com/asdacosta/resume",
-            }}
-          />
-        </section>
-        <section
-          onMouseEnter={handleImgBoxEnter}
-          onMouseLeave={handleImgBoxLeave}
-          ref={secBox}
-        >
-          <img src={weatherImg} alt="Weather Forecast" draggable="false" />
-          <LinkBox
-            revealBox={revealLinkBox.secImg}
-            technologies={["JavaScript", "CSS", "Webpack"]}
-            links={{
-              live: "https://asdacosta.github.io/weather-forecast/",
-              code: "https://github.com/asdacosta/weather-forecast",
-            }}
-          />
-        </section>
-        <section
-          onMouseEnter={handleImgBoxEnter}
-          onMouseLeave={handleImgBoxLeave}
-          ref={thirdBox}
-        >
-          <img src={todoImg} alt="Todo list" draggable="false" />
-          <LinkBox
-            revealBox={revealLinkBox.thirdImg}
-            technologies={["JavaScript", "CSS", "Webpack"]}
-            links={{
-              live: "https://asdacosta.github.io/todo-list/",
-              code: "https://github.com/asdacosta/todo-list",
-            }}
-          />
-        </section>
-        <section
-          onMouseEnter={handleImgBoxEnter}
-          onMouseLeave={handleImgBoxLeave}
-          ref={fourthBox}
-        >
-          <img src={tictacImg} alt="Tic-tac-toe Game" draggable="false" />
+        {images.map((image, index) => (
+          <section
+            key={index}
+            onMouseEnter={handleImgBoxEnter}
+            onMouseLeave={handleImgBoxLeave}
+            className={workStyles.workImages}
+            ref={boxRefs[index]}
+          >
+            <img src={image.src} alt={image.alt} draggable="false" />
 
-          <LinkBox
-            revealBox={revealLinkBox.fourthImg}
-            technologies={["JavaScript", "CSS", null]}
-            links={{
-              live: "https://asdacosta.github.io/tic-tac-toe-game/",
-              code: "https://github.com/asdacosta/tic-tac-toe-game",
-            }}
-          />
-        </section>
-        <section
-          onMouseEnter={handleImgBoxEnter}
-          onMouseLeave={handleImgBoxLeave}
-          ref={fifthBox}
-        >
-          <img src={shopCartImg} alt="Shopping Cart" draggable="false" />
-
-          <LinkBox
-            revealBox={revealLinkBox.fifthImg}
-            technologies={["React", "CSS", "Vite"]}
-            links={{
-              live: "https://shopping-cart-sage-three.vercel.app/",
-              code: "https://github.com/asdacosta/shopping-cart",
-            }}
-          />
-        </section>
-        <section
-          onMouseEnter={handleImgBoxEnter}
-          onMouseLeave={handleImgBoxLeave}
-          ref={sixthBox}
-        >
-          <img src={battleShipImg} alt="Battleship Game" draggable="false" />
-
-          <LinkBox
-            revealBox={revealLinkBox.sixthImg}
-            technologies={["JavaScript", "CSS", "Webpack"]}
-            links={{
-              live: "https://asdacosta.github.io/battleship/",
-              code: "https://github.com/asdacosta/battleship",
-            }}
-          />
-        </section>
-        <section
-          onMouseEnter={handleImgBoxEnter}
-          onMouseLeave={handleImgBoxLeave}
-          ref={seventhBox}
-        >
-          <img src={memoryImg} alt="Memory Game" draggable="false" />
-
-          <LinkBox
-            revealBox={revealLinkBox.seventhImg}
-            technologies={["React", "CSS", "Vite"]}
-            links={{
-              live: "https://memory-card-snowy-three.vercel.app/",
-              code: "https://github.com/asdacosta/memory-card",
-            }}
-          />
-        </section>
-        <section
-          onMouseEnter={handleImgBoxEnter}
-          onMouseLeave={handleImgBoxLeave}
-          ref={eightBox}
-        >
-          <img src={dashboardImg} alt="Dashboard" draggable="false" />
-
-          <LinkBox
-            revealBox={revealLinkBox.eigthImg}
-            technologies={["HTML", "CSS", null]}
-            links={{
-              live: "https://asdacosta.github.io/admin-dashboard/",
-              code: "https://github.com/asdacosta/admin-dashboard",
-            }}
-          />
-        </section>
-        <section
-          onMouseEnter={handleImgBoxEnter}
-          onMouseLeave={handleImgBoxLeave}
-          ref={ninthBox}
-        >
-          <img src={landingPageImg} alt="Landing Page" draggable="false" />
-
-          <LinkBox
-            revealBox={revealLinkBox.ninthImg}
-            technologies={["HTML", "CSS", null]}
-            links={{
-              live: "https://asdacosta.github.io/landing-page/",
-              code: "https://github.com/asdacosta/landing-page",
-            }}
-          />
-        </section>
+            <LinkBox
+              revealBox={revealLinkBox[image.index]}
+              links={image.links}
+              technologies={image.technologies}
+            />
+          </section>
+        ))}
       </section>
       <section className={workStyles.slider}>
         <span className={workStyles.index}>{currentImageIndex + 1}</span>
