@@ -242,6 +242,15 @@ function Work() {
             className={workStyles.workImages}
             ref={boxRefs[index]}
           >
+            <p
+              className={
+                revealLinkBox[image.index]
+                  ? `${workStyles.workName} ${workStyles.revealName}`
+                  : workStyles.workName
+              }
+            >
+              {image.alt}
+            </p>
             <img src={image.src} alt={image.alt} draggable="false" />
 
             <LinkBox
