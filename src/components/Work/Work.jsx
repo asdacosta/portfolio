@@ -111,7 +111,7 @@ function Work() {
       Math.min(nextPercentageUnconstrained, 0),
       -100
     );
-    const newRotation = rotation + (mouseDelta / maxDelta) * 360 * 0.05; // Using speedFactor of Scroll instead
+    const newRotation = rotation + (mouseDelta / maxDelta) * 360 * 0.1; // Using speedFactor of Scroll instead
 
     setPercentage(nextPercentage);
     animateTrackAndImages(nextPercentage);
@@ -128,7 +128,7 @@ function Work() {
       Math.min(nextPercentageUnconstrained, 0),
       -100
     );
-    const newRotation = rotation + (deltaX / maxDelta) * 360 * speedFactor;
+    const newRotation = rotation + (deltaX / maxDelta) * 360 * 0.1;
 
     setPercentage(nextPercentage);
     setPrevPercentage(nextPercentage); // Ensure continuity when switching between scroll and drag
