@@ -51,6 +51,7 @@
 .imgLinks {
   display: flex;
   gap: 2rem;
+  transition: all 0.2s ease-in-out;
 }
 
 .imgTechnologies {
@@ -80,26 +81,11 @@
   transition: all 0.2s ease-in-out;
 }
 
-.imgLinkBox svg:hover {
+.livePreview:hover svg,
+.sourceCode:hover svg {
   fill: rgb(0, 204, 255);
   transform: scale(1.1);
 }
-
-/* .workSlide > section::after {
-  display: block;
-  content: "";
-  position: relative;
-  bottom: 0;
-  width: 0;
-  height: 0.25rem;
-  background-color: rgb(0, 204, 255);
-  border-radius: 1rem;
-  transition: width 4s ease-in-out;
-}
-
-.workSlide > section:hover::after {
-  width: 100%;
-} */
 
 .experience {
   display: flex;
