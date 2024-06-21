@@ -136,7 +136,7 @@ function Work() {
         {
           transform: `translate(${nextPercentage}%, -50%)`,
         },
-        { duration: 1200, fill: "forwards" }
+        { duration: 1500, fill: "forwards" }
       );
 
       const imgs = trackRef.current.getElementsByTagName("img");
@@ -147,7 +147,7 @@ function Work() {
           {
             objectPosition: `${100 + imageNextPercentage}% center`,
           },
-          { duration: 1200, fill: "forwards" }
+          { duration: 1500, fill: "forwards" }
         );
       }
     }
