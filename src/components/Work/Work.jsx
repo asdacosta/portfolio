@@ -2,7 +2,6 @@ import workStyles from "./Work.module.css";
 import { useEffect, useRef, useState } from "react";
 import { LinkBox } from "./LinkBox";
 import { images } from "./imageDetails.js";
-import { objectPosition } from "three/examples/jsm/nodes/Nodes.js";
 
 function Work() {
   const [mouseDownAt, setMouseDownAt] = useState(0);
@@ -116,7 +115,7 @@ function Work() {
       Math.min(nextPercentageUnconstrained, 0),
       -100 + imgHalfWidthInPercent
     );
-    const newRotation = rotation + (mouseDelta / maxDelta) * 360 * speedFactor;
+    const newRotation = rotation + (mouseDelta / maxDelta) * 360 * 0.05; // Using speedFactor of Scroll instead
 
     setPercentage(nextPercentage);
     animateTrackAndImages(nextPercentage);
@@ -155,7 +154,7 @@ function Work() {
         {
           transform: `translate(${translate}, -50%)`,
         },
-        { duration: 1500, fill: "forwards" }
+        { duration: 2000, fill: "forwards" }
       );
 
       for (const image of imgs) {
@@ -164,7 +163,7 @@ function Work() {
           {
             objectPosition: `${objectPosition} center`,
           },
-          { duration: 1500, fill: "forwards" }
+          { duration: 2000, fill: "forwards" }
         );
       }
     }
