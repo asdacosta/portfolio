@@ -11,7 +11,7 @@ import landingPageImg from "../../assets/Works/landingPageWork.png";
 const images = [
   {
     src: resumeImg,
-    alt: "Resume",
+    alt: "Resume Builder",
     technologies: ["React", "CSS", "Vite"],
     links: {
       live: "https://resume-nu-lake.vercel.app/",
@@ -31,7 +31,7 @@ const images = [
   },
   {
     src: todoImg,
-    alt: "Todo list",
+    alt: "Todo List",
     technologies: ["JavaScript", "CSS", "Webpack"],
     links: {
       live: "https://asdacosta.github.io/todo-list/",
@@ -51,7 +51,7 @@ const images = [
   },
   {
     src: shopCartImg,
-    alt: "Shopping Cart",
+    alt: "E-commerce",
     technologies: ["React", "CSS", "Vite"],
     links: {
       live: "https://shopping-cart-sage-three.vercel.app/",
