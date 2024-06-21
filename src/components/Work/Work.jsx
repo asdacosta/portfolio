@@ -115,9 +115,9 @@ function Work() {
 
   const handleOnScroll = (deltaX) => {
     const maxDelta = window.innerWidth / 2;
-    const speedFactor = 0.1;
+    const speedFactor = 0.05;
     const newPercentage = (deltaX / maxDelta) * -100 * speedFactor;
-    const nextPercentageUnconstrained = percentage + newPercentage;
+    const nextPercentageUnconstrained = parseFloat(percentage + newPercentage);
     const nextPercentage = Math.max(
       Math.min(nextPercentageUnconstrained, 0),
       -100
