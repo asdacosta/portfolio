@@ -107,13 +107,9 @@ function Work() {
       prevPercentage + newPercentage
     );
 
-    const imgs = trackRef.current.getElementsByTagName("img");
-    const imgHalfWidth = imgs[0].offsetWidth / 2.2;
-    const imgHalfWidthInPercent = (imgHalfWidth / window.innerWidth) * 100;
-
     const nextPercentage = Math.max(
       Math.min(nextPercentageUnconstrained, 0),
-      -100 + imgHalfWidthInPercent
+      -100
     );
     const newRotation = rotation + (mouseDelta / maxDelta) * 360 * 0.05; // Using speedFactor of Scroll instead
 
@@ -128,13 +124,9 @@ function Work() {
     const newPercentage = (deltaX / maxDelta) * -100 * speedFactor;
     const nextPercentageUnconstrained = parseFloat(percentage + newPercentage);
 
-    const imgs = trackRef.current.getElementsByTagName("img");
-    const imgHalfWidth = imgs[0].offsetWidth / 2.2;
-    const imgHalfWidthInPercent = (imgHalfWidth / window.innerWidth) * 100;
-
     const nextPercentage = Math.max(
       Math.min(nextPercentageUnconstrained, 0),
-      -100 + imgHalfWidthInPercent
+      -100
     );
     const newRotation = rotation + (deltaX / maxDelta) * 360 * speedFactor;
 
@@ -148,7 +140,10 @@ function Work() {
     if (trackRef.current) {
       const imgs = trackRef.current.getElementsByTagName("img");
       const imgHalfWidth = imgs[0].offsetWidth / 2;
-      const translate = `calc(${nextPercentage}% - ${imgHalfWidth}px)`;
+
+      const minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth}px)`;
+      const maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth}px)`;
+      const translate = nextPercentage <= -50 ? maxTranslate : minTranslate;
 
       trackRef.current.animate(
         {
