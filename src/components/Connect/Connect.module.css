@@ -1,3 +1,106 @@
 .connect {
+  display: flex;
+  align-items: center;
+  padding: 10rem;
   height: 100vh;
+}
+
+.fieldSection {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  min-width: 40rem;
+}
+
+.fieldSection input,
+.fieldSection textarea,
+.fieldSection button {
+  border-radius: 0.5rem;
+  cursor: context-menu;
+}
+
+.fieldSection input {
+  height: 1.8rem;
+}
+
+.fieldSection label {
+  font-weight: 600;
+}
+
+.optionalField,
+.requiredField {
+  display: inline-block;
+  font-size: 0.7rem;
+}
+
+.animateFieldOption {
+  animation: bounceField 1.5s infinite;
+}
+
+@keyframes bounceField {
+  0% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: translateY(-8px);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+}
+
+.optionalField {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.requiredField {
+  color: rgba(0, 204, 255, 0.75);
+}
+
+.fieldSection button {
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  width: 8rem;
+}
+
+.mailLottie {
+  display: flex;
+  align-items: center;
+}
+
+.fieldSection h2 {
+  display: inline;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: rgb(0, 204, 255);
+}
+
+.allFields {
+  display: grid;
+  grid-template: repeat(2, 1fr) 3fr 1fr / repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.nameField {
+  grid-column: 1 / -1;
+}
+
+.noteField {
+  grid-column: 1 / -1;
+}
+
+.nameField:hover .optionalField,
+.motiveField:hover .requiredField,
+.emailField:hover .requiredField,
+.noteField:hover .requiredField {
+  animation: bounceField 1s infinite;
+}
+
+.allFields > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
