@@ -8,6 +8,8 @@ import memoryImg from "../../assets/Works/memoryWork.png";
 import dashboardImg from "../../assets/Works/dashBoardWork.png";
 import landingPageImg from "../../assets/Works/landingPageWork.png";
 
+import workStyles from "./Work.module.css";
+
 const images = [
   {
     src: resumeImg,
@@ -19,7 +21,11 @@ const images = [
     },
     index: "firstImg",
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+      <svg
+        className={workStyles.resumeIcon}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 384 512"
+      >
         <path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16H224v80c0 17.7 14.3 32 32 32h80V448c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3L274.7 18.7C262.7 6.7 246.5 0 229.5 0H64zm56 256c-13.3 0-24 10.7-24 24s10.7 24 24 24H264c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24H264c13.3 0 24-10.7 24-24s-10.7-24-24-24H120z" />
       </svg>
     ),
@@ -64,7 +70,11 @@ const images = [
     },
     index: "fourthImg",
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+      <svg
+        className={workStyles.gameIcon}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 640 512"
+      >
         <path d="M192 64C86 64 0 150 0 256S86 448 192 448H448c106 0 192-86 192-192s-86-192-192-192H192zM496 168a40 40 0 1 1 0 80 40 40 0 1 1 0-80zM392 304a40 40 0 1 1 80 0 40 40 0 1 1 -80 0zM168 200c0-13.3 10.7-24 24-24s24 10.7 24 24v32h32c13.3 0 24 10.7 24 24s-10.7 24-24 24H216v32c0 13.3-10.7 24-24 24s-24-10.7-24-24V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h32V200z" />
       </svg>
     ),
@@ -94,7 +104,11 @@ const images = [
     },
     index: "sixthImg",
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+      <svg
+        className={workStyles.gameIcon}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 640 512"
+      >
         <path d="M192 64C86 64 0 150 0 256S86 448 192 448H448c106 0 192-86 192-192s-86-192-192-192H192zM496 168a40 40 0 1 1 0 80 40 40 0 1 1 0-80zM392 304a40 40 0 1 1 80 0 40 40 0 1 1 -80 0zM168 200c0-13.3 10.7-24 24-24s24 10.7 24 24v32h32c13.3 0 24 10.7 24 24s-10.7 24-24 24H216v32c0 13.3-10.7 24-24 24s-24-10.7-24-24V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h32V200z" />
       </svg>
     ),
@@ -109,7 +123,11 @@ const images = [
     },
     index: "seventhImg",
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+      <svg
+        className={workStyles.gameIcon}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 640 512"
+      >
         <path d="M192 64C86 64 0 150 0 256S86 448 192 448H448c106 0 192-86 192-192s-86-192-192-192H192zM496 168a40 40 0 1 1 0 80 40 40 0 1 1 0-80zM392 304a40 40 0 1 1 80 0 40 40 0 1 1 -80 0zM168 200c0-13.3 10.7-24 24-24s24 10.7 24 24v32h32c13.3 0 24 10.7 24 24s-10.7 24-24 24H216v32c0 13.3-10.7 24-24 24s-24-10.7-24-24V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h32V200z" />
       </svg>
     ),
