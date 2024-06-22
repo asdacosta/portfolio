@@ -28,11 +28,17 @@
   border-radius: 1rem;
 }
 
-.workSlide > section {
+.workImages {
   position: relative;
+  filter: grayscale(100%) brightness(90%);
+  transition: filter 0.3s;
 }
 
-.imgLinkBox {
+.workImages:hover {
+  filter: grayscale(0) brightness(100%);
+}
+
+.workSlide .imgLinkBox {
   display: flex;
   flex-direction: column;
   justify-content: center;
