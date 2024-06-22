@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Skill } from "./components/Skill/Skill";
 import { Work } from "./components/Work/Work";
+import { Connect } from "./components/Connect/Connect";
 
 const loadVariants = {
   exit: {
@@ -41,6 +42,7 @@ function App() {
       {navDisplay && <About />}
       {navDisplay && <Skill />}
       {navDisplay && <Work />}
+      {navDisplay && <Connect />}
     </>
   );
 }
