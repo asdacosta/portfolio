@@ -206,10 +206,10 @@
   opacity: 0;
   transition: all 0.3s ease-in-out;
   background: linear-gradient(
-    90deg,
+    110deg,
     rgba(0, 0, 0, 0.75) 0%,
     rgba(0, 0, 0, 0.75) 42%,
-    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 255, 255, 0.6) 50%,
     rgba(0, 0, 0, 0.75) 58%,
     rgba(0, 0, 0, 0.75) 100%
   );
