@@ -1,7 +1,7 @@
 import workStyles from "./Work.module.css";
 import { useEffect, useRef, useState } from "react";
 import { LinkBox } from "./LinkBox";
-import { images } from "./imageDetails.js";
+import { images } from "./ImageDetails.jsx";
 
 function Work() {
   const [mouseDownAt, setMouseDownAt] = useState(0);
@@ -283,7 +283,7 @@ function Work() {
                   : workStyles.workName
               }
             >
-              {image.alt}
+              {image.alt} {image.icon}
             </p>
             <img src={image.src} alt={image.alt} draggable="false" />
 
