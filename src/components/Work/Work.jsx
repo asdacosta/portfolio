@@ -180,21 +180,34 @@ function Work() {
       const translateValue =
         nextPercentage <= -50 ? maxTranslate : minTranslate;
 
-      trackRef.current.animate(
+      const trackAnimation = trackRef.current.animate(
         {
           transform: `translate(${translateValue}, -50%)`,
         },
         { duration: 2000, fill: "forwards" }
       );
 
+      // Solves issue by continuing from where we left of: After a long pause following an initial scroll/drag, next scroll/drag frist animates quickly from the initial animation
+      trackAnimation.onfinish = () => {
+        trackRef.style.transform = `translate(${translateValue}, -50%)`;
+        trackAnimation.cancel();
+        trackAnimation.onfinish = null;
+      };
+
       for (const image of imgs) {
         const objectPositionValue = `${100 + nextPercentage}%`;
-        image.animate(
+        const imageAnimation = image.animate(
           {
             objectPosition: `${objectPositionValue} center`,
           },
           { duration: 2000, fill: "forwards" }
         );
+
+        imageAnimation.onfinish = () => {
+          image.style.objectPosition = `${objectPositionValue} center`;
+          imageAnimation.cancel();
+          imageAnimation.onfinish = null;
+        };
       }
     }
   };
