@@ -144,6 +144,7 @@ function Work() {
       let minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth}px)`;
       let maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth}px)`;
 
+      // Fine tune to avoid hard switch between min and max translate
       if (nextPercentage > -10) {
         minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth}px)`;
         maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 18}px)`;
