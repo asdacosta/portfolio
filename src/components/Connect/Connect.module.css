@@ -33,25 +33,6 @@
   font-size: 0.7rem;
 }
 
-.animateFieldOption {
-  animation: bounceField 1.5s infinite;
-}
-
-@keyframes bounceField {
-  0% {
-    transform: translateY(0);
-    animation-timing-function: ease-out;
-  }
-  50% {
-    transform: translateY(-8px);
-    animation-timing-function: ease-in;
-  }
-  100% {
-    transform: translateY(0);
-    animation-timing-function: ease-out;
-  }
-}
-
 .optionalField {
   color: rgba(255, 255, 255, 0.75);
 }
@@ -97,6 +78,25 @@
 .emailField:hover .requiredField,
 .noteField:hover .requiredField {
   animation: bounceField 1s infinite;
+}
+
+.animateFieldOption {
+  animation: bounceField 1s infinite;
+}
+
+@keyframes bounceField {
+  0% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: translateY(-8px);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
 }
 
 .allFields > div {
