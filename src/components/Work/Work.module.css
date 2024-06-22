@@ -199,18 +199,41 @@
   gap: 0.5rem;
   position: absolute;
   padding: 0.5rem 1rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  background-color: rgba(0, 0, 0, 0.75);
   border-bottom-right-radius: 1rem;
   height: 0;
   opacity: 0;
   transition: all 0.3s ease-in-out;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.75) 42%,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(0, 0, 0, 0.75) 58%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradient-animation 2.5s linear infinite reverse;
+}
+
+.workName:hover {
+  animation-play-state: paused;
+  background: rgba(0, 0, 0, 0.75);
 }
 
 .workName svg {
   width: 1rem;
   fill: white;
+}
+
+svg.resumeIcon {
+  width: 0.9rem;
+}
+
+svg.gameIcon {
+  width: 1.5rem;
+  align-self: flex-end;
 }
 
 .workName.revealName {
