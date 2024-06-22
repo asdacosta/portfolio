@@ -101,7 +101,7 @@ function Work() {
     const mouseDelta =
       parseFloat(mouseDownAt) - event.clientX || event.touches[0].clientX;
     const maxDelta = window.innerWidth / 2;
-    const speedFactor = 0.2;
+    const speedFactor = 0.3;
     const newPercentage = (mouseDelta / maxDelta) * -100 * speedFactor;
     const nextPercentageUnconstrained = parseFloat(
       prevPercentage + newPercentage
@@ -120,7 +120,7 @@ function Work() {
 
   const handleOnScroll = (deltaX) => {
     const maxDelta = window.innerWidth / 2;
-    const speedFactor = 0.05;
+    const speedFactor = 0.1;
     const newPercentage = (deltaX / maxDelta) * -100 * speedFactor;
     const nextPercentageUnconstrained = parseFloat(percentage + newPercentage);
 
@@ -141,22 +141,56 @@ function Work() {
       const imgs = trackRef.current.getElementsByTagName("img");
       const imgHalfWidth = imgs[0].offsetWidth / 2;
 
-      const minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth}px)`;
-      const maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth}px)`;
-      const translate = nextPercentage <= -50 ? maxTranslate : minTranslate;
+      let minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth}px)`;
+      let maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth}px)`;
+
+      if (nextPercentage > -10) {
+        minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth}px)`;
+        maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 18}px)`;
+      } else if (nextPercentage > -20 && nextPercentage <= -10) {
+        minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 2}px)`;
+        maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 16}px)`;
+      } else if (nextPercentage > -30 && nextPercentage <= -20) {
+        minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 4}px)`;
+        maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 14}px)`;
+      } else if (nextPercentage > -40 && nextPercentage <= -30) {
+        minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 6}px)`;
+        maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 12}px)`;
+      } else if (nextPercentage > -50 && nextPercentage <= -40) {
+        minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 8}px)`;
+        maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 10}px)`;
+      } else if (nextPercentage > -60 && nextPercentage <= -50) {
+        minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 10}px)`;
+        maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 8}px)`;
+      } else if (nextPercentage > -70 && nextPercentage <= -60) {
+        minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 12}px)`;
+        maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 6}px)`;
+      } else if (nextPercentage > -80 && nextPercentage <= -70) {
+        minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 14}px)`;
+        maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 4}px)`;
+      } else if (nextPercentage > -90 && nextPercentage <= -80) {
+        minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 16}px)`;
+        maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 2}px)`;
+      } else if (nextPercentage < -90) {
+        minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 18}px)`;
+        maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth}px)`;
+      }
+
+      const translateValue =
+        nextPercentage <= -50 ? maxTranslate : minTranslate;
 
       trackRef.current.animate(
         {
-          transform: `translate(${translate}, -50%)`,
+          transform: `translate(${translateValue}, -50%)`,
         },
         { duration: 2000, fill: "forwards" }
       );
 
       for (const image of imgs) {
-        const objectPosition = `${100 + nextPercentage}%`;
+        const objectPositionValue = `${100 + nextPercentage}%`;
         image.animate(
           {
-            objectPosition: `${objectPosition} center`,
+            objectPosition: `${objectPositionValue} center`,
           },
           { duration: 2000, fill: "forwards" }
         );
