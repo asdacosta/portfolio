@@ -1,4 +1,4 @@
-.work {
+.workSamples {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -90,8 +90,10 @@
 .experience {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 3rem;
+  height: 100vh;
 }
 
 .experience > p {
