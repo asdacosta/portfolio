@@ -5,6 +5,7 @@ import "@dotlottie/player-component";
 function Connect() {
   const [focusedFields, setFocusedFields] = useState({
     name: false,
+    country: false,
     motive: false,
     mail: false,
     note: false,
@@ -25,7 +26,7 @@ function Connect() {
         </div>
 
         <section className={connectStyles.allFields}>
-          <div className={connectStyles.nameField}>
+          <div className={`${connectStyles.nameField} ${connectStyles.field}`}>
             <label htmlFor="name">
               Name{" "}
               <span
@@ -44,6 +45,7 @@ function Connect() {
               onFocus={() => {
                 setFocusedFields((prev) => ({
                   name: true,
+                  country: false,
                   motive: false,
                   mail: false,
                   note: false,
@@ -54,7 +56,42 @@ function Connect() {
               }}
             />
           </div>
-          <div className={connectStyles.motiveField}>
+          <div
+            className={`${connectStyles.countryField} ${connectStyles.field}`}
+          >
+            <label htmlFor="country">
+              Country{" "}
+              <span
+                className={`${connectStyles.requiredField} ${
+                  focusedFields.country ? connectStyles.animateFieldOption : ""
+                }`}
+              >
+                Required
+              </span>
+            </label>
+            <input
+              type="text"
+              name="country"
+              id="country"
+              placeholder="Enter country..."
+              required
+              onFocus={() => {
+                setFocusedFields((prev) => ({
+                  name: false,
+                  country: true,
+                  motive: false,
+                  mail: false,
+                  note: false,
+                }));
+              }}
+              onBlur={() => {
+                setFocusedFields((prev) => ({ ...prev, country: false }));
+              }}
+            />
+          </div>
+          <div
+            className={`${connectStyles.motiveField} ${connectStyles.field}`}
+          >
             <label htmlFor="motive">
               Motive{" "}
               <span
@@ -74,6 +111,7 @@ function Connect() {
               onFocus={() => {
                 setFocusedFields((prev) => ({
                   name: false,
+                  country: false,
                   motive: true,
                   mail: false,
                   note: false,
@@ -84,7 +122,7 @@ function Connect() {
               }}
             />
           </div>
-          <div className={connectStyles.emailField}>
+          <div className={`${connectStyles.emailField} ${connectStyles.field}`}>
             <label htmlFor="email">
               Email{" "}
               <span
@@ -104,6 +142,7 @@ function Connect() {
               onFocus={() => {
                 setFocusedFields((prev) => ({
                   name: false,
+                  country: false,
                   motive: false,
                   mail: true,
                   note: false,
@@ -114,7 +153,7 @@ function Connect() {
               }}
             />
           </div>
-          <div className={connectStyles.noteField}>
+          <div className={`${connectStyles.noteField} ${connectStyles.field}`}>
             <label htmlFor="note">
               Note{" "}
               <span
@@ -134,6 +173,7 @@ function Connect() {
               onFocus={() => {
                 setFocusedFields((prev) => ({
                   name: false,
+                  country: false,
                   motive: false,
                   mail: false,
                   note: true,
