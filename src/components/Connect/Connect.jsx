@@ -35,6 +35,18 @@ function Connect() {
     }));
   };
 
+  const handleFocus = (event) => {
+    const inputType = event.currentTarget.id;
+    setFocusedFields((prev) => ({
+      name: false,
+      country: false,
+      motive: false,
+      mail: false,
+      note: false,
+      [inputType]: true,
+    }));
+  };
+
   return (
     <section className={connectStyles.connect}>
       <section className={connectStyles.fieldSection}>
@@ -70,15 +82,7 @@ function Connect() {
               name="name"
               id="name"
               placeholder="Enter your name..."
-              onFocus={() => {
-                setFocusedFields((prev) => ({
-                  name: true,
-                  country: false,
-                  motive: false,
-                  mail: false,
-                  note: false,
-                }));
-              }}
+              onFocus={handleFocus}
               onBlur={() => {
                 setFocusedFields((prev) => ({ ...prev, name: false }));
               }}
@@ -110,15 +114,7 @@ function Connect() {
               id="country"
               placeholder="Enter country..."
               required
-              onFocus={() => {
-                setFocusedFields((prev) => ({
-                  name: false,
-                  country: true,
-                  motive: false,
-                  mail: false,
-                  note: false,
-                }));
-              }}
+              onFocus={handleFocus}
               onBlur={() => {
                 setFocusedFields((prev) => ({ ...prev, country: false }));
               }}
@@ -148,15 +144,7 @@ function Connect() {
               id="motive"
               placeholder="Enter subject..."
               required
-              onFocus={() => {
-                setFocusedFields((prev) => ({
-                  name: false,
-                  country: false,
-                  motive: true,
-                  mail: false,
-                  note: false,
-                }));
-              }}
+              onFocus={handleFocus}
               onBlur={() => {
                 setFocusedFields((prev) => ({ ...prev, motive: false }));
               }}
@@ -164,7 +152,7 @@ function Connect() {
             />
           </div>
           <div className={`${connectStyles.emailField} ${connectStyles.field}`}>
-            <label htmlFor="email">
+            <label htmlFor="mail">
               Email{" "}
               {nonEmptyFields.mail[0] ? (
                 <span className={connectStyles.feedback}></span>
@@ -180,19 +168,11 @@ function Connect() {
             </label>
             <input
               type="text"
-              name="email"
-              id="email"
+              name="mail"
+              id="mail"
               placeholder="Enter email..."
               required
-              onFocus={() => {
-                setFocusedFields((prev) => ({
-                  name: false,
-                  country: false,
-                  motive: false,
-                  mail: true,
-                  note: false,
-                }));
-              }}
+              onFocus={handleFocus}
               onBlur={() => {
                 setFocusedFields((prev) => ({ ...prev, mail: false }));
               }}
@@ -220,15 +200,7 @@ function Connect() {
               cols="20"
               rows="10"
               placeholder="Whatever..."
-              onFocus={() => {
-                setFocusedFields((prev) => ({
-                  name: false,
-                  country: false,
-                  motive: false,
-                  mail: false,
-                  note: true,
-                }));
-              }}
+              onFocus={handleFocus}
               onBlur={() => {
                 setFocusedFields((prev) => ({ ...prev, note: false }));
               }}
