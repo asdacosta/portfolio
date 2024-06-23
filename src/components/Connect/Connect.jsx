@@ -11,6 +11,30 @@ function Connect() {
     note: false,
   });
 
+  const [nonEmptyFields, setNonEmptyFields] = useState({
+    name: [false, ""],
+    country: [false, ""],
+    motive: [false, ""],
+    mail: [false, ""],
+    note: [false, ""],
+  });
+
+  const handleInput = (event) => {
+    const inputType = event.currentTarget.id;
+    if (event.currentTarget.value === "") {
+      setNonEmptyFields((prev) => ({ ...prev, [inputType]: [false, ""] }));
+      return;
+    }
+    setNonEmptyFields((prev) => ({
+      name: [false, ""],
+      country: [false, ""],
+      motive: [false, ""],
+      mail: [false, ""],
+      note: [false, ""],
+      [inputType]: [true, ""],
+    }));
+  };
+
   return (
     <section className={connectStyles.connect}>
       <section className={connectStyles.fieldSection}>
@@ -29,13 +53,17 @@ function Connect() {
           <div className={`${connectStyles.nameField} ${connectStyles.field}`}>
             <label htmlFor="name">
               Name{" "}
-              <span
-                className={`${connectStyles.optionalField} ${
-                  focusedFields.name ? connectStyles.animateFieldOption : ""
-                }`}
-              >
-                Optional
-              </span>
+              {nonEmptyFields.name[0] ? (
+                <span className={connectStyles.feedback}></span>
+              ) : (
+                <span
+                  className={`${connectStyles.optionalField} ${
+                    focusedFields.name ? connectStyles.animateFieldOption : ""
+                  }`}
+                >
+                  Optional
+                </span>
+              )}
             </label>
             <input
               type="text"
@@ -54,6 +82,7 @@ function Connect() {
               onBlur={() => {
                 setFocusedFields((prev) => ({ ...prev, name: false }));
               }}
+              onInput={handleInput}
             />
           </div>
           <div
@@ -61,13 +90,19 @@ function Connect() {
           >
             <label htmlFor="country">
               Country{" "}
-              <span
-                className={`${connectStyles.requiredField} ${
-                  focusedFields.country ? connectStyles.animateFieldOption : ""
-                }`}
-              >
-                Required
-              </span>
+              {nonEmptyFields.country[0] ? (
+                <span className={connectStyles.feedback}></span>
+              ) : (
+                <span
+                  className={`${connectStyles.requiredField} ${
+                    focusedFields.country
+                      ? connectStyles.animateFieldOption
+                      : ""
+                  }`}
+                >
+                  Required
+                </span>
+              )}
             </label>
             <input
               type="text"
@@ -87,6 +122,7 @@ function Connect() {
               onBlur={() => {
                 setFocusedFields((prev) => ({ ...prev, country: false }));
               }}
+              onInput={handleInput}
             />
           </div>
           <div
@@ -94,13 +130,17 @@ function Connect() {
           >
             <label htmlFor="motive">
               Motive{" "}
-              <span
-                className={`${connectStyles.requiredField} ${
-                  focusedFields.motive ? connectStyles.animateFieldOption : ""
-                }`}
-              >
-                Required
-              </span>
+              {nonEmptyFields.motive[0] ? (
+                <span className={connectStyles.feedback}></span>
+              ) : (
+                <span
+                  className={`${connectStyles.requiredField} ${
+                    focusedFields.motive ? connectStyles.animateFieldOption : ""
+                  }`}
+                >
+                  Required
+                </span>
+              )}
             </label>
             <input
               type="text"
@@ -120,18 +160,23 @@ function Connect() {
               onBlur={() => {
                 setFocusedFields((prev) => ({ ...prev, motive: false }));
               }}
+              onInput={handleInput}
             />
           </div>
           <div className={`${connectStyles.emailField} ${connectStyles.field}`}>
             <label htmlFor="email">
               Email{" "}
-              <span
-                className={`${connectStyles.requiredField} ${
-                  focusedFields.mail ? connectStyles.animateFieldOption : ""
-                }`}
-              >
-                Required
-              </span>
+              {nonEmptyFields.mail[0] ? (
+                <span className={connectStyles.feedback}></span>
+              ) : (
+                <span
+                  className={`${connectStyles.requiredField} ${
+                    focusedFields.mail ? connectStyles.animateFieldOption : ""
+                  }`}
+                >
+                  Required
+                </span>
+              )}
             </label>
             <input
               type="text"
@@ -151,18 +196,23 @@ function Connect() {
               onBlur={() => {
                 setFocusedFields((prev) => ({ ...prev, mail: false }));
               }}
+              onInput={handleInput}
             />
           </div>
           <div className={`${connectStyles.noteField} ${connectStyles.field}`}>
             <label htmlFor="note">
               Note{" "}
-              <span
-                className={`${connectStyles.requiredField} ${
-                  focusedFields.note ? connectStyles.animateFieldOption : ""
-                }`}
-              >
-                Required
-              </span>
+              {nonEmptyFields.note[0] ? (
+                <span className={connectStyles.feedback}></span>
+              ) : (
+                <span
+                  className={`${connectStyles.requiredField} ${
+                    focusedFields.note ? connectStyles.animateFieldOption : ""
+                  }`}
+                >
+                  Required
+                </span>
+              )}
             </label>
             <textarea
               name="note"
@@ -182,6 +232,7 @@ function Connect() {
               onBlur={() => {
                 setFocusedFields((prev) => ({ ...prev, note: false }));
               }}
+              onInput={handleInput}
             ></textarea>
           </div>
           <div>
