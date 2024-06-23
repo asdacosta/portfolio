@@ -8,18 +8,19 @@
 .fieldSection {
   display: flex;
   flex-direction: column;
-  width: 70%;
-  min-width: 35rem;
+  flex: 1;
+  min-width: 40rem;
   max-width: 50rem;
 }
 
 .fieldSection input,
 .fieldSection textarea {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
+  font-weight: 500;
   letter-spacing: 0.05rem;
   padding: 0.3rem 0.5rem;
   border-radius: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0.7);
   outline: none;
   cursor: context-menu;
   transition: all 0.3s ease-in-out;
@@ -27,7 +28,7 @@
 
 .fieldSection input::placeholder,
 .fieldSection textarea::placeholder {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.7);
   font-weight: 500;
 }
 
@@ -37,7 +38,7 @@
 }
 
 .fieldSection input {
-  height: 2rem;
+  height: 2.5rem;
 }
 
 .fieldSection input:focus,
@@ -47,8 +48,13 @@
   background-color: white;
 }
 
+.fieldSection input:focus,
+.fieldSection textarea:focus {
+  cursor: text;
+}
+
 .fieldSection label {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .optionalField,
@@ -99,8 +105,11 @@
 }
 
 .nameField {
-  max-width: 35rem;
-  grid-column: 1 / -1;
+  grid-column: 1 / 2;
+}
+
+.countryField {
+  grid-column: 2 / span 1;
 }
 
 .noteField {
@@ -108,9 +117,7 @@
 }
 
 .nameField:hover .optionalField,
-.motiveField:hover .requiredField,
-.emailField:hover .requiredField,
-.noteField:hover .requiredField {
+.field:hover .requiredField {
   animation: bounceField 1s infinite;
 }
 
@@ -137,4 +144,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.feedback {
+  font-size: 0.7rem;
 }
