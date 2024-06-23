@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import connectStyles from "./Connect.module.css";
 import "@dotlottie/player-component";
+import Typing from "react-typing-effect";
 
 function Connect() {
   const [focusedFields, setFocusedFields] = useState({
@@ -18,17 +19,21 @@ function Connect() {
     note: false,
   });
   const [feedbacks, setFeedbacks] = useState({
-    name: "",
-    country: "",
-    motive: "",
-    mail: "",
-    note: "",
+    name: { ellipsis: false, value: "" },
+    country: { ellipsis: false, value: "" },
+    motive: { ellipsis: false, value: "" },
+    mail: { ellipsis: false, value: "" },
+    note: { ellipsis: false, value: "" },
   });
 
   useEffect(() => {
+    // Set feedback content
     for (const [key, value] of Object.entries(nonEmptyFields)) {
       if (value === true) {
-        setFeedbacks((prev) => ({ ...prev, [key]: "..." }));
+        setFeedbacks((prev) => ({
+          ...prev,
+          [key]: { ellipsis: true, value: "..." },
+        }));
       }
     }
   }, [nonEmptyFields]);
@@ -80,7 +85,16 @@ function Connect() {
             <label htmlFor="name">
               Name{" "}
               {nonEmptyFields.name ? (
-                <span className={connectStyles.feedback}>{feedbacks.name}</span>
+                <span className={connectStyles.feedback}>
+                  <Typing
+                    speed={200}
+                    text={feedbacks.name.value}
+                    typingDelay={0}
+                    eraseDelay={200}
+                    eraseSpeed={150}
+                    cursor=" "
+                  />
+                </span>
               ) : (
                 <span
                   className={`${connectStyles.optionalField} ${
@@ -110,7 +124,7 @@ function Connect() {
               Country{" "}
               {nonEmptyFields.country ? (
                 <span className={connectStyles.feedback}>
-                  {feedbacks.country}
+                  {feedbacks.country.value}
                 </span>
               ) : (
                 <span
@@ -144,7 +158,7 @@ function Connect() {
               Motive{" "}
               {nonEmptyFields.motive ? (
                 <span className={connectStyles.feedback}>
-                  {feedbacks.motive}
+                  {feedbacks.motive.value}
                 </span>
               ) : (
                 <span
@@ -173,7 +187,9 @@ function Connect() {
             <label htmlFor="mail">
               Email{" "}
               {nonEmptyFields.mail ? (
-                <span className={connectStyles.feedback}>{feedbacks.mail}</span>
+                <span className={connectStyles.feedback}>
+                  {feedbacks.mail.value}
+                </span>
               ) : (
                 <span
                   className={`${connectStyles.requiredField} ${
@@ -201,7 +217,9 @@ function Connect() {
             <label htmlFor="note">
               Note{" "}
               {nonEmptyFields.note ? (
-                <span className={connectStyles.feedback}>{feedbacks.note}</span>
+                <span className={connectStyles.feedback}>
+                  {feedbacks.note.value}
+                </span>
               ) : (
                 <span
                   className={`${connectStyles.requiredField} ${
