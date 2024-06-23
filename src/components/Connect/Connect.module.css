@@ -9,18 +9,39 @@
   display: flex;
   flex-direction: column;
   width: 70%;
-  min-width: 40rem;
+  min-width: 35rem;
+  max-width: 50rem;
 }
 
 .fieldSection input,
-.fieldSection textarea,
-.fieldSection button {
+.fieldSection textarea {
+  font-size: 0.95rem;
+  letter-spacing: 0.05rem;
+  padding: 0.3rem 0.5rem;
   border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.75);
   cursor: context-menu;
+  transition: all 0.3s ease-in-out;
+}
+
+.fieldSection input::placeholder,
+.fieldSection textarea::placeholder {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.fieldSection input:not(:placeholder-shown) {
+  background-color: white;
 }
 
 .fieldSection input {
   height: 1.8rem;
+}
+
+.fieldSection input:focus,
+.fieldSection input:hover,
+.fieldSection textarea:focus,
+.fieldSection textarea:hover {
+  background-color: white;
 }
 
 .fieldSection label {
@@ -42,9 +63,18 @@
 }
 
 .fieldSection button {
-  font-size: 1.2rem;
-  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 0.3rem 1rem;
   width: 8rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background-color: rgba(0, 204, 255, 0.7);
+  transition: all 0.3s;
+}
+
+.fieldSection button:hover {
+  background-color: rgb(0, 204, 255);
 }
 
 .mailLottie {
@@ -66,6 +96,7 @@
 }
 
 .nameField {
+  max-width: 35rem;
   grid-column: 1 / -1;
 }
 
