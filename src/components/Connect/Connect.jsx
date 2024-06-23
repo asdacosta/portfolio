@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import connectStyles from "./Connect.module.css";
 import "@dotlottie/player-component";
 
@@ -24,6 +24,14 @@ function Connect() {
     mail: "",
     note: "",
   });
+
+  useEffect(() => {
+    for (const [key, value] of Object.entries(nonEmptyFields)) {
+      if (value === true) {
+        setFeedbacks((prev) => ({ ...prev, [key]: "..." }));
+      }
+    }
+  }, [nonEmptyFields]);
 
   const handleInput = (event) => {
     const inputType = event.currentTarget.id;
