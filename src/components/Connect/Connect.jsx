@@ -40,6 +40,7 @@ function Connect() {
 
   const handleInput = (event) => {
     const inputType = event.currentTarget.id;
+    // Set to default if an onInput removes all value
     if (event.currentTarget.value === "") {
       setNonEmptyFields((prev) => ({ ...prev, [inputType]: false }));
       return;
@@ -56,6 +57,11 @@ function Connect() {
 
   const handleFocus = (event) => {
     const inputType = event.currentTarget.id;
+    // Trigger nonEmpty field on focus
+    if (event.currentTarget.value !== "") {
+      setNonEmptyFields((prev) => ({ ...prev, [inputType]: true }));
+    }
+
     setFocusedFields((prev) => ({
       name: false,
       country: false,
