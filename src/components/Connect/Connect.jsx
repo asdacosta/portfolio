@@ -21,7 +21,7 @@ function Connect() {
             src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/mail.lottie"
             style={{ width: "90px", height: "90px" }}
           ></dotlottie-player>
-          <h2>Reach Out</h2>
+          <h2>Get In Touch</h2>
         </div>
 
         <section className={connectStyles.allFields}>
@@ -40,6 +40,7 @@ function Connect() {
               type="text"
               name="name"
               id="name"
+              placeholder="Enter your name..."
               onFocus={() => {
                 setFocusedFields((prev) => ({
                   name: true,
@@ -68,6 +69,7 @@ function Connect() {
               type="text"
               name="motive"
               id="motive"
+              placeholder="Enter subject..."
               required
               onFocus={() => {
                 setFocusedFields((prev) => ({
@@ -97,6 +99,7 @@ function Connect() {
               type="text"
               name="email"
               id="email"
+              placeholder="Enter email..."
               required
               onFocus={() => {
                 setFocusedFields((prev) => ({
@@ -127,6 +130,7 @@ function Connect() {
               id="note"
               cols="20"
               rows="10"
+              placeholder="Whatever..."
               onFocus={() => {
                 setFocusedFields((prev) => ({
                   name: false,
