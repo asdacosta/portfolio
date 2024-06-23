@@ -20,6 +20,7 @@
   padding: 0.3rem 0.5rem;
   border-radius: 0.5rem;
   background-color: rgba(255, 255, 255, 0.75);
+  outline: none;
   cursor: context-menu;
   transition: all 0.3s ease-in-out;
 }
@@ -27,14 +28,16 @@
 .fieldSection input::placeholder,
 .fieldSection textarea::placeholder {
   color: rgba(0, 0, 0, 0.8);
+  font-weight: 500;
 }
 
-.fieldSection input:not(:placeholder-shown) {
+.fieldSection input:not(:placeholder-shown),
+.fieldSection textarea:not(:placeholder-shown) {
   background-color: white;
 }
 
 .fieldSection input {
-  height: 1.8rem;
+  height: 2rem;
 }
 
 .fieldSection input:focus,
@@ -91,7 +94,7 @@
 
 .allFields {
   display: grid;
-  grid-template: repeat(2, 1fr) 3fr 1fr / repeat(2, 1fr);
+  grid-template: repeat(2, 1fr) 3.5fr 1fr / repeat(2, 1fr);
   gap: 1rem;
 }
 
