@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import connectStyles from "./Connect.module.css";
 import "@dotlottie/player-component";
-import Typing from "react-typing-effect";
+import { Label } from "./Label";
 
 function Connect() {
   const [focusedFields, setFocusedFields] = useState({
@@ -82,29 +82,14 @@ function Connect() {
 
         <section className={connectStyles.allFields}>
           <div className={`${connectStyles.nameField} ${connectStyles.field}`}>
-            <label htmlFor="name">
-              Name{" "}
-              {nonEmptyFields.name ? (
-                <span className={connectStyles.feedback}>
-                  <Typing
-                    speed={200}
-                    text={feedbacks.name.value}
-                    typingDelay={0}
-                    eraseDelay={200}
-                    eraseSpeed={150}
-                    cursor=" "
-                  />
-                </span>
-              ) : (
-                <span
-                  className={`${connectStyles.optionalField} ${
-                    focusedFields.name ? connectStyles.animateFieldOption : ""
-                  }`}
-                >
-                  Optional
-                </span>
-              )}
-            </label>
+            <Label
+              nonEmptyField={nonEmptyFields.name}
+              focusedField={focusedFields.name}
+              inputLabel="Name"
+              typingText={feedbacks.name.value}
+              required={false}
+              id="name"
+            />
             <input
               type="text"
               name="name"
@@ -120,24 +105,14 @@ function Connect() {
           <div
             className={`${connectStyles.countryField} ${connectStyles.field}`}
           >
-            <label htmlFor="country">
-              Country{" "}
-              {nonEmptyFields.country ? (
-                <span className={connectStyles.feedback}>
-                  {feedbacks.country.value}
-                </span>
-              ) : (
-                <span
-                  className={`${connectStyles.requiredField} ${
-                    focusedFields.country
-                      ? connectStyles.animateFieldOption
-                      : ""
-                  }`}
-                >
-                  Required
-                </span>
-              )}
-            </label>
+            <Label
+              nonEmptyField={nonEmptyFields.country}
+              focusedField={focusedFields.country}
+              inputLabel="Country"
+              typingText={feedbacks.country.value}
+              required={true}
+              id="country"
+            />
             <input
               type="text"
               name="country"
@@ -154,22 +129,14 @@ function Connect() {
           <div
             className={`${connectStyles.motiveField} ${connectStyles.field}`}
           >
-            <label htmlFor="motive">
-              Motive{" "}
-              {nonEmptyFields.motive ? (
-                <span className={connectStyles.feedback}>
-                  {feedbacks.motive.value}
-                </span>
-              ) : (
-                <span
-                  className={`${connectStyles.requiredField} ${
-                    focusedFields.motive ? connectStyles.animateFieldOption : ""
-                  }`}
-                >
-                  Required
-                </span>
-              )}
-            </label>
+            <Label
+              nonEmptyField={nonEmptyFields.motive}
+              focusedField={focusedFields.motive}
+              inputLabel="Motive"
+              typingText={feedbacks.motive.value}
+              required={true}
+              id="motive"
+            />
             <input
               type="text"
               name="motive"
@@ -184,22 +151,14 @@ function Connect() {
             />
           </div>
           <div className={`${connectStyles.emailField} ${connectStyles.field}`}>
-            <label htmlFor="mail">
-              Email{" "}
-              {nonEmptyFields.mail ? (
-                <span className={connectStyles.feedback}>
-                  {feedbacks.mail.value}
-                </span>
-              ) : (
-                <span
-                  className={`${connectStyles.requiredField} ${
-                    focusedFields.mail ? connectStyles.animateFieldOption : ""
-                  }`}
-                >
-                  Required
-                </span>
-              )}
-            </label>
+            <Label
+              nonEmptyField={nonEmptyFields.mail}
+              focusedField={focusedFields.mail}
+              inputLabel="Email"
+              typingText={feedbacks.mail.value}
+              required={true}
+              id="mail"
+            />
             <input
               type="text"
               name="mail"
@@ -214,22 +173,14 @@ function Connect() {
             />
           </div>
           <div className={`${connectStyles.noteField} ${connectStyles.field}`}>
-            <label htmlFor="note">
-              Note{" "}
-              {nonEmptyFields.note ? (
-                <span className={connectStyles.feedback}>
-                  {feedbacks.note.value}
-                </span>
-              ) : (
-                <span
-                  className={`${connectStyles.requiredField} ${
-                    focusedFields.note ? connectStyles.animateFieldOption : ""
-                  }`}
-                >
-                  Required
-                </span>
-              )}
-            </label>
+            <Label
+              nonEmptyField={nonEmptyFields.note}
+              focusedField={focusedFields.note}
+              inputLabel="Note"
+              typingText={feedbacks.note.value}
+              required={true}
+              id="note"
+            />
             <textarea
               name="note"
               id="note"
