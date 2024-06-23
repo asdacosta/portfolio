@@ -10,13 +10,19 @@ function Connect() {
     mail: false,
     note: false,
   });
-
   const [nonEmptyFields, setNonEmptyFields] = useState({
     name: false,
     country: false,
     motive: false,
     mail: false,
     note: false,
+  });
+  const [feedbacks, setFeedbacks] = useState({
+    name: "",
+    country: "",
+    motive: "",
+    mail: "",
+    note: "",
   });
 
   const handleInput = (event) => {
@@ -66,7 +72,7 @@ function Connect() {
             <label htmlFor="name">
               Name{" "}
               {nonEmptyFields.name ? (
-                <span className={connectStyles.feedback}></span>
+                <span className={connectStyles.feedback}>{feedbacks.name}</span>
               ) : (
                 <span
                   className={`${connectStyles.optionalField} ${
@@ -95,7 +101,9 @@ function Connect() {
             <label htmlFor="country">
               Country{" "}
               {nonEmptyFields.country ? (
-                <span className={connectStyles.feedback}></span>
+                <span className={connectStyles.feedback}>
+                  {feedbacks.country}
+                </span>
               ) : (
                 <span
                   className={`${connectStyles.requiredField} ${
@@ -127,7 +135,9 @@ function Connect() {
             <label htmlFor="motive">
               Motive{" "}
               {nonEmptyFields.motive ? (
-                <span className={connectStyles.feedback}></span>
+                <span className={connectStyles.feedback}>
+                  {feedbacks.motive}
+                </span>
               ) : (
                 <span
                   className={`${connectStyles.requiredField} ${
@@ -155,7 +165,7 @@ function Connect() {
             <label htmlFor="mail">
               Email{" "}
               {nonEmptyFields.mail ? (
-                <span className={connectStyles.feedback}></span>
+                <span className={connectStyles.feedback}>{feedbacks.mail}</span>
               ) : (
                 <span
                   className={`${connectStyles.requiredField} ${
@@ -183,7 +193,7 @@ function Connect() {
             <label htmlFor="note">
               Note{" "}
               {nonEmptyFields.note ? (
-                <span className={connectStyles.feedback}></span>
+                <span className={connectStyles.feedback}>{feedbacks.note}</span>
               ) : (
                 <span
                   className={`${connectStyles.requiredField} ${
