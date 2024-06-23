@@ -12,7 +12,7 @@ function Label({
   return (
     <label htmlFor={id}>
       {inputLabel}{" "}
-      {nonEmptyField ? (
+      {nonEmptyField && focusedField ? (
         <span className={connectStyles.feedback}>
           <Typing
             speed={200}
