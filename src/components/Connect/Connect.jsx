@@ -44,7 +44,7 @@ function Connect() {
       } else if (value === true && contentErrors[key].isError) {
         newFeedback[key] = {
           ellipsis: false,
-          value: allFeedbacks.nameFeedbacks.onInput[contentErrors[key].onInput],
+          value: allFeedbacks[key].onInput[contentErrors[key].onInput],
         };
       }
     }
@@ -75,10 +75,12 @@ function Connect() {
     }));
 
     // Validations:
+
     // Name onInput
     const nameNumRegex = /\d/;
     const nameNoSpecialCharRegex = /^[a-zA-Z'-]+$/;
     if (inputType === "name" && nonEmptyFields.name) {
+      console.log("Name instead");
       let errorType = null;
       if (inputValue.length > 40) {
         errorType = 1;
@@ -104,6 +106,20 @@ function Connect() {
           [inputType]: {
             isError: false,
             onInput: null,
+            onBlur: null,
+          },
+        }));
+      }
+    }
+
+    //   Mail onInput
+    if (inputType === "mail" && nonEmptyFields.mail) {
+      if (inputValue.length > 50) {
+        setContentErrors((prev) => ({
+          ...prev,
+          [inputType]: {
+            isError: true,
+            onInput: 0,
             onBlur: null,
           },
         }));
