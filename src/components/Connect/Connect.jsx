@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import connectStyles from "./Connect.module.css";
 import "@dotlottie/player-component";
 import { Label } from "./Label";
+import { allFeedbacks } from "./feedbacks";
+import { IntType } from "three";
 
 function Connect() {
   const [focusedFields, setFocusedFields] = useState({
@@ -25,14 +27,30 @@ function Connect() {
     mail: { ellipsis: false, value: "" },
     note: { ellipsis: false, value: "" },
   });
+  const [contentErrors, setContentErrors] = useState({
+    name: { isError: false, onInput: null, onBlur: null },
+    country: { isError: false, onInput: null, onBlur: null },
+    motive: { isError: false, onInput: null, onBlur: null },
+    mail: { isError: false, onInput: null, onBlur: null },
+    note: { isError: false, onInput: null, onBlur: null },
+  });
 
   useEffect(() => {
     // Set feedback content
     for (const [key, value] of Object.entries(nonEmptyFields)) {
-      if (value === true) {
+      if (value === true && !contentErrors[key].isError) {
         setFeedbacks((prev) => ({
           ...prev,
           [key]: { ellipsis: true, value: "..." },
+        }));
+      } else if (value === true && contentErrors[key].isError) {
+        setFeedbacks((prev) => ({
+          ...prev,
+          [key]: {
+            ellipsis: false,
+            value:
+              allFeedbacks.nameFeedbacks.onInput[contentErrors.name.onInput],
+          },
         }));
       }
     }
@@ -40,11 +58,71 @@ function Connect() {
 
   const handleInput = (event) => {
     const inputType = event.currentTarget.id;
+    const inputValue = event.currentTarget.value;
     // Set to default if an onInput removes all value
-    if (event.currentTarget.value === "") {
+    if (inputValue === "") {
       setNonEmptyFields((prev) => ({ ...prev, [inputType]: false }));
       return;
     }
+
+    // Validations
+    // onInput validations
+    if (inputType === "name" && inputValue.length > 0) {
+      const nameNumRegex = /\d/;
+      const nameNoSpecialCharRegex = /^[a-zA-Z'-]+$/;
+      if (inputValue.length > 40) {
+        setContentErrors((prev) => ({
+          ...prev,
+          [inputType]: {
+            ...prev[IntType],
+            isError: true,
+            onInput: 1,
+            onBlur: null,
+          },
+        }));
+      } else if (nameNumRegex.test(inputValue)) {
+        setContentErrors((prev) => ({
+          ...prev,
+          [inputType]: {
+            ...prev[IntType],
+            isError: true,
+            onInput: 2,
+            onBlur: null,
+          },
+        }));
+      } else if (!nameNoSpecialCharRegex.test(inputValue)) {
+        setContentErrors((prev) => ({
+          ...prev,
+          [inputType]: {
+            ...prev[IntType],
+            isError: true,
+            onInput: 3,
+            onBlur: null,
+          },
+        }));
+      } else if (inputValue.length > 15 && inputValue.length <= 25) {
+        setContentErrors((prev) => ({
+          ...prev,
+          [inputType]: {
+            ...prev[IntType],
+            isError: true,
+            onInput: 0,
+            onBlur: null,
+          },
+        }));
+      } else {
+        setContentErrors((prev) => ({
+          ...prev,
+          [inputType]: {
+            ...prev[IntType],
+            isError: false,
+            onInput: null,
+            onBlur: null,
+          },
+        }));
+      }
+    }
+
     setNonEmptyFields((prev) => ({
       name: false,
       country: false,
@@ -95,6 +173,7 @@ function Connect() {
               typingText={feedbacks.name.value}
               required={false}
               id="name"
+              contentError={contentErrors.name.isError}
             />
             <input
               type="text"
@@ -118,6 +197,7 @@ function Connect() {
               typingText={feedbacks.country.value}
               required={true}
               id="country"
+              contentError={contentErrors.country.isError}
             />
             <input
               type="text"
@@ -142,6 +222,7 @@ function Connect() {
               typingText={feedbacks.motive.value}
               required={true}
               id="motive"
+              contentError={contentErrors.motive.isError}
             />
             <input
               type="text"
@@ -164,6 +245,7 @@ function Connect() {
               typingText={feedbacks.mail.value}
               required={true}
               id="mail"
+              contentError={contentErrors.mail.isError}
             />
             <input
               type="text"
@@ -186,6 +268,7 @@ function Connect() {
               typingText={feedbacks.note.value}
               required={true}
               id="note"
+              contentError={contentErrors.note.isError}
             />
             <textarea
               name="note"
