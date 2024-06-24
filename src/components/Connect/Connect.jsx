@@ -135,13 +135,14 @@ function Connect() {
     }
 
     setFocusedFields((prev) => ({
-      name: false,
-      country: false,
-      motive: false,
-      mail: false,
-      note: false,
+      ...prev,
       [inputType]: true,
     }));
+  };
+
+  const handleBlur = (event) => {
+    const inputType = event.currentTarget.id;
+    setFocusedFields((prev) => ({ ...prev, [inputType]: false }));
   };
 
   return (
@@ -175,9 +176,7 @@ function Connect() {
               id="name"
               placeholder="Enter your name..."
               onFocus={handleFocus}
-              onBlur={() => {
-                setFocusedFields((prev) => ({ ...prev, name: false }));
-              }}
+              onBlur={handleBlur}
               onInput={handleInput}
             />
           </div>
@@ -200,9 +199,7 @@ function Connect() {
               placeholder="Enter country..."
               required
               onFocus={handleFocus}
-              onBlur={() => {
-                setFocusedFields((prev) => ({ ...prev, country: false }));
-              }}
+              onBlur={handleBlur}
               onInput={handleInput}
             />
           </div>
@@ -225,9 +222,7 @@ function Connect() {
               placeholder="Enter subject..."
               required
               onFocus={handleFocus}
-              onBlur={() => {
-                setFocusedFields((prev) => ({ ...prev, motive: false }));
-              }}
+              onBlur={handleBlur}
               onInput={handleInput}
             />
           </div>
@@ -248,9 +243,7 @@ function Connect() {
               placeholder="Enter email..."
               required
               onFocus={handleFocus}
-              onBlur={() => {
-                setFocusedFields((prev) => ({ ...prev, mail: false }));
-              }}
+              onBlur={handleBlur}
               onInput={handleInput}
             />
           </div>
@@ -271,9 +264,7 @@ function Connect() {
               rows="10"
               placeholder="Whatever..."
               onFocus={handleFocus}
-              onBlur={() => {
-                setFocusedFields((prev) => ({ ...prev, note: false }));
-              }}
+              onBlur={handleBlur}
               onInput={handleInput}
             ></textarea>
           </div>
