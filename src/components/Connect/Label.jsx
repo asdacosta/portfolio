@@ -19,11 +19,11 @@ function Label({
         <span className={connectStyles.feedback}>
           {!contentError ? (
             <Typing
-              speed={100}
+              speed={150}
               text={typingText}
               typingDelay={0}
               eraseDelay={200}
-              eraseSpeed={50}
+              eraseSpeed={60}
               cursor=" "
             />
           ) : (
@@ -31,7 +31,7 @@ function Label({
               speed={50}
               text={typingText}
               typingDelay={0}
-              eraseDelay={3000}
+              eraseDelay={2500}
               eraseSpeed={25}
               cursor=" "
             />
