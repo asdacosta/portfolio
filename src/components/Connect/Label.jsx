@@ -1,5 +1,7 @@
 import Typing from "react-typing-effect";
 import connectStyles from "./Connect.module.css";
+// import Typed from "typed.js";
+import { useEffect, useRef } from "react";
 
 function Label({
   nonEmptyField,
@@ -8,20 +10,32 @@ function Label({
   typingText,
   required,
   id,
+  contentError,
 }) {
   return (
     <label htmlFor={id}>
       {inputLabel}{" "}
       {nonEmptyField && focusedField ? (
         <span className={connectStyles.feedback}>
-          <Typing
-            speed={200}
-            text={typingText}
-            typingDelay={0}
-            eraseDelay={200}
-            eraseSpeed={150}
-            cursor=" "
-          />
+          {!contentError ? (
+            <Typing
+              speed={200}
+              text={typingText}
+              typingDelay={0}
+              eraseDelay={200}
+              eraseSpeed={150}
+              cursor=" "
+            />
+          ) : (
+            <Typing
+              speed={50}
+              text={typingText}
+              typingDelay={0}
+              eraseDelay={3000}
+              eraseSpeed={20}
+              cursor=" "
+            />
+          )}
         </span>
       ) : required ? (
         <span
