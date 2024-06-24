@@ -37,87 +37,64 @@ function Connect() {
 
   useEffect(() => {
     // Set feedback content
+    let newFeedback = {};
     for (const [key, value] of Object.entries(nonEmptyFields)) {
       if (value === true && !contentErrors[key].isError) {
-        setFeedbacks((prev) => ({
-          ...prev,
-          [key]: { ellipsis: true, value: "..." },
-        }));
+        newFeedback[key] = { ellipsis: true, value: "..." };
       } else if (value === true && contentErrors[key].isError) {
-        setFeedbacks((prev) => ({
-          ...prev,
-          [key]: {
-            ellipsis: false,
-            value:
-              allFeedbacks.nameFeedbacks.onInput[contentErrors.name.onInput],
-          },
-        }));
+        newFeedback[key] = {
+          ellipsis: false,
+          value: allFeedbacks.nameFeedbacks.onInput[contentErrors[key].onInput],
+        };
       }
     }
-  }, [nonEmptyFields]);
+
+    setFeedbacks((prev) => ({ ...prev, ...newFeedback }));
+  }, [nonEmptyFields, contentErrors, allFeedbacks]);
 
   const handleInput = (event) => {
     const inputType = event.currentTarget.id;
     const inputValue = event.currentTarget.value;
     // Set to default if an onInput removes all value
     if (inputValue === "") {
+      setContentErrors((prev) => ({
+        ...prev,
+        [inputType]: {
+          isError: false,
+          onInput: null,
+          onBlur: null,
+        },
+      }));
       setNonEmptyFields((prev) => ({ ...prev, [inputType]: false }));
       return;
     }
+
     setNonEmptyFields((prev) => ({
-      name: false,
-      country: false,
-      motive: false,
-      mail: false,
-      note: false,
+      ...prev,
       [inputType]: true,
     }));
 
     // Validations:
-
-    // onInput
-
-    // Name
+    // Name onInput
+    const nameNumRegex = /\d/;
+    const nameNoSpecialCharRegex = /^[a-zA-Z'-]+$/;
     if (inputType === "name" && nonEmptyFields.name) {
-      const nameNumRegex = /\d/;
-      const nameNoSpecialCharRegex = /^[a-zA-Z'-]+$/;
+      let errorType = null;
       if (inputValue.length > 40) {
-        setContentErrors((prev) => ({
-          ...prev,
-          [inputType]: {
-            ...prev[IntType],
-            isError: true,
-            onInput: 1,
-            onBlur: null,
-          },
-        }));
+        errorType = 1;
       } else if (nameNumRegex.test(inputValue)) {
-        setContentErrors((prev) => ({
-          ...prev,
-          [inputType]: {
-            ...prev[IntType],
-            isError: true,
-            onInput: 2,
-            onBlur: null,
-          },
-        }));
+        errorType = 2;
       } else if (!nameNoSpecialCharRegex.test(inputValue)) {
-        setContentErrors((prev) => ({
-          ...prev,
-          [inputType]: {
-            ...prev[IntType],
-            isError: true,
-            onInput: 3,
-            onBlur: null,
-          },
-        }));
+        errorType = 3;
       } else if (inputValue.length > 15 && inputValue.length <= 25) {
+        errorType = 0;
+      }
+      if (errorType !== null) {
         setContentErrors((prev) => ({
           ...prev,
           [inputType]: {
-            ...prev[IntType],
             isError: true,
-            onInput: 0,
+            onInput: errorType,
             onBlur: null,
           },
         }));
@@ -125,7 +102,6 @@ function Connect() {
         setContentErrors((prev) => ({
           ...prev,
           [inputType]: {
-            ...prev[IntType],
             isError: false,
             onInput: null,
             onBlur: null,
