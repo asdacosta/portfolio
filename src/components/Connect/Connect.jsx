@@ -64,10 +64,21 @@ function Connect() {
       setNonEmptyFields((prev) => ({ ...prev, [inputType]: false }));
       return;
     }
+    setNonEmptyFields((prev) => ({
+      name: false,
+      country: false,
+      motive: false,
+      mail: false,
+      note: false,
+      [inputType]: true,
+    }));
 
-    // Validations
-    // onInput validations
-    if (inputType === "name" && inputValue.length > 0) {
+    // Validations:
+
+    // onInput
+
+    // Name
+    if (inputType === "name" && nonEmptyFields.name) {
       const nameNumRegex = /\d/;
       const nameNoSpecialCharRegex = /^[a-zA-Z'-]+$/;
       if (inputValue.length > 40) {
@@ -122,15 +133,6 @@ function Connect() {
         }));
       }
     }
-
-    setNonEmptyFields((prev) => ({
-      name: false,
-      country: false,
-      motive: false,
-      mail: false,
-      note: false,
-      [inputType]: true,
-    }));
   };
 
   const handleFocus = (event) => {
