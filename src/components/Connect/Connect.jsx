@@ -34,6 +34,7 @@ function Connect() {
     mail: { isError: false, onInput: null, onBlur: null },
     note: { isError: false, onInput: null, onBlur: null },
   });
+  const [focusedFieldReturn, setFocusedFieldReturn] = useState("onInput");
 
   useEffect(() => {
     // Set feedback content
@@ -42,10 +43,20 @@ function Connect() {
       if (value === true && !contentErrors[key].isError) {
         newFeedback[key] = { ellipsis: true, value: "..." };
       } else if (value === true && contentErrors[key].isError) {
-        newFeedback[key] = {
-          ellipsis: false,
-          value: allFeedbacks[key].onInput[contentErrors[key].onInput],
-        };
+        if (contentErrors[key].onInput !== null) {
+          console.log("Truly input");
+          newFeedback[key] = {
+            ellipsis: false,
+            value: allFeedbacks[key].onInput[contentErrors[key].onInput],
+          };
+        }
+        if (contentErrors[key].onBlur !== null) {
+          console.log("Truly blurred");
+          newFeedback[key] = {
+            ellipsis: false,
+            value: allFeedbacks[key].onBlur[contentErrors[key].onBlur],
+          };
+        }
       }
     }
 
@@ -74,13 +85,10 @@ function Connect() {
       [inputType]: true,
     }));
 
-    // Validations:
-
-    // Name onInput
+    // Name onInput validations
     const nameNumRegex = /\d/;
     const nameNoSpecialCharRegex = /^[a-zA-Z'-]+$/;
     if (inputType === "name" && nonEmptyFields.name) {
-      console.log("Name instead");
       let errorType = null;
       if (inputValue.length > 40) {
         errorType = 1;
@@ -112,7 +120,7 @@ function Connect() {
       }
     }
 
-    //   Mail onInput
+    // Mail onInput validations
     if (inputType === "mail" && nonEmptyFields.mail) {
       if (inputValue.length > 50) {
         setContentErrors((prev) => ({
@@ -138,11 +146,57 @@ function Connect() {
       ...prev,
       [inputType]: true,
     }));
+
+    // Continue with input validation from onBlur validations
+    handleInput(event);
   };
 
   const handleBlur = (event) => {
     const inputType = event.currentTarget.id;
+    const inputValue = event.currentTarget.value;
     setFocusedFields((prev) => ({ ...prev, [inputType]: false }));
+
+    // Name onBlur validations
+    if (inputType === "name" && nonEmptyFields.name) {
+      let errorType = null;
+      if (inputValue.length === 1) {
+        errorType = 0;
+      } else if (contentErrors.name.isError) {
+        errorType = 1;
+      } else {
+        errorType = null;
+      }
+      setContentErrors((prev) => ({
+        ...prev,
+        [inputType]: {
+          isError: true,
+          onInput: null,
+          onBlur: errorType,
+        },
+      }));
+    }
+
+    // For Label focusedField props
+    const focusedReturn = handleFocusedField(event);
+    setFocusedFieldReturn((prev) => focusedReturn);
+  };
+
+  const handleFocusedField = (event) => {
+    const inputType = event.currentTarget.id;
+
+    // console.log(contentErrors[inputType].isError);
+    if (contentErrors[inputType].isError) {
+      if (contentErrors[inputType].onInput !== null) {
+        // console.log("onInput");
+        return "onInput";
+      } else if (contentErrors[inputType].onBlur !== null) {
+        // console.log("onBlur");
+        return "onBlur";
+      }
+    } else {
+      //   console.log("Second onBlur");
+      return "onInput";
+    }
   };
 
   return (
@@ -163,7 +217,8 @@ function Connect() {
           <div className={`${connectStyles.nameField} ${connectStyles.field}`}>
             <Label
               nonEmptyField={nonEmptyFields.name}
-              focusedField={focusedFields.name}
+              focusedOption={focusedFields.name}
+              focusedField={focusedFieldReturn}
               inputLabel="Name"
               typingText={feedbacks.name.value}
               required={false}
