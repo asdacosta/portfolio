@@ -17,6 +17,18 @@ function FetchCountries({
       try {
         const response = await fetch("https://restcountries.com/v3.1/all");
         const data = await response.json();
+        data.sort((a, b) => {
+          const nameA = a.name.common.toUpperCase();
+          const nameB = b.name.common.toUpperCase();
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+          return 0;
+        });
+
         setCountries(data);
       } catch (error) {
         console.error("Error fetching countries:", error);
