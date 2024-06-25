@@ -19,7 +19,7 @@
   font-weight: 500;
   letter-spacing: 0.05rem;
   padding: 0.5rem;
-  min-height: 3.1rem;
+  min-height: 2.5rem;
   border-radius: 0.5rem;
   background-color: rgba(255, 255, 255, 0.7);
   border: none;
@@ -30,18 +30,22 @@
 
 .Select {
   display: grid;
-  height: 3.1rem;
+  height: 2.5rem;
   transition: all 0.3s ease-in-out;
 }
 
-.Select > * > * > * {
+.Select * {
+  align-items: center;
+  align-self: center;
   margin: 0 !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
 
 .subCountry {
-  padding: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem !important;
 }
 
 .fieldSection input::placeholder,
@@ -118,7 +122,7 @@
 
 .allFields {
   display: grid;
-  grid-template: repeat(2, 1fr) 3fr 1fr / repeat(2, 1fr);
+  grid-template: repeat(2, 1fr) 3.5fr 1fr / repeat(2, 1fr);
   gap: 1rem;
 }
 
