@@ -118,17 +118,27 @@ function Connect() {
     }
 
     // Mail onInput validations
-    if (inputType === "mail" && inputValue.length > 0) {
-      if (inputValue.length > 50) {
-        setContentErrors((prev) => ({
-          ...prev,
-          [inputType]: {
-            isError: true,
-            onInput: 0,
-            onBlur: null,
-          },
-        }));
-      }
+    if (inputType === "mail" && inputValue.length > 50) {
+      setContentErrors((prev) => ({
+        ...prev,
+        [inputType]: {
+          isError: true,
+          onInput: 0,
+          onBlur: null,
+        },
+      }));
+    }
+
+    // Motive onInput validation
+    if (inputType === "motive" && inputValue.length > 30) {
+      setContentErrors((prev) => ({
+        ...prev,
+        [inputType]: {
+          isError: true,
+          onInput: 0,
+          onBlur: null,
+        },
+      }));
     }
   };
 
