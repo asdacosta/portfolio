@@ -54,6 +54,18 @@ function FetchCountries({
   }));
 
   const definedStyles = {
+    control: (provided, state) => ({
+      ...provided,
+      fontSize: "1.1rem",
+      fontWeight: "500",
+      borderWidth: "0",
+      borderRadius: "0.5rem",
+      backgroundColor: state.isFocused ? "white" : "rgba(255, 255, 255, 0.7)", // Customize dropdown indicator color
+      "&:hover": {
+        backgroundColor: "white",
+      },
+      transition: "background-color 0.3s ease-in-out",
+    }),
     menu: (provided) => ({
       ...provided,
       backgroundColor: "rgb(0, 204, 255)",
@@ -61,9 +73,29 @@ function FetchCountries({
     }),
     option: (provided, state) => ({
       ...provided,
-      backgroundColor: state.isSelected ? "rgb(0, 6, 26)" : "rgb(0, 204, 255",
+      backgroundColor: state.isSelected ? "rgb(0, 6, 26)" : "rgb(0, 204, 255)",
       color: state.isSelected ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)",
       padding: state.isSelected ? "0" : "0",
+    }),
+    placeholder: (provided) => ({
+      ...provided,
+      color: "rgba(0, 0, 0, 0.65)",
+      fontWeight: "500",
+    }),
+    indicatorSeparator: (provided) => ({
+      ...provided,
+      width: "0",
+    }),
+    indicatorContainer: (provided) => ({
+      ...provided,
+      paddingRight: "10px",
+    }),
+    dropdownIndicator: (provided) => ({
+      ...provided,
+      color: "rgb(0, 6, 26)", // Customize dropdown indicator color
+      "&:hover": {
+        color: "rgb(0, 204, 255)",
+      },
     }),
   };
 
@@ -72,6 +104,7 @@ function FetchCountries({
       <Select
         name={name}
         id={id}
+        className={connectStyles.Select}
         placeholder={placeholder}
         required
         onFocus={handleFocus}
