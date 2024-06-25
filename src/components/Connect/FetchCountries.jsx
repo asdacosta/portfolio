@@ -92,9 +92,9 @@ function FetchCountries({
     }),
     dropdownIndicator: (provided) => ({
       ...provided,
-      color: "rgb(0, 6, 26)", // Customize dropdown indicator color
+      color: "rgb(0, 6, 26)",
       "&:hover": {
-        color: "rgb(0, 204, 255)",
+        color: "rgba(0, 6, 26)",
       },
     }),
   };
