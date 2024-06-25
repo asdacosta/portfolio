@@ -3,6 +3,7 @@ import connectStyles from "./Connect.module.css";
 import "@dotlottie/player-component";
 import { Label } from "./Label";
 import { allFeedbacks } from "./feedbacks";
+import { FetchCountries } from "./FetchCountries";
 
 function Connect() {
   const [focusedFields, setFocusedFields] = useState({
@@ -280,8 +281,8 @@ function Connect() {
               id="country"
               contentError={contentErrors.country.isError}
             />
-            <input
-              type="text"
+
+            <FetchCountries
               name="country"
               id="country"
               placeholder="Enter country..."
