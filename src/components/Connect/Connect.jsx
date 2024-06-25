@@ -44,14 +44,12 @@ function Connect() {
         newFeedback[key] = { ellipsis: true, value: "..." };
       } else if (value === true && contentErrors[key].isError) {
         if (contentErrors[key].onInput !== null) {
-          console.log("Truly input");
           newFeedback[key] = {
             ellipsis: false,
             value: allFeedbacks[key].onInput[contentErrors[key].onInput],
           };
         }
         if (contentErrors[key].onBlur !== null) {
-          console.log("Truly blurred");
           newFeedback[key] = {
             ellipsis: false,
             value: allFeedbacks[key].onBlur[contentErrors[key].onBlur],
@@ -184,17 +182,13 @@ function Connect() {
   const handleFocusedField = (event) => {
     const inputType = event.currentTarget.id;
 
-    // console.log(contentErrors[inputType].isError);
     if (contentErrors[inputType].isError) {
       if (contentErrors[inputType].onInput !== null) {
-        // console.log("onInput");
         return "onInput";
       } else if (contentErrors[inputType].onBlur !== null) {
-        // console.log("onBlur");
         return "onBlur";
       }
     } else {
-      //   console.log("Second onBlur");
       return "onInput";
     }
   };
