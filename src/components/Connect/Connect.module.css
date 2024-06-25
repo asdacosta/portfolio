@@ -171,3 +171,32 @@
 .feedback {
   font-size: 0.7rem;
 }
+
+.motiveField {
+  position: relative;
+}
+
+.motiveField:hover .chevronCover,
+.motiveField input:focus ~ .chevronCover {
+  background-color: white;
+}
+
+.chevronCover {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  bottom: 0.2rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  z-index: 5;
+  background-color: rgb(179, 180, 186);
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.chevronCover svg {
+  width: 0.85rem;
+  fill: rgb(0, 6, 26);
+}
