@@ -188,6 +188,20 @@ function Connect() {
       }
     }
 
+    // Note onBlur validations
+    if (inputType === "note" && inputValue.length > 0) {
+      if (inputValue.length < 10) {
+        setContentErrors((prev) => ({
+          ...prev,
+          [inputType]: {
+            isError: true,
+            onInput: null,
+            onBlur: 0,
+          },
+        }));
+      }
+    }
+
     // For Label focusedField props
     const focusedReturn = handleFocusedField(event);
     setFocusedFieldReturn((prev) => focusedReturn);
@@ -314,7 +328,8 @@ function Connect() {
           <div className={`${connectStyles.noteField} ${connectStyles.field}`}>
             <Label
               nonEmptyField={nonEmptyFields.note}
-              focusedField={focusedFields.note}
+              focusedOption={focusedFields.note}
+              focusedField={focusedFieldReturn}
               inputLabel="Note"
               typingText={feedbacks.note.value}
               required={true}
