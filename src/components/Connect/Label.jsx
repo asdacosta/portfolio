@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 function Label({
   nonEmptyField,
   focusedField,
+  focusedOption,
   inputLabel,
   typingText,
   required,
@@ -40,7 +41,7 @@ function Label({
       ) : required ? (
         <span
           className={`${connectStyles.requiredField} ${
-            focusedField ? connectStyles.animateFieldOption : ""
+            focusedOption ? connectStyles.animateFieldOption : ""
           }`}
         >
           {" "}
@@ -49,7 +50,7 @@ function Label({
       ) : (
         <span
           className={`${connectStyles.optionalField} ${
-            focusedField ? connectStyles.animateFieldOption : ""
+            focusedOption ? connectStyles.animateFieldOption : ""
           }`}
         >
           Optional
