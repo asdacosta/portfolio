@@ -262,7 +262,8 @@ function Connect() {
           >
             <Label
               nonEmptyField={nonEmptyFields.country}
-              focusedField={focusedFields.country}
+              focusedOption={focusedFields.country}
+              focusedField={focusedFieldReturn}
               inputLabel="Country"
               typingText={feedbacks.country.value}
               required={true}
@@ -285,7 +286,8 @@ function Connect() {
           >
             <Label
               nonEmptyField={nonEmptyFields.motive}
-              focusedField={focusedFields.motive}
+              focusedOption={focusedFields.motive}
+              focusedField={focusedFieldReturn}
               inputLabel="Motive"
               typingText={feedbacks.motive.value}
               required={true}
