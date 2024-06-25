@@ -3,7 +3,6 @@ import connectStyles from "./Connect.module.css";
 import "@dotlottie/player-component";
 import { Label } from "./Label";
 import { allFeedbacks } from "./feedbacks";
-import { IntType } from "three";
 
 function Connect() {
   const [focusedFields, setFocusedFields] = useState({
@@ -86,11 +85,12 @@ function Connect() {
     // Name onInput validations
     const nameNumRegex = /\d/;
     const nameNoSpecialCharRegex = /^[a-zA-Z'-]+$/;
-    if (inputType === "name" && nonEmptyFields.name) {
+    if (inputType === "name" && inputValue.length > 0) {
       let errorType = null;
       if (inputValue.length > 40) {
         errorType = 1;
       } else if (nameNumRegex.test(inputValue)) {
+        console.log("Triggers 1");
         errorType = 2;
       } else if (!nameNoSpecialCharRegex.test(inputValue)) {
         errorType = 3;
@@ -119,7 +119,7 @@ function Connect() {
     }
 
     // Mail onInput validations
-    if (inputType === "mail" && nonEmptyFields.mail) {
+    if (inputType === "mail" && inputValue.length > 0) {
       if (inputValue.length > 50) {
         setContentErrors((prev) => ({
           ...prev,
@@ -155,7 +155,7 @@ function Connect() {
     setFocusedFields((prev) => ({ ...prev, [inputType]: false }));
 
     // Name onBlur validations
-    if (inputType === "name" && nonEmptyFields.name) {
+    if (inputType === "name" && inputValue.length > 0) {
       let errorType = null;
       if (inputValue.length === 1) {
         errorType = 0;
