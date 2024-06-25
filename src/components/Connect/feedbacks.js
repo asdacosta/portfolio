@@ -9,10 +9,10 @@ const name = {
 };
 const country = { onBlur: ["Select a valid country."] };
 const motive = {
-  onBlur: ["Select a motive or custom one."],
+  onInput: ["Kindly keep the subject short."],
 };
 const note = {
-  onBlur: ["Note must be at least 10 chars.", "Note can't be empty."],
+  onBlur: ["Note must be at least 10 chars."],
 };
 const mail = {
   onInput: ["Email is lengthy, use a valid one."],
