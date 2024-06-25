@@ -295,7 +295,7 @@ function Connect() {
               contentError={contentErrors.motive.isError}
             />
             <input
-              type="text"
+              list="allMotives"
               name="motive"
               id="motive"
               placeholder="Enter subject..."
@@ -304,6 +304,16 @@ function Connect() {
               onBlur={handleBlur}
               onInput={handleInput}
             />
+            <datalist id="allMotives">
+              <option value="Hire short term" />
+              <option value="Hire long term" />
+              <option value="Consult" />
+              <option value="Collaboration" />
+              <option value="General Inquiry" />
+              <option value="Bug Report" />
+              <option value="Support $" />
+              <option value=" ">Other</option>
+            </datalist>
           </div>
           <div className={`${connectStyles.emailField} ${connectStyles.field}`}>
             <Label
