@@ -90,7 +90,6 @@ function Connect() {
       if (inputValue.length > 40) {
         errorType = 1;
       } else if (nameNumRegex.test(inputValue)) {
-        console.log("Triggers 1");
         errorType = 2;
       } else if (!nameNoSpecialCharRegex.test(inputValue)) {
         errorType = 3;
@@ -172,6 +171,21 @@ function Connect() {
           onBlur: errorType,
         },
       }));
+    }
+
+    // Email onBlur validations
+    if (inputType === "mail" && inputValue.length > 0) {
+      const mailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+      if (!mailRegex.test(inputValue)) {
+        setContentErrors((prev) => ({
+          ...prev,
+          [inputType]: {
+            isError: true,
+            onInput: null,
+            onBlur: 0,
+          },
+        }));
+      }
     }
 
     // For Label focusedField props
@@ -278,7 +292,8 @@ function Connect() {
           <div className={`${connectStyles.emailField} ${connectStyles.field}`}>
             <Label
               nonEmptyField={nonEmptyFields.mail}
-              focusedField={focusedFields.mail}
+              focusedOption={focusedFields.mail}
+              focusedField={focusedFieldReturn}
               inputLabel="Email"
               typingText={feedbacks.mail.value}
               required={true}
