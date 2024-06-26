@@ -300,6 +300,20 @@ function Connect() {
       }
     }
 
+    // Motive onBlur validations
+    if (inputType === "motive" && inputValue.length > 0) {
+      if (inputValue.length === 1) {
+        setContentErrors((prev) => ({
+          ...prev,
+          [inputType]: {
+            isError: true,
+            onInput: null,
+            onBlur: 0,
+          },
+        }));
+      }
+    }
+
     // For Label focusedField props
     const focusedReturn = handleFocusedField(event);
     setFocusedFieldReturn((prev) => focusedReturn);
@@ -312,7 +326,6 @@ function Connect() {
         inputValue.length !== 1 &&
         inputValue.length > 0
       ) {
-        console.log("Right here: ", inputValue.length, key);
         if (key === "note" && inputValue.length < 10) {
           return;
         }
