@@ -7,7 +7,6 @@ const name = {
   ],
   onBlur: ["Name must be at least 2 chars.", "Use a valid name or none."],
 };
-const country = { onBlur: ["Select a valid country."] };
 const motive = {
   onInput: ["Kindly keep the subject short."],
 };
@@ -22,7 +21,6 @@ const submitFeedbacks = ["Complete the form.", "Send"];
 
 const allFeedbacks = {
   name,
-  country,
   motive,
   note,
   mail,
