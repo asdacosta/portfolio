@@ -177,7 +177,8 @@
 }
 
 .motiveField input:hover ~ .chevronCover,
-.motiveField input:focus ~ .chevronCover {
+.motiveField input:focus ~ .chevronCover,
+.fieldSection input:not(:placeholder-shown) ~ .chevronCover {
   background-color: white;
 }
 
@@ -186,7 +187,7 @@
   justify-content: center;
   position: absolute;
   right: 0;
-  bottom: 0.2rem;
+  bottom: 0.1rem;
   width: 2.2rem;
   height: 2.2rem;
   z-index: 5;
@@ -199,4 +200,9 @@
 .chevronCover svg {
   width: 0.85rem;
   fill: rgb(0, 6, 26);
+}
+
+.checkIcon {
+  width: 1rem;
+  fill: rgb(0, 204, 255);
 }
