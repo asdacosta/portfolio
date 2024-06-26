@@ -144,7 +144,11 @@ function Connect() {
   };
 
   const handleFocus = (event) => {
-    const inputType = event.currentTarget.id;
+    let inputType = event.currentTarget.id;
+    // Capture Country odd id
+    if (inputType === "react-select-3-input") {
+      inputType = "country";
+    }
     // Trigger nonEmpty field on focus
     if (event.currentTarget.value !== "") {
       setNonEmptyFields((prev) => ({ ...prev, [inputType]: true }));
@@ -160,7 +164,12 @@ function Connect() {
   };
 
   const handleBlur = (event) => {
-    const inputType = event.currentTarget.id;
+    let inputType = event.currentTarget.id;
+    // Capture Country odd id
+    if (inputType === "react-select-3-input") {
+      inputType = "country";
+    }
+
     const inputValue = event.currentTarget.value;
     setFocusedFields((prev) => ({ ...prev, [inputType]: false }));
 
@@ -287,9 +296,8 @@ function Connect() {
               id="country"
               placeholder="Enter country..."
               required
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-              onInput={handleInput}
+              handleFocus={handleFocus}
+              handleBlur={handleBlur}
             />
           </div>
           <div
