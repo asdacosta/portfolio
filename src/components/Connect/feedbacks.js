@@ -9,6 +9,7 @@ const name = {
 };
 const motive = {
   onInput: ["Kindly keep the subject short."],
+  onBlur: ["Name must be at least 2 chars."],
 };
 const note = {
   onBlur: ["Note must be at least 10 chars."],
