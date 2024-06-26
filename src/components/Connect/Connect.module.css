@@ -176,7 +176,7 @@
   position: relative;
 }
 
-.motiveField:hover .chevronCover,
+.motiveField input:hover ~ .chevronCover,
 .motiveField input:focus ~ .chevronCover {
   background-color: white;
 }
