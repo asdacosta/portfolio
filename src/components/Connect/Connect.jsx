@@ -20,6 +20,13 @@ function Connect() {
     mail: false,
     note: false,
   });
+  const [checks, setChecks] = useState({
+    name: false,
+    country: false,
+    motive: false,
+    mail: false,
+    note: false,
+  });
   const [feedbacks, setFeedbacks] = useState({
     name: { ellipsis: false, value: "" },
     country: { ellipsis: false, value: "" },
@@ -35,6 +42,16 @@ function Connect() {
     note: { isError: false, onInput: null, onBlur: null },
   });
   const [focusedFieldReturn, setFocusedFieldReturn] = useState("onInput");
+
+  // useEffect(() => {
+  //   // Run checks if value has no eror
+  //   for (const [key, data] of Object.entries(contentErrors)) {
+  //     if (!data.isError && nonEmptyFields[key]) {
+  //       setChecks((prev) => ({...prev, [key]: true}))
+  //     }
+  //   }
+
+  // }, [checks]);
 
   useEffect(() => {
     // Set feedback content
@@ -119,24 +136,59 @@ function Connect() {
     }
 
     // Mail onInput validations
-    if (inputType === "mail" && inputValue.length > 50) {
-      setContentErrors((prev) => ({
-        ...prev,
-        [inputType]: {
-          isError: true,
-          onInput: 0,
-          onBlur: null,
-        },
-      }));
+    if (inputType === "mail" && inputValue.length > 0) {
+      if (inputValue.length > 50) {
+        setContentErrors((prev) => ({
+          ...prev,
+          [inputType]: {
+            isError: true,
+            onInput: 0,
+            onBlur: null,
+          },
+        }));
+      } else {
+        setContentErrors((prev) => ({
+          ...prev,
+          [inputType]: {
+            isError: false,
+            onInput: null,
+            onBlur: null,
+          },
+        }));
+      }
     }
 
     // Motive onInput validation
-    if (inputType === "motive" && inputValue.length > 30) {
+    if (inputType === "motive" && inputValue.length > 0) {
+      if (inputValue.length > 30) {
+        setContentErrors((prev) => ({
+          ...prev,
+          [inputType]: {
+            isError: true,
+            onInput: 0,
+            onBlur: null,
+          },
+        }));
+      } else {
+        setContentErrors((prev) => ({
+          ...prev,
+          [inputType]: {
+            isError: false,
+            onInput: null,
+            onBlur: null,
+          },
+        }));
+      }
+    }
+
+    // Note onInput validation
+    if (inputType === "note" && inputValue.length > 0) {
+      // Set back to default since it has no onInput validation
       setContentErrors((prev) => ({
         ...prev,
         [inputType]: {
-          isError: true,
-          onInput: 0,
+          isError: false,
+          onInput: null,
           onBlur: null,
         },
       }));
@@ -145,12 +197,13 @@ function Connect() {
 
   const handleFocus = (event) => {
     let inputType = event.currentTarget.id;
+    const inputValue = event.currentTarget.value;
     // Capture Country odd id
     if (inputType === "react-select-3-input") {
       inputType = "country";
     }
     // Trigger nonEmpty field on focus
-    if (event.currentTarget.value !== "") {
+    if (inputValue !== "") {
       setNonEmptyFields((prev) => ({ ...prev, [inputType]: true }));
     }
 
@@ -161,6 +214,13 @@ function Connect() {
 
     // Continue with input validation from onBlur validations
     handleInput(event);
+
+    // Stop check
+    for (const [key, data] of Object.entries(contentErrors)) {
+      if (key === inputType && inputValue.length > 0) {
+        setChecks((prev) => ({ ...prev, [key]: false }));
+      }
+    }
   };
 
   const handleBlur = (event) => {
@@ -205,6 +265,15 @@ function Connect() {
             onBlur: 0,
           },
         }));
+      } else {
+        setContentErrors((prev) => ({
+          ...prev,
+          [inputType]: {
+            isError: false,
+            onInput: null,
+            onBlur: null,
+          },
+        }));
       }
     }
 
@@ -219,12 +288,38 @@ function Connect() {
             onBlur: 0,
           },
         }));
+      } else {
+        setContentErrors((prev) => ({
+          ...prev,
+          [inputType]: {
+            isError: false,
+            onInput: null,
+            onBlur: null,
+          },
+        }));
       }
     }
 
     // For Label focusedField props
     const focusedReturn = handleFocusedField(event);
     setFocusedFieldReturn((prev) => focusedReturn);
+
+    // Run checks
+    for (const [key, data] of Object.entries(contentErrors)) {
+      if (
+        key === inputType &&
+        !data.isError &&
+        inputValue.length !== 1 &&
+        inputValue.length > 0
+      ) {
+        console.log("Right here: ", inputValue.length, key);
+        if (key === "note" && inputValue.length < 10) {
+          return;
+        }
+        setChecks((prev) => ({ ...prev, [key]: true }));
+        return;
+      }
+    }
   };
 
   const handleFocusedField = (event) => {
@@ -266,6 +361,7 @@ function Connect() {
               required={false}
               id="name"
               contentError={contentErrors.name.isError}
+              check={checks.name}
             />
             <input
               type="text"
@@ -289,6 +385,7 @@ function Connect() {
               required={true}
               id="country"
               contentError={contentErrors.country.isError}
+              check={checks.country}
             />
 
             <FetchCountries
@@ -312,6 +409,7 @@ function Connect() {
               required={true}
               id="motive"
               contentError={contentErrors.motive.isError}
+              check={checks.motive}
             />
             <input
               list="allMotives"
@@ -349,6 +447,7 @@ function Connect() {
               required={true}
               id="mail"
               contentError={contentErrors.mail.isError}
+              check={checks.mail}
             />
             <input
               type="text"
@@ -371,6 +470,7 @@ function Connect() {
               required={true}
               id="note"
               contentError={contentErrors.note.isError}
+              check={checks.note}
             />
             <textarea
               name="note"
