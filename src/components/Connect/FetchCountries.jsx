@@ -8,7 +8,7 @@ function FetchCountries({
   placeholder,
   handleFocus,
   handleBlur,
-  handleInput,
+  handleChange,
 }) {
   const [countries, setCountries] = useState([]);
 
@@ -109,7 +109,7 @@ function FetchCountries({
         required
         onFocus={handleFocus}
         onBlur={handleBlur}
-        onInputChange={handleInput}
+        onChange={handleChange}
         options={options}
         styles={definedStyles}
       />
