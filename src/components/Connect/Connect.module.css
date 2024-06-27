@@ -1,8 +1,19 @@
 .connect {
   display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 10rem;
+  gap: 40rem;
   height: 100vh;
+}
+
+.otherConnect {
+  position: relative;
+  bottom: -14rem;
+}
+
+.scrollUpLottie {
+  cursor: pointer;
+  border-radius: 5rem;
 }
 
 .fieldSection {
