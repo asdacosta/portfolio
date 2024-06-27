@@ -430,7 +430,7 @@ function Connect() {
               required
               handleFocus={handleFocus}
               handleBlur={handleBlur}
-              handleInput={handleCountryOnChange}
+              handleChange={handleCountryOnChange}
             />
           </div>
           <div
