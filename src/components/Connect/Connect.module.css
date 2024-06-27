@@ -205,4 +205,18 @@
 .checkIcon {
   width: 1rem;
   fill: rgb(0, 204, 255);
+  position: relative;
+  right: -50%;
+  top: 0.1rem;
+  transform: scale(0);
+  filter: blur(2rem);
+  animation: correct 0.5s ease-in-out forwards;
+}
+
+@keyframes correct {
+  to {
+    right: 0;
+    transform: scale(1);
+    filter: blur(0);
+  }
 }
