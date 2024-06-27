@@ -382,6 +382,7 @@ function Connect() {
   const animateScroll = () => {
     if (scrollUpRef.current) {
       scrollUpRef.current.play();
+      scrollUpRef.current.setSpeed(1.2);
     }
   };
 
