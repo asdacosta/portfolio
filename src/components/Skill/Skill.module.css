@@ -15,8 +15,9 @@
 .research,
 .team {
   display: flex;
+  align-items: center;
   gap: 15rem;
-  border-bottom: 0.5rem solid rgb(0, 204, 255);
+  border-bottom: 0.2rem solid rgb(0, 204, 255);
   border-radius: 2rem;
   height: 100vh;
 }
@@ -69,10 +70,6 @@
   text-align: justify;
 }
 
-.allDevices {
-  padding-bottom: 5rem;
-}
-
 .allDevices > svg {
   width: 45rem;
   height: 35rem;
@@ -80,7 +77,6 @@
 
 section.mobile {
   display: none;
-  padding-bottom: 5rem;
 }
 
 .mobile > svg {
@@ -99,7 +95,6 @@ section.mobile {
 
 section.bot {
   display: none;
-  padding-bottom: 5rem;
 }
 
 .bot > svg {
@@ -116,17 +111,9 @@ section.bot {
   flex-direction: row-reverse;
 }
 
-.author {
-  padding-bottom: 3rem;
-}
-
 .author > svg {
   width: 45rem;
   height: 33rem;
-}
-
-.research {
-  padding-bottom: 5rem;
 }
 
 .research > svg {
