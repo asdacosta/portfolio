@@ -18,7 +18,7 @@ const mail = {
   onInput: ["Email is lengthy, use a valid one."],
   onBlur: ["Use a valid email."],
 };
-const submitFeedbacks = ["Complete the form.", "Send"];
+const submitFeedbacks = ["Complete the form", "Send"];
 
 const allFeedbacks = {
   name,
