@@ -60,7 +60,10 @@ function FetchCountries({
       fontWeight: "500",
       borderWidth: "0",
       borderRadius: "0.5rem",
-      backgroundColor: state.isFocused ? "white" : "rgba(255, 255, 255, 0.7)", // Customize dropdown indicator color
+      backgroundColor:
+        state.isFocused || state.hasValue
+          ? "white"
+          : "rgba(255, 255, 255, 0.7)", // Customize dropdown indicator color
       "&:hover": {
         backgroundColor: "white",
       },
