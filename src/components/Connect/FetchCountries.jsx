@@ -2,7 +2,14 @@ import { useEffect, useState } from "react";
 import Select from "react-select";
 import connectStyles from "./Connect.module.css";
 
-function FetchCountries({ name, id, placeholder, handleFocus, handleBlur }) {
+function FetchCountries({
+  name,
+  id,
+  placeholder,
+  handleFocus,
+  handleBlur,
+  handleInput,
+}) {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
@@ -102,6 +109,7 @@ function FetchCountries({ name, id, placeholder, handleFocus, handleBlur }) {
         required
         onFocus={handleFocus}
         onBlur={handleBlur}
+        onInputChange={handleInput}
         options={options}
         styles={definedStyles}
       />
