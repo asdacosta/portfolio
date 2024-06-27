@@ -102,7 +102,7 @@ function Connect() {
 
     // Name onInput validations
     const nameNumRegex = /\d/;
-    const nameNoSpecialCharRegex = /^[a-zA-Z'-]+$/;
+    const nameNoSpecialCharRegex = /^[a-zA-Z'-\s]+$/;
     if (inputType === "name" && inputValue.length > 0) {
       let errorType = null;
       if (inputValue.length > 40) {
