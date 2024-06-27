@@ -98,7 +98,7 @@ function Education() {
               <span className={skillStyles.fill}></span>
             </span>
             <span>
-              40<span className={skillStyles.percent}>%</span>
+              70<span className={skillStyles.percent}>%</span>
             </span>
           </p>
         </section>
