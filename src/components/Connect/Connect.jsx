@@ -43,15 +43,17 @@ function Connect() {
   });
   const [focusedFieldReturn, setFocusedFieldReturn] = useState("onInput");
 
-  // useEffect(() => {
-  //   // Run checks if value has no eror
-  //   for (const [key, data] of Object.entries(contentErrors)) {
-  //     if (!data.isError && nonEmptyFields[key]) {
-  //       setChecks((prev) => ({...prev, [key]: true}))
-  //     }
-  //   }
+  const [send, setSend] = useState({ feedback: 0, status: false });
 
-  // }, [checks]);
+  useEffect(() => {
+    // Send logic
+    const allChecked = Object.values(checks).every((value) => value === true);
+    if (allChecked) {
+      setSend((prev) => ({ ...prev, feedback: 1, status: true }));
+    } else if (!allChecked) {
+      setSend((prev) => ({ ...prev, feedback: 0, status: false }));
+    }
+  }, [checks]);
 
   useEffect(() => {
     // Set feedback content
@@ -524,7 +526,13 @@ function Connect() {
             ></textarea>
           </div>
           <div>
-            <button>Send</button>
+            <button
+              className={`${connectStyles.submitButton} ${
+                send.status ? connectStyles.send : ""
+              }`}
+            >
+              {allFeedbacks.submitFeedbacks[send.feedback]}
+            </button>
           </div>
         </section>
       </section>
