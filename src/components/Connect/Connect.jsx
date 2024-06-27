@@ -137,6 +137,7 @@ function Connect() {
 
     // Mail onInput validations
     if (inputType === "mail" && inputValue.length > 0) {
+      const mailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
       if (inputValue.length > 50) {
         setContentErrors((prev) => ({
           ...prev,
@@ -254,8 +255,8 @@ function Connect() {
     }
 
     // Email onBlur validations
+    const mailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
     if (inputType === "mail" && inputValue.length > 0) {
-      const mailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
       if (!mailRegex.test(inputValue)) {
         setContentErrors((prev) => ({
           ...prev,
@@ -326,7 +327,11 @@ function Connect() {
         inputValue.length !== 1 &&
         inputValue.length > 0
       ) {
+        // Set extra ifs for fields not setting isError correctly
         if (key === "note" && inputValue.length < 10) {
+          return;
+        }
+        if (key === "mail" && !mailRegex.test(inputValue)) {
           return;
         }
         setChecks((prev) => ({ ...prev, [key]: true }));
