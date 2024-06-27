@@ -18,6 +18,7 @@
   gap: 15rem;
   border-bottom: 0.5rem solid rgb(0, 204, 255);
   border-radius: 2rem;
+  height: 100vh;
 }
 
 .info {
@@ -140,6 +141,7 @@ section.bot {
   flex-direction: column;
   gap: 3rem;
   padding: 5rem 12rem;
+  min-height: 100vh;
 }
 
 .eduSection {
@@ -309,6 +311,7 @@ section.bot {
   flex-direction: column;
   gap: 3rem;
   padding: 5rem 12rem;
+  height: 100vh;
 }
 
 .techSection {
