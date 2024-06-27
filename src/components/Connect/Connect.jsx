@@ -354,6 +354,10 @@ function Connect() {
     }
   };
 
+  const handleCountryOnChange = () => {
+    setChecks((prev) => ({ ...prev, country: true }));
+  };
+
   return (
     <section className={connectStyles.connect}>
       <section className={connectStyles.fieldSection}>
@@ -413,6 +417,7 @@ function Connect() {
               required
               handleFocus={handleFocus}
               handleBlur={handleBlur}
+              handleInput={handleCountryOnChange}
             />
           </div>
           <div
