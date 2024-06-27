@@ -347,6 +347,10 @@ function Connect() {
         if (key === "mail" && !mailRegex.test(inputValue)) {
           return;
         }
+        if (inputType === "country") {
+          // Already sets check onChange
+          return;
+        }
         setChecks((prev) => ({ ...prev, [key]: true }));
         return;
       }
