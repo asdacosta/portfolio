@@ -237,17 +237,25 @@ function Connect() {
     // Name onBlur validations
     if (inputType === "name" && inputValue.length > 0) {
       let errorType = null;
+      let errorValue = false;
       if (inputValue.length === 1) {
         errorType = 0;
+        errorValue = true;
       } else if (contentErrors.name.isError) {
-        errorType = 1;
+        if (contentErrors.name.onInput === 0) {
+          // Not a real error
+          errorType = null;
+        } else {
+          errorType = 1;
+          errorValue = true;
+        }
       } else {
         errorType = null;
       }
       setContentErrors((prev) => ({
         ...prev,
         [inputType]: {
-          isError: true,
+          isError: errorValue,
           onInput: null,
           onBlur: errorType,
         },
@@ -321,13 +329,18 @@ function Connect() {
 
     // Run checks
     for (const [key, data] of Object.entries(contentErrors)) {
+      let errorValue = data.isError;
+      if (key === "name" && data.onInput === 0) {
+        errorValue = false;
+      }
       if (
         key === inputType &&
-        !data.isError &&
+        !errorValue &&
         inputValue.length !== 1 &&
         inputValue.length > 0
       ) {
-        // Set extra ifs for fields not setting isError correctly
+        // Set extra ifs for fields not setting isError correctly (data.isError captures input error and in these fields they have no onInput error related to onBlur error)
+        // onBlur doesn't capture the state update in setContentErrors immediately. The fields that passed are ones that were set onInput which happened prior to onBlur
         if (key === "note" && inputValue.length < 10) {
           return;
         }
