@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import connectStyles from "./Connect.module.css";
 import "@dotlottie/player-component";
 import { Label } from "./Label";
@@ -44,6 +44,8 @@ function Connect() {
   const [focusedFieldReturn, setFocusedFieldReturn] = useState("onInput");
 
   const [send, setSend] = useState({ feedback: 0, status: false });
+
+  const scrollUpRef = useRef(null);
 
   useEffect(() => {
     // Send logic
@@ -377,6 +379,18 @@ function Connect() {
     setChecks((prev) => ({ ...prev, country: true }));
   };
 
+  const animateScroll = () => {
+    if (scrollUpRef.current) {
+      scrollUpRef.current.play();
+    }
+  };
+
+  const revertAnimation = () => {
+    if (scrollUpRef.current) {
+      scrollUpRef.current.stop();
+    }
+  };
+
   return (
     <section className={connectStyles.connect}>
       <section className={connectStyles.fieldSection}>
@@ -535,6 +549,21 @@ function Connect() {
             </button>
           </div>
         </section>
+      </section>
+      <section className={connectStyles.otherConnect}>
+        <div className={connectStyles.scrollUpLottie}>
+          <dotlottie-player
+            className={connectStyles.lottieIcon}
+            ref={scrollUpRef}
+            onMouseEnter={animateScroll}
+            onMouseLeave={revertAnimation}
+            loop
+            delay="0"
+            mode="normal"
+            src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/scrollUp.lottie"
+            style={{ width: "80px", height: "80px" }}
+          ></dotlottie-player>
+        </div>
       </section>
     </section>
   );
