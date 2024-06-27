@@ -103,6 +103,10 @@
   background-color: rgba(0, 204, 255, 0.7);
   transition: all 0.3s;
   transition: width 0.7s ease-in-out;
+  pointer-events: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .submitButton.send {
