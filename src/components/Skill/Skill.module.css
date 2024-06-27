@@ -205,7 +205,7 @@ section.bot {
   position: absolute;
   height: 100%;
   width: 0;
-  background-color: rgb(1, 163, 204);
+  background-color: rgb(0, 204, 255);
   border-radius: 1rem 0 0 1rem;
 }
 
@@ -219,6 +219,7 @@ section.bot {
     border-radius: 1rem 0 0 1rem;
   }
   to {
+    background-color: rgb(0, 144, 180);
     border-radius: 1rem;
     width: 100%;
   }
