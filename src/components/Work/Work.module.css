@@ -247,7 +247,7 @@
 }
 
 .star svg {
-  width: 1.2rem;
+  width: 1.3rem;
   fill: white;
   cursor: pointer;
   animation: scaleStar 1s ease-in-out infinite;
@@ -258,7 +258,7 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.3);
+    transform: scale(1.15);
   }
   100% {
     transform: scale(1);
@@ -267,6 +267,32 @@
 
 .star svg:hover {
   animation: none;
+}
+
+.star svg.animateStar {
+  animation: none;
+  pointer-events: none;
+  animation: rotateStarWithLightEffect 0.5s forwards;
+}
+
+@keyframes rotateStarWithLightEffect {
+  35% {
+    fill: white;
+  }
+  36% {
+    fill: rgb(0, 204, 255);
+  }
+  55% {
+    box-shadow: 0 0 0px rgba(0, 204, 255, 0);
+  }
+  90% {
+    box-shadow: 5px 5px 30px rgba(0, 204, 255, 1);
+  }
+  to {
+    box-shadow: 0 0 0px rgba(0, 204, 255, 0);
+    fill: rgb(0, 204, 255);
+    transform: rotateY(180deg);
+  }
 }
 
 svg.resumeIcon {
