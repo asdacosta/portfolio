@@ -96,6 +96,10 @@
   color: rgb(0, 204, 255);
 }
 
+.themeBox {
+  display: none;
+}
+
 .theme {
   display: flex;
   align-items: center;
