@@ -333,18 +333,18 @@ function AboutSocials() {
         variants={backgroundVariant}
         initial="hidden"
         animate="visible"
+        className={aboutStyles.bgLottie}
       >
         <dotlottie-player
           ref={animationRef}
           onMouseEnter={slowDown}
           onMouseLeave={toNormal}
-          className={aboutStyles.lottie}
           speed="1"
           autoplay
           loop
           mode="bounce"
           src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/0BpLlOouLt.lottie"
-          // style={{ width: "550px", height: "550px" }}
+          // style={{ width: "450px", height: "450px" }}
           style={{ width: "67vmin", height: "67vmin" }}
         ></dotlottie-player>
       </motion.section>
@@ -361,7 +361,7 @@ function AboutSocials() {
           delay="0"
           mode="normal"
           src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/toConnect.lottie"
-          style={{ width: "230px", height: "70px" }}
+          style={{ width: "25vmin", height: "10vmin" }}
         ></dotlottie-player>
         {isBubbling && (
           <div className={aboutStyles.bubbleBox}>
