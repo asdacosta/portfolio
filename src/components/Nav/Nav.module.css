@@ -15,6 +15,10 @@
   z-index: 5;
 }
 
+.menu {
+  display: none;
+}
+
 @keyframes dropDown {
   to {
     opacity: 1;
@@ -142,4 +146,27 @@
 
 .switch > button:first-child {
   opacity: 0.4;
+}
+
+@media (max-width: 700px) {
+  .nav {
+    width: 100%;
+    justify-content: space-between;
+    border: none;
+    box-shadow: none;
+    top: 0;
+    background: none;
+  }
+
+  .others {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+  }
+
+  .menuList {
+    display: none;
+  }
 }
