@@ -241,3 +241,54 @@
     filter: blur(0);
   }
 }
+
+@media (max-width: 1600px) {
+  .connect {
+    gap: 20rem;
+  }
+}
+
+@media (max-width: 1300px) {
+  .connect {
+    gap: 10rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .connect {
+    flex-direction: column;
+    gap: 5rem;
+  }
+
+  .otherConnect {
+    align-self: flex-end;
+    position: relative;
+    bottom: 2rem;
+    right: 1.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .allFields {
+    justify-content: center;
+    grid-template: repeat(4, 1fr) 3.5fr 1fr / minmax(20rem, 30rem);
+    padding: 5vmin;
+    gap: 1rem;
+  }
+
+  .nameField {
+    grid-column: 1 / -1;
+  }
+
+  .countryField {
+    grid-column: 1 / -1;
+  }
+
+  .noteField {
+    grid-column: 1 / -1;
+  }
+
+  .mailLottie {
+    padding: 5vmin;
+  }
+}
