@@ -313,7 +313,9 @@ function Work() {
               </p>
               <p
                 className={` ${workStyles.star}
-                  ${revealLinkBox[image.index] ? workStyles.revealName : ""}`}
+                  ${revealLinkBox[image.index] ? workStyles.revealName : ""} ${
+                  starred[image.index] ? workStyles.animateStar : ""
+                }`}
                 onClick={() => {
                   setStarred((prev) => ({ ...prev, [image.index]: true }));
                 }}
