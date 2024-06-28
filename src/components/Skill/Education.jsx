@@ -13,7 +13,7 @@ function Education() {
               loop
               mode="normal"
               src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/cert.lottie"
-              style={{ width: "100%", height: "140px" }}
+              style={{ width: "100%", height: "100%" }}
             ></dotlottie-player>
           </div>
           <p className={skillStyles.context}>
