@@ -68,6 +68,7 @@ function Nav({ onComplete }) {
         animate="visible"
         exit="exit"
         variants={navBlurVariant}
+        className={navStyles.themeBox}
       >
         <section className={navStyles.theme}>
           <div className={navStyles.bar}>
