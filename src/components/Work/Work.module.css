@@ -295,6 +295,35 @@
   }
 }
 
+.star.animateStar::after {
+  width: max-content;
+  content: "Many Thanks!";
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  position: absolute;
+  top: -1rem;
+  left: -1.5rem;
+  opacity: 0;
+  animation: flyThanks 2.5s 0.5s forwards;
+}
+
+@keyframes flyThanks {
+  from {
+    opacity: 1;
+    filter: blur(20px);
+    top: -2rem;
+  }
+  30% {
+    filter: blur(0);
+  }
+  to {
+    top: -6rem;
+    left: -3rem;
+    opacity: 0;
+  }
+}
+
 svg.resumeIcon {
   width: 0.9rem;
 }
