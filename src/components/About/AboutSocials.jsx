@@ -344,7 +344,8 @@ function AboutSocials() {
           loop
           mode="bounce"
           src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/0BpLlOouLt.lottie"
-          style={{ width: "650px", height: "650px" }}
+          // style={{ width: "550px", height: "550px" }}
+          style={{ width: "67vmin", height: "67vmin" }}
         ></dotlottie-player>
       </motion.section>
       <motion.section
