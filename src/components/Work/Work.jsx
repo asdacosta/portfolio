@@ -19,7 +19,7 @@ function Work() {
     seventhImg: false,
     eightImg: false,
     ninthImg: false,
-    tenthImg: false,
+    // tenthImg: false,
   });
 
   const wheelIconRef = useRef(null);
@@ -285,7 +285,7 @@ function Work() {
         >
           {images.map((image, index) => (
             <section
-              key={index}
+              key={image.alt}
               onMouseEnter={handleImgBoxEnter}
               onMouseLeave={handleImgBoxLeave}
               className={workStyles.workImages}
@@ -298,7 +298,7 @@ function Work() {
                     : workStyles.workName
                 }
               >
-                {image.alt} {image.icon}
+                {image.icon} {image.alt}
               </p>
               <img src={image.src} alt={image.alt} draggable="false" />
               <LinkBox
