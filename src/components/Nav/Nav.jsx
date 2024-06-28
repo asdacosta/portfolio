@@ -1,5 +1,7 @@
 import navStyles from "./Nav.module.css";
 import { motion, AnimatePresence } from "framer-motion";
+import "@dotlottie/player-component";
+import { useState } from "react";
 
 const navBlurVariant = {
   hidden: { filter: "blur(10px" },
@@ -23,6 +25,8 @@ const buttonVariant = {
 };
 
 function Nav({ onComplete }) {
+  const menuRef = useState(null);
+
   return (
     <nav className={navStyles.nav}>
       <motion.button
@@ -79,6 +83,31 @@ function Nav({ onComplete }) {
             <button>OFF</button>
           </div>
         </section>
+      </motion.div>
+
+      <motion.div
+        key="menu"
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        variants={navBlurVariant}
+        className={navStyles.menu}
+      >
+        <button>
+          <dotlottie-player
+            ref={menuRef}
+            mode="normal"
+            src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/menu.lottie"
+            style={{ width: "3rem", height: "3rem" }}
+          ></dotlottie-player>
+        </button>
+        <div className={navStyles.menuList}>
+          <button>About</button>
+          <button>Skill</button>
+          <button>Work</button>
+          <button>Blog</button>
+          <button>Connect</button>
+        </div>
       </motion.div>
     </nav>
   );
