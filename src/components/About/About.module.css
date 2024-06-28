@@ -3,6 +3,7 @@
   justify-content: center;
   gap: 20rem;
   height: 100vh;
+  overflow-x: hidden;
 }
 
 .aboutSocials {
@@ -109,8 +110,12 @@
 }
 
 .info {
-  width: 30rem;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  min-width: 22rem;
   height: max-content;
+  min-height: 6rem;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 1rem;
   padding: 0.5rem 1rem;
@@ -165,13 +170,14 @@
 .infoBox {
   display: flex;
   flex-direction: column;
+  max-width: 30rem;
   gap: 0.5rem;
 }
 
 .progress {
   position: relative;
   background-color: rgba(255, 255, 255, 0.2);
-  width: 30rem;
+  width: 100%;
   height: 0.4rem;
   border-radius: 1rem;
 }
@@ -224,6 +230,14 @@
 
 .socialIcons:hover > div {
   animation-play-state: paused;
+}
+
+.bgLottie {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 40rem;
+  min-height: 40rem;
 }
 
 .blurIcon {
@@ -662,7 +676,7 @@ svg.medium {
     justify-content: center;
     align-items: center;
     height: 100%;
-    margin-bottom: 15rem;
+    padding-bottom: 15rem;
   }
 
   .aboutMe {
@@ -692,8 +706,7 @@ svg.medium {
   }
 
   .toConnect {
-    bottom: -5rem;
+    bottom: -6rem;
     left: 0;
-    cursor: pointer;
   }
 }
