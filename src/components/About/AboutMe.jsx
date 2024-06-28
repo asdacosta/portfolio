@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 function AboutMe() {
   const [displayedText, setDisplayedText] = useState("");
   const [currentInfo, setCurrentInfo] = useState(
-    "I create functionalities and features that make a website work smoothly, ensuring it's interactive and responsive across various devices."
+    "I develop interactive websites that are responsive across various devices, ensuring seamless user interfaces in collaboration with back-end developers."
   );
   const [index, setIndex] = useState(0);
   const [textIndex, setTextIndex] = useState(0);
@@ -55,15 +55,15 @@ function AboutMe() {
 
   const text = [
     "Web Developer.",
-    "Web Designer.",
-    "Front-end Developer.",
     "UI/UX Designer.",
+    "Web Analyst.",
+    "Linguist.",
   ];
   const infos = [
-    "I create functionalities and features that make a website work smoothly, ensuring it's interactive and responsive across various devices.",
-    "I design visually appealing and user-friendly websites, focusing on layout, aesthetics, and user experience.",
-    "I code the interactive elements of websites, ensuring seamless user interfaces in close collaboration with designers and back-end developers.",
-    "I design interfaces that are easy to use and visually attractive by studying user behavior, crafting prototypes, and refining the user experience through continuous research and improvement.",
+    "I develop interactive websites that are responsive across various devices, ensuring seamless user interfaces in collaboration with back-end developers.",
+    "I design visually appealing and user-friendly websites, focusing on layout, aesthetics, and refining user experience through continuous improvement.",
+    "With a background in Statistics, I leverage my analytical and problem solving skills to solve complex challenges in development, ensuring optimal solutions.",
+    "With fluency in four languages, I craft websites to suit users with diverse cultural nuances and collaborate well with teams having various cultural backgrounds.",
   ];
 
   useEffect(() => {
@@ -92,17 +92,12 @@ function AboutMe() {
     if (slideUpNow) {
       const timeoutId = setTimeout(() => {
         setDisplayedText("");
-        setCurrentInfo(infos[textIndex]);
+        setCurrentInfo(infos[(textIndex + 1) % infos.length]);
         setHideCursor(false);
         setSlideUpNow(false);
         setFillProgress(false);
         setIndex(0);
-        setTextIndex((prev) => {
-          if (prev === 3) {
-            return 0;
-          }
-          return prev + 1;
-        });
+        setTextIndex((prev) => (prev + 1) % text.length);
       }, 1000);
       return () => clearTimeout(timeoutId);
     }
