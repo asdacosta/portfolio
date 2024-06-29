@@ -93,6 +93,13 @@ function Nav({ onComplete }) {
         variants={navBlurVariant}
         className={navStyles.menu}
       >
+        <div className={navStyles.menuList}>
+          <button>About</button>
+          <button>Skill</button>
+          <button>Work</button>
+          <button>Blog</button>
+          <button>Connect</button>
+        </div>
         <button>
           <dotlottie-player
             ref={menuRef}
@@ -101,13 +108,6 @@ function Nav({ onComplete }) {
             style={{ width: "3rem", height: "3rem" }}
           ></dotlottie-player>
         </button>
-        <div className={navStyles.menuList}>
-          <button>About</button>
-          <button>Skill</button>
-          <button>Work</button>
-          <button>Blog</button>
-          <button>Connect</button>
-        </div>
       </motion.div>
     </nav>
   );
