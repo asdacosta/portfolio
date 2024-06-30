@@ -19,7 +19,7 @@ function Education() {
           <p className={skillStyles.context}>
             <span>The Odin Project</span>
             <span>⚫</span>
-            <span>Front-end Development</span>
+            <span>Front-end Dev</span>
           </p>
           <p className={skillStyles.eduBar}>
             <span>
@@ -37,7 +37,7 @@ function Education() {
               loop
               mode="normal"
               src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/cert.lottie"
-              style={{ width: "100%", height: "140px" }}
+              style={{ width: "100%", height: "100%" }}
             ></dotlottie-player>
           </div>
           <p className={skillStyles.context}>
@@ -61,7 +61,7 @@ function Education() {
               loop
               mode="normal"
               src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/cert.lottie"
-              style={{ width: "100%", height: "140px" }}
+              style={{ width: "100%", height: "100%" }}
             ></dotlottie-player>
           </div>
           <p className={skillStyles.context}>
@@ -85,7 +85,7 @@ function Education() {
               loop
               mode="normal"
               src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/cert.lottie"
-              style={{ width: "100%", height: "140px" }}
+              style={{ width: "100%", height: "100%" }}
             ></dotlottie-player>
           </div>
           <p className={skillStyles.context}>
@@ -109,13 +109,13 @@ function Education() {
               loop
               mode="normal"
               src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/cert.lottie"
-              style={{ width: "100%", height: "140px" }}
+              style={{ width: "100%", height: "100%" }}
             ></dotlottie-player>
           </div>
           <p className={skillStyles.context}>
             <span>The Odin Project</span>
             <span>⚫</span>
-            <span>Back-end Development</span>
+            <span>Back-end Dev</span>
           </p>
           <p className={skillStyles.eduBar}>
             <span>
