@@ -1,7 +1,7 @@
 import navStyles from "./Nav.module.css";
 import { motion, AnimatePresence } from "framer-motion";
 import "@dotlottie/player-component";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const navBlurVariant = {
   hidden: { filter: "blur(10px" },
@@ -25,7 +25,28 @@ const buttonVariant = {
 };
 
 function Nav({ onComplete }) {
-  const menuRef = useState(null);
+  const [menuOpened, setMenuClosed] = useState(false);
+  const menuRef = useRef(null);
+
+  const openMenu = () => {
+    if (menuRef.current && !menuOpened) {
+      menuRef.current.setDirection(1);
+      menuRef.current.play();
+      setMenuClosed((prev) => true);
+    }
+  };
+
+  const handleMenuClick = () => {
+    if (menuOpened) {
+      setMenuClosed((prev) => false);
+      menuRef.current.setDirection(-1);
+      menuRef.current.play();
+    } else if (!menuOpened) {
+      setMenuClosed((prev) => true);
+      menuRef.current.setDirection(1);
+      menuRef.current.play();
+    }
+  };
 
   return (
     <nav className={navStyles.nav}>
@@ -93,19 +114,26 @@ function Nav({ onComplete }) {
         variants={navBlurVariant}
         className={navStyles.menu}
       >
-        <div className={navStyles.menuList}>
-          <button>About</button>
-          <button>Skill</button>
-          <button>Work</button>
-          <button>Blog</button>
-          <button>Connect</button>
+        <div className={navStyles.menuListBox}>
+          <div
+            className={`${navStyles.menuList} ${
+              menuOpened ? navStyles.animateList : ""
+            }`}
+          >
+            <button>Skill</button>
+            <button>Work</button>
+            <button>Blog</button>
+            <button>Connect</button>
+          </div>
         </div>
-        <button>
+        <button className={navStyles.menuIcon}>
           <dotlottie-player
             ref={menuRef}
             mode="normal"
+            onMouseEnter={openMenu}
+            onClick={handleMenuClick}
             src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/menu.lottie"
-            style={{ width: "3rem", height: "3rem" }}
+            style={{ width: "2.5rem", height: "2.5rem" }}
           ></dotlottie-player>
         </button>
       </motion.div>
