@@ -401,7 +401,7 @@ function Connect() {
             loop
             mode="normal"
             src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/mail.lottie"
-            style={{ width: "90px", height: "90px" }}
+            style={{ width: "80px", height: "80px" }}
           ></dotlottie-player>
           <h2>Get In Touch</h2>
         </div>
