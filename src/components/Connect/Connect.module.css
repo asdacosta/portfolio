@@ -20,7 +20,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  min-width: 40rem;
+  min-width: 21rem;
   max-width: 50rem;
 }
 
@@ -108,7 +108,7 @@
   font-size: 1.5rem;
   font-weight: 600;
   padding: 0.3rem 1rem;
-  width: 16rem;
+  width: 17rem;
   border-radius: 0.5rem;
   cursor: pointer;
   background-color: rgba(0, 204, 255, 0.7);
@@ -143,8 +143,9 @@
 
 .allFields {
   display: grid;
-  grid-template: repeat(2, 1fr) 3.5fr 1fr / repeat(2, 1fr);
+  grid-template: repeat(2, 1fr) 3.5fr 1fr / repeat(2, minmax(20rem, 30rem));
   gap: 1rem;
+  padding: 0 1rem;
 }
 
 .nameField {
@@ -269,10 +270,13 @@
 }
 
 @media (max-width: 700px) {
+  .fieldSection h2 {
+    font-size: 2rem;
+  }
+
   .allFields {
     justify-content: center;
-    grid-template: repeat(4, 1fr) 3.5fr 1fr / minmax(20rem, 30rem);
-    padding: 5vmin;
+    grid-template: repeat(4, 1fr) 3.5fr 1fr / minmax(15rem, 25rem);
     gap: 1rem;
   }
 
