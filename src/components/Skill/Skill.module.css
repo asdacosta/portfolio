@@ -28,8 +28,9 @@
   justify-content: center;
   align-items: center;
   gap: 3rem;
-  padding: 0 2rem;
-  width: 35rem;
+  padding: 0 1rem;
+  max-width: 35rem;
+  min-width: 20rem;
   cursor: context-menu;
 }
 
@@ -155,7 +156,7 @@ section.bot {
 
 .eduSection {
   display: grid;
-  grid-template: repeat(3, 15vmin) / repeat(auto-fit, minmax(35vmin, 50vmin));
+  grid-template: repeat(5, 7rem) / repeat(auto-fit, minmax(21rem, 30rem));
   justify-content: center;
   gap: 2rem;
 }
@@ -166,7 +167,7 @@ section.bot {
   background-color: #333848;
   border-radius: 2rem;
   cursor: context-menu;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .eduSection > section:hover {
@@ -186,9 +187,12 @@ section.bot {
   transform: translateY(1rem);
 }
 
-.context > span:first-child {
-  font-size: 1rem;
+.context > span:first-child,
+.context > span:last-child {
   font-weight: 600;
+}
+
+.context > span:first-child {
   cursor: pointer;
 }
 
@@ -201,9 +205,10 @@ section.bot {
 }
 
 .context > span:last-child {
-  font-size: 1.5rem;
-  font-weight: 600;
   color: rgb(0, 204, 255);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .eduBar {
@@ -281,18 +286,18 @@ section.bot {
   display: flex;
   align-items: center;
   gap: 0.2rem;
-  font-size: 2rem;
+  font-size: 1.8rem;
   width: 6rem;
   font-weight: 600;
 }
 
 .percent {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 500;
 }
 
 .education > h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: rgb(0, 204, 255);
   font-weight: 600;
   background: linear-gradient(
@@ -321,7 +326,7 @@ section.bot {
   flex-direction: column;
   gap: 3rem;
   /* padding: 5rem 12rem; */
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .techSection {
@@ -464,11 +469,11 @@ section.bot {
 }
 
 .techSection h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .technologies > h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .techSection svg,
@@ -608,7 +613,30 @@ section.bot {
     padding-bottom: 5rem;
     height: 100%;
   }
+
+  .info > h2 {
+    font-size: 1.5rem;
+  }
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 500px) {
+  .technologies {
+    gap: 2rem;
+  }
+
+  .techSection {
+    display: grid;
+    grid-template: repeat(4, 1fr) / 1fr;
+    gap: 2.5rem;
+  }
+
+  .tools {
+    max-width: 60vmin;
+  }
+
+  .languages,
+  .frontEnd,
+  .backEnd {
+    max-width: 35vmin;
+  }
 }
