@@ -244,16 +244,16 @@
   filter: blur(0.3rem);
 }
 
-.linkedInBox {
-  top: 54%;
-  left: 25%;
-}
-
-.linkedInBox::before {
+.linkedInBox::before,
+.xBox::before,
+.igBox::before,
+.fbBox::before,
+.youtubeBox::before,
+.githubBox::before,
+.mediumBox::before {
   position: absolute;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  content: "LinkedIn ➚";
   width: max-content;
   color: rgba(255, 255, 255, 0.6);
   bottom: -2rem;
@@ -261,14 +261,21 @@
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.linkedInBox {
+  top: 54%;
+  left: 25%;
+  animation: floatLinkedIn 8s 2s infinite ease-in-out;
+}
+
+.linkedInBox::before {
+  content: "LinkedIn ➚";
 }
 
 .linkedInBox:hover::before {
   opacity: 1;
-}
-
-.linkedInBox {
-  animation: floatLinkedIn 8s 2s infinite ease-in-out;
 }
 
 @keyframes floatLinkedIn {
@@ -299,28 +306,15 @@
 .xBox {
   top: 38%;
   left: 25%;
+  animation: floatX 8s 3s infinite ease-in-out;
 }
 
 .xBox::before {
-  position: absolute;
-  font-size: 1.2rem;
-  font-weight: 600;
   content: "X ➚";
-  width: max-content;
-  color: rgba(255, 255, 255, 0.6);
-  bottom: -2rem;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
 }
 
 .xBox:hover::before {
   opacity: 1;
-}
-
-.xBox {
-  animation: floatX 8s 3s infinite ease-in-out;
 }
 
 @keyframes floatX {
@@ -352,28 +346,15 @@
 .igBox {
   top: 26%;
   left: 46%;
+  animation: floatIg 8s 4s infinite ease-in-out;
 }
 
 .igBox::before {
-  position: absolute;
-  font-size: 1.2rem;
-  font-weight: 600;
   content: "Instagram ➚";
-  width: max-content;
-  color: rgba(255, 255, 255, 0.6);
-  bottom: -2rem;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
 }
 
 .igBox:hover::before {
   opacity: 1;
-}
-
-.igBox {
-  animation: floatIg 8s 4s infinite ease-in-out;
 }
 
 @keyframes floatIg {
@@ -404,28 +385,15 @@
 .fbBox {
   top: 38%;
   right: 25%;
+  animation: floatFb 8s 5s infinite ease-in-out;
 }
 
 .fbBox::before {
-  position: absolute;
-  font-size: 1.2rem;
-  font-weight: 600;
   content: "Facebook ➚";
-  width: max-content;
-  color: rgba(255, 255, 255, 0.6);
-  bottom: -2rem;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
 }
 
 .fbBox:hover::before {
   opacity: 1;
-}
-
-.fbBox {
-  animation: floatFb 8s 5s infinite ease-in-out;
 }
 
 @keyframes floatFb {
@@ -456,28 +424,15 @@
 .youtubeBox {
   top: 54%;
   right: 25%;
+  animation: floatTube 8s 6s infinite ease-in-out;
 }
 
 .youtubeBox::before {
-  position: absolute;
-  font-size: 1.2rem;
-  font-weight: 600;
   content: "YouTube ➚";
-  width: max-content;
-  color: rgba(255, 255, 255, 0.6);
-  bottom: -2rem;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
 }
 
 .youtubeBox:hover::before {
   opacity: 1;
-}
-
-.youtubeBox {
-  animation: floatTube 8s 6s infinite ease-in-out;
 }
 
 @keyframes floatTube {
@@ -508,28 +463,15 @@
 .githubBox {
   top: 66%;
   left: 46%;
+  animation: floatHub 8s 7s infinite ease-in-out;
 }
 
 .githubBox::before {
-  position: absolute;
-  font-size: 1.2rem;
-  font-weight: 600;
   content: "GitHub ➚";
-  width: max-content;
-  color: rgba(255, 255, 255, 0.6);
-  bottom: -2rem;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
 }
 
 .githubBox:hover::before {
   opacity: 1;
-}
-
-.githubBox {
-  animation: floatHub 8s 7s infinite ease-in-out;
 }
 
 @keyframes floatHub {
@@ -564,17 +506,7 @@
 }
 
 .mediumBox::before {
-  position: absolute;
-  font-size: 1.2rem;
-  font-weight: 600;
   content: "Medium ➚";
-  width: max-content;
-  color: rgba(255, 255, 255, 0.6);
-  bottom: -2rem;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
 }
 
 .mediumBox:hover::before {
@@ -607,8 +539,8 @@ svg.medium {
   position: absolute;
   top: -0.2rem;
   right: 1rem;
-  width: 0.8rem;
-  height: 0.8rem;
+  width: 0.7rem;
+  height: 0.7rem;
   border-radius: 1rem;
   background-color: rgb(0, 204, 255);
   animation: letsBounce 1.5s ease-in-out infinite;
