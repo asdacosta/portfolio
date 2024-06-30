@@ -358,7 +358,8 @@ function Work() {
       <section className={workStyles.experience}>
         <h2>Experience</h2>
         <p>
-          <span>28 months</span> - <span>2.5 years</span>
+          28 <span className={workStyles.months}>months</span> - 2.5{" "}
+          <span className={workStyles.years}>years</span>
         </p>
       </section>
     </section>
