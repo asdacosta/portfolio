@@ -1,12 +1,35 @@
+import { useEffect, useRef } from "react";
 import { BackSection } from "./BackSection";
 import { FrontSection } from "./FrontSection";
 import { LangSection } from "./LangSection";
 import skillStyles from "./Skill.module.css";
 import { ToolSection } from "./ToolSection";
+import { useAnimation, useInView, motion } from "framer-motion";
 
 function Technologies() {
+  const techRef = useRef(null);
+  const controls = useAnimation();
+  const techInView = useInView(techRef);
+
+  useEffect(() => {
+    if (techInView) {
+      controls.start("visible");
+    }
+  }, [controls, techInView]);
+
+  const techVariants = {
+    visible: { opacity: 1, y: 0, transition: { duration: 1.5 } },
+    hidden: { opacity: 0, y: 150 },
+  };
+
   return (
-    <section className={skillStyles.technologies}>
+    <motion.section
+      className={skillStyles.technologies}
+      ref={techRef}
+      initial="hidden"
+      animate={controls}
+      variants={techVariants}
+    >
       <h2>Technologies</h2>
       <section className={skillStyles.techSection}>
         <section className={skillStyles.languages}>
@@ -38,7 +61,7 @@ function Technologies() {
           </section>
         </section>
       </section>
-    </section>
+    </motion.section>
   );
 }
 
