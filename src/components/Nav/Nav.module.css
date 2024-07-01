@@ -8,7 +8,7 @@
   border-radius: 0.7rem;
   border: 0.1rem inset rgba(255, 255, 255, 0.6);
   gap: 3rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   box-shadow: 0rem 0.2rem 0.5rem rgba(255, 255, 255, 0.5);
   background-color: rgba(0, 6, 26, 0.6);
   opacity: 0;
@@ -157,6 +157,7 @@
     box-shadow: none;
     top: 0;
     background: none;
+    gap: 0;
   }
 
   .others {
@@ -205,5 +206,16 @@
 
   .menuList > button:hover {
     color: rgb(0, 204, 255);
+  }
+}
+
+@media (max-width: 400px) {
+  .nav {
+    justify-content: flex-end;
+  }
+
+  .home {
+    position: absolute;
+    left: 0.5rem;
   }
 }
