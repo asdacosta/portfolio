@@ -1,9 +1,37 @@
+import { useEffect, useRef } from "react";
 import skillStyles from "./Skill.module.css";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 function Team() {
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
+  const controls = useAnimation();
+  const leftInView = useInView(leftRef);
+  const rightInView = useInView(rightRef);
+
+  useEffect(() => {
+    if (leftInView || rightInView) {
+      controls.start("visible");
+    }
+  }, [controls, leftInView, rightInView]);
+
+  const leftVariant = {
+    visible: { opacity: 1, x: 0, transition: { duration: 2 } },
+    hidden: { opacity: 0, x: -150 },
+  };
+
+  const rightVariant = {
+    visible: { opacity: 1, x: 0, transition: { duration: 2 } },
+    hidden: { opacity: 0, x: 150 },
+  };
+
   return (
     <section className={skillStyles.team}>
-      <svg
+      <motion.svg
+        ref={leftRef}
+        initial="hidden"
+        animate={controls}
+        variants={leftVariant}
         xmlns="http://www.w3.org/2000/svg"
         data-name="Layer 1"
         width="787.06663"
@@ -244,15 +272,21 @@ function Team() {
           transform="translate(-206.46668 -235.93615)"
           fill="#fff"
         />
-      </svg>
-      <div className={skillStyles.info}>
+      </motion.svg>
+      <motion.div
+        className={skillStyles.info}
+        ref={rightRef}
+        initial="hidden"
+        animate={controls}
+        variants={rightVariant}
+      >
         <h2>Collaborative</h2>
         <p>
           I actively contribute to group efforts and work harmoniously with
           teammates. I focus on enabling a cooperative environment where
           everyone's strengths are utilized for mutual success.
         </p>
-      </div>
+      </motion.div>
     </section>
   );
 }
