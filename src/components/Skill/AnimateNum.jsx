@@ -8,7 +8,7 @@ import {
 } from "framer-motion";
 import { useEffect, useState } from "react";
 
-function AnimatedNum({ target }) {
+function AnimatedNum({ target, percent = true }) {
   const motionValue = useMotionValue(0);
   const number = useTransform(motionValue, (value) => Math.floor(value));
   const [currentValue, setCurrentValue] = useState(0);
@@ -24,7 +24,7 @@ function AnimatedNum({ target }) {
   return (
     <motion.span>
       {currentValue}
-      <span className={skillStyles.percent}>%</span>
+      {percent && <span className={skillStyles.percent}>%</span>}
     </motion.span>
   );
 }
