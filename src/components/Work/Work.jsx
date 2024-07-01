@@ -2,6 +2,7 @@ import workStyles from "./Work.module.css";
 import { useEffect, useRef, useState } from "react";
 import { LinkBox } from "./LinkBox";
 import { images } from "./ImageDetails.jsx";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 function Work() {
   const [mouseDownAt, setMouseDownAt] = useState(0);
@@ -56,6 +57,21 @@ function Work() {
     eightBox,
     ninthBox,
   ];
+
+  const workRef = useRef(null);
+  const controls = useAnimation();
+  const inView = useInView(workRef);
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
+  const workVariant = {
+    visible: { opacity: 1, x: 0, transition: { duration: 2 } },
+    hidden: { opacity: 0, x: 50 },
+  };
 
   useEffect(() => {
     animateTrackAndImages(0);
@@ -274,7 +290,13 @@ function Work() {
   };
 
   return (
-    <section className={workStyles.work}>
+    <motion.section
+      className={workStyles.work}
+      ref={workRef}
+      initial="hidden"
+      animate={controls}
+      variants={workVariant}
+    >
       <section className={workStyles.workSamples}>
         <div className={workStyles.wheelIcon} ref={wheelIconRef}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -362,7 +384,7 @@ function Work() {
           <span className={workStyles.years}>years</span>
         </p>
       </section>
-    </section>
+    </motion.section>
   );
 }
 
