@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import skillStyles from "./Skill.module.css";
 import "@dotlottie/player-component";
 import { useAnimation, useInView, motion } from "framer-motion";
+import { AnimatedNum } from "./AnimateNum";
 
 function Education() {
   const eduRef = useRef(null);
@@ -55,9 +56,7 @@ function Education() {
               <span>
                 <span className={skillStyles.fill}></span>
               </span>
-              <span>
-                100<span className={skillStyles.percent}>%</span>
-              </span>
+              <AnimatedNum target={100} />
             </p>
           </section>
           <section className={skillStyles.uni}>
@@ -79,9 +78,7 @@ function Education() {
               <span>
                 <span className={skillStyles.fill}></span>
               </span>
-              <span>
-                100<span className={skillStyles.percent}>%</span>
-              </span>
+              <AnimatedNum target={100} />
             </p>
           </section>
           <section className={skillStyles.alx1}>
@@ -107,9 +104,7 @@ function Education() {
               <span>
                 <span className={skillStyles.fill}></span>
               </span>
-              <span>
-                75<span className={skillStyles.percent}>%</span>
-              </span>
+              <AnimatedNum target={75} />
             </p>
           </section>
           <section className={skillStyles.alx2}>
@@ -135,9 +130,7 @@ function Education() {
               <span>
                 <span className={skillStyles.fill}></span>
               </span>
-              <span>
-                70<span className={skillStyles.percent}>%</span>
-              </span>
+              <AnimatedNum target={70} />
             </p>
           </section>
           <section className={skillStyles.odin2}>
@@ -163,9 +156,7 @@ function Education() {
               <span>
                 <span className={skillStyles.fill}></span>
               </span>
-              <span>
-                15<span className={skillStyles.percent}>%</span>
-              </span>
+              <AnimatedNum target={15} />
             </p>
           </section>
         </section>
