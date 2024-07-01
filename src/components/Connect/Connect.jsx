@@ -562,7 +562,7 @@ function Connect() {
             delay="0"
             mode="normal"
             src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/scrollUp.lottie"
-            style={{ width: "80px", height: "80px" }}
+            style={{ width: "75px", height: "75px" }}
           ></dotlottie-player>
         </div>
       </section>
