@@ -4,6 +4,7 @@ import "@dotlottie/player-component";
 import { Label } from "./Label";
 import { allFeedbacks } from "./feedbacks";
 import { FetchCountries } from "./FetchCountries";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 function Connect() {
   const [focusedFields, setFocusedFields] = useState({
@@ -42,10 +43,33 @@ function Connect() {
     note: { isError: false, onInput: null, onBlur: null },
   });
   const [focusedFieldReturn, setFocusedFieldReturn] = useState("onInput");
-
   const [send, setSend] = useState({ feedback: 0, status: false });
-
   const scrollUpRef = useRef(null);
+  const fieldsRef = useRef(null);
+
+  const scrollUpControls = useAnimation();
+  const fieldControls = useAnimation();
+  const scrollUpInView = useInView(scrollUpRef);
+  const fieldInView = useInView(fieldsRef);
+
+  useEffect(() => {
+    if (scrollUpInView) {
+      scrollUpControls.start("visible");
+    }
+    if (fieldInView) {
+      fieldControls.start("visible");
+    }
+  }, [scrollUpControls, scrollUpInView, fieldControls, fieldInView]);
+
+  const scrollUpVariant = {
+    visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    hidden: { opacity: 0, x: 100 },
+  };
+
+  const fieldVariant = {
+    visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    hidden: { opacity: 0, x: -150 },
+  };
 
   useEffect(() => {
     // Send logic
@@ -394,7 +418,13 @@ function Connect() {
 
   return (
     <section className={connectStyles.connect}>
-      <section className={connectStyles.fieldSection}>
+      <motion.section
+        className={connectStyles.fieldSection}
+        ref={fieldsRef}
+        initial="hidden"
+        animate={fieldControls}
+        variants={fieldVariant}
+      >
         <div className={connectStyles.mailLottie}>
           <dotlottie-player
             autoplay
@@ -550,8 +580,14 @@ function Connect() {
             </button>
           </div>
         </section>
-      </section>
-      <section className={connectStyles.otherConnect}>
+      </motion.section>
+      <motion.section
+        className={connectStyles.otherConnect}
+        ref={scrollUpRef}
+        initial="hidden"
+        animate={scrollUpControls}
+        variants={scrollUpVariant}
+      >
         <div className={connectStyles.scrollUpLottie}>
           <dotlottie-player
             className={connectStyles.lottieIcon}
@@ -565,7 +601,7 @@ function Connect() {
             style={{ width: "75px", height: "75px" }}
           ></dotlottie-player>
         </div>
-      </section>
+      </motion.section>
     </section>
   );
 }
