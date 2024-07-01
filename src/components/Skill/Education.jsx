@@ -17,7 +17,11 @@ function Education() {
             ></dotlottie-player>
           </div>
           <p className={skillStyles.context}>
-            <span>The Odin Project</span>
+            <span>
+              <a href="https://www.theodinproject.com/" target="_blank">
+                The Odin Project
+              </a>
+            </span>
             <span>⚫</span>
             <span>Front-end Dev</span>
           </p>
@@ -41,7 +45,7 @@ function Education() {
             ></dotlottie-player>
           </div>
           <p className={skillStyles.context}>
-            <span>University</span>
+            <span className={skillStyles.eduUniversitySpan}>University</span>
             <span>⚫</span>
             <span>BSc. Statistics</span>
           </p>
@@ -65,7 +69,11 @@ function Education() {
             ></dotlottie-player>
           </div>
           <p className={skillStyles.context}>
-            <span>ALX</span>
+            <span>
+              <a href="https://www.alxafrica.com/" target="_blank">
+                ALX
+              </a>
+            </span>
             <span>⚫</span>
             <span>Software engineering</span>
           </p>
@@ -89,7 +97,11 @@ function Education() {
             ></dotlottie-player>
           </div>
           <p className={skillStyles.context}>
-            <span>ALX</span>
+            <span>
+              <a href="https://www.alxafrica.com/" target="_blank">
+                ALX
+              </a>
+            </span>
             <span>⚫</span>
             <span>AI Essentials</span>
           </p>
@@ -113,7 +125,11 @@ function Education() {
             ></dotlottie-player>
           </div>
           <p className={skillStyles.context}>
-            <span>The Odin Project</span>
+            <span>
+              <a href="https://www.theodinproject.com/" target="_blank">
+                The Odin Project
+              </a>
+            </span>
             <span>⚫</span>
             <span>Back-end Dev</span>
           </p>
