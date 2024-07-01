@@ -5,6 +5,7 @@ import { Label } from "./Label";
 import { allFeedbacks } from "./feedbacks";
 import { FetchCountries } from "./FetchCountries";
 import { motion, useAnimation, useInView } from "framer-motion";
+import { animateScroll as scroll } from "react-scroll";
 
 function Connect() {
   const [focusedFields, setFocusedFields] = useState({
@@ -51,6 +52,10 @@ function Connect() {
   const fieldControls = useAnimation();
   const scrollUpInView = useInView(scrollUpRef);
   const fieldInView = useInView(fieldsRef);
+
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  };
 
   useEffect(() => {
     if (scrollUpInView) {
@@ -594,6 +599,7 @@ function Connect() {
             ref={scrollUpRef}
             onMouseEnter={animateScroll}
             onMouseLeave={revertAnimation}
+            onClick={scrollToTop}
             loop
             delay="0"
             mode="normal"
