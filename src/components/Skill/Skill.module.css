@@ -238,7 +238,7 @@ section.bot {
 
 .odin1 .fill,
 .uni .fill {
-  animation: fill100 1.5s 1s ease-in-out forwards;
+  animation: fill100 2s 0.5s ease-in-out forwards;
 }
 
 @keyframes fill100 {
@@ -253,7 +253,7 @@ section.bot {
 }
 
 .alx1 .fill {
-  animation: fill75 1.5s 1s ease-in-out forwards;
+  animation: fill75 2s 0.5s ease-in-out forwards;
 }
 
 @keyframes fill75 {
@@ -263,7 +263,7 @@ section.bot {
 }
 
 .alx2 .fill {
-  animation: fill70 1.5s 1s ease-in-out forwards;
+  animation: fill70 2s 0.5s ease-in-out forwards;
 }
 
 @keyframes fill70 {
@@ -273,7 +273,7 @@ section.bot {
 }
 
 .odin2 .fill {
-  animation: fill15 1.5s 1s ease-in-out forwards;
+  animation: fill15 2s 0.5s ease-in-out forwards;
 }
 
 @keyframes fill15 {
