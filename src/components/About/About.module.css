@@ -638,7 +638,6 @@ svg.medium {
   }
 
   .toConnect {
-    bottom: -6rem;
-    left: 0;
+    display: none;
   }
 }
