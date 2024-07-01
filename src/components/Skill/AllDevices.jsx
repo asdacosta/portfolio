@@ -1,9 +1,37 @@
+import { useEffect, useRef } from "react";
 import skillStyles from "./Skill.module.css";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 function AllDevices() {
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
+  const controls = useAnimation();
+  const leftInView = useInView(leftRef);
+  const rightInView = useInView(rightRef);
+
+  useEffect(() => {
+    if (leftInView || rightInView) {
+      controls.start("visible");
+    }
+  }, [controls, leftInView, rightInView]);
+
+  const leftVariant = {
+    visible: { opacity: 1, x: 0, transition: { duration: 2 } },
+    hidden: { opacity: 0, x: -150 },
+  };
+
+  const rightVariant = {
+    visible: { opacity: 1, x: 0, transition: { duration: 2 } },
+    hidden: { opacity: 0, x: 150 },
+  };
+
   return (
-    <section className={skillStyles.allDevices}>
-      <svg
+    <motion.section className={skillStyles.allDevices}>
+      <motion.svg
+        ref={leftRef}
+        initial="hidden"
+        animate={controls}
+        variants={leftVariant}
         xmlns="http://www.w3.org/2000/svg"
         data-name="Layer 1"
         width="728.25201"
@@ -310,8 +338,14 @@ function AllDevices() {
           fill="#cacaca"
         />
         <circle cx="243.80241" cy="196.40268" r="1.69602" fill="#fff" />
-      </svg>
-      <div className={skillStyles.info}>
+      </motion.svg>
+      <motion.div
+        className={skillStyles.info}
+        ref={rightRef}
+        initial="hidden"
+        animate={controls}
+        variants={rightVariant}
+      >
         <h2>Responsive on Every Device</h2>
         <p>
           In website development, I design the websites to adapt seamlessly to
@@ -320,8 +354,8 @@ function AllDevices() {
           broadens reach, and provides a consistent, high-quality experience for
           all users.
         </p>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
 
