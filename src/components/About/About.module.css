@@ -617,6 +617,7 @@ svg.medium {
     position: relative;
     top: 10rem;
     gap: 1rem;
+    padding: 0 0.8rem;
     height: max-content;
     animation: slideUp 1.5s ease-in-out forwards;
   }
