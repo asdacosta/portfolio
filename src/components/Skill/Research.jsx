@@ -275,14 +275,13 @@ function Research() {
         />
       </svg>
       <div className={skillStyles.info}>
-        <h2>Research Scientist</h2>
+        <h2>Researcher</h2>
         <p>
-          With a BSc in Statistics, my role involves investigating complex
-          problems and analyzing data to uncover meaningful insights. Leveraging
-          my statistical expertise, I design experiments, develop models, and
-          interpret results to contribute to the advancement of knowledge in any
-          field. I apply careful methodologies and critical thinking to address
-          research questions and solve real-world problems.
+          My background in Statistics has enhanced my attention to detail,
+          problem-solving skills, and research abilities to find optimal
+          solutions. I consistently research in-depth into new technologies in
+          my field, and leverage my expertise in understanding patterns and
+          behaviors within world of development.
         </p>
       </div>
     </section>
