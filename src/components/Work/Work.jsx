@@ -398,9 +398,9 @@ function Work() {
       >
         <h2>Experience</h2>
         <p>
-          <AnimatedNum target={28} percent={false} />{" "}
+          <AnimatedNum target={28} percent={false} delayTime={1} />{" "}
           <span className={workStyles.months}>months</span> ~{" "}
-          <AnimatedNum target={2.5} percent={false} />{" "}
+          <AnimatedNum target={2.5} percent={false} delayTime={1} />{" "}
           <span className={workStyles.years}>years</span>
         </p>
       </motion.section>
