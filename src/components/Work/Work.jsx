@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { LinkBox } from "./LinkBox";
 import { images } from "./ImageDetails.jsx";
 import { motion, useAnimation, useInView } from "framer-motion";
+import { AnimatedNum } from "../Skill/AnimateNum.jsx";
 
 function Work() {
   const [mouseDownAt, setMouseDownAt] = useState(0);
@@ -397,7 +398,9 @@ function Work() {
       >
         <h2>Experience</h2>
         <p>
-          28 <span className={workStyles.months}>months</span> - 2.5{" "}
+          <AnimatedNum target={28} percent={false} />{" "}
+          <span className={workStyles.months}>months</span> ~{" "}
+          <AnimatedNum target={2.5} percent={false} />{" "}
           <span className={workStyles.years}>years</span>
         </p>
       </motion.section>
