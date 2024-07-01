@@ -318,6 +318,10 @@ section.bot {
   animation: gradient-animation 3.5s linear infinite reverse;
 }
 
+span.eduUniversitySpan {
+  pointer-events: none;
+}
+
 /* Technologies */
 .technologies {
   align-self: stretch;
