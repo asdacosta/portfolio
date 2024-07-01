@@ -34,6 +34,7 @@ function Work() {
     eightImg: false,
     ninthImg: false,
   });
+  const [displayExp, setDisplayExp] = useState(false);
 
   const wheelIconRef = useRef(null);
   const trackRef = useRef(null);
@@ -66,14 +67,20 @@ function Work() {
   const workInView = useInView(workRef);
   const expInView = useInView(expRef);
 
-  useEffect(() => {
-    if (workInView) {
-      workControls.start("visible");
-    }
-    if (expInView) {
-      expControls.start("visible");
-    }
-  }, [workControls, workInView, expControls, expInView]);
+  useEffect(
+    () => {
+      if (workInView) {
+        workControls.start("visible");
+      }
+      if (expInView) {
+        setDisplayExp(true);
+        expControls.start("visible");
+      }
+    },
+    [workControls, workInView],
+    expControls,
+    expInView
+  );
 
   const workVariant = {
     visible: { opacity: 1, x: 0, transition: { duration: 1.5 } },
@@ -397,12 +404,14 @@ function Work() {
         variants={expVariant}
       >
         <h2>Experience</h2>
-        <p>
-          <AnimatedNum target={28} percent={false} delayTime={1} />{" "}
-          <span className={workStyles.months}>months</span> ~{" "}
-          <AnimatedNum target={2.5} percent={false} delayTime={1} />{" "}
-          <span className={workStyles.years}>years</span>
-        </p>
+        {displayExp && (
+          <p>
+            <AnimatedNum target={28} percent={false} delayTime={0.5} />{" "}
+            <span className={workStyles.months}>months</span> ~{" "}
+            <AnimatedNum target={2.5} percent={false} delayTime={0.5} />{" "}
+            <span className={workStyles.years}>years</span>
+          </p>
+        )}
       </motion.section>
     </section>
   );
