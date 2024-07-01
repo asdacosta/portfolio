@@ -58,19 +58,30 @@ function Work() {
     ninthBox,
   ];
 
+  const expRef = useRef(null);
   const workRef = useRef(null);
-  const controls = useAnimation();
-  const inView = useInView(workRef);
+  const workControls = useAnimation();
+  const expControls = useAnimation();
+  const workInView = useInView(workRef);
+  const expInView = useInView(expRef);
 
   useEffect(() => {
-    if (inView) {
-      controls.start("visible");
+    if (workInView) {
+      workControls.start("visible");
     }
-  }, [controls, inView]);
+    if (expInView) {
+      expControls.start("visible");
+    }
+  }, [workControls, workInView, expControls, expInView]);
 
   const workVariant = {
     visible: { opacity: 1, x: 0, transition: { duration: 1.5 } },
     hidden: { opacity: 0, x: 100 },
+  };
+
+  const expVariant = {
+    visible: { opacity: 1, y: 0, transition: { duration: 1.5 } },
+    hidden: { opacity: 0, y: 100 },
   };
 
   useEffect(() => {
@@ -290,14 +301,14 @@ function Work() {
   };
 
   return (
-    <motion.section
-      className={workStyles.work}
-      ref={workRef}
-      initial="hidden"
-      animate={controls}
-      variants={workVariant}
-    >
-      <section className={workStyles.workSamples}>
+    <section className={workStyles.work}>
+      <motion.section
+        className={workStyles.workSamples}
+        ref={workRef}
+        initial="hidden"
+        animate={workControls}
+        variants={workVariant}
+      >
         <div className={workStyles.wheelIcon} ref={wheelIconRef}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M6.45,17.45L1,12L6.45,6.55L7.86,7.96L4.83,11H19.17L16.14,7.96L17.55,6.55L23,12L17.55,17.45L16.14,16.04L19.17,13H4.83L7.86,16.04L6.45,17.45Z" />
@@ -375,16 +386,22 @@ function Work() {
           </span>
           <span>9</span>
         </section>
-      </section>
+      </motion.section>
 
-      <section className={workStyles.experience}>
+      <motion.section
+        className={workStyles.experience}
+        ref={expRef}
+        initial="hidden"
+        animate={expControls}
+        variants={expVariant}
+      >
         <h2>Experience</h2>
         <p>
           28 <span className={workStyles.months}>months</span> - 2.5{" "}
           <span className={workStyles.years}>years</span>
         </p>
-      </section>
-    </motion.section>
+      </motion.section>
+    </section>
   );
 }
 
