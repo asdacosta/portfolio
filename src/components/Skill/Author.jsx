@@ -1,9 +1,37 @@
+import { useEffect, useRef } from "react";
 import skillStyles from "./Skill.module.css";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 function Author() {
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
+  const controls = useAnimation();
+  const leftInView = useInView(leftRef);
+  const rightInView = useInView(rightRef);
+
+  useEffect(() => {
+    if (leftInView || rightInView) {
+      controls.start("visible");
+    }
+  }, [controls, leftInView, rightInView]);
+
+  const leftVariant = {
+    visible: { opacity: 1, x: 0, transition: { duration: 2 } },
+    hidden: { opacity: 0, x: -150 },
+  };
+
+  const rightVariant = {
+    visible: { opacity: 1, x: 0, transition: { duration: 2 } },
+    hidden: { opacity: 0, x: 150 },
+  };
+
   return (
     <section className={skillStyles.author}>
-      <svg
+      <motion.svg
+        ref={rightRef}
+        initial="hidden"
+        animate={controls}
+        variants={rightVariant}
         xmlns="http://www.w3.org/2000/svg"
         width="713.74209"
         height="454.87759"
@@ -204,8 +232,14 @@ function Author() {
             fill="#fff"
           />
         </g>
-      </svg>
-      <div className={skillStyles.info}>
+      </motion.svg>
+      <motion.div
+        className={skillStyles.info}
+        ref={leftRef}
+        initial="hidden"
+        animate={controls}
+        variants={leftVariant}
+      >
         <h2>English Author</h2>
         <p>
           As an English expert who has authored a book on Communication Skills,
@@ -215,7 +249,7 @@ function Author() {
           effectively with my team and to convey ideas articulately in
           presentations.
         </p>
-      </div>
+      </motion.div>
     </section>
   );
 }
