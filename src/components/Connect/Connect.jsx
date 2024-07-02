@@ -5,7 +5,7 @@ import { Label } from "./Label";
 import { allFeedbacks } from "./feedbacks";
 import { FetchCountries } from "./FetchCountries";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { animateScroll as scroll } from "react-scroll";
+import { Element, animateScroll as scroll } from "react-scroll";
 import { MenuContext } from "../../App";
 
 function Connect() {
@@ -65,7 +65,7 @@ function Connect() {
   const fieldInView = useInView(fieldsRef);
 
   const scrollToTop = () => {
-    scroll.scrollToTop();
+    scroll.scrollToTop({ duration: 1000, smooth: true });
   };
 
   useEffect(() => {
@@ -434,6 +434,7 @@ function Connect() {
 
   return (
     <section className={connectStyles.connect} ref={connectRef}>
+      <Element name="Connect" className="targetScroll"></Element>
       <motion.section
         className={connectStyles.fieldSection}
         ref={fieldsRef}
