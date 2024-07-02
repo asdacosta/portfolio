@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import connectStyles from "./Connect.module.css";
 import "@dotlottie/player-component";
 import { Label } from "./Label";
@@ -6,6 +6,7 @@ import { allFeedbacks } from "./feedbacks";
 import { FetchCountries } from "./FetchCountries";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { animateScroll as scroll } from "react-scroll";
+import { MenuContext } from "../../App";
 
 function Connect() {
   const [focusedFields, setFocusedFields] = useState({
@@ -47,6 +48,16 @@ function Connect() {
   const [send, setSend] = useState({ feedback: 0, status: false });
   const scrollUpRef = useRef(null);
   const fieldsRef = useRef(null);
+
+  const { page, setPage } = useContext(MenuContext);
+  const connectRef = useRef(null);
+  const connectInView = useInView(connectRef);
+
+  useEffect(() => {
+    if (connectInView) {
+      setPage("connect");
+    }
+  }, [connectInView]);
 
   const scrollUpControls = useAnimation();
   const fieldControls = useAnimation();
@@ -422,7 +433,7 @@ function Connect() {
   };
 
   return (
-    <section className={connectStyles.connect}>
+    <section className={connectStyles.connect} ref={connectRef}>
       <motion.section
         className={connectStyles.fieldSection}
         ref={fieldsRef}
@@ -596,7 +607,7 @@ function Connect() {
         <div className={connectStyles.scrollUpLottie}>
           <dotlottie-player
             className={connectStyles.lottieIcon}
-            ref={scrollUpRef}
+            // ref={scrollUpRef}
             onMouseEnter={animateScroll}
             onMouseLeave={revertAnimation}
             onClick={scrollToTop}
