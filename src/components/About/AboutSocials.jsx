@@ -1,7 +1,7 @@
 import "@dotlottie/player-component";
-import { delay, motion } from "framer-motion";
+import { delay, motion, useAnimation, useInView } from "framer-motion";
 import aboutStyles from "./About.module.css";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function AboutSocials() {
   const [isBubbling, setIsBubbling] = useState(true);
@@ -25,6 +25,15 @@ function AboutSocials() {
 
   const animationRef = useRef(null);
   const toConnectRef = useRef(null);
+  const aboutSocialsRef = useRef(null);
+  const aboutSocialsInView = useInView(aboutSocialsRef);
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (aboutSocialsInView) {
+      controls.start("visible");
+    }
+  }, [aboutSocialsInView, controls]);
 
   function fillUp() {
     if (toConnectRef.current) {
@@ -187,9 +196,10 @@ function AboutSocials() {
   return (
     <section className={aboutStyles.aboutSocials}>
       <motion.section
+        ref={aboutSocialsRef}
         variants={containerVariant}
         initial="hidden"
-        animate="visible"
+        animate={controls}
         className={aboutStyles.socialIcons}
       >
         <motion.div
