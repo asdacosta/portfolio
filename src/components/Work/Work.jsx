@@ -5,6 +5,7 @@ import { images } from "./ImageDetails.jsx";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { AnimatedNum } from "../Skill/AnimateNum.jsx";
 import { MenuContext } from "../../App.jsx";
+import { Element } from "react-scroll";
 
 function Work() {
   const [mouseDownAt, setMouseDownAt] = useState(0);
@@ -316,6 +317,7 @@ function Work() {
 
   return (
     <section className={workStyles.work} ref={workRef}>
+      <Element name="Work" className="targetScroll"></Element>
       <motion.section
         className={workStyles.workSamples}
         ref={workSamplesRef}
