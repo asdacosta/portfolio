@@ -1,5 +1,5 @@
 import "@dotlottie/player-component";
-import { motion } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
 import aboutStyles from "./About.module.css";
 import { useEffect, useRef, useState } from "react";
 
@@ -16,7 +16,16 @@ function AboutMe() {
   const [hideCursor, setHideCursor] = useState(false);
   const [fillProgress, setFillProgress] = useState(false);
 
+  const aboutMeRef = useRef(null);
   const helloRef = useRef(null);
+  const aboutMeControls = useAnimation();
+  const aboutMeInView = useInView(aboutMeRef);
+
+  useEffect(() => {
+    if (aboutMeInView) {
+      aboutMeControls.start("visible");
+    }
+  }, [aboutMeInView, aboutMeControls]);
 
   const containerVariant = {
     hidden: { opacity: 1 },
@@ -107,7 +116,8 @@ function AboutMe() {
     <motion.section
       variants={containerVariant}
       initial="hidden"
-      animate="visible"
+      animate={aboutMeControls}
+      ref={aboutMeRef}
       className={aboutStyles.aboutMe}
     >
       <motion.section
