@@ -151,6 +151,7 @@
 
 button.highlight {
   color: rgb(0, 204, 255);
+  pointer-events: none;
 }
 
 @media (max-width: 700px) {
