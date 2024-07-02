@@ -3,8 +3,8 @@ import "./App.css";
 import { Nav } from "./components/Nav/Nav";
 import { Load } from "./components/Load/Load";
 import { About } from "./components/About/About";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import { createContext, useEffect, useRef, useState } from "react";
 import { Skill } from "./components/Skill/Skill";
 import { Work } from "./components/Work/Work";
 import { Connect } from "./components/Connect/Connect";
@@ -17,16 +17,17 @@ const loadVariants = {
   },
 };
 
+export const MenuContext = createContext({
+  page: "",
+  setPage: () => {},
+});
+
 function App() {
   const [loadDisplay, setLoadDisplay] = useState(true);
-  const [navDisplay, setNavDisplay] = useState(false);
+  const [page, setPage] = useState("");
 
   function completeLoad() {
     setLoadDisplay(false);
-  }
-
-  function completeNav() {
-    setNavDisplay(true);
   }
 
   return (
@@ -38,11 +39,13 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
-      {!loadDisplay && <Nav onComplete={completeNav} />}
-      {navDisplay && <About />}
-      {navDisplay && <Skill />}
-      {navDisplay && <Work />}
-      {navDisplay && <Connect />}
+      <MenuContext.Provider value={{ page, setPage }}>
+        {!loadDisplay && <Nav />}
+        {!loadDisplay && <About />}
+        {!loadDisplay && <Skill />}
+        {!loadDisplay && <Work />}
+        {!loadDisplay && <Connect />}
+      </MenuContext.Provider>
     </>
   );
 }
