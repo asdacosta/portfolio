@@ -61,7 +61,7 @@ input {
 /* Element imported from react-scroll */
 .targetScroll {
   position: absolute;
-  top: 0;
+  top: 4%;
   opacity: 0;
 }
 
