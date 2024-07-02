@@ -8,7 +8,7 @@ import { Element } from "react-scroll";
 
 function About() {
   const aboutRef = useRef(null);
-  const inView = useInView(aboutRef);
+  const inView = useInView(aboutRef, { amount: 0.1 });
   const { page, setPage } = useContext(MenuContext);
 
   useEffect(() => {
