@@ -149,6 +149,10 @@
   opacity: 0.4;
 }
 
+button.highlight {
+  color: rgb(0, 204, 255);
+}
+
 @media (max-width: 700px) {
   .nav {
     width: 100%;
