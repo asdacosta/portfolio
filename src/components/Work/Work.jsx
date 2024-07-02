@@ -63,7 +63,7 @@ function Work() {
   ];
 
   const workRef = useRef(null);
-  const workInView = useInView(workRef);
+  const workInView = useInView(workRef, { amount: 0.2 });
   const { page, setPage } = useContext(MenuContext);
 
   useEffect(() => {
