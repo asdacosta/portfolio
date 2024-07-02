@@ -12,6 +12,7 @@ import { Team } from "./Team";
 import { Technologies } from "./Technologies";
 import { MenuContext } from "../../App";
 import { useInView } from "framer-motion";
+import { Element } from "react-scroll";
 
 function Skill() {
   const { page, setPage } = useContext(MenuContext);
@@ -26,6 +27,7 @@ function Skill() {
 
   return (
     <section className={skillStyles.skill} ref={SkillRef}>
+      <Element name="Skill" className="targetScroll"></Element>
       <AllDevices />
       <Mobile />
       <Analytics />
