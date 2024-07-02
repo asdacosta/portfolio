@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import "@dotlottie/player-component";
 import { useContext, useEffect, useRef, useState } from "react";
 import { MenuContext } from "../../App";
+import { scroller } from "react-scroll";
 
 const navBlurVariant = {
   hidden: { filter: "blur(10px" },
@@ -51,19 +52,34 @@ function Nav() {
   };
 
   const highlightAbout = () => {
-    setPage("about");
+    scroller.scrollTo("About", {
+      duration: 1000,
+      smooth: true,
+    });
   };
   const highlightSkill = () => {
-    setPage("skill");
+    scroller.scrollTo("Skill", {
+      duration: 1000,
+      smooth: true,
+    });
   };
   const highlightWork = () => {
-    setPage("work");
+    scroller.scrollTo("Work", {
+      duration: 1000,
+      smooth: true,
+    });
   };
   const highlightBlog = () => {
-    setPage("blog");
+    scroller.scrollTo("Blog", {
+      duration: 1000,
+      smooth: true,
+    });
   };
   const highlightConnect = () => {
-    setPage("connect");
+    scroller.scrollTo("Connect", {
+      duration: 1000,
+      smooth: true,
+    });
   };
 
   return (
