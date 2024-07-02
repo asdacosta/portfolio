@@ -3,7 +3,7 @@ import "./App.css";
 import { Nav } from "./components/Nav/Nav";
 import { Load } from "./components/Load/Load";
 import { About } from "./components/About/About";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { createContext, useEffect, useRef, useState } from "react";
 import { Skill } from "./components/Skill/Skill";
 import { Work } from "./components/Work/Work";
@@ -25,6 +25,7 @@ export const MenuContext = createContext({
 function App() {
   const [loadDisplay, setLoadDisplay] = useState(true);
   const [page, setPage] = useState("");
+  const { scrollYProgress } = useScroll();
 
   function completeLoad() {
     setLoadDisplay(false);
@@ -40,6 +41,12 @@ function App() {
         )}
       </AnimatePresence>
       <MenuContext.Provider value={{ page, setPage }}>
+        {!loadDisplay && (
+          <motion.div
+            style={{ scaleX: scrollYProgress }}
+            className="progress-bar"
+          />
+        )}
         {!loadDisplay && <Nav />}
         {!loadDisplay && <About />}
         {!loadDisplay && <Skill />}
