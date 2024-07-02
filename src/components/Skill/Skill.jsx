@@ -17,7 +17,7 @@ import { Element } from "react-scroll";
 function Skill() {
   const { page, setPage } = useContext(MenuContext);
   const SkillRef = useRef(null);
-  const inView = useInView(SkillRef);
+  const inView = useInView(SkillRef, { amount: 0.1 });
 
   useEffect(() => {
     if (inView) {
