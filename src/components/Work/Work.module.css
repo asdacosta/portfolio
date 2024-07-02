@@ -1,3 +1,7 @@
+.work {
+  position: relative;
+}
+
 .workSamples {
   display: flex;
   flex-direction: column;
