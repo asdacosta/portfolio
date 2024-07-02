@@ -4,6 +4,7 @@ import { AboutMe } from "./AboutMe";
 import { AboutSocials } from "./AboutSocials";
 import { useAnimation, useInView, motion } from "framer-motion";
 import { MenuContext } from "../../App";
+import { Element } from "react-scroll";
 
 function About() {
   const aboutRef = useRef(null);
@@ -18,6 +19,7 @@ function About() {
 
   return (
     <motion.section className={aboutStyles.about} ref={aboutRef}>
+      <Element name="About" className="targetScroll"></Element>
       <AboutMe />
       <AboutSocials />
     </motion.section>
