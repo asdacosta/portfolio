@@ -2,6 +2,7 @@ import "@dotlottie/player-component";
 import { delay, motion, useAnimation, useInView } from "framer-motion";
 import aboutStyles from "./About.module.css";
 import { useEffect, useRef, useState } from "react";
+import { scroller } from "react-scroll";
 
 function AboutSocials() {
   const [isBubbling, setIsBubbling] = useState(true);
@@ -193,6 +194,13 @@ function AboutSocials() {
     visible: { opacity: 1, x: 0, transition: { duration: 1, delay: 4.5 } },
   };
 
+  const highlightConnect = () => {
+    scroller.scrollTo("Connect", {
+      duration: 2000,
+      smooth: true,
+    });
+  };
+
   return (
     <section className={aboutStyles.aboutSocials}>
       <motion.section
@@ -367,10 +375,11 @@ function AboutSocials() {
           ref={toConnectRef}
           onMouseEnter={fillUp}
           onMouseLeave={revertFill}
+          onClick={highlightConnect}
           delay="0"
           mode="normal"
           src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/toConnect.lottie"
-          style={{ width: "25vmin", height: "10vmin" }}
+          style={{ width: "22vmin", height: "10vmin" }}
         ></dotlottie-player>
         {isBubbling && (
           <div className={aboutStyles.bubbleBox}>
