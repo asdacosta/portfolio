@@ -1,9 +1,10 @@
 import workStyles from "./Work.module.css";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { LinkBox } from "./LinkBox";
 import { images } from "./ImageDetails.jsx";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { AnimatedNum } from "../Skill/AnimateNum.jsx";
+import { MenuContext } from "../../App.jsx";
 
 function Work() {
   const [mouseDownAt, setMouseDownAt] = useState(0);
@@ -60,27 +61,32 @@ function Work() {
     ninthBox,
   ];
 
-  const expRef = useRef(null);
   const workRef = useRef(null);
+  const workInView = useInView(workRef);
+  const { page, setPage } = useContext(MenuContext);
+
+  useEffect(() => {
+    if (workInView) {
+      setPage("work");
+    }
+  }, [workInView]);
+
+  const expRef = useRef(null);
+  const workSamplesRef = useRef(null);
   const workControls = useAnimation();
   const expControls = useAnimation();
-  const workInView = useInView(workRef);
+  const workSamplesInView = useInView(workSamplesRef);
   const expInView = useInView(expRef);
 
-  useEffect(
-    () => {
-      if (workInView) {
-        workControls.start("visible");
-      }
-      if (expInView) {
-        setDisplayExp(true);
-        expControls.start("visible");
-      }
-    },
-    [workControls, workInView],
-    expControls,
-    expInView
-  );
+  useEffect(() => {
+    if (workSamplesInView) {
+      workControls.start("visible");
+    }
+    if (expInView) {
+      setDisplayExp(true);
+      expControls.start("visible");
+    }
+  }, [workControls, workSamplesInView, expControls, expInView]);
 
   const workVariant = {
     visible: { opacity: 1, x: 0, transition: { duration: 1.5 } },
@@ -309,10 +315,10 @@ function Work() {
   };
 
   return (
-    <section className={workStyles.work}>
+    <section className={workStyles.work} ref={workRef}>
       <motion.section
         className={workStyles.workSamples}
-        ref={workRef}
+        ref={workSamplesRef}
         initial="hidden"
         animate={workControls}
         variants={workVariant}
