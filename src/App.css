@@ -58,6 +58,13 @@ input {
   background: white;
 }
 
+/* Element imported from react-scroll */
+.targetScroll {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+}
+
 @media (max-width: 1400px) {
   #root {
     font-size: 1rem;
