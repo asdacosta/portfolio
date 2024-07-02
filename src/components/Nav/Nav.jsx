@@ -1,7 +1,8 @@
 import navStyles from "./Nav.module.css";
 import { motion, AnimatePresence } from "framer-motion";
 import "@dotlottie/player-component";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+import { MenuContext } from "../../App";
 
 const navBlurVariant = {
   hidden: { filter: "blur(10px" },
@@ -24,9 +25,10 @@ const buttonVariant = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.2 } },
 };
 
-function Nav({ onComplete }) {
+function Nav() {
   const [menuOpened, setMenuClosed] = useState(false);
   const menuRef = useRef(null);
+  const { page, setPage } = useContext(MenuContext);
 
   const openMenu = () => {
     if (menuRef.current && !menuOpened) {
@@ -46,6 +48,22 @@ function Nav({ onComplete }) {
       menuRef.current.setDirection(1);
       menuRef.current.play();
     }
+  };
+
+  const highlightAbout = () => {
+    setPage("about");
+  };
+  const highlightSkill = () => {
+    setPage("skill");
+  };
+  const highlightWork = () => {
+    setPage("work");
+  };
+  const highlightBlog = () => {
+    setPage("blog");
+  };
+  const highlightConnect = () => {
+    setPage("connect");
   };
 
   return (
@@ -68,21 +86,45 @@ function Nav({ onComplete }) {
         variants={containerVariant}
         initial="hidden"
         animate="visible"
-        onAnimationComplete={onComplete}
       >
-        <motion.button key="about" variants={buttonVariant}>
+        <motion.button
+          className={page === "about" ? navStyles.highlight : ""}
+          key="about"
+          variants={buttonVariant}
+          onClick={highlightAbout}
+        >
           About
         </motion.button>
-        <motion.button key="skill" variants={buttonVariant}>
+        <motion.button
+          className={page === "skill" ? navStyles.highlight : ""}
+          key="skill"
+          variants={buttonVariant}
+          onClick={highlightSkill}
+        >
           Skill
         </motion.button>
-        <motion.button key="work" variants={buttonVariant}>
+        <motion.button
+          className={page === "work" ? navStyles.highlight : ""}
+          key="work"
+          variants={buttonVariant}
+          onClick={highlightWork}
+        >
           Work
         </motion.button>
-        <motion.button key="blog" variants={buttonVariant}>
+        <motion.button
+          className={page === "blog" ? navStyles.highlight : ""}
+          key="blog"
+          variants={buttonVariant}
+          onClick={highlightBlog}
+        >
           Blog
         </motion.button>
-        <motion.button key="connect" variants={buttonVariant}>
+        <motion.button
+          className={page === "connect" ? navStyles.highlight : ""}
+          key="connect"
+          variants={buttonVariant}
+          onClick={highlightConnect}
+        >
           Connect
         </motion.button>
       </motion.section>
@@ -120,10 +162,30 @@ function Nav({ onComplete }) {
               menuOpened ? navStyles.animateList : ""
             }`}
           >
-            <button>Skill</button>
-            <button>Work</button>
-            <button>Blog</button>
-            <button>Connect</button>
+            <button
+              className={page === "skill" ? navStyles.highlight : ""}
+              onClick={highlightSkill}
+            >
+              Skill
+            </button>
+            <button
+              className={page === "work" ? navStyles.highlight : ""}
+              onClick={highlightWork}
+            >
+              Work
+            </button>
+            <button
+              className={page === "blog" ? navStyles.highlight : ""}
+              onClick={highlightBlog}
+            >
+              Blog
+            </button>
+            <button
+              className={page === "connect" ? navStyles.highlight : ""}
+              onClick={highlightConnect}
+            >
+              Connect
+            </button>
           </div>
         </div>
         <button className={navStyles.menuIcon}>
