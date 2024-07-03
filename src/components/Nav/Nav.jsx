@@ -4,27 +4,7 @@ import "@dotlottie/player-component";
 import { useContext, useEffect, useRef, useState } from "react";
 import { MenuContext } from "../../App";
 import { scroller } from "react-scroll";
-
-const navBlurVariant = {
-  hidden: { filter: "blur(10px" },
-  visible: { filter: "blur(0)", transition: { duration: 1 } },
-};
-
-const containerVariant = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const buttonVariant = {
-  hidden: { opacity: 0, y: -20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.2 } },
-};
+import { navVariants as variants } from "./variants";
 
 function Nav() {
   const [menuOpened, setMenuClosed] = useState(false);
@@ -89,7 +69,7 @@ function Nav() {
         initial="hidden"
         animate="visible"
         exit="exit"
-        variants={navBlurVariant}
+        variants={variants.navBlurVariant}
         className={navStyles.home}
         onClick={highlightAbout}
       >
@@ -100,14 +80,14 @@ function Nav() {
 
       <motion.section
         className={navStyles.others}
-        variants={containerVariant}
+        variants={variants.containerVariant}
         initial="hidden"
         animate="visible"
       >
         <motion.button
           className={page === "about" ? navStyles.highlight : ""}
           key="about"
-          variants={buttonVariant}
+          variants={variants.buttonVariant}
           onClick={highlightAbout}
         >
           About
@@ -115,7 +95,7 @@ function Nav() {
         <motion.button
           className={page === "skill" ? navStyles.highlight : ""}
           key="skill"
-          variants={buttonVariant}
+          variants={variants.buttonVariant}
           onClick={highlightSkill}
         >
           Skill
@@ -123,7 +103,7 @@ function Nav() {
         <motion.button
           className={page === "work" ? navStyles.highlight : ""}
           key="work"
-          variants={buttonVariant}
+          variants={variants.buttonVariant}
           onClick={highlightWork}
         >
           Work
@@ -131,7 +111,7 @@ function Nav() {
         <motion.button
           className={page === "blog" ? navStyles.highlight : ""}
           key="blog"
-          variants={buttonVariant}
+          variants={variants.buttonVariant}
           onClick={highlightBlog}
           style={{ display: "none" }}
         >
@@ -140,7 +120,7 @@ function Nav() {
         <motion.button
           className={page === "connect" ? navStyles.highlight : ""}
           key="connect"
-          variants={buttonVariant}
+          variants={variants.buttonVariant}
           onClick={highlightConnect}
         >
           Connect
@@ -152,7 +132,7 @@ function Nav() {
         initial="hidden"
         animate="visible"
         exit="exit"
-        variants={navBlurVariant}
+        variants={variants.navBlurVariant}
         className={navStyles.themeBox}
       >
         <section className={navStyles.theme}>
@@ -171,7 +151,7 @@ function Nav() {
         initial="hidden"
         animate="visible"
         exit="exit"
-        variants={navBlurVariant}
+        variants={variants.navBlurVariant}
         className={navStyles.menu}
       >
         <div className={navStyles.menuListBox}>
