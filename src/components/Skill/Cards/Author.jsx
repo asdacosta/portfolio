@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
-import skillStyles from "./Skill.module.css";
+import skillStyles from "../Skill.module.css";
 import { motion, useAnimation, useInView } from "framer-motion";
-import bookPreview from "../../assets/book_preview.pdf";
+import bookPreview from "../../../assets/book_preview.pdf";
 
 function Author() {
   const leftRef = useRef(null);
