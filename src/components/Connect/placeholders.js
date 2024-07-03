@@ -1,6 +1,6 @@
-const name = ["Ace Da Costa", "Enter name..."];
+const names = ["Ace Da Costa", "Enter name..."];
 
-const motive = [
+const motives = [
   "Hire short term",
   "Hire long term",
   "Consult",
@@ -11,7 +11,7 @@ const motive = [
   "Custom or select subject...",
 ];
 
-const mail = [
+const mails = [
   "ace@example.com",
   "ace.costa@example.com",
   "ace-costa@example.com",
@@ -24,7 +24,7 @@ const mail = [
   "ace@university.edu",
 ];
 
-const note = [
+const notes = [
   "Hi Ace, \n I am interested in your services for... . Could you provide more information about your availability and pricing? \n Best regards.",
   "Hey Ace, \n I’m... at... , and we’re currently looking for a developer to join our team. I believe you'd be a great fit. Interested in discussing this opportunity? \n Sincerely.",
   "Hello Ace, \n I came across your portfolio and was impressed with your work. As someone in the same field, I’d love to connect. \n Best.",
@@ -35,3 +35,7 @@ const note = [
   "Hi Ace, \n I hope you're well. I wanted to bring to your attention a bug I encountered on your portfolio website. The issue occurs when... . \n Thank you.",
   "Hi Ace, ...",
 ];
+
+const placeholders = { names, motives, mails, notes };
+
+export { placeholders };
