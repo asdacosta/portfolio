@@ -131,7 +131,7 @@ function AboutMe() {
           autoplay
           loop
           mode="normal"
-          src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/LTklnYMUxu.lottie"
+          src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/bot.lottie"
           style={{ width: "16vmin", height: "16vmin" }}
         ></dotlottie-player>
       </motion.section>
