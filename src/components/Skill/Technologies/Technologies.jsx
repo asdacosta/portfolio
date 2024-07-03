@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
-import { BackSection } from "./BackSection";
-import { FrontSection } from "./FrontSection";
-import { LangSection } from "./LangSection";
+import { BackSection } from "./BackEnd";
+import { FrontSection } from "./FrontEnd";
+import { LangSection } from "./Languages";
 import skillStyles from "../Skill.module.css";
-import { ToolSection } from "./ToolSection";
+import { ToolSection } from "./Tools";
 import { useAnimation, useInView, motion } from "framer-motion";
 
 function Technologies() {
