@@ -10,7 +10,7 @@ function AboutMe() {
   const [currentInfo, setCurrentInfo] = useState(
     "I develop interactive websites that are responsive across various devices, ensuring seamless user interfaces in collaboration with back-end developers."
   );
-  const [index, setIndex] = useState(0);
+  const [textCharIndex, setTextCharIndex] = useState(0);
   const [textIndex, setTextIndex] = useState(0);
   const [slideUpNow, setSlideUpNow] = useState(false);
   const [hideCursor, setHideCursor] = useState(false);
@@ -42,10 +42,10 @@ function AboutMe() {
 
     // Type expertise text
     const currentText = aboutMeStrings.text[textIndex];
-    if (index < currentText.length) {
+    if (textCharIndex < currentText.length) {
       const timeoutId = setTimeout(() => {
-        setDisplayedText((prev) => prev + currentText[index]);
-        setIndex(index + 1);
+        setDisplayedText((prev) => prev + currentText[textCharIndex]);
+        setTextCharIndex(textCharIndex + 1);
       }, 100);
       return () => clearTimeout(timeoutId);
     }
@@ -62,7 +62,7 @@ function AboutMe() {
         setHideCursor(false);
         setSlideUpNow(false);
         setFillProgress(false);
-        setIndex(0);
+        setTextCharIndex(0);
         setTextIndex((prev) => (prev + 1) % aboutMeStrings.text.length);
       }, 1000);
       return () => clearTimeout(timeoutId);
