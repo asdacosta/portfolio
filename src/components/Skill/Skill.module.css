@@ -541,6 +541,10 @@ span.eduUniversitySpan {
   content: "React";
 }
 
+.framerBox::after {
+  content: "Framer Motion";
+}
+
 .nodeBox::after {
   content: "NodeJS";
 }
