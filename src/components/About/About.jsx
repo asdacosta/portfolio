@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef } from "react";
 import aboutStyles from "./About.module.css";
-import { AboutMe } from "./AboutMe";
-import { AboutSocials } from "./AboutSocials";
+import { AboutMe } from "./AboutMe/AboutMe";
+import { AboutSocials } from "./AboutSocials/AboutSocials";
 import { useInView, motion } from "framer-motion";
 import { MenuContext } from "../../App";
 import { Element } from "react-scroll";
