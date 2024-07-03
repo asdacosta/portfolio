@@ -1,6 +1,6 @@
 const name = {
   onInput: [
-    "No need to use full name.",
+    "You can, but a brief name's fine.",
     "Name is lengthy.",
     "Numbers not allowed.",
     "Special chars not allowed.",
