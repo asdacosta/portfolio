@@ -35,18 +35,18 @@
   font-size: 3.5rem;
   background: linear-gradient(
     90deg,
-    white 0%,
-    white 35%,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 35%,
     rgb(0, 204, 255) 50%,
-    white 65%,
-    white 100%
+    rgba(255, 255, 255, 0) 65%,
+    rgba(255, 255, 255, 0) 100%
   );
   background-clip: text;
   background-size: 200% 200%;
   color: transparent;
   font-weight: 600;
   cursor: context-menu;
-  animation: gradient-animation 2s linear infinite reverse;
+  animation: gradient-animation 3s linear infinite reverse;
   transition: color 0.3s ease-in-out;
 }
 
