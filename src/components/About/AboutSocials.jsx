@@ -380,7 +380,7 @@ function AboutSocials() {
           autoplay
           loop
           mode="bounce"
-          src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/0BpLlOouLt.lottie"
+          src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/bg.lottie"
           style={{ width: "65vmin", height: "65vmin" }}
         ></dotlottie-player>
       </motion.section>
