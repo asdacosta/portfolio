@@ -346,6 +346,19 @@ function Connect() {
     })();
   };
 
+  const handleFocusedField = (event) => {
+    const inputType = event.currentTarget.id;
+    if (contentErrors[inputType].isError) {
+      if (contentErrors[inputType].onInput !== null) {
+        return "onInput";
+      } else if (contentErrors[inputType].onBlur !== null) {
+        return "onBlur";
+      }
+    } else {
+      return "onInput";
+    }
+  };
+
   const handleBlur = (event) => {
     let inputType = event.currentTarget.id;
     const inputValue = event.currentTarget.value;
@@ -414,7 +427,6 @@ function Connect() {
       }
     })();
 
-    // Note onBlur validations
     const validateNote = (() => {
       if (inputType === "note" && inputValue.length > 0) {
         if (inputValue.length < 10) {
@@ -488,20 +500,6 @@ function Connect() {
         }
       }
     })();
-  };
-
-  const handleFocusedField = (event) => {
-    const inputType = event.currentTarget.id;
-
-    if (contentErrors[inputType].isError) {
-      if (contentErrors[inputType].onInput !== null) {
-        return "onInput";
-      } else if (contentErrors[inputType].onBlur !== null) {
-        return "onBlur";
-      }
-    } else {
-      return "onInput";
-    }
   };
 
   const handleCountryOnChange = () => {
