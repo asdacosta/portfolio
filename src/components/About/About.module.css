@@ -390,7 +390,8 @@
 }
 
 .fbBox::before {
-  content: "Facebook ➚";
+  /* content: "Facebook ➚"; */
+  content: "Inactive";
 }
 
 .fbBox:hover::before {
@@ -429,7 +430,8 @@
 }
 
 .youtubeBox::before {
-  content: "YouTube ➚";
+  /* content: "YouTube ➚"; */
+  content: "Inactive";
 }
 
 .youtubeBox:hover::before {
