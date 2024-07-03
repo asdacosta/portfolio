@@ -1,6 +1,6 @@
 import "@dotlottie/player-component";
 import loadStyles from "./Load.module.css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 function Load({ onComplete }) {
   const animationRef = useRef(null);
