@@ -12,7 +12,6 @@ const motives = [
 ];
 
 const mails = [
-  "ace@example.com^3000",
   "ace.costa@example.com",
   "ace-costa@example.com",
   "ace_costa@example.com",
@@ -22,6 +21,7 @@ const mails = [
   "ace@icloud.com",
   "ace@aol.com",
   "ace@university.edu",
+  "ace@example.com^3000",
 ];
 
 const notes = [
