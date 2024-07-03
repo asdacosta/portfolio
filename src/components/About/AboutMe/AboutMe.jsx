@@ -1,6 +1,6 @@
 import "@dotlottie/player-component";
 import { motion, useAnimation, useInView } from "framer-motion";
-import aboutStyles from "./About.module.css";
+import aboutStyles from "../About.module.css";
 import { useEffect, useRef, useState } from "react";
 import { aboutMeVariants } from "./aboutMeVariants.js";
 import { aboutMeStrings } from "./aboutMeStrings.js";
