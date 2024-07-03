@@ -1,6 +1,6 @@
 <div align='center'>
 
-# [Ace's](https://github.com/asdacosta) Portfolio
+# [Ace](https://github.com/asdacosta)'s Portfolio
 
 </div>
 <div align='center'>
@@ -46,7 +46,7 @@ Personal
 
 ## 📝 Description
 
-Builds [Ace's](https://github.com/asdacosta) main portfolio.
+Builds [Ace](https://github.com/asdacosta)'s main portfolio.
 
 <details>
 <summary>Special Features</summary>
