@@ -23,7 +23,7 @@ function Load({ onComplete }) {
         className={loadStyles.lottie}
         autoplay
         mode="normal"
-        src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/Animation%20-%201717421594190.lottie"
+        src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/loader.lottie"
         style={{ width: "300px", height: "300px" }}
       ></dotlottie-player>
     </section>
