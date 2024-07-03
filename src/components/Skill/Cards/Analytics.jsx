@@ -1,6 +1,7 @@
 import skillStyles from "../Skill.module.css";
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
+import { cardsVariants as variants } from "./cardsVariants";
 
 function Analytics() {
   const leftRef = useRef(null);
@@ -14,23 +15,13 @@ function Analytics() {
   };
   useEffect(displaySectionsInView, [controls, leftInView, rightInView]);
 
-  const leftVariant = {
-    visible: { opacity: 1, x: 0, transition: { duration: 1.5 } },
-    hidden: { opacity: 0, x: -150 },
-  };
-
-  const rightVariant = {
-    visible: { opacity: 1, x: 0, transition: { duration: 1.5 } },
-    hidden: { opacity: 0, x: 150 },
-  };
-
   return (
     <section className={skillStyles.analytics}>
       <motion.svg
         ref={leftRef}
         initial="hidden"
         animate={controls}
-        variants={rightVariant}
+        variants={variants.rightVariant}
         xmlns="http://www.w3.org/2000/svg"
         data-name="Layer 1"
         width="763.05693"
@@ -192,7 +183,7 @@ function Analytics() {
         ref={rightRef}
         initial="hidden"
         animate={controls}
-        variants={leftVariant}
+        variants={variants.leftVariant}
       >
         <h2>Highly Performant</h2>
         <p>
