@@ -2,6 +2,7 @@ import "@dotlottie/player-component";
 import { motion, useAnimation, useInView } from "framer-motion";
 import aboutStyles from "./About.module.css";
 import { useEffect, useRef, useState } from "react";
+import { aboutMeVariants } from "./aboutMeVariants.js";
 
 function AboutMe() {
   const [displayedText, setDisplayedText] = useState("");
@@ -26,41 +27,6 @@ function AboutMe() {
       aboutMeControls.start("visible");
     }
   }, [aboutMeInView, aboutMeControls]);
-
-  const containerVariant = {
-    hidden: { opacity: 1 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const botVariant = {
-    hidden: { filter: "blur(10px)", opacity: 0 },
-    visible: {
-      filter: "blur(0)",
-      opacity: 1,
-      transition: { duration: 0.5, delay: 2 },
-    },
-  };
-
-  const textVariant = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.2 } },
-  };
-
-  const buttonVariant = {
-    hidden: { filter: "blur(10px)", opacity: 0, x: 50 },
-    visible: {
-      filter: "blur(0)",
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.5 },
-    },
-  };
 
   const text = [
     "Web Developer.",
@@ -114,7 +80,7 @@ function AboutMe() {
 
   return (
     <motion.section
-      variants={containerVariant}
+      variants={aboutMeVariants.containerVariant}
       initial="hidden"
       animate={aboutMeControls}
       ref={aboutMeRef}
@@ -122,7 +88,7 @@ function AboutMe() {
     >
       <motion.section
         key="hello"
-        variants={botVariant}
+        variants={aboutMeVariants.botVariant}
         className={aboutStyles.hello}
       >
         <dotlottie-player
@@ -137,14 +103,14 @@ function AboutMe() {
       </motion.section>
       <motion.h1
         key="name"
-        variants={textVariant}
+        variants={aboutMeVariants.textVariant}
         className={aboutStyles.header}
       >
         Ace Da Costa
       </motion.h1>
       <motion.p
         key="intro"
-        variants={textVariant}
+        variants={aboutMeVariants.textVariant}
         className={aboutStyles.intro}
       >
         I'm a
@@ -172,7 +138,7 @@ function AboutMe() {
       </motion.p>
       <motion.section
         key="infoBox"
-        variants={textVariant}
+        variants={aboutMeVariants.textVariant}
         className={aboutStyles.infoBox}
       >
         <p className={aboutStyles.info}>
@@ -190,7 +156,7 @@ function AboutMe() {
       </motion.section>
       <motion.button
         key="resume"
-        variants={buttonVariant}
+        variants={aboutMeVariants.buttonVariant}
         className={aboutStyles.resume}
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
