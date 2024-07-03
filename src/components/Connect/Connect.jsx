@@ -143,23 +143,24 @@ function Connect() {
     hidden: { opacity: 0, x: -150 },
   };
 
-  useEffect(() => {
-    // Send logic
+  const enableSendButtonIfAllChecksPass = () => {
     const allChecked = Object.values(checks).every((value) => value === true);
     if (allChecked) {
       setSend((prev) => ({ ...prev, feedback: 1, status: true }));
     } else if (!allChecked) {
       setSend((prev) => ({ ...prev, feedback: 0, status: false }));
     }
-  }, [checks]);
+  };
+  useEffect(enableSendButtonIfAllChecksPass, [checks]);
 
-  useEffect(() => {
-    // Set feedback content
+  const setFeedbackIfInputHasValue = () => {
     let newFeedback = {};
     for (const [key, value] of Object.entries(nonEmptyFields)) {
       if (value === true && !contentErrors[key].isError) {
+        // Listen if no error
         newFeedback[key] = { ellipsis: true, value: "..." };
       } else if (value === true && contentErrors[key].isError) {
+        // Set if there is error
         if (contentErrors[key].onInput !== null) {
           newFeedback[key] = {
             ellipsis: false,
@@ -174,56 +175,129 @@ function Connect() {
         }
       }
     }
-
     setFeedbacks((prev) => ({ ...prev, ...newFeedback }));
-  }, [nonEmptyFields, contentErrors, allFeedbacks]);
+  };
+  useEffect(setFeedbackIfInputHasValue, [
+    nonEmptyFields,
+    contentErrors,
+    allFeedbacks,
+  ]);
 
   const handleInput = (event) => {
     const inputType = event.currentTarget.id;
     const inputValue = event.currentTarget.value;
-    // Set to default if an onInput removes all value
-    if (inputValue === "") {
-      setContentErrors((prev) => ({
-        ...prev,
-        [inputType]: {
-          isError: false,
-          onInput: null,
-          onBlur: null,
-        },
-      }));
-      setNonEmptyFields((prev) => ({ ...prev, [inputType]: false }));
-      return;
-    }
 
-    setNonEmptyFields((prev) => ({
-      ...prev,
-      [inputType]: true,
-    }));
-
-    // Name onInput validations
-    const nameNumRegex = /\d/;
-    const nameNoSpecialCharRegex = /^[a-zA-Z'-\s]+$/;
-    if (inputType === "name" && inputValue.length > 0) {
-      let errorType = null;
-      if (inputValue.length > 40) {
-        errorType = 1;
-      } else if (nameNumRegex.test(inputValue)) {
-        errorType = 2;
-      } else if (!nameNoSpecialCharRegex.test(inputValue)) {
-        errorType = 3;
-      } else if (inputValue.length > 15 && inputValue.length <= 25) {
-        errorType = 0;
-      }
-      if (errorType !== null) {
+    const checkInputEmptiness = () => {
+      if (inputValue === "") {
         setContentErrors((prev) => ({
           ...prev,
           [inputType]: {
-            isError: true,
-            onInput: errorType,
+            isError: false,
+            onInput: null,
             onBlur: null,
           },
         }));
+        setNonEmptyFields((prev) => ({ ...prev, [inputType]: false }));
+        return true;
       } else {
+        setNonEmptyFields((prev) => ({
+          ...prev,
+          [inputType]: true,
+        }));
+        return false;
+      }
+    };
+    const inputIsEmpty = checkInputEmptiness();
+    if (inputIsEmpty) return;
+
+    const validateName = (() => {
+      const nameNumRegex = /\d/;
+      const nameNoSpecialCharRegex = /^[a-zA-Z'-\s]+$/;
+      if (inputType === "name" && inputValue.length > 0) {
+        let errorType = null;
+        if (inputValue.length > 40) {
+          errorType = 1;
+        } else if (nameNumRegex.test(inputValue)) {
+          errorType = 2;
+        } else if (!nameNoSpecialCharRegex.test(inputValue)) {
+          errorType = 3;
+        } else if (inputValue.length > 15 && inputValue.length <= 25) {
+          errorType = 0;
+        }
+        if (errorType !== null) {
+          setContentErrors((prev) => ({
+            ...prev,
+            [inputType]: {
+              isError: true,
+              onInput: errorType,
+              onBlur: null,
+            },
+          }));
+        } else {
+          setContentErrors((prev) => ({
+            ...prev,
+            [inputType]: {
+              isError: false,
+              onInput: null,
+              onBlur: null,
+            },
+          }));
+        }
+      }
+    })();
+
+    const validateMail = (() => {
+      if (inputType === "mail" && inputValue.length > 0) {
+        const mailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+        if (inputValue.length > 50) {
+          setContentErrors((prev) => ({
+            ...prev,
+            [inputType]: {
+              isError: true,
+              onInput: 0,
+              onBlur: null,
+            },
+          }));
+        } else {
+          setContentErrors((prev) => ({
+            ...prev,
+            [inputType]: {
+              isError: false,
+              onInput: null,
+              onBlur: null,
+            },
+          }));
+        }
+      }
+    })();
+
+    const validateMotive = (() => {
+      if (inputType === "motive" && inputValue.length > 0) {
+        if (inputValue.length > 30) {
+          setContentErrors((prev) => ({
+            ...prev,
+            [inputType]: {
+              isError: true,
+              onInput: 0,
+              onBlur: null,
+            },
+          }));
+        } else {
+          setContentErrors((prev) => ({
+            ...prev,
+            [inputType]: {
+              isError: false,
+              onInput: null,
+              onBlur: null,
+            },
+          }));
+        }
+      }
+    })();
+
+    const validateNote = (() => {
+      if (inputType === "note" && inputValue.length > 0) {
+        // Set back to default since it has no onInput validation
         setContentErrors((prev) => ({
           ...prev,
           [inputType]: {
@@ -233,67 +307,7 @@ function Connect() {
           },
         }));
       }
-    }
-
-    // Mail onInput validations
-    if (inputType === "mail" && inputValue.length > 0) {
-      const mailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-      if (inputValue.length > 50) {
-        setContentErrors((prev) => ({
-          ...prev,
-          [inputType]: {
-            isError: true,
-            onInput: 0,
-            onBlur: null,
-          },
-        }));
-      } else {
-        setContentErrors((prev) => ({
-          ...prev,
-          [inputType]: {
-            isError: false,
-            onInput: null,
-            onBlur: null,
-          },
-        }));
-      }
-    }
-
-    // Motive onInput validation
-    if (inputType === "motive" && inputValue.length > 0) {
-      if (inputValue.length > 30) {
-        setContentErrors((prev) => ({
-          ...prev,
-          [inputType]: {
-            isError: true,
-            onInput: 0,
-            onBlur: null,
-          },
-        }));
-      } else {
-        setContentErrors((prev) => ({
-          ...prev,
-          [inputType]: {
-            isError: false,
-            onInput: null,
-            onBlur: null,
-          },
-        }));
-      }
-    }
-
-    // Note onInput validation
-    if (inputType === "note" && inputValue.length > 0) {
-      // Set back to default since it has no onInput validation
-      setContentErrors((prev) => ({
-        ...prev,
-        [inputType]: {
-          isError: false,
-          onInput: null,
-          onBlur: null,
-        },
-      }));
-    }
+    })();
   };
 
   const handleFocus = (event) => {
