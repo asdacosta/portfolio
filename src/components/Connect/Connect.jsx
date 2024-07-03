@@ -56,81 +56,45 @@ function Connect() {
   const typingMailRef = useRef(null);
   const typingNoteRef = useRef(null);
 
-  const typeInputPlaceholders = () => {
-    const typedName = new Typed(typingNameRef.current, {
-      strings: placeholders.names,
+  const typeFieldPlaceholder = (ref, placeholder) => {
+    const typed = new Typed(ref.current, {
+      strings: placeholder,
       typeSpeed: 40,
       backSpeed: 20,
-      backDelay: 1000,
-      attr: "placeholder",
-      loop: true,
-    });
-
-    return () => {
-      typedName.destroy();
-    };
-  };
-  useEffect(() => {
-    const typedName = new Typed(typingNameRef.current, {
-      strings: placeholders.names,
-      typeSpeed: 40,
-      backSpeed: 20,
-      backDelay: 1000,
-      attr: "placeholder",
-      loop: true,
-    });
-
-    return () => {
-      typedName.destroy();
-    };
-  }, []);
-
-  useEffect(() => {
-    const typedMotive = new Typed(typingMotiveRef.current, {
-      strings: placeholders.motives,
-      typeSpeed: 40,
-      backSpeed: 20,
-      backDelay: 1000,
+      backDelay: 1200,
       attr: "placeholder",
       loop: true,
       smartBackspace: true,
-    });
-
-    return () => {
-      typedMotive.destroy();
-    };
-  }, []);
-
-  useEffect(() => {
-    const typedMail = new Typed(typingMailRef.current, {
-      strings: placeholders.mails,
-      typeSpeed: 40,
-      backSpeed: 20,
-      backDelay: 1000,
-      attr: "placeholder",
-      loop: true,
-      smartBackspace: true,
-    });
-
-    return () => {
-      typedMail.destroy();
-    };
-  }, []);
-
-  useEffect(() => {
-    const typedNote = new Typed(typingNoteRef.current, {
-      strings: placeholders.notes,
-      typeSpeed: 40,
-      backSpeed: 10,
-      backDelay: 1500,
-      attr: "placeholder",
-      loop: true,
       showCursor: false,
-      smartBackspace: true,
     });
+    return typed;
+  };
 
+  useEffect(() => {
+    const typed = typeFieldPlaceholder(typingNameRef, placeholders.names);
     return () => {
-      typedNote.destroy();
+      typed.destroy();
+    };
+  }, []);
+
+  useEffect(() => {
+    const typed = typeFieldPlaceholder(typingMotiveRef, placeholders.motives);
+    return () => {
+      typed.destroy();
+    };
+  }, []);
+
+  useEffect(() => {
+    const typed = typeFieldPlaceholder(typingMailRef, placeholders.mails);
+    return () => {
+      typed.destroy();
+    };
+  }, []);
+
+  useEffect(() => {
+    const typed = typeFieldPlaceholder(typingNoteRef, placeholders.notes);
+    return () => {
+      typed.destroy();
     };
   }, []);
 
