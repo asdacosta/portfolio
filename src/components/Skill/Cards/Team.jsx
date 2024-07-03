@@ -9,11 +9,10 @@ function Team() {
   const leftInView = useInView(leftRef);
   const rightInView = useInView(rightRef);
 
-  useEffect(() => {
-    if (leftInView || rightInView) {
-      controls.start("visible");
-    }
-  }, [controls, leftInView, rightInView]);
+  const displaySectionsInView = () => {
+    if (leftInView || rightInView) controls.start("visible");
+  };
+  useEffect(displaySectionsInView, [controls, leftInView, rightInView]);
 
   const leftVariant = {
     visible: { opacity: 1, x: 0, transition: { duration: 1.5 } },
