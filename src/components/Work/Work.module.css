@@ -192,10 +192,10 @@
 
 .slider {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
   position: absolute;
-  bottom: 5rem;
+  bottom: 8rem;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.5rem;
@@ -205,7 +205,7 @@
 }
 
 .wheel {
-  width: 2rem;
+  width: 1.8rem;
   fill: rgb(255, 255, 255, 0.5);
   transition: transform 1s cubic-bezier(0.17, 0.67, 0.64, 2.03);
 }
@@ -352,6 +352,14 @@ svg.gameIcon {
   .workSlide img {
     width: 23rem;
     height: 32rem;
+  }
+
+  .slider {
+    font-size: 1.3rem;
+  }
+
+  .wheel {
+    width: 1.6rem;
   }
 }
 
