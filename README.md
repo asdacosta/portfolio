@@ -125,6 +125,7 @@ Developers, users, recruiters.
 - [ ] Add Subscribe to NewsLetter option in Motive in Connect's fields.
 - [ ] Set display of work samples stars to normal and fix logic to work.
 - [ ] Make country list drop down smoothly.
+- [ ] Refactor.
 - [ ] Make technologies' name have the background color of the icon
 - [ ] Instead of default immediate shift during resizing, style page in such a way that resizing animates.
 - [ ] Replace facebook icon with Dev.to icon in `AboutSocials.jsx`.
