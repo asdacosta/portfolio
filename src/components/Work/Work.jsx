@@ -93,21 +93,11 @@ function Work() {
     expInView,
   ]);
 
-  // const workVariant = {
-  //   visible: { opacity: 1, x: 0, transition: { duration: 1.5 } },
-  //   hidden: { opacity: 0, x: 100 },
-  // };
-
-  // const expVariant = {
-  //   visible: { opacity: 1, y: 0, transition: { duration: 1 } },
-  //   hidden: { opacity: 0, y: 100 },
-  // };
-
   useEffect(() => {
     animateTrackAndImages(0);
   }, []);
 
-  useEffect(() => {
+  const updateIndexWhenWheelIconEntersImage = () => {
     const checkCollision = () => {
       const wheelIconBound = wheelIconRef.current.getBoundingClientRect();
       boxRefs.forEach((boxRef, index) => {
@@ -122,7 +112,6 @@ function Work() {
         }
       });
     };
-
     window.addEventListener("scroll", checkCollision);
     window.addEventListener("resize", checkCollision);
     checkCollision();
@@ -141,7 +130,8 @@ function Work() {
       clearTimeout(timeout);
       clearInterval(interval);
     };
-  }, [percentage]);
+  };
+  useEffect(updateIndexWhenWheelIconEntersImage, [percentage]);
 
   const handleOnDown = (event) => {
     setMouseDownAt(event.clientX || event.touches[0].clientX);
