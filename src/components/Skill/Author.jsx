@@ -243,19 +243,19 @@ function Author() {
       >
         <h2>English mastery</h2>
         <p>
-          As an English expert who has authored a book on Communication Skills,
-          I ensure legible and grammatically correct English to craft engaging
-          and professional content on websites. Also, this expertise together
-          with my experience in communication has equipped me to interact
-          effectively with my team and to convey ideas articulately in
-          presentations.{" "}
+          As an English expert who has authored a{" "}
           <a
             className={skillStyles.bookPreview}
             href={bookPreview}
             download="preview.pdf"
           >
-            Preview
-          </a>
+            book
+          </a>{" "}
+          on Communication Skills, I ensure legible and grammatically correct
+          English to craft engaging and professional content on websites. Also,
+          this expertise together with my experience in communication has
+          equipped me to interact effectively with my team and to convey ideas
+          articulately in presentations.
         </p>
       </motion.div>
     </section>
