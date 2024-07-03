@@ -7,6 +7,8 @@ import { FetchCountries } from "./FetchCountries";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { Element, animateScroll as scroll } from "react-scroll";
 import { MenuContext } from "../../App";
+import Typed from "typed.js";
+import { placeholders } from "./placeholders";
 
 function Connect() {
   const [focusedFields, setFocusedFields] = useState({
@@ -48,6 +50,26 @@ function Connect() {
   const [send, setSend] = useState({ feedback: 0, status: false });
   const scrollUpRef = useRef(null);
   const fieldsRef = useRef(null);
+
+  const typingName = useRef(null);
+  const typingMotive = useRef(null);
+  const typingMail = useRef(null);
+  const typingNote = useRef(null);
+
+  useEffect(() => {
+    const typedName = new Typed(typingName.current, {
+      strings: placeholders.names,
+      typeSpeed: 50,
+      backSpeed: 25,
+      backDelay: 1000,
+      attr: "placeholder",
+      loop: true,
+    });
+
+    return () => {
+      typedName.destroy();
+    };
+  }, []);
 
   const { page, setPage } = useContext(MenuContext);
   const connectRef = useRef(null);
@@ -474,6 +496,7 @@ function Connect() {
               onFocus={handleFocus}
               onBlur={handleBlur}
               onInput={handleInput}
+              ref={typingName}
             />
           </div>
           <div
@@ -518,11 +541,12 @@ function Connect() {
               list="allMotives"
               name="motive"
               id="motive"
-              placeholder="Custom or select subject..."
+              placeholder="Custom or select..."
               required
               onFocus={handleFocus}
               onBlur={handleBlur}
               onInput={handleInput}
+              ref={typingMotive}
             />
             <div className={connectStyles.chevronCover}>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -561,6 +585,7 @@ function Connect() {
               onFocus={handleFocus}
               onBlur={handleBlur}
               onInput={handleInput}
+              ref={typingMail}
             />
           </div>
           <div className={`${connectStyles.noteField} ${connectStyles.field}`}>
@@ -584,6 +609,7 @@ function Connect() {
               onFocus={handleFocus}
               onBlur={handleBlur}
               onInput={handleInput}
+              ref={typingNote}
             ></textarea>
           </div>
           <div>
