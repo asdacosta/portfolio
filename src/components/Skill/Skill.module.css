@@ -316,7 +316,7 @@ section.bot {
 }
 
 .education > h2 {
-  animation: gradient-animation 3.5s linear infinite reverse;
+  animation: gradient-animation 3s linear infinite reverse;
 }
 
 span.eduUniversitySpan {
