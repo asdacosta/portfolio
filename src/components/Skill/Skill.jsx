@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef } from "react";
-import { AboutSocials } from "../About/AboutSocials";
+import { AboutSocials } from "../About/AboutSocials/AboutSocials";
 import { AllDevices } from "./AllDevices";
 import { Analytics } from "./Analytics";
 import { Author } from "./Author";
