@@ -6,6 +6,7 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import { AnimatedNum } from "../Skill/AnimateNum.jsx";
 import { MenuContext } from "../../App.jsx";
 import { Element } from "react-scroll";
+import { workVariants as variants } from "./workVariants.js";
 
 function Work() {
   const [mouseDownAt, setMouseDownAt] = useState(0);
@@ -92,15 +93,15 @@ function Work() {
     expInView,
   ]);
 
-  const workVariant = {
-    visible: { opacity: 1, x: 0, transition: { duration: 1.5 } },
-    hidden: { opacity: 0, x: 100 },
-  };
+  // const workVariant = {
+  //   visible: { opacity: 1, x: 0, transition: { duration: 1.5 } },
+  //   hidden: { opacity: 0, x: 100 },
+  // };
 
-  const expVariant = {
-    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
-    hidden: { opacity: 0, y: 100 },
-  };
+  // const expVariant = {
+  //   visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+  //   hidden: { opacity: 0, y: 100 },
+  // };
 
   useEffect(() => {
     animateTrackAndImages(0);
@@ -326,7 +327,7 @@ function Work() {
         ref={workSamplesRef}
         initial="hidden"
         animate={workControls}
-        variants={workVariant}
+        variants={variants.workSamplesVariant}
       >
         <div className={workStyles.wheelIcon} ref={wheelIconRef}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -412,7 +413,7 @@ function Work() {
         ref={expRef}
         initial="hidden"
         animate={expControls}
-        variants={expVariant}
+        variants={variants.expVariant}
       >
         <h2>Experience</h2>
         {displayExp && (
