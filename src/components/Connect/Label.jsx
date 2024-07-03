@@ -1,7 +1,5 @@
 import Typing from "react-typing-effect";
 import connectStyles from "./Connect.module.css";
-// import Typed from "typed.js";
-import { useEffect, useRef } from "react";
 
 function Label({
   nonEmptyField,
