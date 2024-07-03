@@ -337,7 +337,6 @@ function Connect() {
       handleInput(event);
     })();
 
-    // Stop check
     const stopCheck = (() => {
       for (const [key, data] of Object.entries(contentErrors)) {
         if (key === inputType && inputValue.length > 0) {
@@ -349,135 +348,146 @@ function Connect() {
 
   const handleBlur = (event) => {
     let inputType = event.currentTarget.id;
-    // Capture Country odd id
-    if (inputType === "react-select-3-input") {
-      inputType = "country";
-    }
-
     const inputValue = event.currentTarget.value;
-    setFocusedFields((prev) => ({ ...prev, [inputType]: false }));
 
-    // Name onBlur validations
-    if (inputType === "name" && inputValue.length > 0) {
-      let errorType = null;
-      let errorValue = false;
-      if (inputValue.length === 1) {
-        errorType = 0;
-        errorValue = true;
-      } else if (contentErrors.name.isError) {
-        if (contentErrors.name.onInput === 0) {
-          // Not a real error
-          errorType = null;
-        } else {
-          errorType = 1;
+    const captureCountryOddId = (() => {
+      if (inputType === "react-select-3-input") {
+        inputType = "country";
+      }
+    })();
+
+    const revertFocus = (() => {
+      setFocusedFields((prev) => ({ ...prev, [inputType]: false }));
+    })();
+
+    const validateName = (() => {
+      if (inputType === "name" && inputValue.length > 0) {
+        let errorType = null;
+        let errorValue = false;
+        if (inputValue.length === 1) {
+          errorType = 0;
           errorValue = true;
+        } else if (contentErrors.name.isError) {
+          if (contentErrors.name.onInput === 0) {
+            // Not a real error
+            errorType = null;
+          } else {
+            errorType = 1;
+            errorValue = true;
+          }
+        } else {
+          errorType = null;
         }
-      } else {
-        errorType = null;
+        setContentErrors((prev) => ({
+          ...prev,
+          [inputType]: {
+            isError: errorValue,
+            onInput: null,
+            onBlur: errorType,
+          },
+        }));
       }
-      setContentErrors((prev) => ({
-        ...prev,
-        [inputType]: {
-          isError: errorValue,
-          onInput: null,
-          onBlur: errorType,
-        },
-      }));
-    }
+    })();
 
-    // Email onBlur validations
-    const mailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-    if (inputType === "mail" && inputValue.length > 0) {
-      if (!mailRegex.test(inputValue)) {
-        setContentErrors((prev) => ({
-          ...prev,
-          [inputType]: {
-            isError: true,
-            onInput: null,
-            onBlur: 0,
-          },
-        }));
-      } else {
-        setContentErrors((prev) => ({
-          ...prev,
-          [inputType]: {
-            isError: false,
-            onInput: null,
-            onBlur: null,
-          },
-        }));
+    const validateMail = (() => {
+      const mailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+      if (inputType === "mail" && inputValue.length > 0) {
+        if (!mailRegex.test(inputValue)) {
+          setContentErrors((prev) => ({
+            ...prev,
+            [inputType]: {
+              isError: true,
+              onInput: null,
+              onBlur: 0,
+            },
+          }));
+        } else {
+          setContentErrors((prev) => ({
+            ...prev,
+            [inputType]: {
+              isError: false,
+              onInput: null,
+              onBlur: null,
+            },
+          }));
+        }
       }
-    }
+    })();
 
     // Note onBlur validations
-    if (inputType === "note" && inputValue.length > 0) {
-      if (inputValue.length < 10) {
-        setContentErrors((prev) => ({
-          ...prev,
-          [inputType]: {
-            isError: true,
-            onInput: null,
-            onBlur: 0,
-          },
-        }));
-      } else {
-        setContentErrors((prev) => ({
-          ...prev,
-          [inputType]: {
-            isError: false,
-            onInput: null,
-            onBlur: null,
-          },
-        }));
+    const validateNote = (() => {
+      if (inputType === "note" && inputValue.length > 0) {
+        if (inputValue.length < 10) {
+          setContentErrors((prev) => ({
+            ...prev,
+            [inputType]: {
+              isError: true,
+              onInput: null,
+              onBlur: 0,
+            },
+          }));
+        } else {
+          setContentErrors((prev) => ({
+            ...prev,
+            [inputType]: {
+              isError: false,
+              onInput: null,
+              onBlur: null,
+            },
+          }));
+        }
       }
-    }
+    })();
 
-    // Motive onBlur validations
-    if (inputType === "motive" && inputValue.length > 0) {
-      if (inputValue.length === 1) {
-        setContentErrors((prev) => ({
-          ...prev,
-          [inputType]: {
-            isError: true,
-            onInput: null,
-            onBlur: 0,
-          },
-        }));
+    const validateMotive = () => {
+      if (inputType === "motive" && inputValue.length > 0) {
+        if (inputValue.length === 1) {
+          setContentErrors((prev) => ({
+            ...prev,
+            [inputType]: {
+              isError: true,
+              onInput: null,
+              onBlur: 0,
+            },
+          }));
+        }
       }
-    }
+    };
 
-    // For Label focusedField props
-    const focusedReturn = handleFocusedField(event);
-    setFocusedFieldReturn((prev) => focusedReturn);
+    const getErrorTypeToUpdateLabelFocusedField = (() => {
+      const focusedReturn = handleFocusedField(event);
+      setFocusedFieldReturn((prev) => focusedReturn);
+    })();
 
-    // Run checks
-    for (const [key, data] of Object.entries(contentErrors)) {
-      let errorValue = data.isError;
-      if (key === "name" && data.onInput === 0) {
-        errorValue = false;
-      }
-      if (
-        key === inputType &&
-        !errorValue &&
-        inputValue.length !== 1 &&
-        inputValue.length > 0
-      ) {
-        // Set extra ifs for fields not setting isError correctly (data.isError captures input error and in these fields they have no onInput error related to onBlur error)
-        // onBlur doesn't capture the state update in setContentErrors immediately. The fields that passed are ones that were set onInput which happened prior to onBlur
-        if (key === "note" && inputValue.length < 10) {
+    const runChecks = (() => {
+      for (const [key, data] of Object.entries(contentErrors)) {
+        let errorValue = data.isError;
+        if (key === "name" && data.onInput === 0) {
+          errorValue = false;
+        }
+        if (
+          key === inputType &&
+          !errorValue &&
+          inputValue.length !== 1 &&
+          inputValue.length > 0
+        ) {
+          // Set extra ifs for fields not setting isError correctly (data.isError captures input error and in these fields they have no onInput error related to onBlur error)
+          // onBlur doesn't capture the state update in setContentErrors immediately. The fields that passed are ones that were set onInput which happened prior to onBlur
+          if (key === "note" && inputValue.length < 10) {
+            return;
+          }
+          if (key === "mail" && !mailRegex.test(inputValue)) {
+            return;
+          }
+          if (inputType === "country") {
+            // Already sets check onChange
+            return;
+          }
+          setChecks((prev) => ({ ...prev, [key]: true }));
           return;
         }
-        if (key === "mail" && !mailRegex.test(inputValue)) {
-          return;
-        }
-        if (inputType === "country") {
-          // Already sets check onChange
-          return;
-        }
-        setChecks((prev) => ({ ...prev, [key]: true }));
-        return;
       }
-    }
+    })();
   };
 
   const handleFocusedField = (event) => {
