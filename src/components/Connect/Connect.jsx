@@ -470,7 +470,7 @@ function Connect() {
               type="text"
               name="name"
               id="name"
-              placeholder="Enter your name..."
+              placeholder="Enter name..."
               onFocus={handleFocus}
               onBlur={handleBlur}
               onInput={handleInput}
@@ -494,7 +494,6 @@ function Connect() {
             <FetchCountries
               name="country"
               id="country"
-              placeholder="Enter country..."
               required
               handleFocus={handleFocus}
               handleBlur={handleBlur}
@@ -519,7 +518,7 @@ function Connect() {
               list="allMotives"
               name="motive"
               id="motive"
-              placeholder="Enter subject..."
+              placeholder="Custom or select subject..."
               required
               onFocus={handleFocus}
               onBlur={handleBlur}
@@ -557,7 +556,7 @@ function Connect() {
               type="text"
               name="mail"
               id="mail"
-              placeholder="Enter email..."
+              placeholder="ace@example.com"
               required
               onFocus={handleFocus}
               onBlur={handleBlur}
@@ -581,7 +580,7 @@ function Connect() {
               id="note"
               cols="20"
               rows="10"
-              placeholder="Whatever..."
+              placeholder="Hi Ace, ..."
               onFocus={handleFocus}
               onBlur={handleBlur}
               onInput={handleInput}
