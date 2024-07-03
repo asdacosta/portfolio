@@ -5,16 +5,14 @@ import { useEffect, useRef, useState } from "react";
 function Load({ onComplete }) {
   const animationRef = useRef(null);
 
-  useEffect(() => {
+  const triggerOnComplete = () => {
     const animation = animationRef.current;
     if (!animation) return;
-
     animation.addEventListener("complete", () => {
-      if (onComplete) {
-        onComplete();
-      }
+      if (onComplete) onComplete();
     });
-  }, []);
+  };
+  useEffect(triggerOnComplete, []);
 
   return (
     <section className={loadStyles.load}>
