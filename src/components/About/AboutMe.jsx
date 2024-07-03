@@ -6,12 +6,12 @@ import { aboutMeVariants } from "./aboutMeVariants.js";
 import { aboutMeStrings } from "./aboutMeStrings.js";
 
 function AboutMe() {
-  const [displayedText, setDisplayedText] = useState("");
+  const [expertise, setExpertise] = useState("");
   const [currentInfo, setCurrentInfo] = useState(
     "I develop interactive websites that are responsive across various devices, ensuring seamless user interfaces in collaboration with back-end developers."
   );
-  const [textCharIndex, setTextCharIndex] = useState(0);
-  const [textIndex, setTextIndex] = useState(0);
+  const [expertiseCharIndex, setExpertiseCharIndex] = useState(0);
+  const [expertiseIndex, setExpertiseIndex] = useState(0);
   const [slideUpNow, setSlideUpNow] = useState(false);
   const [hideCursor, setHideCursor] = useState(false);
   const [fillProgress, setFillProgress] = useState(false);
@@ -28,7 +28,7 @@ function AboutMe() {
 
   const handleTypingExpertiseText = () => {
     const clearAboutWhenExpertiseTextIsTyped = (() => {
-      if (displayedText.charAt(displayedText.length - 1) === ".") {
+      if (expertise.charAt(expertise.length - 1) === ".") {
         setHideCursor(true);
         setFillProgress(true);
         const timeoutId = setTimeout(() => {
@@ -41,29 +41,31 @@ function AboutMe() {
     })();
 
     // Type expertise text
-    const currentText = aboutMeStrings.text[textIndex];
-    if (textCharIndex < currentText.length) {
+    const currentText = aboutMeStrings.expertise[expertiseIndex];
+    if (expertiseCharIndex < currentText.length) {
       const timeoutId = setTimeout(() => {
-        setDisplayedText((prev) => prev + currentText[textCharIndex]);
-        setTextCharIndex(textCharIndex + 1);
+        setExpertise((prev) => prev + currentText[expertiseCharIndex]);
+        setExpertiseCharIndex(expertiseCharIndex + 1);
       }, 100);
       return () => clearTimeout(timeoutId);
     }
   };
-  useEffect(handleTypingExpertiseText, [displayedText, textIndex]);
+  useEffect(handleTypingExpertiseText, [expertise, expertiseIndex]);
 
   const slideUpWhenTypingLapses = () => {
     if (slideUpNow) {
       const timeoutId = setTimeout(() => {
-        setDisplayedText("");
+        setExpertise("");
         setCurrentInfo(
-          aboutMeStrings.infos[(textIndex + 1) % aboutMeStrings.infos.length]
+          aboutMeStrings.info[(expertiseIndex + 1) % aboutMeStrings.info.length]
         );
         setHideCursor(false);
         setSlideUpNow(false);
         setFillProgress(false);
-        setTextCharIndex(0);
-        setTextIndex((prev) => (prev + 1) % aboutMeStrings.text.length);
+        setExpertiseCharIndex(0);
+        setExpertiseIndex(
+          (prev) => (prev + 1) % aboutMeStrings.expertise.length
+        );
       }, 1000);
       return () => clearTimeout(timeoutId);
     }
@@ -114,7 +116,7 @@ function AboutMe() {
           }
         >
           {" "}
-          {displayedText}
+          {expertise}
           <span
             className={
               hideCursor
