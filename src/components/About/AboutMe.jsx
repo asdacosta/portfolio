@@ -140,7 +140,7 @@ function AboutMe() {
         variants={textVariant}
         className={aboutStyles.header}
       >
-        Ace Da Costa Silvanus
+        Ace Da Costa
       </motion.h1>
       <motion.p
         key="intro"
