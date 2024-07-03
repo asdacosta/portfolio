@@ -30,22 +30,23 @@ function AboutSocials() {
   const aboutSocialsInView = useInView(aboutSocialsRef);
   const controls = useAnimation();
 
-  useEffect(() => {
+  const displayOnView = () => {
     if (aboutSocialsInView) {
       controls.start("visible");
     }
-  }, [aboutSocialsInView, controls]);
+  };
+  useEffect(displayOnView, [aboutSocialsInView, controls]);
 
-  function fillUp() {
+  const fillUp = () => {
     if (toConnectRef.current) {
       toConnectRef.current.setDirection(1);
       toConnectRef.current.play();
       toConnectRef.current.setSpeed(1.5);
     }
     setIsBubbling(false);
-  }
+  };
 
-  function revertFill() {
+  const revertFill = () => {
     if (toConnectRef.current) {
       toConnectRef.current.setDirection(-1);
       toConnectRef.current.play();
@@ -54,9 +55,9 @@ function AboutSocials() {
     setTimeout(() => {
       setIsBubbling(true);
     }, 200);
-  }
+  };
 
-  function blurOthers(event) {
+  const blurOthers = (event) => {
     switch (event.currentTarget) {
       case githubRef.current:
         setRefClasses((prev) => ({
@@ -136,9 +137,9 @@ function AboutSocials() {
         }));
         break;
     }
-  }
+  };
 
-  function revertBlur() {
+  const revertBlur = () => {
     setRefClasses((prev) => ({
       github: false,
       xRef: false,
@@ -148,7 +149,7 @@ function AboutSocials() {
       youtube: false,
       medium: false,
     }));
-  }
+  };
 
   const slowDown = () => {
     if (animationRef.current) {
