@@ -23,7 +23,6 @@ function Work() {
     seventhImg: false,
     eightImg: false,
     ninthImg: false,
-    // tenthImg: false,
   });
   const [starred, setStarred] = useState({
     firstImg: false,
@@ -66,11 +65,10 @@ function Work() {
   const workInView = useInView(workRef, { amount: 0.2 });
   const { page, setPage } = useContext(MenuContext);
 
-  useEffect(() => {
-    if (workInView) {
-      setPage("work");
-    }
-  }, [workInView]);
+  const updatePageInView = () => {
+    if (workInView) setPage("work");
+  };
+  useEffect(updatePageInView, [workInView]);
 
   const expRef = useRef(null);
   const workSamplesRef = useRef(null);
@@ -79,15 +77,20 @@ function Work() {
   const workSamplesInView = useInView(workSamplesRef);
   const expInView = useInView(expRef);
 
-  useEffect(() => {
-    if (workSamplesInView) {
-      workControls.start("visible");
-    }
+  const displaySectionsInView = () => {
+    if (workSamplesInView) workControls.start("visible");
+
     if (expInView) {
       setDisplayExp(true);
       expControls.start("visible");
     }
-  }, [workControls, workSamplesInView, expControls, expInView]);
+  };
+  useEffect(displaySectionsInView, [
+    workControls,
+    workSamplesInView,
+    expControls,
+    expInView,
+  ]);
 
   const workVariant = {
     visible: { opacity: 1, x: 0, transition: { duration: 1.5 } },
