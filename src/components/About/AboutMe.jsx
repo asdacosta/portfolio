@@ -12,9 +12,7 @@ function AboutMe() {
   );
   const [index, setIndex] = useState(0);
   const [textIndex, setTextIndex] = useState(0);
-
   const [slideUpNow, setSlideUpNow] = useState(false);
-
   const [hideCursor, setHideCursor] = useState(false);
   const [fillProgress, setFillProgress] = useState(false);
 
@@ -23,25 +21,27 @@ function AboutMe() {
   const aboutMeControls = useAnimation();
   const aboutMeInView = useInView(aboutMeRef);
 
-  useEffect(() => {
-    if (aboutMeInView) {
-      aboutMeControls.start("visible");
-    }
-  }, [aboutMeInView, aboutMeControls]);
+  const displayAboutMeOnView = () => {
+    if (aboutMeInView) aboutMeControls.start("visible");
+  };
+  useEffect(displayAboutMeOnView, [aboutMeInView, aboutMeControls]);
 
-  useEffect(() => {
+  const handleTypingExpertiseText = () => {
+    const clearAboutWhenExpertiseTextIsTyped = (() => {
+      if (displayedText.charAt(displayedText.length - 1) === ".") {
+        setHideCursor(true);
+        setFillProgress(true);
+        const timeoutId = setTimeout(() => {
+          setSlideUpNow(true);
+        }, 9000);
+        return () => {
+          clearTimeout(timeoutId);
+        };
+      }
+    })();
+
+    // Type expertise text
     const currentText = aboutMeStrings.text[textIndex];
-    if (displayedText.charAt(displayedText.length - 1) === ".") {
-      setHideCursor(true);
-      setFillProgress(true);
-      const timeoutId = setTimeout(() => {
-        setSlideUpNow(true);
-      }, 9000);
-      return () => {
-        clearTimeout(timeoutId);
-      };
-    }
-
     if (index < currentText.length) {
       const timeoutId = setTimeout(() => {
         setDisplayedText((prev) => prev + currentText[index]);
@@ -49,9 +49,10 @@ function AboutMe() {
       }, 100);
       return () => clearTimeout(timeoutId);
     }
-  }, [displayedText, textIndex]);
+  };
+  useEffect(handleTypingExpertiseText, [displayedText, textIndex]);
 
-  useEffect(() => {
+  const slideUpWhenTypingLapses = () => {
     if (slideUpNow) {
       const timeoutId = setTimeout(() => {
         setDisplayedText("");
@@ -66,7 +67,8 @@ function AboutMe() {
       }, 1000);
       return () => clearTimeout(timeoutId);
     }
-  }, [slideUpNow]);
+  };
+  useEffect(slideUpWhenTypingLapses, [slideUpNow]);
 
   return (
     <motion.section
