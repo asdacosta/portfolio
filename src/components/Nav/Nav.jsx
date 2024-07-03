@@ -31,32 +31,8 @@ function Nav() {
     }
   };
 
-  const highlightAbout = () => {
-    scroller.scrollTo("About", {
-      duration: 1000,
-      smooth: true,
-    });
-  };
-  const highlightSkill = () => {
-    scroller.scrollTo("Skill", {
-      duration: 1000,
-      smooth: true,
-    });
-  };
-  const highlightWork = () => {
-    scroller.scrollTo("Work", {
-      duration: 1000,
-      smooth: true,
-    });
-  };
-  const highlightBlog = () => {
-    scroller.scrollTo("Blog", {
-      duration: 1000,
-      smooth: true,
-    });
-  };
-  const highlightConnect = () => {
-    scroller.scrollTo("Connect", {
+  const highlightTab = (tab) => {
+    scroller.scrollTo(tab, {
       duration: 1000,
       smooth: true,
     });
@@ -71,7 +47,9 @@ function Nav() {
         exit="exit"
         variants={variants.navBlurVariant}
         className={navStyles.home}
-        onClick={highlightAbout}
+        onClick={() => {
+          highlightTab("About");
+        }}
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
           <path d="M0 96C0 60.7 28.7 32 64 32h96c123.7 0 224 100.3 224 224s-100.3 224-224 224H64c-35.3 0-64-28.7-64-64V96zm160 0H64V416h96c88.4 0 160-71.6 160-160s-71.6-160-160-160z" />
@@ -88,7 +66,9 @@ function Nav() {
           className={page === "about" ? navStyles.highlight : ""}
           key="about"
           variants={variants.buttonVariant}
-          onClick={highlightAbout}
+          onClick={() => {
+            highlightTab("About");
+          }}
         >
           About
         </motion.button>
@@ -96,7 +76,9 @@ function Nav() {
           className={page === "skill" ? navStyles.highlight : ""}
           key="skill"
           variants={variants.buttonVariant}
-          onClick={highlightSkill}
+          onClick={() => {
+            highlightTab("Skill");
+          }}
         >
           Skill
         </motion.button>
@@ -104,7 +86,9 @@ function Nav() {
           className={page === "work" ? navStyles.highlight : ""}
           key="work"
           variants={variants.buttonVariant}
-          onClick={highlightWork}
+          onClick={() => {
+            highlightTab("Work");
+          }}
         >
           Work
         </motion.button>
@@ -112,7 +96,9 @@ function Nav() {
           className={page === "blog" ? navStyles.highlight : ""}
           key="blog"
           variants={variants.buttonVariant}
-          onClick={highlightBlog}
+          onClick={() => {
+            highlightTab("Blog");
+          }}
           style={{ display: "none" }}
         >
           Blog
@@ -121,7 +107,9 @@ function Nav() {
           className={page === "connect" ? navStyles.highlight : ""}
           key="connect"
           variants={variants.buttonVariant}
-          onClick={highlightConnect}
+          onClick={() => {
+            highlightTab("Connect");
+          }}
         >
           Connect
         </motion.button>
@@ -162,26 +150,34 @@ function Nav() {
           >
             <button
               className={page === "skill" ? navStyles.highlight : ""}
-              onClick={highlightSkill}
+              onClick={() => {
+                highlightTab("Skill");
+              }}
             >
               Skill
             </button>
             <button
               className={page === "work" ? navStyles.highlight : ""}
-              onClick={highlightWork}
+              onClick={() => {
+                highlightTab("Work");
+              }}
             >
               Work
             </button>
             <button
               className={page === "blog" ? navStyles.highlight : ""}
-              onClick={highlightBlog}
+              onClick={() => {
+                highlightTab("Blog");
+              }}
               style={{ display: "none" }}
             >
               Blog
             </button>
             <button
               className={page === "connect" ? navStyles.highlight : ""}
-              onClick={highlightConnect}
+              onClick={() => {
+                highlightTab("Connect");
+              }}
             >
               Connect
             </button>
