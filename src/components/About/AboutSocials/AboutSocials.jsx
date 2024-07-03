@@ -3,6 +3,7 @@ import { delay, motion, useAnimation, useInView } from "framer-motion";
 import aboutStyles from "../About.module.css";
 import { useEffect, useRef, useState } from "react";
 import { scroller } from "react-scroll";
+import { aboutSocialsVariants } from "./aboutSocialsVariants";
 
 function AboutSocials() {
   const [isBubbling, setIsBubbling] = useState(true);
@@ -163,38 +164,6 @@ function AboutSocials() {
     }
   };
 
-  const containerVariant = {
-    hidden: { opacity: 1 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delay: 2.5,
-        when: "beforeChildren",
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const iconVariant = {
-    hidden: { opacity: 0, filter: "blur(10px)" },
-    visible: {
-      opacity: 1,
-      filter: "blur(0)",
-      transition: { duration: 0.5 },
-    },
-  };
-
-  const backgroundVariant = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 1, delay: 2.5 } },
-  };
-
-  const connectVariant = {
-    hidden: { opacity: 0, x: -30 },
-    visible: { opacity: 1, x: 0, transition: { duration: 1, delay: 4.5 } },
-  };
-
   const highlightConnect = () => {
     scroller.scrollTo("Connect", {
       duration: 2000,
@@ -206,14 +175,14 @@ function AboutSocials() {
     <section className={aboutStyles.aboutSocials}>
       <motion.section
         ref={aboutSocialsRef}
-        variants={containerVariant}
+        variants={aboutSocialsVariants.containerVariant}
         initial="hidden"
         animate={controls}
         className={aboutStyles.socialIcons}
       >
         <motion.div
           key="github"
-          variants={iconVariant}
+          variants={aboutSocialsVariants.iconVariant}
           className={aboutStyles.githubBox}
           onClick={() => {
             window.open("https://github.com/asdacosta", "_blank");
@@ -236,7 +205,7 @@ function AboutSocials() {
         </motion.div>
         <motion.div
           key="linkedIn"
-          variants={iconVariant}
+          variants={aboutSocialsVariants.iconVariant}
           className={aboutStyles.linkedInBox}
           onClick={() => {
             window.open("https://bit.ly/aceCosta", "_blank");
@@ -259,7 +228,7 @@ function AboutSocials() {
         </motion.div>
         <motion.div
           key="X"
-          variants={iconVariant}
+          variants={aboutSocialsVariants.iconVariant}
           className={aboutStyles.xBox}
           onClick={() => {
             window.open("https://x.com/Ace_DaCosta", "_blank");
@@ -282,7 +251,7 @@ function AboutSocials() {
         </motion.div>
         <motion.div
           key="ig"
-          variants={iconVariant}
+          variants={aboutSocialsVariants.iconVariant}
           className={aboutStyles.igBox}
           onClick={() => {
             window.open("https://www.instagram.com/ace_dacosta/", "_blank");
@@ -305,7 +274,7 @@ function AboutSocials() {
         </motion.div>
         <motion.div
           key="fb"
-          variants={iconVariant}
+          variants={aboutSocialsVariants.iconVariant}
           className={aboutStyles.fbBox}
         >
           <svg
@@ -325,7 +294,7 @@ function AboutSocials() {
         </motion.div>
         <motion.div
           key="tube"
-          variants={iconVariant}
+          variants={aboutSocialsVariants.iconVariant}
           className={aboutStyles.youtubeBox}
         >
           <svg
@@ -345,7 +314,7 @@ function AboutSocials() {
         </motion.div>
         <motion.div
           key="medium"
-          variants={iconVariant}
+          variants={aboutSocialsVariants.iconVariant}
           className={aboutStyles.mediumBox}
           onClick={() => {
             window.open("https://medium.com/@dacostasilvanus", "_blank");
@@ -368,7 +337,7 @@ function AboutSocials() {
         </motion.div>
       </motion.section>
       <motion.section
-        variants={backgroundVariant}
+        variants={aboutSocialsVariants.backgroundVariant}
         initial="hidden"
         animate="visible"
         className={aboutStyles.bgLottie}
@@ -386,7 +355,7 @@ function AboutSocials() {
         ></dotlottie-player>
       </motion.section>
       <motion.section
-        variants={connectVariant}
+        variants={aboutSocialsVariants.connectVariant}
         initial="hidden"
         animate="visible"
         className={aboutStyles.toConnect}
