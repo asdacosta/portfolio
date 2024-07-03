@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { BackSection } from "./BackSection";
 import { FrontSection } from "./FrontSection";
 import { LangSection } from "./LangSection";
-import skillStyles from "./Skill.module.css";
+import skillStyles from "../Skill.module.css";
 import { ToolSection } from "./ToolSection";
 import { useAnimation, useInView, motion } from "framer-motion";
 
