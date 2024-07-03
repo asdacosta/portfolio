@@ -102,11 +102,12 @@ function Connect() {
   const connectRef = useRef(null);
   const connectInView = useInView(connectRef);
 
-  useEffect(() => {
+  const updatePageOnView = () => {
     if (connectInView) {
       setPage("connect");
     }
-  }, [connectInView]);
+  };
+  useEffect(updatePageOnView, [connectInView]);
 
   const scrollUpControls = useAnimation();
   const fieldControls = useAnimation();
@@ -117,14 +118,20 @@ function Connect() {
     scroll.scrollToTop({ duration: 1000, smooth: true });
   };
 
-  useEffect(() => {
+  const displaySectionsOnView = () => {
     if (scrollUpInView) {
       scrollUpControls.start("visible");
     }
     if (fieldInView) {
       fieldControls.start("visible");
     }
-  }, [scrollUpControls, scrollUpInView, fieldControls, fieldInView]);
+  };
+  useEffect(displaySectionsOnView, [
+    scrollUpControls,
+    scrollUpInView,
+    fieldControls,
+    fieldInView,
+  ]);
 
   const scrollUpVariant = {
     visible: { opacity: 1, x: 0, transition: { duration: 1 } },
