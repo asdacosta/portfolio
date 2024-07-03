@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import skillStyles from "./Skill.module.css";
+import skillStyles from "../Skill.module.css";
 import { motion, useAnimation, useInView } from "framer-motion";
 
 function Research() {
