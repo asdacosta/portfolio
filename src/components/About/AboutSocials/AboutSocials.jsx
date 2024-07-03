@@ -1,6 +1,6 @@
 import "@dotlottie/player-component";
 import { delay, motion, useAnimation, useInView } from "framer-motion";
-import aboutStyles from "./About.module.css";
+import aboutStyles from "../About.module.css";
 import { useEffect, useRef, useState } from "react";
 import { scroller } from "react-scroll";
 
