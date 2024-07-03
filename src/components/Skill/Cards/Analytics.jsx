@@ -1,4 +1,4 @@
-import skillStyles from "./Skill.module.css";
+import skillStyles from "../Skill.module.css";
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
