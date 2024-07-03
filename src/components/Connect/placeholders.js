@@ -1,4 +1,4 @@
-const names = ["Ace Da Costa", "Enter name... ^3000"];
+const names = ["Ace Da Costa", "Enter name...^3000"];
 
 const motives = [
   "Hire short term",
@@ -8,11 +8,11 @@ const motives = [
   "General Inquiry",
   "Bug Report",
   "Support",
-  "Custom or select subject...",
+  "Custom or select...^3000",
 ];
 
 const mails = [
-  "ace@example.com",
+  "ace@example.com^3000",
   "ace.costa@example.com",
   "ace-costa@example.com",
   "ace_costa@example.com",
@@ -33,7 +33,7 @@ const notes = [
   "Greetings Ace, \n I am working on a project that I believe aligns well with your skills. Would you be interested in discussing a potential collaboration? \n Looking forward to your response.",
   "Dear Ace, \n I just wanted to reach out and say how much I admire your work, especially... ^1000 . Your attention to detail and creativity are great. Keep it up! \n Thank you.",
   "Hi Ace, \n I hope you're well. I wanted to bring to your attention a bug I encountered on your portfolio website. The issue occurs when... ^1000 . \n Thank you.",
-  "Hi Ace, ...",
+  "Hi Ace, ...^3000",
 ];
 
 const placeholders = { names, motives, mails, notes };
