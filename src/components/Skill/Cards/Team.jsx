@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import skillStyles from "../Skill.module.css";
 import { motion, useAnimation, useInView } from "framer-motion";
+import { cardsVariants as variants } from "./cardsVariants";
 
 function Team() {
   const leftRef = useRef(null);
@@ -14,23 +15,13 @@ function Team() {
   };
   useEffect(displaySectionsInView, [controls, leftInView, rightInView]);
 
-  const leftVariant = {
-    visible: { opacity: 1, x: 0, transition: { duration: 1.5 } },
-    hidden: { opacity: 0, x: -150 },
-  };
-
-  const rightVariant = {
-    visible: { opacity: 1, x: 0, transition: { duration: 1.5 } },
-    hidden: { opacity: 0, x: 150 },
-  };
-
   return (
     <section className={skillStyles.team}>
       <motion.svg
         ref={leftRef}
         initial="hidden"
         animate={controls}
-        variants={leftVariant}
+        variants={variants.leftVariant}
         xmlns="http://www.w3.org/2000/svg"
         data-name="Layer 1"
         width="787.06663"
@@ -277,7 +268,7 @@ function Team() {
         ref={rightRef}
         initial="hidden"
         animate={controls}
-        variants={rightVariant}
+        variants={variants.rightVariant}
       >
         <h2>Collaborative</h2>
         <p>
