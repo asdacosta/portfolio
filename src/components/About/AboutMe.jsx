@@ -3,6 +3,7 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import aboutStyles from "./About.module.css";
 import { useEffect, useRef, useState } from "react";
 import { aboutMeVariants } from "./aboutMeVariants.js";
+import { aboutMeStrings } from "./aboutMeStrings.js";
 
 function AboutMe() {
   const [displayedText, setDisplayedText] = useState("");
@@ -28,21 +29,8 @@ function AboutMe() {
     }
   }, [aboutMeInView, aboutMeControls]);
 
-  const text = [
-    "Web Developer.",
-    "UI/UX Designer.",
-    "Web Analyst.",
-    "Linguist.",
-  ];
-  const infos = [
-    "I develop interactive websites that are responsive across various devices, ensuring seamless user interfaces in collaboration with back-end developers.",
-    "I design visually appealing and user-friendly websites, focusing on layout, aesthetics, and refining user experience through continuous improvement.",
-    "With a background in Statistics, I leverage my analytical and problem solving skills to solve complex challenges in development, ensuring optimal solutions.",
-    "With fluency in four languages, I craft websites to suit users with diverse cultural nuances and collaborate well with teams having various cultural backgrounds.",
-  ];
-
   useEffect(() => {
-    const currentText = text[textIndex];
+    const currentText = aboutMeStrings.text[textIndex];
     if (displayedText.charAt(displayedText.length - 1) === ".") {
       setHideCursor(true);
       setFillProgress(true);
@@ -67,12 +55,14 @@ function AboutMe() {
     if (slideUpNow) {
       const timeoutId = setTimeout(() => {
         setDisplayedText("");
-        setCurrentInfo(infos[(textIndex + 1) % infos.length]);
+        setCurrentInfo(
+          aboutMeStrings.infos[(textIndex + 1) % aboutMeStrings.infos.length]
+        );
         setHideCursor(false);
         setSlideUpNow(false);
         setFillProgress(false);
         setIndex(0);
-        setTextIndex((prev) => (prev + 1) % text.length);
+        setTextIndex((prev) => (prev + 1) % aboutMeStrings.text.length);
       }, 1000);
       return () => clearTimeout(timeoutId);
     }
