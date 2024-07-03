@@ -1,4 +1,4 @@
-import skillStyles from "./Skill.module.css";
+import skillStyles from "../Skill.module.css";
 
 function LangSection() {
   return (
