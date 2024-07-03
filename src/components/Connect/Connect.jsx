@@ -542,6 +542,7 @@ function Connect() {
               name="name"
               id="name"
               placeholder="Enter name..."
+              maxLength="41"
               onFocus={handleFocus}
               onBlur={handleBlur}
               onInput={handleInput}
@@ -591,6 +592,7 @@ function Connect() {
               name="motive"
               id="motive"
               placeholder="Custom or select..."
+              maxLength="31"
               required
               onFocus={handleFocus}
               onBlur={handleBlur}
@@ -630,6 +632,7 @@ function Connect() {
               name="mail"
               id="mail"
               placeholder="ace@example.com"
+              maxLength="51"
               required
               onFocus={handleFocus}
               onBlur={handleBlur}
@@ -655,6 +658,7 @@ function Connect() {
               cols="20"
               rows="10"
               placeholder="Hi Ace, ..."
+              maxLength="2500"
               onFocus={handleFocus}
               onBlur={handleBlur}
               onInput={handleInput}
