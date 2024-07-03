@@ -313,29 +313,38 @@ function Connect() {
   const handleFocus = (event) => {
     let inputType = event.currentTarget.id;
     const inputValue = event.currentTarget.value;
-    // Capture Country odd id
-    if (inputType === "react-select-3-input") {
-      inputType = "country";
-    }
-    // Trigger nonEmpty field on focus
-    if (inputValue !== "") {
-      setNonEmptyFields((prev) => ({ ...prev, [inputType]: true }));
-    }
 
-    setFocusedFields((prev) => ({
-      ...prev,
-      [inputType]: true,
-    }));
+    const captureCountryOddId = (() => {
+      if (inputType === "react-select-3-input") {
+        inputType = "country";
+      }
+    })();
 
-    // Continue with input validation from onBlur validations
-    handleInput(event);
+    const checkInputNonEmptiness = (() => {
+      if (inputValue !== "") {
+        setNonEmptyFields((prev) => ({ ...prev, [inputType]: true }));
+      }
+    })();
+
+    const triggerFocusOfInput = (() => {
+      setFocusedFields((prev) => ({
+        ...prev,
+        [inputType]: true,
+      }));
+    })();
+
+    const resumeInputValidationFromOnBlur = (() => {
+      handleInput(event);
+    })();
 
     // Stop check
-    for (const [key, data] of Object.entries(contentErrors)) {
-      if (key === inputType && inputValue.length > 0) {
-        setChecks((prev) => ({ ...prev, [key]: false }));
+    const stopCheck = (() => {
+      for (const [key, data] of Object.entries(contentErrors)) {
+        if (key === inputType && inputValue.length > 0) {
+          setChecks((prev) => ({ ...prev, [key]: false }));
+        }
       }
-    }
+    })();
   };
 
   const handleBlur = (event) => {
