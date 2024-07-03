@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import skillStyles from "./Skill.module.css";
 import { motion, useAnimation, useInView } from "framer-motion";
+import bookPreview from "../../assets/book_preview.pdf";
 
 function Author() {
   const leftRef = useRef(null);
@@ -240,14 +241,21 @@ function Author() {
         animate={controls}
         variants={leftVariant}
       >
-        <h2>English Author</h2>
+        <h2>English mastery</h2>
         <p>
           As an English expert who has authored a book on Communication Skills,
           I ensure legible and grammatically correct English to craft engaging
           and professional content on websites. Also, this expertise together
           with my experience in communication has equipped me to interact
           effectively with my team and to convey ideas articulately in
-          presentations.
+          presentations.{" "}
+          <a
+            className={skillStyles.bookPreview}
+            href={bookPreview}
+            download="preview.pdf"
+          >
+            Preview
+          </a>
         </p>
       </motion.div>
     </section>
