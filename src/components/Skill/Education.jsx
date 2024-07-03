@@ -10,12 +10,13 @@ function Education() {
   const eduInView = useInView(eduRef);
   const [display, setDisplay] = useState(false);
 
-  useEffect(() => {
+  const displayInView = () => {
     if (eduInView) {
       setDisplay(true);
       controls.start("visible");
     }
-  }, [controls, eduInView]);
+  };
+  useEffect(displayInView, [controls, eduInView]);
 
   const eduVariant = {
     visible: { opacity: 1, y: 0, transition: { duration: 1.5 } },
