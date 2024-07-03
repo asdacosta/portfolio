@@ -8,7 +8,7 @@ import { Mobile } from "./Cards/Mobile";
 import { Research } from "./Cards/Research";
 import skillStyles from "./Skill.module.css";
 import { Team } from "./Cards/Team";
-import { Technologies } from "./Technologies";
+import { Technologies } from "./Technologies/Technologies";
 import { MenuContext } from "../../App";
 import { useInView } from "framer-motion";
 import { Element } from "react-scroll";
