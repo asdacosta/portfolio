@@ -12,7 +12,7 @@ function FetchCountries({
 }) {
   const [countries, setCountries] = useState([]);
 
-  useEffect(() => {
+  const getSortedCountries = () => {
     const fetchCountries = async () => {
       try {
         const response = await fetch("https://restcountries.com/v3.1/all");
@@ -34,9 +34,9 @@ function FetchCountries({
         console.error("Error fetching countries:", error);
       }
     };
-
     fetchCountries();
-  }, []);
+  };
+  useEffect(getSortedCountries, []);
 
   const options = countries.map((country) => ({
     value: country.name.common,
