@@ -12,11 +12,10 @@ function Skill() {
   const SkillRef = useRef(null);
   const inView = useInView(SkillRef, { amount: 0.1 });
 
-  useEffect(() => {
-    if (inView) {
-      setPage("skill");
-    }
-  }, [inView]);
+  const updatePageInView = () => {
+    if (inView) setPage("skill");
+  };
+  useEffect(updatePageInView, [inView]);
 
   return (
     <section className={skillStyles.skill} ref={SkillRef}>
