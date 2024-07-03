@@ -87,6 +87,22 @@ function Connect() {
     };
   }, []);
 
+  useEffect(() => {
+    const typedMail = new Typed(typingMail.current, {
+      strings: placeholders.mails,
+      typeSpeed: 50,
+      backSpeed: 25,
+      backDelay: 1000,
+      attr: "placeholder",
+      loop: true,
+      smartBackspace: true,
+    });
+
+    return () => {
+      typedMail.destroy();
+    };
+  }, []);
+
   const { page, setPage } = useContext(MenuContext);
   const connectRef = useRef(null);
   const connectInView = useInView(connectRef);
