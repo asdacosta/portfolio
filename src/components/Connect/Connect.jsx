@@ -51,13 +51,27 @@ function Connect() {
   const scrollUpRef = useRef(null);
   const fieldsRef = useRef(null);
 
-  const typingName = useRef(null);
-  const typingMotive = useRef(null);
-  const typingMail = useRef(null);
-  const typingNote = useRef(null);
+  const typingNameRef = useRef(null);
+  const typingMotiveRef = useRef(null);
+  const typingMailRef = useRef(null);
+  const typingNoteRef = useRef(null);
 
+  const typeInputPlaceholders = () => {
+    const typedName = new Typed(typingNameRef.current, {
+      strings: placeholders.names,
+      typeSpeed: 40,
+      backSpeed: 20,
+      backDelay: 1000,
+      attr: "placeholder",
+      loop: true,
+    });
+
+    return () => {
+      typedName.destroy();
+    };
+  };
   useEffect(() => {
-    const typedName = new Typed(typingName.current, {
+    const typedName = new Typed(typingNameRef.current, {
       strings: placeholders.names,
       typeSpeed: 40,
       backSpeed: 20,
@@ -72,7 +86,7 @@ function Connect() {
   }, []);
 
   useEffect(() => {
-    const typedMotive = new Typed(typingMotive.current, {
+    const typedMotive = new Typed(typingMotiveRef.current, {
       strings: placeholders.motives,
       typeSpeed: 40,
       backSpeed: 20,
@@ -88,7 +102,7 @@ function Connect() {
   }, []);
 
   useEffect(() => {
-    const typedMail = new Typed(typingMail.current, {
+    const typedMail = new Typed(typingMailRef.current, {
       strings: placeholders.mails,
       typeSpeed: 40,
       backSpeed: 20,
@@ -104,7 +118,7 @@ function Connect() {
   }, []);
 
   useEffect(() => {
-    const typedNote = new Typed(typingNote.current, {
+    const typedNote = new Typed(typingNoteRef.current, {
       strings: placeholders.notes,
       typeSpeed: 40,
       backSpeed: 10,
@@ -546,7 +560,7 @@ function Connect() {
               onFocus={handleFocus}
               onBlur={handleBlur}
               onInput={handleInput}
-              ref={typingName}
+              ref={typingNameRef}
             />
           </div>
           <div
@@ -597,7 +611,7 @@ function Connect() {
               onFocus={handleFocus}
               onBlur={handleBlur}
               onInput={handleInput}
-              ref={typingMotive}
+              ref={typingMotiveRef}
             />
             <div className={connectStyles.chevronCover}>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -637,7 +651,7 @@ function Connect() {
               onFocus={handleFocus}
               onBlur={handleBlur}
               onInput={handleInput}
-              ref={typingMail}
+              ref={typingMailRef}
             />
           </div>
           <div className={`${connectStyles.noteField} ${connectStyles.field}`}>
@@ -662,7 +676,7 @@ function Connect() {
               onFocus={handleFocus}
               onBlur={handleBlur}
               onInput={handleInput}
-              ref={typingNote}
+              ref={typingNoteRef}
             ></textarea>
           </div>
           <div>
