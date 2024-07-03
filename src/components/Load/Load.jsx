@@ -24,7 +24,7 @@ function Load({ onComplete }) {
         autoplay
         mode="normal"
         src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/Animation%20-%201717421594190.lottie"
-        style={{ width: "400px", height: "400px" }}
+        style={{ width: "300px", height: "300px" }}
       ></dotlottie-player>
     </section>
   );
