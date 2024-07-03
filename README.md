@@ -116,7 +116,21 @@ Developers, users, recruiters.
 <details>
 <summary>Invert</summary>
 
-- [ ]
+- [ ] Let Bot populate any free places.
+- [ ] Add loading bar.
+- [ ] Light mode and few custom colors.
+- [ ] Fine tune the min-max translate in intervals of 5 / Remove.
+- [ ] Add map to contact section.
+- [ ] Add French translation.
+- [ ] Add Subscribe to NewsLetter option in Motive in Connect's fields.
+- [ ] Set display of work samples stars to normal and fix logic to work.
+- [ ] Make country list drop down smoothly.
+- [ ] Make technologies' name have the background color of the icon
+- [ ] Instead of default immediate shift during resizing, style page in such a way that resizing animates.
+- [ ] Replace facebook icon with Dev.to icon in `AboutSocials.jsx`.
+- [ ] Use typed.js for all typing effects (feedbacks in Fields) to enable bold and longer pause effect without inconsistencies.
+- [ ] Fix chevron cover in motive field that drops when input is checked so that it always stays in position.
+- [ ] Set display of Blog in `Nav.jsx` to normal and add blogs.
 
 </details>
 
