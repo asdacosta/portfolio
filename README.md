@@ -1,8 +1,132 @@
-# React + Vite
+<div align='center'>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# [Ace's](https://github.com/asdacosta) Portfolio
 
-Currently, two official plugins are available:
+</div>
+<div align='center'>
+    <h3>💻 Technologies</h3>
+    <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux badge">
+    <img src="https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code badge">
+    <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git badge">
+    <img src="https://img.shields.io/badge/Webpack-8DD6F9?style=for-the-badge&logo=webpack&logoColor=black" alt="Webpack badge">
+    <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js badge">
+    <img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white" alt="npm badge">
+    <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white" alt="ESLint badge">
+    <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=black" alt="Prettier badge">
+    <img src="https://img.shields.io/badge/Babel-F7B93E?style=for-the-badge&logo=babel&logoColor=black" alt="Babel badge">
+    <img src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white" alt="Jest badge">
+    <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React badge">
+    <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite badge">
+    <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel badge">
+    <h4><a href="https://shopping-cart-sage-three.vercel.app/">Live Preview</a></h4>
+</div>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Demo:**
+
+![Live Demo](./readme-assets/)
+
+<details>
+
+**<summary>Screen views</summary>**
+
+**Desktop View:**
+
+<img src="./readme-assets/" alt="desktop view">
+<br>
+
+**Mobile View:**
+
+<img src="./readme-assets/" alt="mobile view">
+
+</details>
+
+## 🌐 Origin
+
+Personal
+
+## 📝 Description
+
+Builds [Ace's](https://github.com/asdacosta) main portfolio.
+
+<details>
+<summary>Special Features</summary>
+
+- Real-time feedback from fields in Connect section.
+- Highlight current section in viewport.
+- Reveal parts of work samples on scroll or drag.
+
+</details>
+
+## 🎯 Relevance
+
+To showcase general prowess in development and works.
+
+## 👥 Intended Audience
+
+Developers, users, recruiters.
+
+> [!NOTE]
+> Users can install all dependencies using `package.json` file via:
+>
+> ```bash
+> npm install
+> ```
+
+## 📂 Files
+
+<details>
+<summary>Invert</summary>
+
+| File                      | Description                                                                                                           |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `src/*`                   | Source files that are bundled into the output directory `dist/`.                                                      |
+| `src/main.jsx`            | The main JavaScript entry point that bundling begins.                                                                 |
+| `src/App.jsx`             | Main component where overall structure and other layout components of the app are contained.                          |
+| `src/assets/*`            | All assets(images, icons, vids) used in website.                                                                      |
+| `src/components/Cart.jsx` | Displays Cart.                                                                                                        |
+| `src/components/About/`   | Components and stylesheet for About section at top of page.                                                           |
+| `src/components/Connect/` | Components and stylesheet for Connect section at bottom of page. wrong.                                               |
+| `src/components/Load/`    | Component and stylesheet for Load displayed at page load.                                                             |
+| `src/components/Nav/`     | Components and stylesheet for Nav section of page. wrong.                                                             |
+| `src/components/Skill/`   | Components and stylesheet for Skill section on page. wrong.                                                           |
+| `src/components/Work/`    | Components and stylesheet for Work section on page. wrong.                                                            |
+| `src/sreset.css`          | Resets style to default for consistency across different devices and browsers..                                       |
+| `src/App.css`             | General stylesheet for `App.jsx`                                                                                      |
+| `dist/*`                  | Output files from bundling of files in directory `src/`.                                                              |
+| `dist/main.js`            | Main JavaScript output file that contains the bundled JavaScript code. Code is minified and optimized for deployment. |
+| `package*`                | Contains details of project and dependencies versions.                                                                |
+| `readme-assets/*`         | Live demo and different screen views used in `README.md`.                                                             |
+
+</details>
+
+## ©️ Credit
+
+<details>
+<summary>Invert</summary>
+
+| File                  | Description             |
+| --------------------- | ----------------------- |
+| `src/assets/*.lottie` | Lottie animation files. |
+| `src/assets/works/*`  | Screenshots of works.   |
+
+</details>
+
+## 🔄 Improvements
+
+<details>
+<summary>Invert</summary>
+
+- [ ]
+
+</details>
+
+## 👤 Curator
+
+1. [Ace Da Costa Silvanus](https://github.com/asdacosta)
+
+<br>
+
+> [!IMPORTANT]
+> Seek contributor's consent for any code usage.
+
+**[🞁 Top](#template)**
