@@ -4,7 +4,7 @@ import "@dotlottie/player-component";
 import { useContext, useEffect, useRef, useState } from "react";
 import { MenuContext } from "../../App";
 import { scroller } from "react-scroll";
-import { navVariants as variants } from "./variants";
+import { navVariants as variants } from "./navVariants";
 
 function Nav() {
   const [menuOpened, setMenuClosed] = useState(false);
