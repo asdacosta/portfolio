@@ -108,7 +108,7 @@ function Connect() {
       strings: placeholders.notes,
       typeSpeed: 40,
       backSpeed: 10,
-      backDelay: 1000,
+      backDelay: 1500,
       attr: "placeholder",
       loop: true,
       showCursor: false,
