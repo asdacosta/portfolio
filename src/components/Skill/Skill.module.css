@@ -130,6 +130,10 @@ section.bot {
   height: 45vmin;
 }
 
+.bookPreview {
+  color: rgb(0, 204, 255);
+}
+
 .research > svg {
   /* width: 45rem;
   height: 33rem; */
