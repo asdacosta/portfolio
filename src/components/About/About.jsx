@@ -11,11 +11,10 @@ function About() {
   const inView = useInView(aboutRef, { amount: 0.1 });
   const { page, setPage } = useContext(MenuContext);
 
-  useEffect(() => {
-    if (inView) {
-      setPage("about");
-    }
-  }, [inView]);
+  const updatePageOnView = () => {
+    if (inView) setPage("about");
+  };
+  useEffect(updatePageOnView, [inView]);
 
   return (
     <motion.section className={aboutStyles.about} ref={aboutRef}>
