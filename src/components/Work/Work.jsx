@@ -414,9 +414,9 @@ function Work() {
         <h2>Experience</h2>
         {displayExp && (
           <p>
-            <AnimatedNum target={28} percent={false} delayTime={0.5} />{" "}
+            <AnimatedNum target={20} percent={false} delayTime={0.5} />{" "}
             <span className={workStyles.months}>months</span> ~{" "}
-            <AnimatedNum target={2.5} percent={false} delayTime={0.5} />{" "}
+            <AnimatedNum target={2} percent={false} delayTime={0.5} />{" "}
             <span className={workStyles.years}>years</span>
           </p>
         )}
