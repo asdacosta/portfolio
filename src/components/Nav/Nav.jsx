@@ -133,6 +133,7 @@ function Nav() {
           key="blog"
           variants={buttonVariant}
           onClick={highlightBlog}
+          style={{ display: "none" }}
         >
           Blog
         </motion.button>
@@ -194,6 +195,7 @@ function Nav() {
             <button
               className={page === "blog" ? navStyles.highlight : ""}
               onClick={highlightBlog}
+              style={{ display: "none" }}
             >
               Blog
             </button>
