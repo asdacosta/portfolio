@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import skillStyles from "../Skill.module.css";
 import { motion, useAnimation, useInView } from "framer-motion";
 import bookPreview from "../../../assets/book_preview.pdf";
+import { cardsVariants as variants } from "./cardsVariants";
 
 function Author() {
   const leftRef = useRef(null);
@@ -31,7 +32,7 @@ function Author() {
         ref={rightRef}
         initial="hidden"
         animate={controls}
-        variants={rightVariant}
+        variants={variants.rightVariant}
         xmlns="http://www.w3.org/2000/svg"
         width="713.74209"
         height="454.87759"
@@ -238,7 +239,7 @@ function Author() {
         ref={leftRef}
         initial="hidden"
         animate={controls}
-        variants={leftVariant}
+        variants={variants.leftVariant}
       >
         <h2>English mastery</h2>
         <p>
