@@ -71,6 +71,22 @@ function Connect() {
     };
   }, []);
 
+  useEffect(() => {
+    const typedMotive = new Typed(typingMotive.current, {
+      strings: placeholders.motives,
+      typeSpeed: 50,
+      backSpeed: 25,
+      backDelay: 1000,
+      attr: "placeholder",
+      loop: true,
+      smartBackspace: true,
+    });
+
+    return () => {
+      typedMotive.destroy();
+    };
+  }, []);
+
   const { page, setPage } = useContext(MenuContext);
   const connectRef = useRef(null);
   const connectInView = useInView(connectRef);
