@@ -59,8 +59,8 @@ function Connect() {
   useEffect(() => {
     const typedName = new Typed(typingName.current, {
       strings: placeholders.names,
-      typeSpeed: 50,
-      backSpeed: 25,
+      typeSpeed: 30,
+      backSpeed: 15,
       backDelay: 1000,
       attr: "placeholder",
       loop: true,
@@ -74,8 +74,8 @@ function Connect() {
   useEffect(() => {
     const typedMotive = new Typed(typingMotive.current, {
       strings: placeholders.motives,
-      typeSpeed: 50,
-      backSpeed: 25,
+      typeSpeed: 30,
+      backSpeed: 15,
       backDelay: 1000,
       attr: "placeholder",
       loop: true,
@@ -90,8 +90,8 @@ function Connect() {
   useEffect(() => {
     const typedMail = new Typed(typingMail.current, {
       strings: placeholders.mails,
-      typeSpeed: 50,
-      backSpeed: 25,
+      typeSpeed: 30,
+      backSpeed: 15,
       backDelay: 1000,
       attr: "placeholder",
       loop: true,
@@ -106,11 +106,12 @@ function Connect() {
   useEffect(() => {
     const typedNote = new Typed(typingNote.current, {
       strings: placeholders.notes,
-      typeSpeed: 50,
-      backSpeed: 25,
+      typeSpeed: 10,
+      backSpeed: 0,
       backDelay: 1000,
       attr: "placeholder",
       loop: true,
+      showCursor: false,
       smartBackspace: true,
     });
 
