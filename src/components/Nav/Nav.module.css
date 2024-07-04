@@ -163,6 +163,7 @@ button.highlight {
     top: 0;
     background: none;
     gap: 0;
+    padding: 0;
   }
 
   .others {
@@ -183,14 +184,14 @@ button.highlight {
     gap: 0.5rem;
     position: absolute;
     top: 50%;
-    right: 3.2rem;
+    right: 3.8rem;
     transform: translate(0, -50%);
     border-top: 0.1rem solid rgb(0, 204, 255);
     border-left: 0.25rem solid rgb(0, 204, 255);
     border-bottom: 0.1rem solid rgb(0, 204, 255);
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
-    padding: 0.25rem 0 0.25rem 0.7rem;
+    padding: 0.25rem 0.2rem 0.25rem 0.5rem;
     background-color: rgb(0, 6, 26);
     width: 0;
     opacity: 0;
