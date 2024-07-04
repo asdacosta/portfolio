@@ -149,6 +149,14 @@ function Nav() {
             }`}
           >
             <button
+              className={page === "about" ? navStyles.highlight : ""}
+              onClick={() => {
+                highlightTab("About");
+              }}
+            >
+              Home
+            </button>
+            <button
               className={page === "skill" ? navStyles.highlight : ""}
               onClick={() => {
                 highlightTab("Skill");
