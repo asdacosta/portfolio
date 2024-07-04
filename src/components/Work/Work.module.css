@@ -190,6 +190,11 @@
   top: 1rem;
 }
 
+.dotBox > svg {
+  width: 0.4rem;
+  fill: white;
+}
+
 .slider {
   display: flex;
   align-items: flex-start;
