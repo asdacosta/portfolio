@@ -355,7 +355,7 @@ span.eduUniversitySpan {
 .frontSection,
 .backSection {
   display: flex;
-  gap: 3.5vmin;
+  gap: 3.7vmin;
   overflow: hidden;
   white-space: nowrap;
   position: relative;
@@ -379,14 +379,14 @@ span.eduUniversitySpan {
 .frontSection > section,
 .backSection > section {
   display: flex;
-  gap: 3.5vmin;
+  gap: 3.7vmin;
   white-space: nowrap;
   padding: 5vmin 0;
 }
 
 .frontSection,
 .frontSection > section {
-  gap: 5.6vmin;
+  gap: 5.7vmin;
 }
 
 .langSection > section,
