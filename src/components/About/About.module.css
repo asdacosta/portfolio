@@ -676,7 +676,9 @@ svg.medium {
   .toConnect {
     display: none;
   }
+}
 
+@media (max-width: 1200px) {
   .resume::before {
     display: none;
   }
