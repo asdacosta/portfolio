@@ -127,6 +127,7 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  color: rgb(0, 6, 26);
 }
 
 .submitButton.send {
