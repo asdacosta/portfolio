@@ -40,6 +40,13 @@
   transition: all 0.3s ease-in-out;
 }
 
+.motiveInputBox {
+  position: relative;
+}
+.motiveInputBox input {
+  width: 100%;
+}
+
 .Select {
   display: grid;
   height: 2.5rem;
@@ -232,7 +239,7 @@
   justify-content: center;
   position: absolute;
   right: 0;
-  bottom: 0.3rem;
+  bottom: 0.1rem;
   width: 2.2rem;
   height: 2.2rem;
   z-index: 5;
