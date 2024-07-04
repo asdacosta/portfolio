@@ -142,22 +142,16 @@ function Work() {
     setPrevPercentage(percentage);
   };
 
-  const handleOnMove = (event) => {
+  const setMovePercent = (event) => {
     if (mouseDownAt === 0) return;
-
+    // Compute onMove percentage
     const mouseDelta =
       parseFloat(mouseDownAt) - event.clientX || event.touches[0].clientX;
     const maxDelta = window.innerWidth / 2;
     const speedFactor = 0.3;
     const newPercentage = (mouseDelta / maxDelta) * -100 * speedFactor;
-    const nextPercentageUnconstrained = parseFloat(
-      prevPercentage + newPercentage
-    );
-
-    const nextPercentage = Math.max(
-      Math.min(nextPercentageUnconstrained, 0),
-      -100
-    );
+    const nextPercentUnbounded = parseFloat(prevPercentage + newPercentage);
+    const nextPercentage = Math.max(Math.min(nextPercentUnbounded, 0), -100);
     const newRotation = rotation + (mouseDelta / maxDelta) * 360 * 0.2;
 
     setPercentage(nextPercentage);
@@ -165,16 +159,13 @@ function Work() {
     setRotation(newRotation);
   };
 
-  const handleOnScroll = (deltaX) => {
+  const setScrollPercent = (deltaX) => {
+    // Compute onScroll percentage
     const maxDelta = window.innerWidth / 2;
     const speedFactor = 0.1;
     const newPercentage = (deltaX / maxDelta) * -100 * speedFactor;
-    const nextPercentageUnconstrained = parseFloat(percentage + newPercentage);
-
-    const nextPercentage = Math.max(
-      Math.min(nextPercentageUnconstrained, 0),
-      -100
-    );
+    const nextPercentUnbounded = parseFloat(prevPercentage + newPercentage);
+    const nextPercentage = Math.max(Math.min(nextPercentUnbounded, 0), -100);
     const newRotation = rotation + (deltaX / maxDelta) * 360 * 0.2;
 
     setPercentage(nextPercentage);
@@ -188,82 +179,85 @@ function Work() {
       const imgs = trackRef.current.getElementsByTagName("img");
       const imgHalfWidth = imgs[0].offsetWidth / 2;
 
+      // Set default values of translates
       let minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth}px)`;
       let maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth}px)`;
 
-      // Fine tune to avoid hard switch between min and max translate
-      if (nextPercentage > -10) {
-        minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth}px)`;
-        maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 18}px)`;
-      } else if (nextPercentage > -20 && nextPercentage <= -10) {
-        minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 2}px)`;
-        maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 16}px)`;
-      } else if (nextPercentage > -30 && nextPercentage <= -20) {
-        minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 4}px)`;
-        maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 14}px)`;
-      } else if (nextPercentage > -40 && nextPercentage <= -30) {
-        minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 6}px)`;
-        maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 12}px)`;
-      } else if (nextPercentage > -50 && nextPercentage <= -40) {
-        minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 8}px)`;
-        maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 10}px)`;
-      } else if (nextPercentage > -60 && nextPercentage <= -50) {
-        minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 10}px)`;
-        maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 8}px)`;
-      } else if (nextPercentage > -70 && nextPercentage <= -60) {
-        minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 12}px)`;
-        maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 6}px)`;
-      } else if (nextPercentage > -80 && nextPercentage <= -70) {
-        minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 14}px)`;
-        maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 4}px)`;
-      } else if (nextPercentage > -90 && nextPercentage <= -80) {
-        minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 16}px)`;
-        maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 2}px)`;
-      } else if (nextPercentage < -90) {
-        minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 18}px)`;
-        maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth}px)`;
-      }
+      const fineTuneToAvoidHardSwitchBetweenTranslates = (() => {
+        if (nextPercentage > -10) {
+          minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth}px)`;
+          maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 18}px)`;
+        } else if (nextPercentage > -20 && nextPercentage <= -10) {
+          minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 2}px)`;
+          maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 16}px)`;
+        } else if (nextPercentage > -30 && nextPercentage <= -20) {
+          minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 4}px)`;
+          maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 14}px)`;
+        } else if (nextPercentage > -40 && nextPercentage <= -30) {
+          minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 6}px)`;
+          maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 12}px)`;
+        } else if (nextPercentage > -50 && nextPercentage <= -40) {
+          minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 8}px)`;
+          maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 10}px)`;
+        } else if (nextPercentage > -60 && nextPercentage <= -50) {
+          minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 10}px)`;
+          maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 8}px)`;
+        } else if (nextPercentage > -70 && nextPercentage <= -60) {
+          minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 12}px)`;
+          maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 6}px)`;
+        } else if (nextPercentage > -80 && nextPercentage <= -70) {
+          minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 14}px)`;
+          maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 4}px)`;
+        } else if (nextPercentage > -90 && nextPercentage <= -80) {
+          minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 16}px)`;
+          maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 2}px)`;
+        } else if (nextPercentage < -90) {
+          minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 18}px)`;
+          maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth}px)`;
+        }
+      })();
 
-      const translateValue =
-        nextPercentage <= -50 ? maxTranslate : minTranslate;
-
-      const trackAnimation = trackRef.current.animate(
-        {
-          transform: `translate(${translateValue}, -50%)`,
-        },
-        { duration: 2000, fill: "forwards" }
-      );
-
-      // Solves issue by continuing from where we left of: After a long pause following an initial scroll/drag, next scroll/drag frist animates quickly from the initial animation
-      trackAnimation.onfinish = () => {
-        trackRef.style.transform = `translate(${translateValue}, -50%)`;
-        trackAnimation.cancel();
-        trackAnimation.onfinish = null;
-      };
-
-      for (const image of imgs) {
-        const objectPositionValue = `${100 + nextPercentage}%`;
-        const imageAnimation = image.animate(
+      const animateTrackUsingMinForLeftHalfAndMaxForRightHalfOfTrack = (() => {
+        const translateValue =
+          nextPercentage <= -50 ? maxTranslate : minTranslate;
+        const trackAnimation = trackRef.current.animate(
           {
-            objectPosition: `${objectPositionValue} center`,
+            transform: `translate(${translateValue}, -50%)`,
           },
           { duration: 2000, fill: "forwards" }
         );
-
-        imageAnimation.onfinish = () => {
-          image.style.objectPosition = `${objectPositionValue} center`;
-          imageAnimation.cancel();
-          imageAnimation.onfinish = null;
+        // Continue from where we left of even after a long pause
+        trackAnimation.onfinish = () => {
+          trackRef.current.style.transform = `translate(${translateValue}, -50%)`;
+          trackAnimation.cancel();
+          trackAnimation.onfinish = null;
         };
-      }
+      })();
+
+      const animateImagesHorizontalPosition = (() => {
+        for (const image of imgs) {
+          const objectPositionValue = `${100 + nextPercentage}%`;
+          const imageAnimation = image.animate(
+            {
+              objectPosition: `${objectPositionValue} center`,
+            },
+            { duration: 2000, fill: "forwards" }
+          );
+          // Continue from where we left of even after a long pause
+          imageAnimation.onfinish = () => {
+            image.style.objectPosition = `${objectPositionValue} center`;
+            imageAnimation.cancel();
+            imageAnimation.onfinish = null;
+          };
+        }
+      })();
     }
   };
 
-  const handleWheel = (event) => {
+  const setXWheelPercent = (event) => {
     if (event.deltaY === 0) {
-      // Only handle horizontal scroll
       event.preventDefault();
-      handleOnScroll(event.deltaX);
+      setScrollPercent(event.deltaX);
     }
   };
 
@@ -332,9 +326,9 @@ function Work() {
           onMouseDown={handleOnDown}
           onTouchEnd={handleOnUp}
           onMouseUp={handleOnUp}
-          onTouchMove={handleOnMove}
-          onMouseMove={handleOnMove}
-          onWheel={handleWheel}
+          onTouchMove={setMovePercent}
+          onMouseMove={setMovePercent}
+          onWheel={setXWheelPercent}
           className={workStyles.workSlide}
         >
           {images.map((image, index) => (
