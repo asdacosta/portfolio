@@ -640,12 +640,12 @@ span.eduUniversitySpan {
   }
 
   .tools {
-    max-width: 65vmin;
+    max-width: 25rem;
   }
 
   .languages,
   .frontEnd,
   .backEnd {
-    max-width: 40vmin;
+    max-width: 19rem;
   }
 }
