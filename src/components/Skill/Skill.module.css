@@ -355,7 +355,7 @@ span.eduUniversitySpan {
 .frontSection,
 .backSection {
   display: flex;
-  gap: 3.7vmin;
+  gap: 2.4rem;
   overflow: hidden;
   white-space: nowrap;
   position: relative;
@@ -379,20 +379,27 @@ span.eduUniversitySpan {
 .frontSection > section,
 .backSection > section {
   display: flex;
-  gap: 3.7vmin;
+  gap: 2.4rem;
   white-space: nowrap;
-  padding: 5vmin 0;
+  padding: 3rem 0;
 }
 
-.frontSection,
 .frontSection > section {
-  gap: 5.7vmin;
+  animation: scrollMedium 12s linear infinite;
+}
+
+@keyframes scrollMedium {
+  0% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translate(-109.4%);
+  }
 }
 
 .langSection > section,
-.frontSection > section,
 .backSection > section {
-  animation: scrollShort 10s linear infinite;
+  animation: scrollShort 9s linear infinite;
 }
 
 @keyframes scrollShort {
@@ -400,7 +407,7 @@ span.eduUniversitySpan {
     transform: translateX(0);
   }
   to {
-    transform: translate(-113%);
+    transform: translate(-113.2%);
   }
 }
 
@@ -476,8 +483,8 @@ span.eduUniversitySpan {
 
 .techSection svg,
 .techSection img {
-  width: 7vmin;
-  height: 7vmin;
+  width: 4.5rem;
+  height: 4.5rem;
   filter: grayscale(100%);
   transition: transform 0.3s ease-in-out;
 }
@@ -621,7 +628,7 @@ span.eduUniversitySpan {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 750px) {
   .technologies {
     gap: 2rem;
   }
@@ -633,12 +640,12 @@ span.eduUniversitySpan {
   }
 
   .tools {
-    max-width: 60vmin;
+    max-width: 65vmin;
   }
 
   .languages,
   .frontEnd,
   .backEnd {
-    max-width: 35vmin;
+    max-width: 40vmin;
   }
 }
