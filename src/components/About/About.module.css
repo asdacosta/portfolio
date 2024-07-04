@@ -139,27 +139,51 @@
   cursor: pointer;
 }
 
-.resume::before {
+.resume::before,
+.resume.downloaded::after {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   top: 0;
-  left: 0;
   width: 0;
   height: 100%;
-  content: "Download";
   font-size: 1.2rem;
   font-weight: 600;
   color: rgba(0, 6, 26, 0);
+}
+
+.resume::before {
   background-color: rgb(0, 204, 255);
-  z-index: 2;
+  content: "Download";
+  left: 0;
   transition: width 0.5s ease, color 0.5s ease;
+  z-index: 2;
 }
 
 .resume:hover::before {
   color: rgba(0, 6, 26, 1);
   width: 100%;
+}
+
+.resume.downloaded::after {
+  background-color: white;
+  content: "Downloaded";
+  right: 0;
+  z-index: 3;
+  animation: slideFromRight 1.5s 0.5s ease;
+}
+
+@keyframes slideFromRight {
+  50%,
+  70% {
+    color: rgba(0, 6, 26, 1);
+    width: 100%;
+  }
+  to {
+    width: 0;
+    color: rgba(0, 6, 26, 0);
+  }
 }
 
 .resume svg {
