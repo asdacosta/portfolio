@@ -195,11 +195,16 @@
   animation: load 5s 4s backwards;
 }
 
-.hello::after {
+.hello {
+  position: relative;
+}
+
+.boundPseudoElem::after {
+  display: inline;
   position: absolute;
   content: "Welcome!";
   top: 0;
-  right: -2rem;
+  right: -3rem;
   font-size: 0.8rem;
   font-weight: 600;
   padding: 0.2rem 0.5rem;
@@ -211,7 +216,7 @@
   filter: blur(5px);
 }
 
-.hello:hover::after {
+.boundPseudoElem:hover::after {
   animation: pop 0.4s forwards ease-in-out;
 }
 
@@ -646,5 +651,11 @@ svg.medium {
 
   .toConnect {
     display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .boundPseudoElem::after {
+    right: -4rem;
   }
 }
