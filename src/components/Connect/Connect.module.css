@@ -242,7 +242,7 @@
   bottom: 0.1rem;
   width: 2.2rem;
   height: 2.2rem;
-  z-index: 5;
+  z-index: 4;
   background-color: rgb(179, 180, 186);
   border-radius: 0.5rem;
   transition: background-color 0.3s ease-in-out;
