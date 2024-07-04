@@ -58,7 +58,7 @@ body::-webkit-scrollbar-corner {
   background: white;
 }
 
-/* Element imported from react-scroll */
+/* Target Element imported from react-scroll */
 .targetScroll {
   position: absolute;
   top: 4%;
