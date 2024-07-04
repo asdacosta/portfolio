@@ -214,6 +214,15 @@ button.highlight {
   .menuList > button:hover {
     color: rgb(0, 204, 255);
   }
+
+  .home {
+    transition: opacity 0.7s;
+  }
+
+  .home.dimHome {
+    opacity: 0.2;
+    pointer-events: none;
+  }
 }
 
 @media (max-width: 400px) {
