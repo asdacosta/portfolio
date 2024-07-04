@@ -183,7 +183,10 @@ button.highlight {
   .menuList {
     display: flex;
     gap: 0.5rem;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    right: 2.5rem;
+    transform: translate(0, -50%);
     border-top: 0.1rem solid rgb(0, 204, 255);
     border-left: 0.25rem solid rgb(0, 204, 255);
     border-bottom: 0.1rem solid rgb(0, 204, 255);
@@ -197,7 +200,7 @@ button.highlight {
   }
 
   .menuList.animateList {
-    width: 15rem;
+    width: 16rem;
     opacity: 1;
   }
 
