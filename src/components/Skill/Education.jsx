@@ -47,7 +47,7 @@ function Education() {
             <p className={skillStyles.context}>
               <span>
                 <a href="https://www.theodinproject.com/" target="_blank">
-                  The Odin Project
+                  Odin
                 </a>
               </span>
               <span>
@@ -55,7 +55,7 @@ function Education() {
                   <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" />
                 </svg>
               </span>
-              <span>Front-end Dev</span>
+              <span>Front-end Development</span>
             </p>
             <p className={skillStyles.eduBar}>
               <span>
@@ -163,7 +163,7 @@ function Education() {
             <p className={skillStyles.context}>
               <span>
                 <a href="https://www.theodinproject.com/" target="_blank">
-                  The Odin Project
+                  Odin
                 </a>
               </span>
               <span>
@@ -171,7 +171,7 @@ function Education() {
                   <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" />
                 </svg>
               </span>
-              <span>Back-end Dev</span>
+              <span>Back-end Development</span>
             </p>
             <p className={skillStyles.eduBar}>
               <span>
