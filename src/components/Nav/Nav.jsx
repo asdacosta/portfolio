@@ -52,7 +52,7 @@ function Nav() {
         animate="visible"
         exit="exit"
         variants={variants.navBlurVariant}
-        className={navStyles.home}
+        className={`${navStyles.home}  ${menuOpened ? navStyles.dimHome : ""}`}
         onClick={() => {
           highlightTab("About");
         }}
