@@ -191,7 +191,7 @@ button.highlight {
     border-bottom: 0.1rem solid rgb(0, 204, 255);
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
-    padding: 0.25rem 0.2rem 0.25rem 0.5rem;
+    padding: 0.25rem 0rem 0.25rem 0.5rem;
     background-color: rgb(0, 6, 26);
     width: 0;
     opacity: 0;
@@ -199,7 +199,7 @@ button.highlight {
   }
 
   .menuList.animateList {
-    width: 16rem;
+    width: 16.7rem;
     opacity: 1;
   }
 
