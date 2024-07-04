@@ -50,7 +50,11 @@ function Education() {
                   The Odin Project
                 </a>
               </span>
-              <span>⚫</span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" />
+                </svg>
+              </span>
               <span>Front-end Dev</span>
             </p>
             <p className={skillStyles.eduBar}>
@@ -72,7 +76,11 @@ function Education() {
             </div>
             <p className={skillStyles.context}>
               <span className={skillStyles.eduUniversitySpan}>University</span>
-              <span>⚫</span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" />
+                </svg>
+              </span>
               <span>BSc. Statistics</span>
             </p>
             <p className={skillStyles.eduBar}>
@@ -98,7 +106,11 @@ function Education() {
                   ALX
                 </a>
               </span>
-              <span>⚫</span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" />
+                </svg>
+              </span>
               <span>Software engineering</span>
             </p>
             <p className={skillStyles.eduBar}>
@@ -124,7 +136,11 @@ function Education() {
                   ALX
                 </a>
               </span>
-              <span>⚫</span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" />
+                </svg>
+              </span>
               <span>AI Essentials</span>
             </p>
             <p className={skillStyles.eduBar}>
@@ -150,7 +166,11 @@ function Education() {
                   The Odin Project
                 </a>
               </span>
-              <span>⚫</span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" />
+                </svg>
+              </span>
               <span>Back-end Dev</span>
             </p>
             <p className={skillStyles.eduBar}>
