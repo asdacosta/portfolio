@@ -66,6 +66,11 @@ function Connect() {
       loop: true,
       smartBackspace: true,
       showCursor: false,
+      onComplete: (self) => {
+        setTimeout(() => {
+          self.reset();
+        }, 3000);
+      },
     });
     return typed;
   };
