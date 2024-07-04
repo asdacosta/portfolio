@@ -12,24 +12,28 @@ function Nav() {
   const { page, setPage } = useContext(MenuContext);
 
   const openMenu = () => {
-    menuRef.current.setSpeed(1.2);
-    if (menuRef.current && !menuOpened) {
-      menuRef.current.setDirection(1);
-      menuRef.current.play();
+    const menu = menuRef.current;
+    menu.setSpeed(1.2);
+
+    if (menu && !menuOpened) {
+      menu.setDirection(1);
+      menu.play();
       setMenuClosed((prev) => true);
     }
   };
 
   const handleMenuClick = () => {
-    menuRef.current.setSpeed(1.2);
-    if (menuOpened) {
+    const menu = menuRef.current;
+    menu.setSpeed(1.2);
+
+    if (menu && menuOpened) {
       setMenuClosed((prev) => false);
-      menuRef.current.setDirection(-1);
-      menuRef.current.play();
-    } else if (!menuOpened) {
+      menu.setDirection(-1);
+      menu.play();
+    } else if (menu && !menuOpened) {
       setMenuClosed((prev) => true);
-      menuRef.current.setDirection(1);
-      menuRef.current.play();
+      menu.setDirection(1);
+      menu.play();
     }
   };
 
