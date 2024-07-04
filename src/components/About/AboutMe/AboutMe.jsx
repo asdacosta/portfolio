@@ -85,15 +85,17 @@ function AboutMe() {
         variants={aboutMeVariants.botVariant}
         className={aboutStyles.hello}
       >
-        <dotlottie-player
-          ref={helloRef}
-          className={aboutStyles.helloBot}
-          autoplay
-          loop
-          mode="normal"
-          src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/bot.lottie"
-          style={{ width: "16vmin", height: "16vmin" }}
-        ></dotlottie-player>
+        <div className={aboutStyles.boundPseudoElem}>
+          <dotlottie-player
+            ref={helloRef}
+            className={aboutStyles.helloBot}
+            autoplay
+            loop
+            mode="normal"
+            src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/bot.lottie"
+            style={{ width: "17.5vmin", height: "17.5vmin" }}
+          ></dotlottie-player>
+        </div>
       </motion.section>
       <motion.h1
         key="name"
