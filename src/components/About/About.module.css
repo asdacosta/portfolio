@@ -676,6 +676,10 @@ svg.medium {
   .toConnect {
     display: none;
   }
+
+  .resume::before {
+    display: none;
+  }
 }
 
 @media (max-width: 500px) {
