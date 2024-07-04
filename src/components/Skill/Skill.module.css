@@ -191,8 +191,10 @@ section.bot {
   border-bottom: 0.15rem solid rgb(0, 204, 255);
 }
 
-.context > span:nth-child(2) {
-  font-size: 0.9rem;
+.context > span:nth-child(2) > svg {
+  width: 0.4rem;
+  fill: white;
+  margin-bottom: 0.1rem;
 }
 
 .context > span:last-child {
