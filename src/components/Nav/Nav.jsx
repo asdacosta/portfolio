@@ -12,6 +12,7 @@ function Nav() {
   const { page, setPage } = useContext(MenuContext);
 
   const openMenu = () => {
+    menuRef.current.setSpeed(1.2);
     if (menuRef.current && !menuOpened) {
       menuRef.current.setDirection(1);
       menuRef.current.play();
@@ -20,6 +21,7 @@ function Nav() {
   };
 
   const handleMenuClick = () => {
+    menuRef.current.setSpeed(1.2);
     if (menuOpened) {
       setMenuClosed((prev) => false);
       menuRef.current.setDirection(-1);
