@@ -184,7 +184,7 @@ button.highlight {
     gap: 0.5rem;
     position: absolute;
     top: 50%;
-    right: 3.8rem;
+    right: 4rem;
     transform: translate(0, -50%);
     border-top: 0.1rem solid rgb(0, 204, 255);
     border-left: 0.25rem solid rgb(0, 204, 255);
