@@ -648,4 +648,8 @@ span.eduUniversitySpan {
   .backEnd {
     max-width: 19rem;
   }
+
+  .context > span:last-child {
+    max-width: 12rem;
+  }
 }
