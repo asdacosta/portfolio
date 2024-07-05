@@ -17,6 +17,58 @@
   display: none;
   height: 100vh;
   width: 100vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.slideInfoSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.slideName {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.slideLinks {
+  display: flex;
+  gap: 2rem;
+  position: relative;
+}
+
+.slideLivePreview::after,
+.slideSourceCode::after {
+  display: block;
+  font-size: 0.9rem;
+}
+
+.slideLivePreview::after {
+  content: "Live Preview";
+}
+
+.slideSourceCode::after {
+  content: " Source Code";
+}
+
+.slideLivePreview,
+.slideSourceCode {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.slideLinks svg {
+  width: 1.6rem;
+  fill: rgb(0, 204, 255);
+  cursor: pointer;
 }
 
 .workSlide {
