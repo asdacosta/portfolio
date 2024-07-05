@@ -248,6 +248,7 @@ function Author() {
             className={skillStyles.bookPreview}
             href={bookPreview}
             download="preview.pdf"
+            target="_blank"
           >
             book
           </a>{" "}
