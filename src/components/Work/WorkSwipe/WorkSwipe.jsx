@@ -50,18 +50,14 @@ function WorkSwipe() {
           delay: 5000,
           disableOnInteraction: false,
         }}
+        lazy
         loop
         navigation
         pagination={{ clickable: true }}
       >
         {images.map((image) => (
           <Slide key={image.alt}>
-            <img
-              src={image.src}
-              alt={image.alt}
-              loading="lazy"
-              draggable="false"
-            />
+            <img src={image.src} alt={image.alt} draggable="false" />
           </Slide>
         ))}
         <div className="autoplay-progress" slot="container-end">
