@@ -255,10 +255,7 @@ function Work() {
   };
 
   const setXWheelPercent = (event) => {
-    if (event.deltaY === 0) {
-      event.preventDefault();
-      setScrollPercent(event.deltaX);
-    }
+    if (event.deltaY === 0) setScrollPercent(event.deltaX);
   };
 
   const handleImgBoxEnter = (event) => {
