@@ -134,7 +134,10 @@ function Work() {
   useEffect(updateIndexWhenWheelIconEntersImage, [percentage]);
 
   const handleOnDown = (event) => {
-    setMouseDownAt(event.clientX || event.touches[0].clientX);
+    let clientX = 0;
+    if (event.clientX) clientX = event.clientX;
+    if (event.touches) clientX = event.touches[0].clientX;
+    setMouseDownAt(clientX);
   };
 
   const handleOnUp = () => {
@@ -144,15 +147,17 @@ function Work() {
 
   const setMovePercent = (event) => {
     if (mouseDownAt === 0) return;
-    // Compute onMove percentage
-    const mouseDelta =
-      parseFloat(mouseDownAt) - event.clientX || event.touches[0].clientX;
+    let clientX = 0;
+    if (event.clientX) clientX = event.clientX;
+    if (event.touches) clientX = event.touches[0].clientX;
+    const deltaX = parseFloat(mouseDownAt) - clientX;
+
     const maxDelta = window.innerWidth / 2;
     const speedFactor = 0.3;
-    const newPercentage = (mouseDelta / maxDelta) * -100 * speedFactor;
+    const newPercentage = (deltaX / maxDelta) * -100 * speedFactor;
     const nextPercentUnbounded = parseFloat(prevPercentage + newPercentage);
     const nextPercentage = Math.max(Math.min(nextPercentUnbounded, 0), -100);
-    const newRotation = rotation + (mouseDelta / maxDelta) * 360 * 0.2;
+    const newRotation = rotation + (deltaX / maxDelta) * 360 * 0.2;
 
     setPercentage(nextPercentage);
     animateTrackAndImages(nextPercentage);
