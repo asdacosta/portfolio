@@ -103,9 +103,7 @@ function Connect() {
   const connectInView = useInView(connectRef);
 
   const updatePageOnView = () => {
-    if (connectInView) {
-      setPage("connect");
-    }
+    if (connectInView) setPage("connect");
   };
   useEffect(updatePageOnView, [connectInView]);
 
@@ -113,10 +111,6 @@ function Connect() {
   const fieldControls = useAnimation();
   const scrollUpInView = useInView(scrollUpRef);
   const fieldInView = useInView(fieldsRef);
-
-  const scrollToTop = () => {
-    scroll.scrollToTop({ duration: 1000, smooth: true });
-  };
 
   const displaySectionsOnView = () => {
     if (scrollUpInView) {
@@ -133,9 +127,13 @@ function Connect() {
     fieldInView,
   ]);
 
+  const scrollToTop = () => {
+    scroll.scrollToTop({ duration: 1500, smooth: true });
+  };
+
   const scrollUpVariant = {
-    visible: { opacity: 1, x: 0, transition: { duration: 1 } },
-    hidden: { opacity: 0, x: 100 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+    hidden: { opacity: 0, y: 100 },
   };
 
   const fieldVariant = {
