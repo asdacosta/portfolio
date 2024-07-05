@@ -1,6 +1,6 @@
 import { Swiper as Swipe, SwiperSlide as Slide } from "swiper/react";
-import { images } from "./ImageDetails.jsx";
-import workStyles from "./Work.module.css";
+import { images } from "../ImageDetails.jsx";
+import workStyles from "../Work.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
