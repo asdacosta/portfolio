@@ -72,7 +72,7 @@ function WorkSwipe() {
         </div>
       </Swipe>
       <section className={workStyles.slideInfoSection}>
-        <p className={workStyles.slideName}>{slideData.title}</p>
+        <h2 className={workStyles.slideName}>{slideData.title}</h2>
         <div className={workStyles.slideLinks}>
           <div className={workStyles.slideLivePreview}>
             <svg
