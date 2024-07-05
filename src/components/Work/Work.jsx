@@ -7,7 +7,7 @@ import { AnimatedNum } from "../Skill/AnimateNum.jsx";
 import { MenuContext } from "../../App.jsx";
 import { Element } from "react-scroll";
 import { workVariants as variants } from "./workVariants.js";
-import { WorkSwipe } from "./WorkSwipe.jsx";
+import { WorkSwipe } from "./WorkSwipe/WorkSwipe.jsx";
 
 function Work() {
   const [mouseDownAt, setMouseDownAt] = useState(0);
