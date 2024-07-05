@@ -13,6 +13,12 @@
   padding: 1rem;
 }
 
+.workSamplesSwipe {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+}
+
 .workSlide {
   display: flex;
   align-items: center;
@@ -351,6 +357,16 @@ svg.gameIcon {
 .revealName {
   height: 7%;
   opacity: 1;
+}
+
+@media (max-width: 1200px) {
+  .workSamples {
+    display: none;
+  }
+
+  .workSamplesSwipe {
+    display: flex;
+  }
 }
 
 @media (max-width: 750px) {
