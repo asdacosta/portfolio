@@ -42,6 +42,8 @@ function WorkSwipe() {
       <Swipe
         modules={[Navigation, Pagination, A11y, Autoplay]}
         centeredSlides
+        spaceBetween={30}
+        speed={1000}
         onAutoplayTimeLeft={onAutoplayTimeLeft}
         onRealIndexChange={(slide) => setCurrentSlideIndex(slide.realIndex)}
         autoplay={{
