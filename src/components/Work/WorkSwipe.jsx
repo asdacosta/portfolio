@@ -50,7 +50,6 @@ function WorkSwipe() {
           delay: 5000,
           disableOnInteraction: false,
         }}
-        lazy
         loop
         navigation
         pagination={{ clickable: true }}
