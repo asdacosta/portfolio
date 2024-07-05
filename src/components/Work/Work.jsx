@@ -7,6 +7,7 @@ import { AnimatedNum } from "../Skill/AnimateNum.jsx";
 import { MenuContext } from "../../App.jsx";
 import { Element } from "react-scroll";
 import { workVariants as variants } from "./workVariants.js";
+import { WorkSwipe } from "./WorkSwipe.jsx";
 
 function Work() {
   const [mouseDownAt, setMouseDownAt] = useState(0);
@@ -397,6 +398,10 @@ function Work() {
           </span>
           <span>9</span>
         </section>
+      </motion.section>
+
+      <motion.section className={workStyles.workSamplesSwipe}>
+        <WorkSwipe />
       </motion.section>
 
       <motion.section
