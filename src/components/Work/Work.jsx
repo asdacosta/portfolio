@@ -325,11 +325,11 @@ function Work() {
           ref={trackRef}
           data-mouse-down-at={mouseDownAt}
           data-prev-percentage={prevPercentage}
-          onTouchStart={handleOnDown}
+          // onTouchStart={handleOnDown}
           onMouseDown={handleOnDown}
-          onTouchEnd={handleOnUp}
+          // onTouchEnd={handleOnUp}
           onMouseUp={handleOnUp}
-          onTouchMove={setMovePercent}
+          // onTouchMove={setMovePercent}
           onMouseMove={setMovePercent}
           onWheel={setXWheelPercent}
           className={workStyles.workSlide}
