@@ -87,23 +87,17 @@ function Connect() {
 
   useEffect(() => {
     const typed = typeFieldPlaceholder(typingMotiveRef, placeholders.motives);
-    return () => {
-      typed !== false ? typed.destroy() : null;
-    };
+    return () => (typed !== false ? typed.destroy() : null);
   });
 
   useEffect(() => {
     const typed = typeFieldPlaceholder(typingMailRef, placeholders.mails);
-    return () => {
-      typed !== false ? typed.destroy() : null;
-    };
+    return () => (typed !== false ? typed.destroy() : null);
   });
 
   useEffect(() => {
     const typed = typeFieldPlaceholder(typingNoteRef, placeholders.notes);
-    return () => {
-      typed !== false ? typed.destroy() : null;
-    };
+    return () => (typed !== false ? typed.destroy() : null);
   });
 
   const scrollUpControls = useAnimation();
@@ -131,8 +125,8 @@ function Connect() {
   };
 
   const scrollUpVariant = {
-    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
-    hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1, y: 10, transition: { duration: 1 } },
+    hidden: { opacity: 0, y: 50 },
   };
 
   const fieldVariant = {
