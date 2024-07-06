@@ -51,12 +51,22 @@ function Connect() {
   const scrollUpRef = useRef(null);
   const fieldsRef = useRef(null);
 
+  const { page, setPage } = useContext(MenuContext);
+  const connectRef = useRef(null);
+  const connectInView = useInView(connectRef);
+
+  const updatePageOnView = () => {
+    if (connectInView) setPage("connect");
+  };
+  useEffect(updatePageOnView, [connectInView]);
+
   const typingNameRef = useRef(null);
   const typingMotiveRef = useRef(null);
   const typingMailRef = useRef(null);
   const typingNoteRef = useRef(null);
 
   const typeFieldPlaceholder = (ref, placeholder) => {
+    if (!connectInView) return false;
     const typed = new Typed(ref.current, {
       strings: placeholder,
       typeSpeed: 40,
@@ -72,40 +82,29 @@ function Connect() {
 
   useEffect(() => {
     const typed = typeFieldPlaceholder(typingNameRef, placeholders.names);
-    return () => {
-      typed.destroy();
-    };
-  }, []);
+    return () => (typed !== false ? typed.destroy() : null);
+  });
 
   useEffect(() => {
     const typed = typeFieldPlaceholder(typingMotiveRef, placeholders.motives);
     return () => {
-      typed.destroy();
+      typed !== false ? typed.destroy() : null;
     };
-  }, []);
+  });
 
   useEffect(() => {
     const typed = typeFieldPlaceholder(typingMailRef, placeholders.mails);
     return () => {
-      typed.destroy();
+      typed !== false ? typed.destroy() : null;
     };
-  }, []);
+  });
 
   useEffect(() => {
     const typed = typeFieldPlaceholder(typingNoteRef, placeholders.notes);
     return () => {
-      typed.destroy();
+      typed !== false ? typed.destroy() : null;
     };
-  }, []);
-
-  const { page, setPage } = useContext(MenuContext);
-  const connectRef = useRef(null);
-  const connectInView = useInView(connectRef);
-
-  const updatePageOnView = () => {
-    if (connectInView) setPage("connect");
-  };
-  useEffect(updatePageOnView, [connectInView]);
+  });
 
   const scrollUpControls = useAnimation();
   const fieldControls = useAnimation();
