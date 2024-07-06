@@ -133,6 +133,9 @@ Developers, users, recruiters.
 - [ ] Use typed.js for all typing effects (feedbacks in Fields) to enable bold and longer pause effect without inconsistencies.
 - [ ] Fix chevron cover in motive field that drops when input is checked so that it always stays in position.
 - [ ] Set display of Blog in `Nav.jsx` to normal and add blogs.
+- [ ] Add sound.
+- [ ] Animate image title replacement according to slide direction.
+- [ ] Make scroll appear in Safari browser.
 
 </details>
 
