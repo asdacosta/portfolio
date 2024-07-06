@@ -239,7 +239,7 @@ function Connect() {
 
     const validateMail = (() => {
       if (inputType === "mail" && inputValue.length > 0) {
-        const mailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+        const mailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\s*$/;
         if (inputValue.length > 50) {
           setContentErrors((prev) => ({
             ...prev,
@@ -393,7 +393,7 @@ function Connect() {
       }
     })();
 
-    const mailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    const mailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\s*$/;
     const validateMail = (() => {
       if (inputType === "mail" && inputValue.length > 0) {
         if (!mailRegex.test(inputValue)) {
