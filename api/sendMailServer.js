@@ -20,7 +20,7 @@ export default async (req, res) => {
   const mailOptions = {
     from: mail,
     to: process.env.EMAIL_TO,
-    motive: motive,
+    subject: motive,
     text: `Name: ${name}\nCountry: ${country}\nEmail: ${mail}\n\nnote:\n${note}`,
   };
 
