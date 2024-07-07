@@ -41,7 +41,7 @@
 }
 
 .fieldSection textarea {
-  font-size: 1.04rem;
+  font-size: 1.06rem;
 }
 
 .motiveInputBox {
@@ -98,10 +98,6 @@
 .fieldSection input:focus,
 .fieldSection textarea:focus {
   cursor: text;
-}
-
-.fieldSection label {
-  font-weight: 500;
 }
 
 .optionalField,
