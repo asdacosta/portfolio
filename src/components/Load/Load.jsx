@@ -22,7 +22,7 @@ function Load({ onComplete }) {
         autoplay
         mode="normal"
         src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/loader.lottie"
-        style={{ width: "300px", height: "300px" }}
+        style={{ width: "260px", height: "260px" }}
       ></dotlottie-player>
     </section>
   );
