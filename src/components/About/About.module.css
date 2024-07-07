@@ -4,7 +4,6 @@
   gap: 20rem;
   min-height: 104vh;
   position: relative;
-  overflow-x: hidden;
 }
 
 .aboutSocials {
@@ -682,6 +681,10 @@ svg.medium {
 }
 
 @media (max-width: 1200px) {
+  .about {
+    overflow-x: hidden;
+  }
+
   .resume::before {
     display: none;
   }
