@@ -31,7 +31,7 @@
 }
 
 .header {
-  font-size: 3.5rem;
+  font-size: 3rem;
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0%,
@@ -65,7 +65,7 @@
 }
 
 .intro {
-  font-size: 2rem;
+  font-size: 1.8rem;
   cursor: context-menu;
 }
 
@@ -132,7 +132,7 @@
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   margin-top: 2rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
   background-color: rgb(0, 6, 26);
   cursor: pointer;
@@ -147,7 +147,7 @@
   top: 0;
   width: 0;
   height: 100%;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: rgba(0, 6, 26, 0);
 }
@@ -190,8 +190,8 @@
 }
 
 .resume svg {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.1rem;
+  height: 1.1rem;
   fill: white;
   animation: scale 0.5s ease-in-out alternate infinite;
 }
@@ -286,7 +286,7 @@
 .githubBox::before,
 .mediumBox::before {
   position: absolute;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   width: max-content;
   color: rgba(255, 255, 255, 0.6);
