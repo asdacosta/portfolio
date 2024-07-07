@@ -221,7 +221,7 @@
 
 .livePreview::after,
 .sourceCode::after {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: rgb(0, 204, 255);
   position: absolute;
