@@ -99,7 +99,7 @@ function AboutMe() {
             loop
             mode="normal"
             src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/bot.lottie"
-            style={{ width: "17.5vmin", height: "17.5vmin" }}
+            style={{ width: "8rem", height: "8rem" }}
           ></dotlottie-player>
         </div>
       </motion.section>
