@@ -394,7 +394,7 @@ span.eduUniversitySpan {
     transform: translateX(0);
   }
   to {
-    transform: translate(-106.4%);
+    transform: translateX(-106.4%);
   }
 }
 
@@ -408,7 +408,7 @@ span.eduUniversitySpan {
     transform: translateX(0);
   }
   to {
-    transform: translate(-113.2%);
+    transform: translateX(-113.2%);
   }
 }
 
@@ -421,7 +421,7 @@ span.eduUniversitySpan {
     transform: translateX(0);
   }
   to {
-    transform: translate(-103.5%);
+    transform: translateX(-103.5%);
   }
 }
 
