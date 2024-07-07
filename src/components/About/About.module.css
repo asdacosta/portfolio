@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   gap: 20rem;
-  min-height: 102vh;
+  min-height: 104vh;
   position: relative;
   overflow: visible;
 }
@@ -562,7 +562,7 @@ svg.medium {
 .toConnect {
   display: flex;
   position: relative;
-  bottom: -10rem;
+  bottom: -7rem;
   left: 13rem;
   cursor: pointer;
 }
