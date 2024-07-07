@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   gap: 20rem;
-  min-height: 103vh;
+  /* min-height: 103vh; */
+  height: 100%;
   position: relative;
   overflow: visible;
 }
