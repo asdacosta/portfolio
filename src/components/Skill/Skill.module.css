@@ -75,7 +75,7 @@
 
 .allDevices > svg {
   width: 70vmin;
-  height: 43vmin;
+  height: 50vmin;
 }
 
 section.mobile {
@@ -84,7 +84,7 @@ section.mobile {
 
 .mobile > svg {
   width: 70vmin;
-  height: 55vmin;
+  height: 60vmin;
 }
 
 .analytics {
@@ -93,7 +93,7 @@ section.mobile {
 
 .analytics > svg {
   width: 70vmin;
-  height: 60vmin;
+  height: 65vmin;
 }
 
 section.bot {
@@ -102,12 +102,12 @@ section.bot {
 
 .bot > svg {
   width: 70vmin;
-  height: 55vmin;
+  height: 60vmin;
 }
 
 .team > svg {
   width: 70vmin;
-  height: 60vmin;
+  height: 65vmin;
 }
 
 .author {
@@ -116,7 +116,7 @@ section.bot {
 
 .author > svg {
   width: 65vmin;
-  height: 38vmin;
+  height: 45vmin;
 }
 
 .bookPreview {
@@ -125,7 +125,7 @@ section.bot {
 
 .research > svg {
   width: 70vmin;
-  height: 50vmin;
+  height: 55vmin;
 }
 
 /* Education */
@@ -216,7 +216,7 @@ section.bot {
   display: flex;
   height: 1rem;
   flex: 1;
-  border: 0.15rem solid white;
+  border: 0.1rem solid white;
   border-radius: 1rem;
   position: relative;
   overflow: hidden;
