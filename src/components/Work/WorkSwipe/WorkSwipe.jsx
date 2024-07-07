@@ -42,6 +42,8 @@ function WorkSwipe() {
       <Swipe
         modules={[Navigation, Pagination, A11y, Autoplay]}
         centeredSlides
+        slidesPerView={1}
+        slidesPerGroup={1}
         spaceBetween={30}
         speed={1000}
         onAutoplayTimeLeft={onAutoplayTimeLeft}
@@ -50,7 +52,7 @@ function WorkSwipe() {
           delay: 5000,
           disableOnInteraction: false,
         }}
-        lazy
+        lazy="true"
         loop
         navigation
         pagination={{ clickable: true }}
