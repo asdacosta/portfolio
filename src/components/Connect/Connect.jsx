@@ -677,6 +677,7 @@ function Connect() {
           </div>
           <div>
             <button
+              type="submit"
               className={`${connectStyles.submitButton} ${
                 send.status ? connectStyles.send : ""
               }`}
