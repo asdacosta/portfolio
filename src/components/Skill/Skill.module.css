@@ -384,8 +384,9 @@ span.eduUniversitySpan {
   padding: 3rem 0;
 }
 
+/* 4 X number of icons (6) */
 .frontSection > section {
-  animation: scrollMedium 18s linear infinite;
+  animation: scrollMedium 24s linear infinite;
 }
 
 @keyframes scrollMedium {
@@ -397,9 +398,10 @@ span.eduUniversitySpan {
   }
 }
 
+/* 4 X number of icons (3) */
 .langSection > section,
 .backSection > section {
-  animation: scrollShort 9s linear infinite;
+  animation: scrollShort 12s linear infinite;
 }
 
 @keyframes scrollShort {
@@ -411,8 +413,9 @@ span.eduUniversitySpan {
   }
 }
 
+/* Different size */
 .toolSection > section {
-  animation: scrollLong 30s linear infinite;
+  animation: scrollLong 40s linear infinite;
 }
 
 @keyframes scrollLong {
