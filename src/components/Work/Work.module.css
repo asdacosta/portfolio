@@ -105,15 +105,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   position: absolute;
   bottom: 0;
-  /* height: 20%; */
   height: 0;
   opacity: 0;
   width: 100%;
   background-color: rgba(0, 0, 0);
-  /* opacity: 0.3; */
   transition: all 0.3s ease-in-out;
 }
 
@@ -140,7 +138,7 @@
 
 .imgLinkBox:hover {
   opacity: 0.75;
-  height: 25%;
+  height: 30%;
 }
 
 .imgLinkBox svg {
