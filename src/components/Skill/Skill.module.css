@@ -356,7 +356,7 @@ span.eduUniversitySpan {
 .frontSection,
 .backSection {
   display: flex;
-  gap: 2.1rem;
+  gap: 2rem;
   overflow: hidden;
   white-space: nowrap;
   position: relative;
@@ -380,7 +380,7 @@ span.eduUniversitySpan {
 .frontSection > section,
 .backSection > section {
   display: flex;
-  gap: 2.12rem;
+  gap: 2rem;
   white-space: nowrap;
   padding: 3rem 0;
 }
@@ -394,7 +394,7 @@ span.eduUniversitySpan {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-106.4%);
+    transform: translateX(-106.1%);
   }
 }
 
@@ -408,7 +408,7 @@ span.eduUniversitySpan {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-113.2%);
+    transform: translateX(-113.1%);
   }
 }
 
@@ -421,7 +421,7 @@ span.eduUniversitySpan {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-103.8%);
+    transform: translateX(-103.5%);
   }
 }
 
