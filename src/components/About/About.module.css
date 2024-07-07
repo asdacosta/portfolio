@@ -128,7 +128,7 @@
   position: relative;
   gap: 0.5rem;
   color: white;
-  border: 0.2rem solid rgb(0, 204, 255);
+  border: 0.12rem solid rgb(0, 204, 255);
   padding: 0.3rem 0.5rem;
   border-radius: 0.5rem;
   margin-top: 2rem;
@@ -148,6 +148,7 @@
   width: 0;
   height: 100%;
   font-size: 1.1rem;
+  border-radius: 0.5rem;
   font-weight: 600;
   color: rgba(0, 6, 26, 0);
 }
