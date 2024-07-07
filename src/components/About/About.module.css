@@ -4,6 +4,7 @@
   gap: 20rem;
   min-height: 103vh;
   position: relative;
+  overflow: visible;
 }
 
 .aboutSocials {
