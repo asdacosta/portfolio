@@ -27,11 +27,11 @@
 
 .fieldSection input,
 .fieldSection textarea {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.05rem;
-  padding: 0.5rem;
-  min-height: 2.5rem;
+  padding: 0.3rem 0.5rem;
+  min-height: 2.4rem;
   border-radius: 0.5rem;
   background-color: rgba(255, 255, 255, 0.7);
   border: none;
@@ -49,7 +49,7 @@
 
 .Select {
   display: grid;
-  height: 2.5rem;
+  height: 2.4rem;
   transition: all 0.3s ease-in-out;
 }
 
@@ -65,7 +65,7 @@
 .subCountry {
   display: flex;
   gap: 0.5rem;
-  padding: 0.5rem !important;
+  padding: 0.3rem 0.5rem !important;
 }
 
 .fieldSection input::placeholder,
@@ -80,7 +80,7 @@
 }
 
 .fieldSection input {
-  height: 2.5rem;
+  height: 2.4rem;
 }
 
 .fieldSection input:focus,
@@ -102,7 +102,7 @@
 .optionalField,
 .requiredField {
   display: inline-block;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
 }
 
 .optionalField {
@@ -114,9 +114,9 @@
 }
 
 .submitButton {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  padding: 0.3rem 1rem;
+  padding: 0.3rem 0.5rem;
   width: 17rem;
   border-radius: 0.5rem;
   cursor: pointer;
