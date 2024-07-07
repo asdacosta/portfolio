@@ -49,6 +49,7 @@ function Connect() {
   const [focusedFieldReturn, setFocusedFieldReturn] = useState("onInput");
   const [send, setSend] = useState({ feedback: 0, status: false });
   const scrollUpRef = useRef(null);
+  const scrollUpIcon = useRef(null);
   const fieldsRef = useRef(null);
 
   const { page, setPage } = useContext(MenuContext);
@@ -498,15 +499,15 @@ function Connect() {
   };
 
   const animateScroll = () => {
-    if (scrollUpRef.current) {
-      scrollUpRef.current.play();
-      scrollUpRef.current.setSpeed(1.2);
+    if (scrollUpIcon.current) {
+      scrollUpIcon.current.play();
+      scrollUpIcon.current.setSpeed(1.2);
     }
   };
 
   const revertAnimation = () => {
-    if (scrollUpRef.current) {
-      scrollUpRef.current.stop();
+    if (scrollUpIcon.current) {
+      scrollUpIcon.current.stop();
     }
   };
 
@@ -695,7 +696,7 @@ function Connect() {
         <div className={connectStyles.scrollUpLottie}>
           <dotlottie-player
             className={connectStyles.lottieIcon}
-            // ref={scrollUpRef}
+            ref={scrollUpIcon}
             onMouseEnter={animateScroll}
             onMouseLeave={revertAnimation}
             onClick={scrollToTop}
