@@ -560,7 +560,7 @@ svg.medium {
 
 .toConnect {
   display: flex;
-  position: relative;
+  position: absolute;
   left: 13rem;
   cursor: pointer;
 }
