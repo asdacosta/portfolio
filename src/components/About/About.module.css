@@ -571,10 +571,10 @@ svg.medium {
 
 .bubble {
   position: absolute;
-  top: -0.2rem;
+  top: 2rem;
   right: 1rem;
-  width: 0.7rem;
-  height: 0.7rem;
+  width: 0.6rem;
+  height: 0.6rem;
   border-radius: 1rem;
   background-color: rgb(0, 204, 255);
   animation: letsBounce 1.5s ease-in-out infinite;
