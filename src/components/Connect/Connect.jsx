@@ -125,7 +125,7 @@ function Connect() {
   };
 
   const scrollUpVariant = {
-    visible: { opacity: 1, y: 10, transition: { duration: 1 } },
+    visible: { opacity: 1, y: -10, transition: { duration: 1 } },
     hidden: { opacity: 0, y: 50 },
   };
 
