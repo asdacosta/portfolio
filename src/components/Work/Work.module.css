@@ -32,7 +32,7 @@
 }
 
 .slideName {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 
@@ -128,7 +128,7 @@
 
 .imgTechnologies span {
   display: flex;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .imgLinkBox.revealLinkBox {
@@ -142,7 +142,7 @@
 }
 
 .imgLinkBox svg {
-  width: 1.5rem;
+  width: 1.3rem;
   fill: white;
   transition: all 0.2s ease-in-out;
 }
@@ -216,7 +216,7 @@
 
 .wheelIcon svg {
   fill: white;
-  width: 2.5rem;
+  width: 2.2rem;
 }
 
 .livePreview::after,
@@ -301,7 +301,7 @@
 }
 
 .workName svg {
-  width: 1rem;
+  width: 0.9rem;
   fill: white;
 }
 
@@ -396,11 +396,11 @@
 }
 
 svg.resumeIcon {
-  width: 0.9rem;
+  width: 0.8rem;
 }
 
 svg.gameIcon {
-  width: 1.5rem;
+  width: 1.3rem;
   align-self: flex-end;
 }
 
