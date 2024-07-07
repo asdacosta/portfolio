@@ -75,7 +75,7 @@
 
 .allDevices > svg {
   width: 70vmin;
-  height: 50vmin;
+  height: 49vmin;
 }
 
 section.mobile {
@@ -93,7 +93,7 @@ section.mobile {
 
 .analytics > svg {
   width: 70vmin;
-  height: 67vmin;
+  height: 70vmin;
 }
 
 section.bot {
