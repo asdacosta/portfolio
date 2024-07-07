@@ -368,7 +368,7 @@ function AboutSocials() {
           delay="0"
           mode="normal"
           src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/toConnect.lottie"
-          style={{ width: "22vmin", height: "10vmin" }}
+          style={{ width: "14rem", height: "9rem" }}
         ></dotlottie-player>
         {isBubbling && (
           <div className={aboutStyles.bubbleBox}>
