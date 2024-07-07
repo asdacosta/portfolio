@@ -133,7 +133,7 @@
   border-radius: 0.5rem;
   margin-top: 2rem;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 500;
   background-color: rgb(0, 6, 26);
   cursor: pointer;
   overflow: hidden;
@@ -191,8 +191,8 @@
 }
 
 .resume svg {
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1rem;
+  height: 1rem;
   fill: white;
   animation: scale 0.5s ease-in-out alternate infinite;
 }
