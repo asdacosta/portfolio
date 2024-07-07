@@ -52,8 +52,8 @@
   position: absolute;
   left: 43%;
   top: 37%;
-  width: 0.4rem;
-  height: 0.4rem;
+  width: 0.3rem;
+  height: 0.3rem;
   border-radius: 1rem;
   background-color: rgb(0, 204, 255);
   opacity: 0;
@@ -164,6 +164,11 @@ button.highlight {
     background: none;
     gap: 0;
     padding: 0;
+  }
+
+  .home > svg {
+    width: 2rem;
+    height: 2rem;
   }
 
   .others {
