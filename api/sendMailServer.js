@@ -1,7 +1,9 @@
 import nodemailer from "nodemailer";
 
 export default async (req, res) => {
+  console.log("Received: ", req.method, req.body);
   if (req.method !== "POST") {
+    console.log("Invalid request ", req.method);
     return res.status(405).send("Method Not Allowed");
   }
 
@@ -23,9 +25,11 @@ export default async (req, res) => {
   };
 
   try {
-    await transporter.sendMail(mailOptions);
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Email sent:", info);
     res.status(200).send("Email sent successfully!");
   } catch (error) {
+    console.error("Error sending email:", error);
     res.status(500).send("Failed to send email.");
   }
 };
