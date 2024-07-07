@@ -102,15 +102,15 @@
 .optionalField,
 .requiredField {
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
 }
 
 .optionalField {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .requiredField {
-  color: rgba(0, 204, 255, 0.75);
+  color: rgba(0, 204, 255, 0.7);
 }
 
 .submitButton {
