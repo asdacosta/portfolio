@@ -291,7 +291,7 @@ section.bot {
 }
 
 .education > h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: rgb(0, 204, 255);
   font-weight: 600;
   background: linear-gradient(
@@ -479,7 +479,7 @@ span.eduUniversitySpan {
 }
 
 .technologies > h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 .techSection svg,
