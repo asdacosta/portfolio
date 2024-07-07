@@ -195,7 +195,7 @@ section.bot {
 .context > span:nth-child(2) > svg {
   width: 0.3rem;
   fill: white;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.2rem;
 }
 
 .context > span:last-child {
