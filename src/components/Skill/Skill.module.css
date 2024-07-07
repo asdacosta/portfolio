@@ -75,7 +75,7 @@
 
 .allDevices > svg {
   width: 70vmin;
-  height: 55vmin;
+  height: 43vmin;
 }
 
 section.mobile {
@@ -115,8 +115,8 @@ section.bot {
 }
 
 .author > svg {
-  width: 70vmin;
-  height: 45vmin;
+  width: 65vmin;
+  height: 38vmin;
 }
 
 .bookPreview {
