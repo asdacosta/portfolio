@@ -386,7 +386,7 @@ span.eduUniversitySpan {
 }
 
 .frontSection > section {
-  animation: scrollMedium 12s linear infinite;
+  animation: scrollMedium 18s linear infinite;
 }
 
 @keyframes scrollMedium {
@@ -394,7 +394,7 @@ span.eduUniversitySpan {
     transform: translateX(0);
   }
   to {
-    transform: translate(-109.4%);
+    transform: translate(-106.4%);
   }
 }
 
@@ -544,6 +544,14 @@ span.eduUniversitySpan {
 
 .framerBox::after {
   content: "Framer Motion";
+}
+
+.figmaBox::after {
+  content: "Figma";
+}
+
+.swiperBox::after {
+  content: "Swiper";
 }
 
 .nodeBox::after {
