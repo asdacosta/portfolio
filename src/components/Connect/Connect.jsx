@@ -533,7 +533,7 @@ function Connect() {
         </div>
 
         <form
-          action="https://public.herotofu.com/v1/e4610280-3d22-11ef-a0b7-6772a76ef8ef"
+          action={`https://api.herotofu.com/v1/your-endpoint?api_key=${process.env.REACT_APP_HEROTOFU_EMAIL_API}`}
           method="post"
           acceptCharset="UTF-8"
           className={connectStyles.allFields}
