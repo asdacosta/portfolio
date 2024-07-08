@@ -701,9 +701,10 @@ function Connect() {
                 <dotlottie-player
                   autoplay
                   loop
+                  speed={2}
                   mode="normal"
                   src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/submitLoader.lottie"
-                  style={{ width: "6rem", height: "6rem" }}
+                  style={{ width: "6.5rem", height: "6.5rem" }}
                 ></dotlottie-player>
               ) : (
                 allFeedbacks.submitFeedbacks[send.feedback]
