@@ -84,22 +84,22 @@ function Connect() {
   useEffect(() => {
     const typed = typeFieldPlaceholder(typingNameRef, placeholders.names);
     return () => (typed !== false ? typed.destroy() : null);
-  });
+  }, []);
 
   useEffect(() => {
     const typed = typeFieldPlaceholder(typingMotiveRef, placeholders.motives);
     return () => (typed !== false ? typed.destroy() : null);
-  });
+  }, []);
 
   useEffect(() => {
     const typed = typeFieldPlaceholder(typingMailRef, placeholders.mails);
     return () => (typed !== false ? typed.destroy() : null);
-  });
+  }, []);
 
   useEffect(() => {
     const typed = typeFieldPlaceholder(typingNoteRef, placeholders.notes);
     return () => (typed !== false ? typed.destroy() : null);
-  });
+  }, []);
 
   const scrollUpControls = useAnimation();
   const fieldControls = useAnimation();
