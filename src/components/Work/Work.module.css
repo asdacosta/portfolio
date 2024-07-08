@@ -268,7 +268,6 @@
 .wheel {
   width: 1.5rem;
   fill: rgb(255, 255, 255, 0.5);
-  transition: transform 1s cubic-bezier(0.17, 0.67, 0.64, 2.03);
 }
 
 .workName {
