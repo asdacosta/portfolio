@@ -48,6 +48,7 @@ function Connect() {
   });
   const [focusedFieldReturn, setFocusedFieldReturn] = useState("onInput");
   const [send, setSend] = useState({ feedback: 0, status: false });
+  const [formSent, setFormSent] = useState(false);
   const scrollUpRef = useRef(null);
   const scrollUpIcon = useRef(null);
   const fieldsRef = useRef(null);
@@ -689,15 +690,24 @@ function Connect() {
               className={`${connectStyles.submitButton} ${
                 send.status ? connectStyles.send : ""
               }`}
+              onClick={() => {
+                setFormSent(true);
+                setTimeout(() => {
+                  setFormSent(false);
+                }, 5000);
+              }}
             >
-              {allFeedbacks.submitFeedbacks[send.feedback]}
-              <dotlottie-player
-                autoplay
-                loop
-                mode="normal"
-                src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/submitLoader.lottie"
-                style={{ width: "5rem", height: "5rem" }}
-              ></dotlottie-player>
+              {formSent ? (
+                <dotlottie-player
+                  autoplay
+                  loop
+                  mode="normal"
+                  src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/submitLoader.lottie"
+                  style={{ width: "6rem", height: "6rem" }}
+                ></dotlottie-player>
+              ) : (
+                allFeedbacks.submitFeedbacks[send.feedback]
+              )}
             </button>
             <div
               style={{
