@@ -137,7 +137,7 @@
   color: rgb(0, 6, 26);
   border: none;
   overflow: hidden;
-  max-height: 2rem;
+  max-height: 1.8rem;
 }
 
 .submitButton.send {
