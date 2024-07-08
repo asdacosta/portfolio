@@ -691,6 +691,13 @@ function Connect() {
               }`}
             >
               {allFeedbacks.submitFeedbacks[send.feedback]}
+              <dotlottie-player
+                autoplay
+                loop
+                mode="normal"
+                src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/submitLoader.lottie"
+                style={{ width: "5rem", height: "5rem" }}
+              ></dotlottie-player>
             </button>
             <div
               style={{
