@@ -511,6 +511,8 @@ function Connect() {
     }
   };
 
+  const apiKey = import.meta.env.VITE_HEROTOFU_EMAIL_API;
+
   return (
     <section className={connectStyles.connect} ref={connectRef}>
       <Element name="Connect" className="targetScroll"></Element>
@@ -533,7 +535,7 @@ function Connect() {
         </div>
 
         <form
-          action={`https://api.herotofu.com/v1/your-endpoint?api_key=${process.env.REACT_APP_HEROTOFU_EMAIL_API}`}
+          action={`https://public.herotofu.com/v1/${apiKey}`}
           method="post"
           acceptCharset="UTF-8"
           className={connectStyles.allFields}
