@@ -689,7 +689,7 @@ function Connect() {
               type="submit"
               className={`${connectStyles.submitButton} ${
                 send.status ? connectStyles.send : ""
-              }`}
+              } ${formSent ? connectStyles.haltSend : ""}`}
               onClick={() => {
                 setFormSent(true);
                 setTimeout(() => {
