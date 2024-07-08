@@ -273,8 +273,8 @@ function Work() {
         // Continue from where we left of even after a long pause
         wheelAnimation.onfinish = () => {
           driveWheelRef.current.style.transform = `rotate(${rotation}deg)`;
-          driveWheelRef.current.cancel();
-          driveWheelRef.current.onfinish = null;
+          wheelAnimation.cancel();
+          wheelAnimation.onfinish = null;
         };
       })();
     }
