@@ -118,6 +118,9 @@
 }
 
 .submitButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.2rem;
   font-weight: 600;
   padding: 0.3rem 0.5rem;
@@ -133,6 +136,8 @@
   text-overflow: ellipsis;
   color: rgb(0, 6, 26);
   border: none;
+  overflow: hidden;
+  max-height: 2rem;
 }
 
 .submitButton.send {
