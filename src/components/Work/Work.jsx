@@ -159,7 +159,7 @@ function Work() {
     const newPercentage = (deltaX / maxDelta) * -100 * speedFactor;
     const nextPercentUnbounded = parseFloat(prevPercentage + newPercentage);
     const nextPercentage = Math.max(Math.min(nextPercentUnbounded, 0), -100);
-    const newRotation = rotation + (deltaX / maxDelta) * 360 * 0.2;
+    const newRotation = rotation + (deltaX / maxDelta) * 360 * 0.3;
 
     setPercentage(nextPercentage);
     animateTrackAndImages(nextPercentage);
@@ -173,7 +173,7 @@ function Work() {
     const newPercentage = (deltaX / maxDelta) * -100 * speedFactor;
     const nextPercentUnbounded = parseFloat(prevPercentage + newPercentage);
     const nextPercentage = Math.max(Math.min(nextPercentUnbounded, 0), -100);
-    const newRotation = rotation + (deltaX / maxDelta) * 360 * 0.2;
+    const newRotation = rotation + (deltaX / maxDelta) * 360 * 0.3;
 
     setPercentage(nextPercentage);
     setPrevPercentage(nextPercentage); // Ensure continuity when switching between scroll and drag
