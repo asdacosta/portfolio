@@ -119,6 +119,7 @@ Developers, users, recruiters.
 
 - [ ] Let Bot populate any free places.
 - [ ] Add loading bar.
+- [ ] Work on performance.
 - [ ] Light mode and few custom colors.
 - [ ] Fine tune the min-max translate in intervals of 5 / Remove.
 - [ ] Add map to contact section.
