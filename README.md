@@ -19,7 +19,7 @@
     <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel badge">
     <img src="https://img.shields.io/badge/Framer%20Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" alt="Framer Motion badge">
     <img src="https://img.shields.io/badge/Swiper-4880ED?style=for-the-badge&logo=swiper&logoColor=white" alt="Swiper badge">
-    <h4><a href="https://shopping-cart-sage-three.vercel.app/">Live Preview</a></h4>
+    <h4><a href="https://portfolio-asdacostas-projects.vercel.app/">Live Preview</a></h4>
 </div>
 
 **Demo:**
@@ -151,4 +151,4 @@ Developers, users, recruiters.
 > [!IMPORTANT]
 > Seek contributor's consent for any code usage.
 
-**[🞁 Top](#[Ace](https://github.com/asdacosta)'s Portfolio)**
+**[🞁 Top](#Ace's Portfolio)**
