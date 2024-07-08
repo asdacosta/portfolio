@@ -137,6 +137,8 @@ Developers, users, recruiters.
 - [ ] Add sound.
 - [ ] Animate image title replacement according to slide direction.
 - [ ] Make scroll appear in Safari browser.
+- [ ] Update naming.
+- [ ] Make work samples in `Work.jsx` have a solitary component.
 
 </details>
 
