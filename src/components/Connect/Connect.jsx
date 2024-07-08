@@ -46,45 +46,6 @@ function Connect() {
     mail: { isError: false, onInput: null, onBlur: null },
     note: { isError: false, onInput: null, onBlur: null },
   });
-  const [formData, setFormData] = useState({
-    name: "",
-    country: "",
-    motive: "",
-    mail: "",
-    note: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch("../../../api/sendMailServer.js", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      if (response.ok) {
-        const data = await response.text();
-        console.log("Response was ok!");
-        alert(data);
-      } else {
-        alert("Failed to send email.");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Failed to send email.");
-    }
-  };
-
   const [focusedFieldReturn, setFocusedFieldReturn] = useState("onInput");
   const [send, setSend] = useState({ feedback: 0, status: false });
   const scrollUpRef = useRef(null);
@@ -571,7 +532,7 @@ function Connect() {
           <h2>Get In Touch</h2>
         </div>
 
-        <form onSubmit={handleSubmit} className={connectStyles.allFields}>
+        <section className={connectStyles.allFields}>
           <div className={`${connectStyles.nameField} ${connectStyles.field}`}>
             <Label
               nonEmptyField={nonEmptyFields.name}
@@ -587,14 +548,12 @@ function Connect() {
             <input
               type="text"
               name="name"
-              value={formData.name}
               id="name"
               placeholder="Enter name..."
               maxLength="41"
               onFocus={handleFocus}
               onBlur={handleBlur}
               onInput={handleInput}
-              onChange={handleChange}
               ref={typingNameRef}
             />
           </div>
@@ -640,7 +599,6 @@ function Connect() {
               <input
                 list="allMotives"
                 name="motive"
-                value={formData.motive}
                 id="motive"
                 placeholder="Custom or select..."
                 maxLength="31"
@@ -648,7 +606,6 @@ function Connect() {
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 onInput={handleInput}
-                onChange={handleChange}
                 ref={typingMotiveRef}
               />
               <div className={connectStyles.chevronCover}>
@@ -683,7 +640,6 @@ function Connect() {
             <input
               type="text"
               name="mail"
-              value={formData.mail}
               id="mail"
               placeholder="ace@example.com"
               maxLength="51"
@@ -691,7 +647,6 @@ function Connect() {
               onFocus={handleFocus}
               onBlur={handleBlur}
               onInput={handleInput}
-              onChange={handleChange}
               ref={typingMailRef}
             />
           </div>
@@ -710,7 +665,6 @@ function Connect() {
             <textarea
               name="note"
               id="note"
-              value={formData.note}
               cols="20"
               rows="10"
               placeholder="Hi Ace, ..."
@@ -718,7 +672,6 @@ function Connect() {
               onFocus={handleFocus}
               onBlur={handleBlur}
               onInput={handleInput}
-              onChange={handleChange}
               ref={typingNoteRef}
             ></textarea>
           </div>
@@ -732,7 +685,7 @@ function Connect() {
               {allFeedbacks.submitFeedbacks[send.feedback]}
             </button>
           </div>
-        </form>
+        </section>
       </motion.section>
       <motion.section
         className={connectStyles.otherConnect}
