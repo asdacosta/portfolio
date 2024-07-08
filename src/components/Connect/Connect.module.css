@@ -145,6 +145,10 @@
   pointer-events: auto;
 }
 
+.submitButton.haltSend {
+  pointer-events: none;
+}
+
 .submitButton:hover {
   background-color: rgb(0, 204, 255);
 }
