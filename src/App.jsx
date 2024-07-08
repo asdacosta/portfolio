@@ -8,6 +8,7 @@ import { createContext, useEffect, useRef, useState } from "react";
 import { Skill } from "./components/Skill/Skill";
 import { Work } from "./components/Work/Work";
 import { Connect } from "./components/Connect/Connect";
+import { Outlet, useLocation } from "react-router-dom";
 
 const loadVariants = {
   exit: {
@@ -26,6 +27,7 @@ function App() {
   const [loadDisplay, setLoadDisplay] = useState(true);
   const [page, setPage] = useState("");
   const { scrollYProgress } = useScroll();
+  const location = useLocation();
 
   function completeLoad() {
     setLoadDisplay(false);
@@ -33,26 +35,32 @@ function App() {
 
   return (
     <>
-      <AnimatePresence>
-        {loadDisplay && (
-          <motion.div key="load" exit="exit" variants={loadVariants}>
-            <Load onComplete={completeLoad} />
-          </motion.div>
-        )}
-      </AnimatePresence>
-      <MenuContext.Provider value={{ page, setPage }}>
-        {!loadDisplay && (
-          <motion.div
-            style={{ scaleX: scrollYProgress }}
-            className="progress-bar"
-          />
-        )}
-        {!loadDisplay && <Nav />}
-        {!loadDisplay && <About />}
-        {!loadDisplay && <Skill />}
-        {!loadDisplay && <Work />}
-        {!loadDisplay && <Connect />}
-      </MenuContext.Provider>
+      {location.pathname === "/" ? (
+        <>
+          <AnimatePresence>
+            {loadDisplay && (
+              <motion.div key="load" exit="exit" variants={loadVariants}>
+                <Load onComplete={completeLoad} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <MenuContext.Provider value={{ page, setPage }}>
+            {!loadDisplay && (
+              <motion.div
+                style={{ scaleX: scrollYProgress }}
+                className="progress-bar"
+              />
+            )}
+            {!loadDisplay && <Nav />}
+            {!loadDisplay && <About />}
+            {!loadDisplay && <Skill />}
+            {!loadDisplay && <Work />}
+            {!loadDisplay && <Connect />}
+          </MenuContext.Provider>
+        </>
+      ) : (
+        <Outlet />
+      )}
     </>
   );
 }
