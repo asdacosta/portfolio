@@ -531,7 +531,12 @@ function Connect() {
           <h2>Get In Touch</h2>
         </div>
 
-        <section className={connectStyles.allFields}>
+        <form
+          action="https://public.herotofu.com/v1/e4610280-3d22-11ef-a0b7-6772a76ef8ef"
+          method="post"
+          acceptCharset="UTF-8"
+          className={connectStyles.allFields}
+        >
           <div className={`${connectStyles.nameField} ${connectStyles.field}`}>
             <Label
               nonEmptyField={nonEmptyFields.name}
@@ -546,9 +551,10 @@ function Connect() {
             />
             <input
               type="text"
-              name="name"
+              name="Name"
               id="name"
               placeholder="Enter name..."
+              autoComplete="off"
               maxLength="41"
               onFocus={handleFocus}
               onBlur={handleBlur}
@@ -572,7 +578,7 @@ function Connect() {
             />
 
             <FetchCountries
-              name="country"
+              name="Country"
               id="country"
               required
               handleFocus={handleFocus}
@@ -597,9 +603,10 @@ function Connect() {
             <div className={connectStyles.motiveInputBox}>
               <input
                 list="allMotives"
-                name="motive"
+                name="Motive"
                 id="motive"
                 placeholder="Custom or select..."
+                autoComplete="off"
                 maxLength="31"
                 required
                 onFocus={handleFocus}
@@ -637,10 +644,11 @@ function Connect() {
               check={checks.mail}
             />
             <input
-              type="text"
-              name="mail"
+              type="email"
+              name="Email"
               id="mail"
               placeholder="ace@example.com"
+              autoComplete="off"
               maxLength="51"
               required
               onFocus={handleFocus}
@@ -662,11 +670,12 @@ function Connect() {
               check={checks.note}
             />
             <textarea
-              name="note"
+              name="Note"
               id="note"
               cols="20"
               rows="10"
               placeholder="Hi Ace, ..."
+              autoComplete="off"
               maxLength="2500"
               onFocus={handleFocus}
               onBlur={handleBlur}
@@ -683,8 +692,24 @@ function Connect() {
             >
               {allFeedbacks.submitFeedbacks[send.feedback]}
             </button>
+            <div
+              style={{
+                textIndent: "-99999px",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                position: "absolute",
+              }}
+              aria-hidden="true"
+            >
+              <input
+                type="text"
+                name="_gotcha"
+                tabIndex="-1"
+                autoComplete="off"
+              />
+            </div>
           </div>
-        </section>
+        </form>
       </motion.section>
       <motion.section
         className={connectStyles.otherConnect}
