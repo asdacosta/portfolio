@@ -74,7 +74,6 @@ function Connect() {
       backSpeed: 20,
       backDelay: 1200,
       attr: "placeholder",
-      loop: true,
       smartBackspace: true,
       showCursor: false,
     });
@@ -84,22 +83,22 @@ function Connect() {
   useEffect(() => {
     const typed = typeFieldPlaceholder(typingNameRef, placeholders.names);
     return () => (typed !== false ? typed.destroy() : null);
-  }, []);
+  }, [connectInView]);
 
   useEffect(() => {
     const typed = typeFieldPlaceholder(typingMotiveRef, placeholders.motives);
     return () => (typed !== false ? typed.destroy() : null);
-  }, []);
+  }, [connectInView]);
 
   useEffect(() => {
     const typed = typeFieldPlaceholder(typingMailRef, placeholders.mails);
     return () => (typed !== false ? typed.destroy() : null);
-  }, []);
+  }, [connectInView]);
 
   useEffect(() => {
     const typed = typeFieldPlaceholder(typingNoteRef, placeholders.notes);
     return () => (typed !== false ? typed.destroy() : null);
-  }, []);
+  }, [connectInView]);
 
   const scrollUpControls = useAnimation();
   const fieldControls = useAnimation();
