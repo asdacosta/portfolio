@@ -38,7 +38,7 @@
 
 .info > h2 {
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 500;
   background: linear-gradient(
     90deg,
     rgb(0, 204, 255) 0%,
@@ -292,7 +292,7 @@ section.bot {
 .education > h2 {
   font-size: 2rem;
   color: rgb(0, 204, 255);
-  font-weight: 600;
+  font-weight: 500;
   background: linear-gradient(
     90deg,
     rgb(0, 204, 255) 0%,
@@ -448,7 +448,7 @@ span.eduUniversitySpan {
 
 .techSection h3,
 .technologies > h2 {
-  font-weight: 600;
+  font-weight: 500;
   background: linear-gradient(
     90deg,
     rgb(0, 204, 255) 0%,
