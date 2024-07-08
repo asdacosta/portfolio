@@ -24,7 +24,7 @@
 
 **Demo:**
 
-![Live Demo](./readme-assets/)
+![Live Demo](./readme-assets/portfolio.gif)
 
 <details>
 
@@ -32,12 +32,12 @@
 
 **Desktop View:**
 
-<img src="./readme-assets/" alt="desktop view">
+<img src="./readme-assets/desktop.png" alt="desktop view">
 <br>
 
 **Mobile View:**
 
-<img src="./readme-assets/" alt="mobile view">
+<img src="./readme-assets/mobile.png" alt="mobile view">
 
 </details>
 
@@ -151,4 +151,4 @@ Developers, users, recruiters.
 > [!IMPORTANT]
 > Seek contributor's consent for any code usage.
 
-**[🞁 Top](#template)**
+**[🞁 Top](#[Ace](https://github.com/asdacosta)'s Portfolio)**
