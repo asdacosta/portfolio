@@ -147,9 +147,4 @@ Developers, users, recruiters.
 
 1. [Ace Da Costa Silvanus](https://github.com/asdacosta)
 
-<br>
-
-> [!IMPORTANT]
-> Seek contributor's consent for any code usage.
-
 **[🞁 Top](#aces-portfolio)**
