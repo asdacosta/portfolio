@@ -4,7 +4,7 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import bookPreview from "../../../assets/book_preview.pdf";
 import { cardsVariants as variants } from "./cardsVariants";
 
-function Author() {
+function Content() {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
   const controls = useAnimation();
@@ -263,4 +263,4 @@ function Author() {
   );
 }
 
-export { Author };
+export { Content };
