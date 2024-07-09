@@ -556,6 +556,14 @@ span.eduUniversitySpan {
   content: "Swiper";
 }
 
+.canvaBox::after {
+  content: "Canva";
+}
+
+.reactRouterBox::after {
+  content: "React Router";
+}
+
 .nodeBox::after {
   content: "NodeJS";
 }
