@@ -148,7 +148,7 @@ section.bot {
 
 .eduSection {
   display: grid;
-  grid-template: repeat(5, 7rem) / repeat(auto-fit, minmax(21rem, 30rem));
+  grid-template: repeat(5, 6rem) / repeat(auto-fit, minmax(19rem, 22rem));
   justify-content: center;
   gap: 2rem;
 }
@@ -157,7 +157,7 @@ section.bot {
   display: grid;
   grid-template: 1fr 2fr / 1fr 4fr;
   background-color: #333848;
-  border-radius: 2rem;
+  border-radius: 1.5rem;
   cursor: context-menu;
   transition: transform 0.3s ease-in-out;
 }
@@ -181,7 +181,8 @@ section.bot {
 
 .context > span:first-child,
 .context > span:last-child {
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .context > span:first-child {
@@ -214,7 +215,7 @@ section.bot {
 
 .eduBar > span:first-child {
   display: flex;
-  height: 1rem;
+  height: 0.8rem;
   flex: 1;
   border: 0.1rem solid white;
   border-radius: 1rem;
