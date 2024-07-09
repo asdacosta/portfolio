@@ -19,6 +19,7 @@
     <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel badge">
     <img src="https://img.shields.io/badge/Framer%20Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" alt="Framer Motion badge">
     <img src="https://img.shields.io/badge/Swiper-4880ED?style=for-the-badge&logo=swiper&logoColor=white" alt="Swiper badge">
+    <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white" alt="React Router badge">
     <h4><a href="https://portfolio-asdacostas-projects.vercel.app/">Live Preview</a></h4>
 </div>
 
