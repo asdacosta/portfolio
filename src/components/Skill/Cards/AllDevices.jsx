@@ -338,11 +338,10 @@ function AllDevices() {
       >
         <h2>Responsive on Every Device</h2>
         <p>
-          In website development, I design the websites to adapt seamlessly to
-          different screen sizes and orientations, such as smartphones, tablets,
-          laptops, and desktop computers. This enhances user experience,
-          broadens reach, and provides a consistent, high-quality experience for
-          all users.
+          I design the websites to adapt seamlessly to different screen sizes
+          and orientations, such as smartphones, tablets, laptops, and desktop
+          computers. This enhances user experience, broadens reach, and provides
+          a consistent, high-quality experience for all users.
         </p>
       </motion.div>
     </motion.section>
