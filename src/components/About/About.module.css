@@ -561,6 +561,7 @@ svg.medium {
 .toConnect {
   display: flex;
   position: absolute;
+  bottom: -2rem;
   left: 13rem;
   cursor: pointer;
 }
@@ -573,8 +574,8 @@ svg.medium {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  width: 0.6rem;
-  height: 0.6rem;
+  width: 0.5rem;
+  height: 0.5rem;
   border-radius: 1rem;
   background-color: rgb(0, 204, 255);
   animation: letsBounce 1.5s ease-in-out infinite;
