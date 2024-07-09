@@ -464,8 +464,7 @@
 }
 
 .youtubeBox::before {
-  /* content: "YouTube ➚"; */
-  content: "Inactive";
+  content: "YouTube ➚";
 }
 
 .youtubeBox:hover::before {
