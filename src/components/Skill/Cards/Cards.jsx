@@ -1,6 +1,6 @@
 import { AllDevices } from "./AllDevices";
 import { Analytics } from "./Analytics";
-import { Author } from "./Author";
+import { Content } from "./Content";
 import { Bot } from "./Bot";
 import { Mobile } from "./Mobile";
 import { Research } from "./Research";
@@ -14,7 +14,7 @@ function Cards() {
       <Analytics />
       <Bot />
       <Team />
-      <Author />
+      <Content />
       <Research />
     </>
   );
