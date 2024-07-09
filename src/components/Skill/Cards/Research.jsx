@@ -303,9 +303,9 @@ function Research() {
         <p>
           My background in Statistics has enhanced my attention to detail,
           problem-solving skills, and research abilities to find optimal
-          solutions. I consistently research in-depth into new technologies in
-          my field, and leverage my expertise in understanding patterns and
-          behaviors within world of development.
+          solutions. I consistently research in-depth into new technologies
+          relevant to my field, and leverage my expertise in understanding
+          complexities within world of development.
         </p>
       </motion.div>
     </section>
