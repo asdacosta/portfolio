@@ -384,9 +384,9 @@ span.eduUniversitySpan {
   padding: 3rem 0;
 }
 
-/* 4 X number of icons (6) */
+/* 4 X number of icons (7) */
 .frontSection > section {
-  animation: scrollMedium 24s linear infinite;
+  animation: scrollMedium 28s linear infinite;
 }
 
 @keyframes scrollMedium {
@@ -394,22 +394,35 @@ span.eduUniversitySpan {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-106.1%);
+    transform: translateX(-105%);
   }
 }
 
 /* 4 X number of icons (3) */
-.langSection > section,
-.backSection > section {
-  animation: scrollShort 12s linear infinite;
+.langSection > section {
+  animation: scrollLang 12s linear infinite;
 }
 
-@keyframes scrollShort {
+@keyframes scrollLang {
   0% {
     transform: translateX(0);
   }
   to {
     transform: translateX(-113.15%);
+  }
+}
+
+/* 4 X number of icons (4) */
+.backSection > section {
+  animation: scrollBackend 16s linear infinite;
+}
+
+@keyframes scrollBackend {
+  0% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-109.27%);
   }
 }
 
