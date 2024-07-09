@@ -241,9 +241,9 @@ function Author() {
         animate={controls}
         variants={variants.leftVariant}
       >
-        <h2>English mastery</h2>
+        <h2>Professional Content</h2>
         <p>
-          As an English expert who has authored a{" "}
+          With proficiency in English, evidenced by authoring a{" "}
           <a
             className={skillStyles.bookPreview}
             href={bookPreview}
