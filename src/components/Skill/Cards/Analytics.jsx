@@ -187,9 +187,9 @@ function Analytics() {
       >
         <h2>Highly Performant</h2>
         <p>
-          I create highly performant websites by focusing on optimizing every
-          aspect of the site for speed, responsiveness, and efficiency. I employ
-          best practices, both conventional and innovative, to optimize both
+          I create performant websites by focusing on optimizing every aspect of
+          the site for speed, responsiveness, and efficiency. I employ best
+          practices, both conventional and innovative, to optimize both
           client-side and server-side performance. High-performing websites not
           only load quickly but also respond swiftly to user interactions,
           making them stand out in today's competitive digital world.
