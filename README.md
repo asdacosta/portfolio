@@ -65,7 +65,7 @@ To showcase general prowess in development and works.
 
 ## 👥 Intended Audience
 
-Developers, users, recruiters.
+Developers, users, and non-developers.
 
 > [!NOTE]
 > Users can install all dependencies using `package.json` file via:
