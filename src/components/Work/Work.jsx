@@ -169,7 +169,7 @@ function Work() {
   const setScrollPercent = (deltaX) => {
     // Compute onScroll percentage
     const maxDelta = window.innerWidth / 2;
-    const speedFactor = 0.15;
+    const speedFactor = 0.2;
     const newPercentage = (deltaX / maxDelta) * -100 * speedFactor;
     const nextPercentUnbounded = parseFloat(prevPercentage + newPercentage);
     const nextPercentage = Math.max(Math.min(nextPercentUnbounded, 0), -100);
