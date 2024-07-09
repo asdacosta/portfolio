@@ -12,8 +12,8 @@ body {
   position: relative;
   flex-direction: column;
   font-family: "Raleway", sans-serif;
-  font-size: 1.1rem;
-  letter-spacing: 0.05rem;
+  font-size: 1rem;
+  letter-spacing: 0.03rem;
   background-color: rgb(0, 6, 26);
   color: white;
 }
@@ -21,7 +21,7 @@ body {
 button,
 input {
   font-family: "Raleway", sans-serif;
-  letter-spacing: 0.05rem;
+  letter-spacing: 0.03rem;
 }
 
 ::-webkit-scrollbar {
@@ -74,10 +74,4 @@ input {
   background: rgb(0, 204, 255);
   transform-origin: 0%;
   z-index: 10;
-}
-
-@media (max-width: 1400px) {
-  #root {
-    font-size: 1rem;
-  }
 }
