@@ -296,6 +296,9 @@ function AboutSocials() {
           key="tube"
           variants={aboutSocialsVariants.iconVariant}
           className={aboutStyles.youtubeBox}
+          onClick={() => {
+            window.open("https://www.youtube.com/@aceDevs", "_blank");
+          }}
         >
           <svg
             ref={youtubeRef}
