@@ -386,15 +386,15 @@ span.eduUniversitySpan {
 
 /* 4 X number of icons (7) */
 .frontSection > section {
-  animation: scrollMedium 28s linear infinite;
+  animation: scrollFrontend 28s linear infinite;
 }
 
-@keyframes scrollMedium {
+@keyframes scrollFrontend {
   0% {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-105%);
+    transform: translateX(-105.01%);
   }
 }
 
@@ -408,7 +408,7 @@ span.eduUniversitySpan {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-113.15%);
+    transform: translateX(-112.5%);
   }
 }
 
