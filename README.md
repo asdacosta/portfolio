@@ -139,6 +139,7 @@ Developers, users, and non-developers.
 - [ ] Make scroll appear in Safari browser.
 - [ ] Update naming.
 - [ ] Make work samples in `Work.jsx` have a solitary component.
+- [ ] Make responsive on screens with higher resolution.
 
 </details>
 
