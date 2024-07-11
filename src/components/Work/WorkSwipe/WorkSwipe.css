@@ -11,6 +11,7 @@
   height: 100%;
   object-fit: fill;
   border-radius: 1.5rem;
+  user-select: none;
 }
 
 .swiper-button-prev,
