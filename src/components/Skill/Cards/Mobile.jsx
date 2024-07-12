@@ -9,7 +9,7 @@ function Mobile() {
         width="846.57778"
         height="682.58345"
         viewBox="0 0 846.57778 682.58345"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
       >
         <circle cx="241.16712" cy="361.99458" r="97.20043" fill="#e6e6e6" />
         <path
