@@ -115,7 +115,7 @@ function WorkSamplesAnim() {
         );
         // Continue from where we left of even after a long pause
         trackAnimation.onfinish = () => {
-          trackRef.current.style.transform = `translate(${translateValue}, -50%)`;
+          trackRef.current.style.transform = `translate(${nextPercentage}%, -50%)`;
 
           trackAnimation.cancel();
           trackAnimation.onfinish = null;
