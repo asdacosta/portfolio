@@ -106,58 +106,17 @@ function WorkSamplesAnim() {
   const animateTrackAndImages = (nextPercentage) => {
     if (trackRef.current) {
       const imgs = trackRef.current.getElementsByTagName("img");
-      const imgHalfWidth = imgs[0].offsetWidth / 2;
-
-      // Set default values of translates
-      let minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth}px)`;
-      let maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth}px)`;
-
-      const fineTuneToAvoidHardSwitchBetweenTranslates = (() => {
-        if (nextPercentage > -10) {
-          minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth}px)`;
-          maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 18}px)`;
-        } else if (nextPercentage > -20 && nextPercentage <= -10) {
-          minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 2}px)`;
-          maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 16}px)`;
-        } else if (nextPercentage > -30 && nextPercentage <= -20) {
-          minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 4}px)`;
-          maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 14}px)`;
-        } else if (nextPercentage > -40 && nextPercentage <= -30) {
-          minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 6}px)`;
-          maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 12}px)`;
-        } else if (nextPercentage > -50 && nextPercentage <= -40) {
-          minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 8}px)`;
-          maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 10}px)`;
-        } else if (nextPercentage > -60 && nextPercentage <= -50) {
-          minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 10}px)`;
-          maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 8}px)`;
-        } else if (nextPercentage > -70 && nextPercentage <= -60) {
-          minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 12}px)`;
-          maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 6}px)`;
-        } else if (nextPercentage > -80 && nextPercentage <= -70) {
-          minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 14}px)`;
-          maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 4}px)`;
-        } else if (nextPercentage > -90 && nextPercentage <= -80) {
-          minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 16}px)`;
-          maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth / 2}px)`;
-        } else if (nextPercentage < -90) {
-          minTranslate = `calc(${nextPercentage}% - ${imgHalfWidth / 18}px)`;
-          maxTranslate = `calc(${nextPercentage}% + ${imgHalfWidth}px)`;
-        }
-      })();
-
       const animateTrackUsingMinForLeftHalfAndMaxForRightHalfOfTrack = (() => {
-        const translateValue =
-          nextPercentage <= -50 ? maxTranslate : minTranslate;
         const trackAnimation = trackRef.current.animate(
           {
-            transform: `translate(${translateValue}, -50%)`,
+            transform: `translate(${nextPercentage}%, -50%)`,
           },
           { duration: 2000, fill: "forwards" }
         );
         // Continue from where we left of even after a long pause
         trackAnimation.onfinish = () => {
           trackRef.current.style.transform = `translate(${translateValue}, -50%)`;
+
           trackAnimation.cancel();
           trackAnimation.onfinish = null;
         };
@@ -209,10 +168,10 @@ function WorkSamplesAnim() {
   const setScrollPercent = (deltaX) => {
     // Compute onScroll percentage
     const maxDelta = window.innerWidth / 2;
-    const speedFactor = 0.2;
+    const speedFactor = 0.1;
     const newPercentage = (deltaX / maxDelta) * -100 * speedFactor;
     const nextPercentUnbounded = parseFloat(prevPercentage + newPercentage);
-    const nextPercentage = Math.max(Math.min(nextPercentUnbounded, 0), -100);
+    const nextPercentage = Math.max(Math.min(nextPercentUnbounded, -5), -94.7);
     const newRotation = rotation + (deltaX / maxDelta) * 360 * 0.3;
 
     setPercentage(nextPercentage);
@@ -248,7 +207,7 @@ function WorkSamplesAnim() {
     const speedFactor = 0.3;
     const newPercentage = (deltaX / maxDelta) * -100 * speedFactor;
     const nextPercentUnbounded = parseFloat(prevPercentage + newPercentage);
-    const nextPercentage = Math.max(Math.min(nextPercentUnbounded, 0), -100);
+    const nextPercentage = Math.max(Math.min(nextPercentUnbounded, -5), -94.7);
     const newRotation = rotation + (deltaX / maxDelta) * 360 * 0.3;
 
     setPercentage(nextPercentage);
