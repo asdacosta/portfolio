@@ -27,7 +27,7 @@ function Research() {
         width="808.84067"
         height="681.8936"
         viewBox="0 0 808.84067 681.8936"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
       >
         <path
           d="M866.24553,659.31387,597.90045,536.80922,736.07526,234.13885l268.34507,122.50466Z"
