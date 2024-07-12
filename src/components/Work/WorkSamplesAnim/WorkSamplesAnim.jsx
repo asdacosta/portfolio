@@ -162,7 +162,7 @@ function WorkSamplesAnim() {
   };
 
   useEffect(() => {
-    animateTrackAndImages(0);
+    animateTrackAndImages(-5.2);
   }, []);
 
   const setScrollPercent = (deltaX) => {
@@ -171,7 +171,10 @@ function WorkSamplesAnim() {
     const speedFactor = 0.1;
     const newPercentage = (deltaX / maxDelta) * -100 * speedFactor;
     const nextPercentUnbounded = parseFloat(prevPercentage + newPercentage);
-    const nextPercentage = Math.max(Math.min(nextPercentUnbounded, -5), -94.7);
+    const nextPercentage = Math.max(
+      Math.min(nextPercentUnbounded, -5.2),
+      -94.7
+    );
     const newRotation = rotation + (deltaX / maxDelta) * 360 * 0.3;
 
     setPercentage(nextPercentage);
@@ -207,7 +210,10 @@ function WorkSamplesAnim() {
     const speedFactor = 0.3;
     const newPercentage = (deltaX / maxDelta) * -100 * speedFactor;
     const nextPercentUnbounded = parseFloat(prevPercentage + newPercentage);
-    const nextPercentage = Math.max(Math.min(nextPercentUnbounded, -5), -94.7);
+    const nextPercentage = Math.max(
+      Math.min(nextPercentUnbounded, -5.2),
+      -94.7
+    );
     const newRotation = rotation + (deltaX / maxDelta) * 360 * 0.3;
 
     setPercentage(nextPercentage);
