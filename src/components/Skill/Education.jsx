@@ -90,6 +90,36 @@ function Education() {
               <AnimatedNum target={100} />
             </p>
           </section>
+          <section className={skillStyles.alx2}>
+            <div className={skillStyles.icon}>
+              <dotlottie-player
+                autoplay
+                loop
+                mode="normal"
+                src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/cert.lottie"
+                style={{ width: "100%", height: "100%" }}
+              ></dotlottie-player>
+            </div>
+            <p className={skillStyles.context}>
+              <span>
+                <a href="https://www.alxafrica.com/" target="_blank">
+                  ALX
+                </a>
+              </span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" />
+                </svg>
+              </span>
+              <span>AI Essentials</span>
+            </p>
+            <p className={skillStyles.eduBar}>
+              <span>
+                <span className={skillStyles.fill}></span>
+              </span>
+              <AnimatedNum target={100} />
+            </p>
+          </section>
           <section className={skillStyles.alx1}>
             <div className={skillStyles.icon}>
               <dotlottie-player
@@ -120,36 +150,6 @@ function Education() {
               <AnimatedNum target={75} />
             </p>
           </section>
-          <section className={skillStyles.alx2}>
-            <div className={skillStyles.icon}>
-              <dotlottie-player
-                autoplay
-                loop
-                mode="normal"
-                src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/cert.lottie"
-                style={{ width: "100%", height: "100%" }}
-              ></dotlottie-player>
-            </div>
-            <p className={skillStyles.context}>
-              <span>
-                <a href="https://www.alxafrica.com/" target="_blank">
-                  ALX
-                </a>
-              </span>
-              <span>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                  <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" />
-                </svg>
-              </span>
-              <span>AI Essentials</span>
-            </p>
-            <p className={skillStyles.eduBar}>
-              <span>
-                <span className={skillStyles.fill}></span>
-              </span>
-              <AnimatedNum target={70} />
-            </p>
-          </section>
           <section className={skillStyles.odin2}>
             <div className={skillStyles.icon}>
               <dotlottie-player
@@ -177,7 +177,7 @@ function Education() {
               <span>
                 <span className={skillStyles.fill}></span>
               </span>
-              <AnimatedNum target={15} />
+              <AnimatedNum target={25} />
             </p>
           </section>
         </section>
