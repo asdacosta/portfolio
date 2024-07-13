@@ -170,7 +170,7 @@ function WorkSamplesAnim() {
     const maxDelta = window.innerWidth / 2;
     const speedFactor = 0.1;
     const newPercentage = (deltaX / maxDelta) * -100 * speedFactor;
-    const nextPercentUnbounded = parseFloat(prevPercentage + newPercentage);
+    const nextPercentUnbounded = prevPercentage + newPercentage;
     const nextPercentage = Math.max(
       Math.min(nextPercentUnbounded, -5.2),
       -94.7
