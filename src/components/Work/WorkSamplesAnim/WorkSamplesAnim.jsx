@@ -134,8 +134,6 @@ function WorkSamplesAnim() {
           // Continue from where we left of even after a long pause
           imageAnimation.onfinish = () => {
             image.style.objectPosition = `${objectPositionValue} center`;
-            imageAnimation.cancel();
-            imageAnimation.onfinish = null;
           };
         }
       })();
@@ -154,8 +152,6 @@ function WorkSamplesAnim() {
         // Continue from where we left of even after a long pause
         wheelAnimation.onfinish = () => {
           driveWheelRef.current.style.transform = `rotate(${rotation}deg)`;
-          wheelAnimation.cancel();
-          wheelAnimation.onfinish = null;
         };
       })();
     }
