@@ -274,8 +274,6 @@ function WorkSamplesAnim() {
       </div>
       <section
         ref={trackRef}
-        data-mouse-down-at={mouseDownAt}
-        data-prev-percentage={prevPercentage}
         // onTouchStart={handleOnDown}
         onMouseDown={handleOnDown}
         // onTouchEnd={handleOnUp}
