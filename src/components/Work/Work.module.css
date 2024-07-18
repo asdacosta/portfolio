@@ -83,8 +83,8 @@
 }
 
 .workSlide img {
-  width: 45vmin;
-  height: 60vmin;
+  width: 43vmin;
+  height: 58vmin;
   object-fit: cover;
   object-position: 100% center;
   border-radius: 1rem;
