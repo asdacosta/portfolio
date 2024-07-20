@@ -12,10 +12,12 @@
   },
   "dependencies": {
     "@dotlottie/player-component": "^2.7.12",
+    "@pixi/react": "^7.1.2",
     "body-parser": "^1.20.2",
     "express": "^4.19.2",
     "framer-motion": "^11.2.10",
     "nodemailer": "^6.9.14",
+    "pixi.js": "^7.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.24.1",
