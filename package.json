@@ -25,7 +25,6 @@
     "react-select": "^5.8.0",
     "react-typing-effect": "^2.0.5",
     "swiper": "^11.1.4",
-    "three": "^0.165.0",
     "typed.js": "^2.1.0"
   },
   "devDependencies": {
