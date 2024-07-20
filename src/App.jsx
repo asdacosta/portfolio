@@ -9,6 +9,7 @@ import { Skill } from "./components/Skill/Skill";
 import { Work } from "./components/Work/Work";
 import { Connect } from "./components/Connect/Connect";
 import { Outlet, useLocation } from "react-router-dom";
+import { MouseTrail } from "./components/MouseTrail/MouseTrail";
 
 const loadVariants = {
   exit: {
@@ -35,6 +36,7 @@ function App() {
 
   return (
     <>
+      <MouseTrail />
       {location.pathname === "/" ? (
         <>
           <AnimatePresence>
