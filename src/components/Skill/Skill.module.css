@@ -71,6 +71,8 @@
 
 .info > p {
   text-align: justify;
+  z-index: 4;
+  background: rgb(0, 6, 26);
 }
 
 .allDevices > svg {
@@ -136,6 +138,7 @@ section.bot {
   gap: 3rem;
   padding: 5vmin 15vmin;
   min-height: 100vh;
+  z-index: 4;
 }
 
 @media (max-width: 900px) {
@@ -315,6 +318,7 @@ span.eduUniversitySpan {
   flex-direction: column;
   gap: 3rem;
   min-height: 100vh;
+  z-index: 4;
 }
 
 .techSection {
