@@ -59,7 +59,7 @@ const MouseTrail = () => {
 
       // Clear the previous graphics and set the color
       trail.clear();
-      trail.lineStyle(10, 0x00ccff, 1); // Set the color to rgb(0, 204, 255) and width of the trail
+      trail.lineStyle(5, 0x00ccff, 1); // Set the color to rgb(0, 204, 255) and width of the trail
       trail.beginFill(0x000000, 0.01);
 
       // Draw the trail
@@ -83,7 +83,7 @@ const MouseTrail = () => {
         top: "0",
         left: "0",
         position: "fixed",
-        zIndex: 99,
+        zIndex: 3,
         pointerEvents: "none",
         overflow: "hidden",
       }}
