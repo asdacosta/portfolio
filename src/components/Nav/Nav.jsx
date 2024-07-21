@@ -11,17 +11,6 @@ function Nav() {
   const menuRef = useRef(null);
   const { page, setPage } = useContext(MenuContext);
 
-  const openMenu = () => {
-    const menu = menuRef.current;
-    menu.setSpeed(1.2);
-
-    if (menu && !menuOpened) {
-      menu.setDirection(1);
-      menu.play();
-      setMenuClosed((prev) => true);
-    }
-  };
-
   const handleMenuClick = () => {
     const menu = menuRef.current;
     menu.setSpeed(1.2);
@@ -201,7 +190,6 @@ function Nav() {
           <dotlottie-player
             ref={menuRef}
             mode="normal"
-            onMouseEnter={openMenu}
             onClick={handleMenuClick}
             src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/menu.lottie"
             style={{ width: "2.5rem", height: "2.5rem" }}
