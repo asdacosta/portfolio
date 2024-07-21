@@ -75,7 +75,3 @@ input {
   transform-origin: 0%;
   z-index: 10;
 }
-
-svg {
-  z-index: 4;
-}
