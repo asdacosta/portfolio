@@ -17,7 +17,7 @@ const MouseTrail = () => {
 
     const historyX = [];
     const historyY = [];
-    const historySize = 5;
+    const historySize = 4;
     const ropeSize = 100;
     const points = [];
 
@@ -36,30 +36,30 @@ const MouseTrail = () => {
     const trail = new PIXI.Graphics();
     app.stage.addChild(trail);
 
-    let mouseposition = null;
+    let mousePosition = null;
 
     if (!app.stage) return;
     app.stage.eventMode = "static";
     app.stage.hitArea = app.screen;
 
     app.stage.on("mousemove", (event) => {
-      mouseposition = mouseposition || { x: 0, y: 0 };
-      mouseposition.x = event.global.x;
-      mouseposition.y = event.global.y;
+      mousePosition = mousePosition || { x: 0, y: 0 };
+      mousePosition.x = event.global.x;
+      mousePosition.y = event.global.y;
     });
 
     app.ticker.add(() => {
-      if (!mouseposition) return;
+      if (!mousePosition) return;
 
       // Update the mouse values to history
       historyX.pop();
-      historyX.unshift(mouseposition.x);
+      historyX.unshift(mousePosition.x);
       historyY.pop();
-      historyY.unshift(mouseposition.y);
+      historyY.unshift(mousePosition.y);
 
       // Clear the previous graphics and set the color
       trail.clear();
-      trail.lineStyle(5, 0x00ccff, 1); // Set the color to rgb(0, 204, 255) and width of the trail
+      trail.lineStyle(4, 0x00ccff, 1); // Set the color to rgb(0, 204, 255) and width of the trail
       trail.beginFill(0x000000, 0.01);
 
       // Draw the trail
