@@ -5,6 +5,7 @@
   gap: 40rem;
   min-height: 100vh;
   position: relative;
+  z-index: 4;
 }
 
 .otherConnect {
