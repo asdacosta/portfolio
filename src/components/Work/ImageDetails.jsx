@@ -6,6 +6,7 @@ import shopCartImg from "../../assets/Works/shoppingCartWork.png";
 import battleShipImg from "../../assets/Works/battleshipWork.png";
 import memoryImg from "../../assets/Works/memoryWork.png";
 import dashboardImg from "../../assets/Works/dashBoardWork.png";
+import digiairxImg from "../../assets/Works/digiairxWork.png";
 
 import workStyles from "./Work.module.css";
 
