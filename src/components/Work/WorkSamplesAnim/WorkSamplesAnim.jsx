@@ -21,6 +21,10 @@ function WorkSamplesAnim() {
     seventhImg: false,
     eightImg: false,
     ninthImg: false,
+    tenthImg: false,
+    eleventhImg: false,
+    twelfthImg: false,
+    thirteenthImg: false,
   });
   const [starred, setStarred] = useState({
     firstImg: false,
@@ -32,6 +36,10 @@ function WorkSamplesAnim() {
     seventhImg: false,
     eightImg: false,
     ninthImg: false,
+    tenthImg: false,
+    eleventhImg: false,
+    twelfthImg: false,
+    thirteenthImg: false,
   });
 
   const workSamplesRef = useRef(null);
@@ -47,6 +55,10 @@ function WorkSamplesAnim() {
   const seventhBox = useRef(null);
   const eightBox = useRef(null);
   const ninthBox = useRef(null);
+  const tenthBox = useRef(null);
+  const eleventhBox = useRef(null);
+  const twelfthBox = useRef(null);
+  const thirteenthBox = useRef(null);
   const boxRefs = [
     firstBox,
     secBox,
@@ -57,6 +69,10 @@ function WorkSamplesAnim() {
     seventhBox,
     eightBox,
     ninthBox,
+    tenthBox,
+    eleventhBox,
+    twelfthBox,
+    thirteenthBox,
   ];
 
   const workControls = useAnimation();
@@ -245,6 +261,18 @@ function WorkSamplesAnim() {
         break;
       case ninthBox.current:
         setRevealLinkBox((prev) => ({ ...prev, ninthImg: true }));
+        break;
+      case tenthBox.current:
+        setRevealLinkBox((prev) => ({ ...prev, tenthImg: true }));
+        break;
+      case eleventhBox.current:
+        setRevealLinkBox((prev) => ({ ...prev, eleventhImg: true }));
+        break;
+      case twelfthBox.current:
+        setRevealLinkBox((prev) => ({ ...prev, twelfthImg: true }));
+        break;
+      case thirteenthBox.current:
+        setRevealLinkBox((prev) => ({ ...prev, thirteenthImg: true }));
         break;
     }
   };
