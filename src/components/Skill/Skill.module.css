@@ -232,7 +232,7 @@ section.bot {
   border-radius: 1rem 0 0 1rem;
 }
 
-.odin1 .fill,
+.odin .fill,
 .uni .fill,
 .alx2 .fill {
   animation: fill100 2s 0.5s ease-in-out forwards;
@@ -256,16 +256,6 @@ section.bot {
 @keyframes fill75 {
   to {
     width: 75%;
-  }
-}
-
-.odin2 .fill {
-  animation: fill25 2s 0.5s ease-in-out forwards;
-}
-
-@keyframes fill25 {
-  to {
-    width: 25%;
   }
 }
 
@@ -526,6 +516,10 @@ span.eduUniversitySpan {
   bottom: -2.3rem;
 }
 
+.tsBox::after {
+  content: "TypeScript";
+}
+
 .jsBox::after {
   content: "JavaScript";
 }
@@ -539,11 +533,11 @@ span.eduUniversitySpan {
 }
 
 .htmlBox::after {
-  content: "HTML";
+  content: "HTML5";
 }
 
 .cssBox::after {
-  content: "CSS";
+  content: "CSS3";
 }
 
 .reactBox::after {
@@ -582,6 +576,22 @@ span.eduUniversitySpan {
   content: "ExpressJS";
 }
 
+.postgreBox::after {
+  content: "PostgreSQL";
+}
+
+.railwayBox::after {
+  content: "Railway";
+}
+
+.prismaBox::after {
+  content: "Prisma";
+}
+
+.supabaseBox::after {
+  content: "Supabase";
+}
+
 .vsCodeBox::after {
   content: "VS Code";
 }
@@ -616,6 +626,14 @@ span.eduUniversitySpan {
 
 .vercelBox::after {
   content: "Vercel";
+}
+
+.bashBox::after {
+  content: "Bash Shell";
+}
+
+.netlifyBox::after {
+  content: "Netlify";
 }
 
 .jestBox::after {
