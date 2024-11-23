@@ -369,7 +369,7 @@ span.eduUniversitySpan {
 
 /* 4 X number of icons (7) */
 .frontSection > section {
-  animation: scrollFrontend 28s linear infinite;
+  animation: scrollFrontend 30s linear infinite;
 }
 
 @keyframes scrollFrontend {
@@ -381,9 +381,9 @@ span.eduUniversitySpan {
   }
 }
 
-/* 4 X number of icons (3) */
+/* 4 X number of icons (4) */
 .langSection > section {
-  animation: scrollLang 12s linear infinite;
+  animation: scrollLang 16s linear infinite;
 }
 
 @keyframes scrollLang {
@@ -391,13 +391,13 @@ span.eduUniversitySpan {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-113%);
+    transform: translateX(-109.5%);
   }
 }
 
-/* 4 X number of icons (4) */
+/* 4 X number of icons (8) */
 .backSection > section {
-  animation: scrollBackend 16s linear infinite;
+  animation: scrollBackend 32s linear infinite;
 }
 
 @keyframes scrollBackend {
@@ -405,13 +405,13 @@ span.eduUniversitySpan {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-109.27%);
+    transform: translateX(-104.5%);
   }
 }
 
 /* Different size */
 .toolSection > section {
-  animation: scrollLong 40s linear infinite;
+  animation: scrollLong 45s linear infinite;
 }
 
 @keyframes scrollLong {
@@ -419,7 +419,7 @@ span.eduUniversitySpan {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-103.5%);
+    transform: translateX(-103%);
   }
 }
 
