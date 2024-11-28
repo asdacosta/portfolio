@@ -367,9 +367,9 @@ span.eduUniversitySpan {
   padding: 3rem 0;
 }
 
-/* 4 X number of icons (7) */
+/* 4 X number of icons (8) */
 .frontSection > section {
-  animation: scrollFrontend 30s linear infinite;
+  animation: scrollFrontend 34s linear infinite;
 }
 
 @keyframes scrollFrontend {
@@ -377,7 +377,7 @@ span.eduUniversitySpan {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-105.01%);
+    transform: translateX(-104.5%);
   }
 }
 
@@ -542,6 +542,10 @@ span.eduUniversitySpan {
 
 .reactBox::after {
   content: "React";
+}
+
+.tailwindBox::after {
+  content: "Tailwind CSS";
 }
 
 .framerBox::after {
