@@ -231,7 +231,7 @@ function AboutSocials() {
           variants={aboutSocialsVariants.iconVariant}
           className={aboutStyles.xBox}
           onClick={() => {
-            window.open("https://x.com/Ace_DaCosta", "_blank");
+            window.open("https://x.com/dacosta_ace", "_blank");
           }}
         >
           <svg
