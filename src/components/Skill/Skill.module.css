@@ -395,9 +395,9 @@ span.eduUniversitySpan {
   }
 }
 
-/* 4 X number of icons (8) */
+/* 4 X number of icons (9) */
 .backSection > section {
-  animation: scrollBackend 32s linear infinite;
+  animation: scrollBackend 36s linear infinite;
 }
 
 @keyframes scrollBackend {
@@ -594,6 +594,10 @@ span.eduUniversitySpan {
 
 .supabaseBox::after {
   content: "Supabase";
+}
+
+.nextBox::after {
+  content: "NextJS";
 }
 
 .vsCodeBox::after {
