@@ -91,7 +91,7 @@ Developers, users, and non-developers.
 | `src/components/Nav/`     | Components and stylesheet for Nav section of page. wrong.                                                             |
 | `src/components/Skill/`   | Components and stylesheet for Skill section on page. wrong.                                                           |
 | `src/components/Work/`    | Components and stylesheet for Work section on page. wrong.                                                            |
-| `src/sreset.css`          | Resets style to default for consistency across different devices and browsers..                                       |
+| `src/reset.css`           | Resets style to default for consistency across different devices and browsers..                                       |
 | `src/App.css`             | General stylesheet for `App.jsx`                                                                                      |
 | `dist/*`                  | Output files from bundling of files in directory `src/`.                                                              |
 | `dist/main.js`            | Main JavaScript output file that contains the bundled JavaScript code. Code is minified and optimized for deployment. |
