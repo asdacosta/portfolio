@@ -411,7 +411,7 @@ span.eduUniversitySpan {
 
 /* Different size */
 .toolSection > section {
-  animation: scrollLong 45s linear infinite;
+  animation: scrollLong 48s linear infinite;
 }
 
 @keyframes scrollLong {
