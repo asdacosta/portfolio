@@ -233,6 +233,10 @@ section.mobile {
   animation: fill100 2s 0.5s ease-in-out forwards;
 }
 
+.msc .fill {
+  animation: fill60 2s 0.5s ease-in-out forwards;
+}
+
 @keyframes fill100 {
   80% {
     border-radius: 1rem 0 0 1rem;
@@ -244,13 +248,24 @@ section.mobile {
   }
 }
 
-.alx1 .fill {
-  animation: fill75 2s 0.5s ease-in-out forwards;
+@keyframes fill60 {
+  80% {
+    border-radius: 1rem 0 0 1rem;
+  }
+  to {
+    background-color: rgb(0, 144, 180);
+    border-radius: 1rem;
+    width: 50%;
+  }
 }
 
-@keyframes fill75 {
+.alx1 .fill {
+  animation: fill80 2s 0.5s ease-in-out forwards;
+}
+
+@keyframes fill80 {
   to {
-    width: 75%;
+    width: 80%;
   }
 }
 
