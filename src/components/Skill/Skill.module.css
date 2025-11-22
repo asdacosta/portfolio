@@ -125,14 +125,13 @@
   align-self: stretch;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
   padding: 5vmin 15vmin;
   min-height: 100vh;
 }
 
 @media (max-width: 900px) {
   .education {
-    gap: 3rem;
     padding: 2vmin 5vmin;
     min-height: 100vh;
   }
@@ -167,7 +166,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
   transform: translateY(1rem);
 }
 
@@ -201,8 +200,8 @@
 .eduBar {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0 1rem;
+  gap: 0.5rem;
+  padding: 0 0.5rem;
 }
 
 .eduBar > span:first-child {
@@ -270,7 +269,7 @@
   align-items: center;
   gap: 0.2rem;
   font-size: 1.7rem;
-  width: 6rem;
+  width: 5rem;
   font-weight: 500;
 }
 
