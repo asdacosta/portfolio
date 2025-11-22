@@ -1,3 +1,29 @@
+:root {
+  --accent: rgb(0, 204, 255);
+  --accent-2: rgb(0, 144, 180);
+  --dark-bg: rgb(0, 6, 26);
+  --heading-grad: linear-gradient(
+    90deg,
+    var(--accent) 0%,
+    var(--accent) 30%,
+    white 50%,
+    var(--accent) 70%,
+    var(--accent) 100%
+  );
+  --heading-grad-edu: linear-gradient(
+    90deg,
+    var(--accent) 0%,
+    var(--accent) 40%,
+    white 50%,
+    var(--accent) 60%,
+    var(--accent) 100%
+  );
+  --border-accent: 0.15rem solid var(--accent);
+  --border-radius: 2rem;
+  --transition: 0.3s ease-in-out;
+}
+
+/* Container */
 .skill {
   display: flex;
   flex-direction: column;
@@ -8,6 +34,7 @@
   z-index: 4;
 }
 
+/* Shared layout for main sections */
 .PRs,
 .analytics,
 .projects,
@@ -18,13 +45,14 @@
   display: flex;
   align-items: center;
   gap: 15rem;
-  border-bottom: 0.15rem solid rgb(0, 204, 255);
-  border-radius: 2rem;
+  border-bottom: var(--border-accent);
+  border-radius: var(--border-radius);
   margin: 0 1rem;
   height: 100vh;
   overflow-x: hidden;
 }
 
+/* Info block */
 .info {
   display: flex;
   flex-direction: column;
@@ -36,22 +64,23 @@
   cursor: context-menu;
 }
 
-.info > h2 {
-  font-size: 2rem;
+/* Gradient headings (shared) */
+.info > h2,
+.techSection h3,
+.technologies > h2 {
   font-weight: 500;
-  background: linear-gradient(
-    90deg,
-    rgb(0, 204, 255) 0%,
-    rgb(0, 204, 255) 30%,
-    white 50%,
-    rgb(0, 204, 255) 70%,
-    rgb(0, 204, 255) 100%
-  );
+  background: var(--heading-grad);
   background-clip: text;
   background-size: 200% 200%;
   color: transparent;
-  animation: gradient-animation 2s linear infinite reverse;
-  transition: color 0.3s ease-in-out;
+  text-align: center;
+  animation: gradient-animation 3s linear infinite reverse;
+}
+
+.info > h2 {
+  font-size: 2rem;
+  font-weight: 500; /* explicit to preserve original */
+  transition: color var(--transition);
 }
 
 @keyframes gradient-animation {
@@ -63,61 +92,58 @@
   }
 }
 
-.info > h2:hover {
-  color: rgb(0, 204, 255);
+.info > h2:hover,
+.technologies h3:hover,
+.technologies h2:hover {
+  color: var(--accent);
   text-shadow: 2px 2px 5px rgb(90, 90, 90);
   animation-play-state: paused;
 }
 
+/* small heading size adjustment on narrow screens handled in media queries */
 .info > p {
-  background: rgb(0, 6, 26);
+  background: var(--dark-bg);
 }
-
 .info a {
-  color: rgb(0, 204, 255);
+  color: var(--accent);
 }
 
+/* Individual svg sizing per section (preserve original sizes) */
 .PRs > svg {
   width: 70vmin;
   height: 49vmin;
 }
-
 .mobile > svg {
   width: 70vmin;
   height: 60vmin;
 }
-
-.bot {
-  flex-direction: row-reverse;
-}
-
 .analytics > svg {
   width: 70vmin;
   height: 70vmin;
 }
-
 .bot > svg {
   width: 70vmin;
   height: 50vmin;
 }
-
 .team > svg {
   width: 70vmin;
   height: 65vmin;
 }
-
-.projects {
-  flex-direction: row-reverse;
-}
-
 .projects > svg {
   width: 70vmin;
   height: 70vmin;
 }
-
 .research > svg {
   width: 70vmin;
   height: 55vmin;
+}
+
+/* Direction overrides */
+.bot {
+  flex-direction: row-reverse;
+}
+.projects {
+  flex-direction: row-reverse;
 }
 
 /* Education */
@@ -150,9 +176,8 @@
   background-color: #333848;
   border-radius: 1.5rem;
   cursor: context-menu;
-  transition: transform 0.3s ease-in-out;
+  transition: transform var(--transition);
 }
-
 .eduSection > section:hover {
   transform: scale(1.03);
 }
@@ -169,19 +194,16 @@
   padding: 0 0.5rem;
   transform: translateY(1rem);
 }
-
 .context > span:first-child,
 .context > span:last-child {
   font-size: 0.9rem;
   font-weight: 500;
 }
-
 .context > span:first-child {
   cursor: pointer;
 }
-
 .context > span:first-child:hover {
-  border-bottom: 0.15rem solid rgb(0, 204, 255);
+  border-bottom: 0.15rem solid var(--accent);
 }
 
 .context > span:nth-child(2) > svg {
@@ -191,12 +213,13 @@
 }
 
 .context > span:last-child {
-  color: rgb(0, 204, 255);
+  color: var(--accent);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
+/* Education progress bar */
 .eduBar {
   display: flex;
   align-items: center;
@@ -214,11 +237,12 @@
   overflow: hidden;
 }
 
+/* fill element default and per-school animations */
 .fill {
   position: absolute;
   height: 100%;
   width: 0;
-  background-color: rgb(0, 204, 255);
+  background-color: var(--accent);
   border-radius: 1rem 0 0 1rem;
 }
 
@@ -227,9 +251,11 @@
 .alx2 .fill {
   animation: fill100 2s 0.5s ease-in-out forwards;
 }
-
 .msc .fill {
   animation: fill60 2s 0.5s ease-in-out forwards;
+}
+.alx1 .fill {
+  animation: fill80 2s 0.5s ease-in-out forwards;
 }
 
 @keyframes fill100 {
@@ -237,27 +263,21 @@
     border-radius: 1rem 0 0 1rem;
   }
   to {
-    background-color: rgb(0, 144, 180);
+    background-color: var(--accent-2);
     border-radius: 1rem;
     width: 100%;
   }
 }
-
 @keyframes fill60 {
   80% {
     border-radius: 1rem 0 0 1rem;
   }
   to {
-    background-color: rgb(0, 144, 180);
+    background-color: var(--accent-2);
     border-radius: 1rem;
     width: 50%;
   }
 }
-
-.alx1 .fill {
-  animation: fill80 2s 0.5s ease-in-out forwards;
-}
-
 @keyframes fill80 {
   to {
     width: 80%;
@@ -277,28 +297,20 @@
   font-size: 1rem;
 }
 
+/* Education heading */
 .education > h2 {
   font-size: 2rem;
-  color: rgb(0, 204, 255);
+  color: var(--accent);
   font-weight: 500;
-  background: linear-gradient(
-    90deg,
-    rgb(0, 204, 255) 0%,
-    rgb(0, 204, 255) 40%,
-    white 50%,
-    rgb(0, 204, 255) 60%,
-    rgb(0, 204, 255) 100%
-  );
+  background: var(--heading-grad-edu);
   background-clip: text;
   background-size: 200% 200%;
   color: transparent;
   text-align: center;
-}
-
-.education > h2 {
   animation: gradient-animation 3s linear infinite reverse;
 }
 
+/* small helper */
 span.eduUniversitySpan {
   pointer-events: none;
 }
@@ -321,12 +333,12 @@ span.eduUniversitySpan {
   column-gap: 1rem;
 }
 
+/* tools and columns sizes */
 .tools {
   grid-row: 1 / 2;
   grid-column: 1 / -1;
   max-width: 80vmin;
 }
-
 .languages,
 .frontEnd,
 .backEnd {
@@ -338,6 +350,7 @@ span.eduUniversitySpan {
   flex-direction: column;
 }
 
+/* scroll regions */
 .langSection,
 .toolSection,
 .frontSection,
@@ -356,6 +369,7 @@ span.eduUniversitySpan {
   );
 }
 
+/* narrower max widths */
 .langSection,
 .frontSection,
 .backSection {
@@ -370,13 +384,13 @@ span.eduUniversitySpan {
   gap: 2rem;
   white-space: nowrap;
   padding: 3rem 0;
+  flex-shrink: 0;
 }
 
-/* 4 X number of icons (8) */
+/* scrolling keyframes — preserve durations and travel distances */
 .frontSection > section {
   animation: scrollFrontend 34s linear infinite;
 }
-
 @keyframes scrollFrontend {
   0% {
     transform: translateX(0);
@@ -386,11 +400,9 @@ span.eduUniversitySpan {
   }
 }
 
-/* 4 X number of icons (4) */
 .langSection > section {
   animation: scrollLang 16s linear infinite;
 }
-
 @keyframes scrollLang {
   0% {
     transform: translateX(0);
@@ -400,11 +412,9 @@ span.eduUniversitySpan {
   }
 }
 
-/* 4 X number of icons (9) */
 .backSection > section {
   animation: scrollBackend 36s linear infinite;
 }
-
 @keyframes scrollBackend {
   0% {
     transform: translateX(0);
@@ -414,11 +424,9 @@ span.eduUniversitySpan {
   }
 }
 
-/* Different size */
 .toolSection > section {
   animation: scrollLong 48s linear infinite;
 }
-
 @keyframes scrollLong {
   0% {
     transform: translateX(0);
@@ -428,6 +436,7 @@ span.eduUniversitySpan {
   }
 }
 
+/* pause on hover for all scrollers */
 .langSection:hover > section,
 .toolSection:hover > section,
 .frontSection:hover > section,
@@ -439,25 +448,11 @@ span.eduUniversitySpan {
   max-width: 69rem;
 }
 
-.langSection > section,
-.toolSection > section,
-.toolSection > section,
-.frontSection > section,
-.backSection > section {
-  flex-shrink: 0;
-}
-
+/* headings in tech section reused gradient style */
 .techSection h3,
 .technologies > h2 {
   font-weight: 500;
-  background: linear-gradient(
-    90deg,
-    rgb(0, 204, 255) 0%,
-    rgb(0, 204, 255) 40%,
-    white 50%,
-    rgb(0, 204, 255) 60%,
-    rgb(0, 204, 255) 100%
-  );
+  background: var(--heading-grad-edu);
   background-clip: text;
   background-size: 200% 200%;
   color: transparent;
@@ -465,40 +460,32 @@ span.eduUniversitySpan {
   animation: gradient-animation 3s linear infinite reverse;
 }
 
-.technologies h2:hover,
-.technologies h3:hover {
-  color: rgb(0, 204, 255);
-  text-shadow: 2px 2px 5px rgb(90, 90, 90);
-  animation-play-state: paused;
-}
-
 .technologies h3,
 .technologies h2 {
   cursor: context-menu;
 }
-
 .techSection h3 {
   font-size: 1.5rem;
 }
-
 .technologies > h2 {
   font-size: 2rem;
 }
 
+/* tech icons */
 .techSection svg,
 .techSection img {
   width: 3.9rem;
   height: 3.9rem;
   filter: grayscale(100%);
-  transition: transform 0.3s ease-in-out;
+  transition: transform var(--transition);
 }
-
 .techSection svg:hover,
 .techSection img:hover {
   transform: scale(1.15);
   filter: grayscale(0);
 }
 
+/* icon container and labels */
 .iconContainer {
   position: relative;
 }
@@ -507,7 +494,6 @@ span.eduUniversitySpan {
   position: absolute;
   font-size: 1rem;
   font-weight: 600;
-  bottom: -2.2rem;
   bottom: -1rem;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -515,144 +501,113 @@ span.eduUniversitySpan {
   opacity: 0;
   transition: opacity 0.5s ease-in-out, bottom 0.3s ease-in-out;
 }
-
 .box:hover::after {
   opacity: 1;
   bottom: -2.3rem;
 }
 
+/* all the ::after content labels preserved exactly */
 .tsBox::after {
   content: "TypeScript";
 }
-
 .jsBox::after {
   content: "JavaScript";
 }
-
 .cBox::after {
   content: "C";
 }
-
 .pythonBox::after {
   content: "Python";
 }
-
 .htmlBox::after {
   content: "HTML5";
 }
-
 .cssBox::after {
   content: "CSS3";
 }
-
 .reactBox::after {
   content: "React";
 }
-
 .tailwindBox::after {
   content: "Tailwind CSS";
 }
-
 .framerBox::after {
   content: "Framer Motion";
 }
-
 .figmaBox::after {
   content: "Figma";
 }
-
 .swiperBox::after {
   content: "Swiper";
 }
-
 .canvaBox::after {
   content: "Canva";
 }
-
 .reactRouterBox::after {
   content: "React Router";
 }
-
 .nodeBox::after {
   content: "NodeJS";
 }
-
 .mongoBox::after {
   content: "MongoDB";
 }
-
 .expressBox::after {
   content: "ExpressJS";
 }
-
 .postgreBox::after {
   content: "PostgreSQL";
 }
-
 .railwayBox::after {
   content: "Railway";
 }
-
 .prismaBox::after {
   content: "Prisma";
 }
-
 .supabaseBox::after {
   content: "Supabase";
 }
-
 .nextBox::after {
   content: "NextJS";
 }
-
 .vsCodeBox::after {
   content: "VS Code";
 }
-
 .gitBox::after {
   content: "Git";
 }
-
 .githubBox::after {
   content: "GitHub";
 }
-
 .webpackBox::after {
   content: "Webpack";
 }
-
 .viteBox::after {
   content: "Vite";
 }
-
 .npmBox::after {
   content: "NPM";
 }
-
 .babelBox::after {
   content: "Babel";
 }
-
 .eslintBox::after {
   content: "ESLint";
 }
-
 .vercelBox::after {
   content: "Vercel";
 }
-
 .bashBox::after {
   content: "Bash Shell";
 }
-
 .netlifyBox::after {
   content: "Netlify";
 }
-
 .jestBox::after {
   content: "Jest";
 }
 
+/* Responsive adjustments */
 @media (max-width: 1600px) {
   .PRs,
   .analytics,
@@ -698,13 +653,11 @@ span.eduUniversitySpan {
   .tools {
     max-width: 25rem;
   }
-
   .languages,
   .frontEnd,
   .backEnd {
     max-width: 19rem;
   }
-
   .context > span:last-child {
     max-width: 12rem;
   }
