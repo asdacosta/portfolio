@@ -8,9 +8,9 @@
   z-index: 4;
 }
 
-.allDevices,
+.PRs,
 .analytics,
-.author,
+.projects,
 .bot,
 .mobile,
 .research,
@@ -70,11 +70,14 @@
 }
 
 .info > p {
-  text-align: justify;
   background: rgb(0, 6, 26);
 }
 
-.allDevices > svg {
+.info a {
+  color: rgb(0, 204, 255);
+}
+
+.PRs > svg {
   width: 70vmin;
   height: 49vmin;
 }
@@ -88,7 +91,7 @@ section.mobile {
   height: 60vmin;
 }
 
-.analytics {
+.bot {
   flex-direction: row-reverse;
 }
 
@@ -97,13 +100,9 @@ section.mobile {
   height: 70vmin;
 }
 
-section.bot {
-  display: none;
-}
-
 .bot > svg {
   width: 70vmin;
-  height: 60vmin;
+  height: 50vmin;
 }
 
 .team > svg {
@@ -111,17 +110,13 @@ section.bot {
   height: 65vmin;
 }
 
-.author {
+.projects {
   flex-direction: row-reverse;
 }
 
-.author > svg {
-  width: 65vmin;
-  height: 45vmin;
-}
-
-.bookPreview {
-  color: rgb(0, 204, 255);
+.projects > svg {
+  width: 70vmin;
+  height: 70vmin;
 }
 
 .research > svg {
@@ -649,9 +644,9 @@ span.eduUniversitySpan {
 }
 
 @media (max-width: 1600px) {
-  .allDevices,
+  .PRs,
   .analytics,
-  .author,
+  .projects,
   .bot,
   .mobile,
   .research,
@@ -661,9 +656,9 @@ span.eduUniversitySpan {
 }
 
 @media (max-width: 1400px) {
-  .allDevices,
+  .PRs,
   .analytics,
-  .author,
+  .projects,
   .bot,
   .mobile,
   .research,
