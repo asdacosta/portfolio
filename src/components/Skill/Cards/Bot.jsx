@@ -1,22 +1,26 @@
-import { useEffect, useRef } from "react";
+// Bot.jsx
+import React, { useEffect, useMemo, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import skillStyles from "../Skill.module.css";
 import { cardsVariants as variants } from "./cardsVariants";
 
-function Bot() {
+function BotComponent() {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
   const controls = useAnimation();
-  const leftInView = useInView(leftRef);
-  const rightInView = useInView(rightRef);
 
-  const displaySectionsInView = () => {
-    if (leftInView || rightInView) controls.start("visible");
-  };
-  useEffect(displaySectionsInView, [controls, leftInView, rightInView]);
+  // Observe both refs (hooks called in fixed order)
+  const leftInView = useInView(leftRef, { margin: "-20% 0px -20% 0px" });
+  const rightInView = useInView(rightRef, { margin: "-20% 0px -20% 0px" });
 
-  return (
-    <section className={skillStyles.bot}>
+  useEffect(() => {
+    if (leftInView || rightInView) {
+      controls.start("visible");
+    }
+  }, [leftInView, rightInView, controls]);
+
+  const memoizedSvg = useMemo(
+    () => (
       <motion.svg
         ref={leftRef}
         initial="hidden"
@@ -520,6 +524,14 @@ function Bot() {
           </g>
         </g>
       </motion.svg>
+    ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [controls]
+  );
+
+  return (
+    <motion.section className={skillStyles.bot}>
+      {memoizedSvg}
 
       <motion.div
         className={skillStyles.info}
@@ -535,26 +547,44 @@ function Bot() {
           to <strong>autonomous agents</strong> — leveraging machine learning
           and the latest AI technologies. I stay up-to-date on emerging AI
           research, tools, and trends through daily updates from{" "}
-          <a href="https://www.therundown.ai/" target="_blank">
+          <a
+            href="https://www.therundown.ai/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             The Rundown AI
           </a>
           ,{" "}
-          <a href="https://www.superhuman.ai/" target="_blank">
+          <a
+            href="https://www.superhuman.ai/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Superhuman AI
           </a>
           ,{" "}
-          <a href="https://www.mindstream.news/" target="_blank">
+          <a
+            href="https://www.mindstream.news/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Mindstream
           </a>
           , and{" "}
-          <a href="https://medium.com/" target="_blank">
+          <a
+            href="https://medium.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Medium
           </a>
           .
         </p>
       </motion.div>
-    </section>
+    </motion.section>
   );
 }
+
+const Bot = React.memo(BotComponent);
 
 export { Bot };
