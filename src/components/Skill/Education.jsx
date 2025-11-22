@@ -54,7 +54,7 @@ const EDU_ITEMS = [
     institution: "University",
     institutionLink: null, // no link in original — keep null
     course: "MSc. Computer Science",
-    score: 50,
+    score: 60,
     universitySpanClass: skillStyles.eduUniversitySpan,
   },
   {
