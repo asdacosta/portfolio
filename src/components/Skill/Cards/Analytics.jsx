@@ -185,14 +185,12 @@ function Analytics() {
         animate={controls}
         variants={variants.leftVariant}
       >
-        <h2>Highly Performant</h2>
+        <h2>Highly Performant Apps</h2>
         <p>
-          I create performant websites by focusing on optimizing every aspect of
-          the site for speed, responsiveness, and efficiency. I employ best
-          practices, both conventional and innovative, to optimize both
-          client-side and server-side performance. High-performing websites not
-          only load quickly but also respond swiftly to user interactions,
-          making them stand out in today's competitive digital world.
+          I build high-performance websites optimized for speed, responsiveness,
+          and efficiency. By applying best practices on both client and server
+          sides, I ensure fast loading and smooth interactions, creating
+          standout digital experiences.
         </p>
       </motion.div>
     </section>
