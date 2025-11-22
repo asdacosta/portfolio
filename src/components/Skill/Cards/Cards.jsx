@@ -1,21 +1,21 @@
-import { AllDevices } from "./AllDevices";
+import { PRs } from "./PRs";
 import { Analytics } from "./Analytics";
-import { Content } from "./Content";
+import { Projects } from "./Projects";
 import { Bot } from "./Bot";
 import { Mobile } from "./Mobile";
-import { Research } from "./Research";
+import { ProblemSolve } from "./ProblemSolve";
 import { Team } from "./Team";
 
 function Cards() {
   return (
     <>
-      <AllDevices />
-      <Mobile />
-      <Analytics />
-      <Bot />
+      <PRs />
+      <Projects />
       <Team />
-      <Content />
-      <Research />
+      <Bot />
+      <Analytics />
+      <Mobile />
+      <ProblemSolve />
     </>
   );
 }
