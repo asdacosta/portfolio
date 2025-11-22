@@ -1,23 +1,27 @@
-import { useEffect, useRef } from "react";
+// Team.jsx
+import React, { useEffect, useMemo, useRef } from "react";
 import skillStyles from "../Skill.module.css";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { cardsVariants as variants } from "./cardsVariants";
-import bookPreview from "../../../assets/book_preview.pdf";
 
-function Team() {
+function TeamComponent() {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
   const controls = useAnimation();
-  const leftInView = useInView(leftRef);
-  const rightInView = useInView(rightRef);
 
-  const displaySectionsInView = () => {
-    if (leftInView || rightInView) controls.start("visible");
-  };
-  useEffect(displaySectionsInView, [controls, leftInView, rightInView]);
+  // observe both refs in a fixed order (hooks must be called consistently)
+  const leftInView = useInView(leftRef, { margin: "-20% 0px -20% 0px" });
+  const rightInView = useInView(rightRef, { margin: "-20% 0px -20% 0px" });
 
-  return (
-    <section className={skillStyles.team}>
+  useEffect(() => {
+    if (leftInView || rightInView) {
+      controls.start("visible");
+    }
+  }, [leftInView, rightInView, controls]);
+
+  // memoize the big SVG so it won't re-render unnecessarily
+  const memoizedSvg = useMemo(
+    () => (
       <motion.svg
         ref={leftRef}
         initial="hidden"
@@ -264,6 +268,14 @@ function Team() {
           fill="#fff"
         />
       </motion.svg>
+    ),
+    [controls] // include controls to be safe if animation controller changes
+  );
+
+  return (
+    <section className={skillStyles.team}>
+      {memoizedSvg}
+
       <motion.div
         className={skillStyles.info}
         ref={rightRef}
@@ -275,12 +287,20 @@ function Team() {
         <p>
           I combine strong communication skills, demonstrated by authoring a
           book on{" "}
-          <a href="https://bit.ly/dacostabookcover" target="_blank">
+          <a
+            href="https://bit.ly/dacostabookcover"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Communication Skills
           </a>
           , with proven team leadership, exemplified by guiding a departmental
-          quiz team—
-          <a href="https://bit.ly/dacostaquizcert" target="_blank">
+          quiz team—{" "}
+          <a
+            href="https://bit.ly/dacostaquizcert"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             certified
           </a>
           . By fostering collaborative environments, I ensure every team
@@ -290,5 +310,7 @@ function Team() {
     </section>
   );
 }
+
+const Team = React.memo(TeamComponent);
 
 export { Team };
