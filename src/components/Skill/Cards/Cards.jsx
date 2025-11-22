@@ -14,8 +14,8 @@ function Cards() {
       <Team />
       <Bot />
       <Analytics />
-      <Mobile />
       <ProblemSolve />
+      {/* <Mobile /> */}
     </>
   );
 }
