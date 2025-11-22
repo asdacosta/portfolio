@@ -1,38 +1,33 @@
-import { useEffect, useRef } from "react";
+// Projects.jsx
+import React, { useEffect, useMemo, useRef } from "react";
 import skillStyles from "../Skill.module.css";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { cardsVariants as variants } from "./cardsVariants";
 
-function Projects() {
+function ProjectsComponent() {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
   const controls = useAnimation();
-  const leftInView = useInView(leftRef);
-  const rightInView = useInView(rightRef);
 
-  const displaySectionsInView = () => {
-    if (leftInView || rightInView) controls.start("visible");
-  };
-  useEffect(displaySectionsInView, [controls, leftInView, rightInView]);
+  // Observe both refs in a fixed order (safe for hooks)
+  const leftInView = useInView(leftRef, { margin: "-20% 0px -20% 0px" });
+  const rightInView = useInView(rightRef, { margin: "-20% 0px -20% 0px" });
 
-  const leftVariant = {
-    visible: { opacity: 1, x: 0, transition: { duration: 1.5 } },
-    hidden: { opacity: 0, x: -150 },
-  };
+  useEffect(() => {
+    if (leftInView || rightInView) {
+      controls.start("visible");
+    }
+  }, [leftInView, rightInView, controls]);
 
-  const rightVariant = {
-    visible: { opacity: 1, x: 0, transition: { duration: 1.5 } },
-    hidden: { opacity: 0, x: 150 },
-  };
-
-  return (
-    <section className={skillStyles.projects}>
+  const memoizedSvg = useMemo(
+    () => (
       <motion.svg
         ref={rightRef}
         initial="hidden"
         animate={controls}
         variants={variants.rightVariant}
-        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
         width="799.468"
         height="552.327"
         viewBox="0 0 799.468 552.327"
@@ -153,7 +148,7 @@ function Projects() {
                 fill="#00ccff"
               />
               <path
-                d="M695.194,411.435H673.072a2.578,2.578,0,0,0-2.583,2.584v22.122a2.578,2.578,0,0,0,2.584,2.584h22.121a2.586,2.586,0,0,0,2.584-2.584V414.019a2.584,2.584,0,0,0-2.584-2.584Z"
+                d="M695.194,411.435H673.072a2.578,2.578,0,0,0-2.583,2.584v22.122a2.578,2.578,0,0,0,2.583,2.584h22.121a2.586,2.586,0,0,0,2.584-2.584V414.019a2.584,2.584,0,0,0-2.584-2.584Z"
                 transform="translate(-577.057 -260.084)"
                 fill="#00ccff"
               />
@@ -253,7 +248,7 @@ function Projects() {
                 fill="#d6d6e3"
               />
               <path
-                d="M882.234,411.435H860.1a2.576,2.576,0,0,0-2.571,2.584v22.122a2.576,2.576,0,0,0,2.571,2.584h22.131a2.585,2.585,0,0,0,2.584-2.584V414.019A2.585,2.585,0,0,0,882.234,411.435Z"
+                d="M882.234,411.435H860.1a2.576,2.576,0,0,0-2.571,2.584v22.122a2.576,2.576,0,0,0,2.571,2.584h22.132a2.582,2.582,0,0,0,2.584-2.571V414.019A2.585,2.585,0,0,0,882.234,411.435Z"
                 transform="translate(-578.224 -260.084)"
                 fill="#00ccff"
               />
@@ -336,6 +331,15 @@ function Projects() {
           </g>
         </g>
       </motion.svg>
+    ),
+    // controls included so the memo updates if controls instance changes
+    [controls]
+  );
+
+  return (
+    <section className={skillStyles.projects}>
+      {memoizedSvg}
+
       <motion.div
         className={skillStyles.info}
         ref={leftRef}
@@ -345,8 +349,13 @@ function Projects() {
       >
         <h2>Completed Projects</h2>
         <p>
-          With 4+ years of proven experience, I've created, tested and launched{" "}
-          <a href="https://github.com/asdacosta" target="_blank">
+          With <strong>4+ years of proven experience</strong>, I've created,
+          tested and launched{" "}
+          <a
+            href="https://github.com/asdacosta"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             50+ projects
           </a>{" "}
           using modern technologies such as TypeScript, React, Next.js, MongoDB,
@@ -358,5 +367,7 @@ function Projects() {
     </section>
   );
 }
+
+const Projects = React.memo(ProjectsComponent);
 
 export { Projects };
