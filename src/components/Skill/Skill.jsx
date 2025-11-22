@@ -1,25 +1,24 @@
 import { useContext, useEffect, useRef } from "react";
-import { Education } from "./Education";
 import skillStyles from "./Skill.module.css";
+import { Education } from "./Education";
 import { Technologies } from "./Technologies/Technologies";
+import { Cards } from "./Cards/Cards";
 import { MenuContext } from "../../App";
 import { useInView } from "framer-motion";
 import { Element } from "react-scroll";
-import { Cards } from "./Cards/Cards";
 
 function Skill() {
-  const { page, setPage } = useContext(MenuContext);
-  const SkillRef = useRef(null);
-  const inView = useInView(SkillRef, { amount: 0.1 });
+  const { setPage } = useContext(MenuContext);
+  const skillRef = useRef(null);
+  const inView = useInView(skillRef, { amount: 0.1, once: true });
 
-  const updatePageInView = () => {
+  useEffect(() => {
     if (inView) setPage("skill");
-  };
-  useEffect(updatePageInView, [inView]);
+  }, [inView, setPage]);
 
   return (
-    <section className={skillStyles.skill} ref={SkillRef}>
-      <Element name="Skill" className="targetScroll"></Element>
+    <section className={skillStyles.skill} ref={skillRef}>
+      <Element name="Skill" className="targetScroll" />
       <Cards />
       <Education />
       <Technologies />
