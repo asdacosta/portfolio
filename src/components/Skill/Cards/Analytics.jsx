@@ -1,22 +1,27 @@
+// Analytics.jsx
+import React, { useEffect, useMemo, useRef } from "react";
 import skillStyles from "../Skill.module.css";
-import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { cardsVariants as variants } from "./cardsVariants";
 
-function Analytics() {
+function AnalyticsComponent() {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
   const controls = useAnimation();
-  const leftInView = useInView(leftRef);
-  const rightInView = useInView(rightRef);
 
-  const displaySectionsInView = () => {
-    if (leftInView || rightInView) controls.start("visible");
-  };
-  useEffect(displaySectionsInView, [controls, leftInView, rightInView]);
+  // Observe both refs (hooks called in stable order)
+  const ioOptions = { once: true, margin: "-20% 0px -20% 0px" };
+  const leftInView = useInView(leftRef, ioOptions);
+  const rightInView = useInView(rightRef, ioOptions);
 
-  return (
-    <section className={skillStyles.analytics}>
+  useEffect(() => {
+    if (leftInView || rightInView) {
+      controls.start("visible");
+    }
+  }, [leftInView, rightInView, controls]);
+
+  const memoizedSvg = useMemo(
+    () => (
       <motion.svg
         ref={leftRef}
         initial="hidden"
@@ -178,6 +183,14 @@ function Analytics() {
           fill="#3f3d56"
         />
       </motion.svg>
+    ),
+    [controls]
+  );
+
+  return (
+    <section className={skillStyles.analytics}>
+      {memoizedSvg}
+
       <motion.div
         className={skillStyles.info}
         ref={rightRef}
@@ -196,5 +209,7 @@ function Analytics() {
     </section>
   );
 }
+
+const Analytics = React.memo(AnalyticsComponent);
 
 export { Analytics };
