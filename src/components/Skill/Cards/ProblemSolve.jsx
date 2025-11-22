@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+// Projects.jsx
+import React, { useEffect, useMemo, useRef } from "react";
 import skillStyles from "../Skill.module.css";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { cardsVariants as variants } from "./cardsVariants";
@@ -7,24 +8,28 @@ function ProblemSolve() {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
   const controls = useAnimation();
-  const leftInView = useInView(leftRef);
-  const rightInView = useInView(rightRef);
 
-  const displaySectionsInView = () => {
-    if (leftInView || rightInView) controls.start("visible");
-  };
-  useEffect(displaySectionsInView, [controls, leftInView, rightInView]);
+  // Observe both refs in a stable order; use a margin to trigger a bit earlier
+  const leftInView = useInView(leftRef, { margin: "-20% 0px -20% 0px" });
+  const rightInView = useInView(rightRef, { margin: "-20% 0px -20% 0px" });
 
-  return (
-    <section className={skillStyles.research}>
+  useEffect(() => {
+    if (leftInView || rightInView) {
+      controls.start("visible");
+    }
+  }, [leftInView, rightInView, controls]);
+
+  // Memoize the large SVG to avoid unnecessary re-renders
+  const memoizedSvg = useMemo(
+    () => (
       <motion.svg
         ref={leftRef}
         initial="hidden"
         animate={controls}
         variants={variants.leftVariant}
         data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
         width="799.928"
         height="517.158"
         viewBox="0 0 799.928 517.158"
@@ -234,6 +239,14 @@ function ProblemSolve() {
           />
         </g>
       </motion.svg>
+    ),
+    [controls]
+  );
+
+  return (
+    <motion.section className={skillStyles.research}>
+      {memoizedSvg}
+
       <motion.div
         className={skillStyles.info}
         ref={rightRef}
@@ -249,8 +262,10 @@ function ProblemSolve() {
           solutions across modern development platforms.
         </p>
       </motion.div>
-    </section>
+    </motion.section>
   );
 }
 
-export { ProblemSolve };
+const Projects = React.memo(ProblemSolve);
+
+export { Projects };
