@@ -4,7 +4,7 @@ import skillStyles from "../Skill.module.css";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { cardsVariants as variants } from "./cardsVariants";
 
-function ProblemSolve() {
+function ProblemSolveComponent() {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
   const controls = useAnimation();
@@ -266,6 +266,6 @@ function ProblemSolve() {
   );
 }
 
-const Projects = React.memo(ProblemSolve);
+const ProblemSolve = React.memo(ProblemSolveComponent);
 
-export { Projects };
+export { ProblemSolve };
