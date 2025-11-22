@@ -1,40 +1,24 @@
+// PR.jsx
 import React, { useEffect, useMemo, useRef } from "react";
 import skillStyles from "../Skill.module.css";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { cardsVariants as variants } from "./cardsVariants";
 
-/**
- * Hook: useRevealAnimation
- * Starts the animation controls when ANY of the provided refs come into view.
- * - refs: array of refs created via useRef()
- * - options: optional IntersectionObserver options (rootMargin etc.)
- */
-function useRevealAnimation(refs = [], options = {}) {
-  const controls = useAnimation();
-
-  // Call useInView for each ref (hooks must be called consistently, so refs array length should be constant)
-  const inViews = refs.map((r) => useInView(r, options));
-
-  useEffect(() => {
-    // If any observed element is in view, trigger the animation controls to "visible"
-    if (inViews.some(Boolean)) {
-      controls.start("visible");
-    }
-  }, [controls, ...inViews]);
-
-  return controls;
-}
-
 function PRsComponent() {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
+  const controls = useAnimation();
 
-  // Reveal animation that watches both SVG (leftRef) and content (rightRef)
-  const controls = useRevealAnimation([leftRef, rightRef], {
-    margin: "-20% 0px -20% 0px",
-  });
+  // Observe both refs — hooks are called in fixed order (safe)
+  const leftInView = useInView(leftRef, { margin: "-20% 0px -20% 0px" });
+  const rightInView = useInView(rightRef, { margin: "-20% 0px -20% 0px" });
 
-  // Memoize the SVG so it doesn't re-render unnecessarily.
+  useEffect(() => {
+    if (leftInView || rightInView) {
+      controls.start("visible");
+    }
+  }, [leftInView, rightInView, controls]);
+
   const memoizedSvg = useMemo(
     () => (
       <motion.svg
@@ -43,7 +27,6 @@ function PRsComponent() {
         animate={controls}
         variants={variants.leftVariant}
         xmlns="http://www.w3.org/2000/svg"
-        // JSX cannot contain ":" in attribute names, so use xmlnsXlink which maps to xmlns:xlink in DOM
         xmlnsXlink="http://www.w3.org/1999/xlink"
         width="812.98"
         height="490.439"
@@ -364,8 +347,7 @@ function PRsComponent() {
         </g>
       </motion.svg>
     ),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
+    [controls]
   );
 
   return (
@@ -381,31 +363,52 @@ function PRsComponent() {
       >
         <h2>Open-Source Impact</h2>
         <p>
-          Contributed 60+ merged{" "}
+          Contributed <strong>60+ merged</strong>{" "}
           <a
             href="https://github.com/pulls?page=1&q=is%3Apr+author%3Aasdacosta+is%3Amerged"
             target="_blank"
+            rel="noopener noreferrer"
           >
             pull requests
           </a>{" "}
           to major open-source repositories — including{" "}
-          <a href="https://nodejs.org" target="_blank">
+          <a
+            href="https://nodejs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Node.js
           </a>
           ,{" "}
-          <a href="https://webpack.js.org" target="_blank">
+          <a
+            href="https://webpack.js.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Webpack
           </a>
           ,{" "}
-          <a href="https://developer.mozilla.org" target="_blank">
+          <a
+            href="https://developer.mozilla.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             MDN
           </a>
           ,{" "}
-          <a href="https://lottiefiles.com" target="_blank">
+          <a
+            href="https://lottiefiles.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Lottie
           </a>
           , and{" "}
-          <a href="https://www.theodinproject.com" target="_blank">
+          <a
+            href="https://www.theodinproject.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             The Odin Project
           </a>{" "}
           — demonstrating strong attention to detail and proficiency in code
