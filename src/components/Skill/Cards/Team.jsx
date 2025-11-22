@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import skillStyles from "../Skill.module.css";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { cardsVariants as variants } from "./cardsVariants";
+import bookPreview from "../../../assets/book_preview.pdf";
 
 function Team() {
   const leftRef = useRef(null);
@@ -270,11 +271,20 @@ function Team() {
         animate={controls}
         variants={variants.rightVariant}
       >
-        <h2>Collaborative</h2>
+        <h2>Teamwork & Communication</h2>
         <p>
-          I actively contribute to group efforts and work harmoniously with
-          teammates. I focus on enabling a cooperative environment where
-          everyone's strengths are utilized for mutual success.
+          I combine strong communication skills, demonstrated by authoring a
+          book on{" "}
+          <a href="https://bit.ly/dacostabookcover" target="_blank">
+            Communication Skills
+          </a>
+          , with proven team leadership, exemplified by guiding a departmental
+          quiz team—
+          <a href="https://bit.ly/dacostaquizcert" target="_blank">
+            certified
+          </a>
+          . By fostering collaborative environments, I ensure every team
+          member's strengths contribute to shared success.
         </p>
       </motion.div>
     </section>
