@@ -1,37 +1,87 @@
+// Nav.jsx
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import navStyles from "./Nav.module.css";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import "@dotlottie/player-component";
-import { useContext, useEffect, useRef, useState } from "react";
 import { MenuContext } from "../../App";
 import { scroller } from "react-scroll";
 import { navVariants as variants } from "./navVariants";
 
-function Nav() {
-  const [menuOpened, setMenuClosed] = useState(false);
+const NAV_ITEMS = [
+  { id: "about", label: "About", target: "About", hidden: false },
+  { id: "skill", label: "Skill", target: "Skill", hidden: false },
+  { id: "work", label: "Work", target: "Work", hidden: false },
+  { id: "blog", label: "Blog", target: "Blog", hidden: true }, // hidden (display:none)
+  { id: "connect", label: "Connect", target: "Connect", hidden: false },
+];
+
+const Nav = React.memo(function Nav() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
-  const { page, setPage } = useContext(MenuContext);
+  const { page } = useContext(MenuContext); // keep only what's used
 
-  const handleMenuClick = () => {
-    const menu = menuRef.current;
-    menu.setSpeed(1.2);
-
-    if (menu && menuOpened) {
-      setMenuClosed((prev) => false);
-      menu.setDirection(-1);
-      menu.play();
-    } else if (menu && !menuOpened) {
-      setMenuClosed((prev) => true);
-      menu.setDirection(1);
-      menu.play();
-    }
-  };
-
-  const highlightTab = (tab) => {
-    scroller.scrollTo(tab, {
+  // Scroll to a named section — stable callback
+  const highlightTab = useCallback((tabName) => {
+    scroller.scrollTo(tabName, {
       duration: 1000,
       smooth: true,
     });
-  };
+  }, []);
+
+  // Handler factory that returns an onClick handler for nav buttons
+  const makeNavClick = useCallback(
+    (target) => () => {
+      highlightTab(target);
+    },
+    [highlightTab]
+  );
+
+  // Toggle menu animation (controls the dotlottie player safely)
+  const handleMenuToggle = useCallback(() => {
+    const player = menuRef.current;
+    // Toggle state first (so UI classes reflect new state synchronously)
+    const nextOpen = !isMenuOpen;
+    setIsMenuOpen(nextOpen);
+
+    if (!player) return;
+
+    // dotlottie player API: wrap in try/catch to be resilient
+    try {
+      // Slightly faster than default for snappier UX
+      if (typeof player.setSpeed === "function") player.setSpeed(1.2);
+      // direction: 1 => forward, -1 => reverse
+      if (typeof player.setDirection === "function")
+        player.setDirection(nextOpen ? 1 : -1);
+      if (typeof player.play === "function") player.play();
+    } catch (err) {
+      // silent fail — player might be a different DOM element in some environments
+      // console.debug("dotlottie control failed", err);
+    }
+  }, [isMenuOpen]);
+
+  // Ensure any playing animation is stopped when component unmounts
+  useEffect(() => {
+    return () => {
+      const player = menuRef.current;
+      try {
+        if (player && typeof player.stop === "function") player.stop();
+      } catch (e) {
+        /* ignore */
+      }
+    };
+  }, []);
+
+  const homeButtonClass = useMemo(
+    () => `${navStyles.home} ${isMenuOpen ? navStyles.dimHome : ""}`,
+    [isMenuOpen]
+  );
 
   return (
     <nav className={navStyles.nav}>
@@ -41,12 +91,15 @@ function Nav() {
         animate="visible"
         exit="exit"
         variants={variants.navBlurVariant}
-        className={`${navStyles.home}  ${menuOpened ? navStyles.dimHome : ""}`}
-        onClick={() => {
-          highlightTab("About");
-        }}
+        className={homeButtonClass}
+        aria-label="Go to About"
+        onClick={makeNavClick("About")}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 384 512"
+          aria-hidden
+        >
           <path d="M0 96C0 60.7 28.7 32 64 32h96c123.7 0 224 100.3 224 224s-100.3 224-224 224H64c-35.3 0-64-28.7-64-64V96zm160 0H64V416h96c88.4 0 160-71.6 160-160s-71.6-160-160-160z" />
         </svg>
       </motion.button>
@@ -56,58 +109,20 @@ function Nav() {
         variants={variants.containerVariant}
         initial="hidden"
         animate="visible"
+        aria-label="Primary navigation"
       >
-        <motion.button
-          className={page === "about" ? navStyles.highlight : ""}
-          key="about"
-          variants={variants.buttonVariant}
-          onClick={() => {
-            highlightTab("About");
-          }}
-        >
-          About
-        </motion.button>
-        <motion.button
-          className={page === "skill" ? navStyles.highlight : ""}
-          key="skill"
-          variants={variants.buttonVariant}
-          onClick={() => {
-            highlightTab("Skill");
-          }}
-        >
-          Skill
-        </motion.button>
-        <motion.button
-          className={page === "work" ? navStyles.highlight : ""}
-          key="work"
-          variants={variants.buttonVariant}
-          onClick={() => {
-            highlightTab("Work");
-          }}
-        >
-          Work
-        </motion.button>
-        <motion.button
-          className={page === "blog" ? navStyles.highlight : ""}
-          key="blog"
-          variants={variants.buttonVariant}
-          onClick={() => {
-            highlightTab("Blog");
-          }}
-          style={{ display: "none" }}
-        >
-          Blog
-        </motion.button>
-        <motion.button
-          className={page === "connect" ? navStyles.highlight : ""}
-          key="connect"
-          variants={variants.buttonVariant}
-          onClick={() => {
-            highlightTab("Connect");
-          }}
-        >
-          Connect
-        </motion.button>
+        {NAV_ITEMS.map((item) => (
+          <motion.button
+            key={item.id}
+            className={page === item.id ? navStyles.highlight : ""}
+            variants={variants.buttonVariant}
+            onClick={makeNavClick(item.target)}
+            style={item.hidden ? { display: "none" } : undefined}
+            aria-current={page === item.id ? "page" : undefined}
+          >
+            {item.label}
+          </motion.button>
+        ))}
       </motion.section>
 
       <motion.div
@@ -120,11 +135,15 @@ function Nav() {
       >
         <section className={navStyles.theme}>
           <div className={navStyles.bar}>
-            <span></span>
+            <span />
           </div>
           <div className={navStyles.switch}>
-            <button>ON</button>
-            <button>OFF</button>
+            <button type="button" aria-pressed="true">
+              ON
+            </button>
+            <button type="button" aria-pressed="false">
+              OFF
+            </button>
           </div>
         </section>
       </motion.div>
@@ -140,64 +159,43 @@ function Nav() {
         <div className={navStyles.menuListBox}>
           <div
             className={`${navStyles.menuList} ${
-              menuOpened ? navStyles.animateList : ""
+              isMenuOpen ? navStyles.animateList : ""
             }`}
+            role="menu"
           >
-            <button
-              className={page === "about" ? navStyles.highlight : ""}
-              onClick={() => {
-                highlightTab("About");
-              }}
-            >
-              Home
-            </button>
-            <button
-              className={page === "skill" ? navStyles.highlight : ""}
-              onClick={() => {
-                highlightTab("Skill");
-              }}
-            >
-              Skill
-            </button>
-            <button
-              className={page === "work" ? navStyles.highlight : ""}
-              onClick={() => {
-                highlightTab("Work");
-              }}
-            >
-              Work
-            </button>
-            <button
-              className={page === "blog" ? navStyles.highlight : ""}
-              onClick={() => {
-                highlightTab("Blog");
-              }}
-              style={{ display: "none" }}
-            >
-              Blog
-            </button>
-            <button
-              className={page === "connect" ? navStyles.highlight : ""}
-              onClick={() => {
-                highlightTab("Connect");
-              }}
-            >
-              Connect
-            </button>
+            {NAV_ITEMS.map((item) => (
+              <button
+                key={item.id + "-menu"}
+                className={page === item.id ? navStyles.highlight : ""}
+                onClick={makeNavClick(item.target)}
+                role="menuitem"
+                style={item.hidden ? { display: "none" } : undefined}
+              >
+                {item.label === "About" ? "Home" : item.label}
+              </button>
+            ))}
           </div>
         </div>
-        <button className={navStyles.menuIcon}>
+
+        {/* Wrap dotlottie player inside a button to keep a consistent clickable target and provide aria */}
+        <button
+          type="button"
+          className={navStyles.menuIcon}
+          onClick={handleMenuToggle}
+          aria-expanded={isMenuOpen}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        >
           <dotlottie-player
             ref={menuRef}
             mode="normal"
-            onClick={handleMenuClick}
             src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/menu.lottie"
             style={{ width: "2.5rem", height: "2.5rem" }}
-          ></dotlottie-player>
+            aria-hidden
+          />
         </button>
       </motion.div>
     </nav>
   );
-}
+});
 
 export { Nav };
