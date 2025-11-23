@@ -121,7 +121,7 @@ const icons = [
   },
 ];
 
-function FrontSection() {
+function FrontSectionComponent() {
   return (
     <section>
       {icons.map(({ key, box, svg }) => (
