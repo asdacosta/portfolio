@@ -139,10 +139,9 @@
 }
 
 /* Direction overrides */
-.bot {
-  flex-direction: row-reverse;
-}
-.projects {
+.bot,
+.projects,
+.analytics {
   flex-direction: row-reverse;
 }
 
