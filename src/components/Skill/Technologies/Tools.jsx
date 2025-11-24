@@ -25,8 +25,8 @@ const ToolSection = React.memo(function ToolSection() {
                 gradientTransform="scale(.71111)"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#fff"></stop>
-                <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+                <stop stopColor="#fff"></stop>
+                <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
               </linearGradient>
               <linearGradient
                 id="b"
@@ -37,8 +37,8 @@ const ToolSection = React.memo(function ToolSection() {
                 gradientTransform="scale(.71111)"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#fff"></stop>
-                <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+                <stop stopColor="#fff"></stop>
+                <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
               </linearGradient>
             </defs>
           </svg>
