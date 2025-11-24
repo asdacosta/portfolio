@@ -313,7 +313,7 @@ function WorkSamplesAnim() {
       >
         {images.map((image, index) => (
           <section
-            key={image.alt}
+            key={image.index}
             onMouseEnter={handleImgBoxEnter}
             onMouseLeave={handleImgBoxLeave}
             className={workStyles.workImages}
