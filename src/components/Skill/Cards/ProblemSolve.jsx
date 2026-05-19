@@ -256,10 +256,10 @@ function ProblemSolveComponent() {
       >
         <h2>Strong Problem Solving Foundation</h2>
         <p>
-          With a BSc in Statistics and an MSc in Computer Science, I leverage
-          strong analytical skills and advanced computing expertise to solve
-          complex challenges. I focus on crafting efficient, high-impact
-          solutions across modern development platforms.
+          With a BSc in Statistics, I leverage strong analytical skills and
+          advanced computing expertise to solve complex challenges. I focus on
+          crafting efficient, high-impact solutions across modern development
+          platforms.
         </p>
       </motion.div>
     </motion.section>

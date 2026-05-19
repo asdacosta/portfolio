@@ -542,11 +542,11 @@ function BotComponent() {
       >
         <h2>AI & Agent Developer</h2>
         <p>
-          I hold a Master's in Computer Science with a deep focus on AI, where I
-          design and build intelligent systems — from <strong>chatbots</strong>{" "}
-          to <strong>autonomous agents</strong> — leveraging machine learning
-          and the latest AI technologies. I stay up-to-date on emerging AI
-          research, tools, and trends through daily updates from{" "}
+          I design and build intelligent systems — from{" "}
+          <strong>chatbots</strong> to <strong>autonomous agents</strong> —
+          leveraging machine learning and the latest AI technologies. I stay
+          up-to-date on emerging AI research, tools, and trends through daily
+          updates from{" "}
           <a
             href="https://www.therundown.ai/"
             target="_blank"

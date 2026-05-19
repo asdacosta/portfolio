@@ -49,15 +49,6 @@ function CircleIcon() {
 /* Data model for education items — one source of truth */
 const EDU_ITEMS = [
   {
-    key: "msc",
-    cssClass: skillStyles.msc,
-    institution: "University",
-    institutionLink: null, // no link in original — keep null
-    course: "MSc. Computer Science",
-    score: 60,
-    universitySpanClass: skillStyles.eduUniversitySpan,
-  },
-  {
     key: "odin",
     cssClass: skillStyles.odin,
     institution: "Odin",
