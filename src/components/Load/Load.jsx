@@ -18,7 +18,7 @@ function Load({ onComplete }) {
   }, [onComplete]);
 
   return (
-    <section className={loadStyles.load}>
+    <section className={loadStyles.load} aria-busy="true" aria-label="Loading">
       <dotlottie-player
         ref={animationRef}
         className={loadStyles.lottie}
@@ -26,6 +26,7 @@ function Load({ onComplete }) {
         mode="normal"
         src="https://raw.githubusercontent.com/asdacosta/portfolio/main/src/assets/loader.lottie"
         style={{ width: "260px", height: "260px" }}
+        aria-hidden="true"
       ></dotlottie-player>
     </section>
   );
