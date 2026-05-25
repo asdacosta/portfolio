@@ -1,4 +1,4 @@
-import React, { useRef, useState, useMemo, useCallback } from "react";
+import { useRef, useState, useMemo, useCallback } from "react";
 import { Swiper as Swipe, SwiperSlide as Slide } from "swiper/react";
 import { A11y, Navigation, Pagination, Autoplay } from "swiper/modules";
 import { images } from "../ImageDetails.jsx";
