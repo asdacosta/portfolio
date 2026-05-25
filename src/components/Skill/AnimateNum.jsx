@@ -1,5 +1,5 @@
 // AnimateNum.jsx
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import skillStyles from "./Skill.module.css";
 import { useMotionValue, animate, motion } from "framer-motion";
 
