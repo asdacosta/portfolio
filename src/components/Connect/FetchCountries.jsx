@@ -21,6 +21,9 @@ function FetchCountries({
           "https://restcountries.com/v3.1/all?fields=name,flags",
           { signal: controller.signal }
         );
+        if (!response.ok) {
+          throw new Error(`Failed to fetch countries: ${response.status}`);
+        }
         const data = await response.json();
         data.sort((a, b) => {
           const nameA = a.name.common.toUpperCase();
