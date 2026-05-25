@@ -2,6 +2,10 @@ import { useEffect, useMemo, useState } from "react";
 import Select from "react-select";
 import connectStyles from "./Connect.module.css";
 
+function isSafeHttpsUrl(url) {
+  return typeof url === "string" && url.startsWith("https://");
+}
+
 function FetchCountries({
   name,
   id,
@@ -55,12 +59,14 @@ function FetchCountries({
         value: country.name.common,
         label: (
           <div className={connectStyles.subCountry}>
-            <img
-              src={country.flags.png}
-              alt={`${country.name.common} flag`}
-              width="20"
-              style={{ marginRight: "10px" }}
-            />
+            {isSafeHttpsUrl(country.flags?.png) && (
+              <img
+                src={country.flags.png}
+                alt={`${country.name.common} flag`}
+                width="20"
+                style={{ marginRight: "10px" }}
+              />
+            )}
             {country.name.common}
           </div>
         ),
