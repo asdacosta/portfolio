@@ -12,11 +12,14 @@ function FetchCountries({
 }) {
   const [countries, setCountries] = useState([]);
 
-  const getSortedCountries = () => {
+  useEffect(() => {
+    const controller = new AbortController();
+
     const fetchCountries = async () => {
       try {
         const response = await fetch(
-          "https://restcountries.com/v3.1/all?fields=name,flags"
+          "https://restcountries.com/v3.1/all?fields=name,flags",
+          { signal: controller.signal }
         );
         const data = await response.json();
         data.sort((a, b) => {
@@ -33,12 +36,15 @@ function FetchCountries({
 
         setCountries(data);
       } catch (error) {
-        console.error("Error fetching countries:", error);
+        if (error.name !== "AbortError") {
+          console.error("Error fetching countries:", error);
+        }
       }
     };
+
     fetchCountries();
-  };
-  useEffect(getSortedCountries, []);
+    return () => controller.abort();
+  }, []);
 
   const options = countries.map((country) => ({
     value: country.name.common,
