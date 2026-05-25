@@ -4,7 +4,7 @@ import { Nav } from "./components/Nav/Nav";
 import { Load } from "./components/Load/Load";
 import { About } from "./components/About/About";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
-import { createContext, useState } from "react";
+import { createContext, useMemo, useState } from "react";
 import { Skill } from "./components/Skill/Skill";
 import { Work } from "./components/Work/Work";
 import { Connect } from "./components/Connect/Connect";
@@ -27,6 +27,7 @@ export const MenuContext = createContext({
 function App() {
   const [loadDisplay, setLoadDisplay] = useState(true);
   const [page, setPage] = useState("");
+  const menuContextValue = useMemo(() => ({ page, setPage }), [page]);
   const { scrollYProgress } = useScroll();
   const location = useLocation();
 
@@ -46,7 +47,7 @@ function App() {
               </motion.div>
             )}
           </AnimatePresence>
-          <MenuContext.Provider value={{ page, setPage }}>
+          <MenuContext.Provider value={menuContextValue}>
             {!loadDisplay && (
               <motion.div
                 style={{ scaleX: scrollYProgress }}
