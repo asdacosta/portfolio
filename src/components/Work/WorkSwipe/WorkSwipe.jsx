@@ -77,6 +77,7 @@ export function WorkSwipe() {
             className={workStyles.slideLivePreview}
             role="button"
             tabIndex={0}
+            aria-label="Open live preview"
             onClick={() => open(current?.links?.live)}
             onKeyDown={(e) => e.key === "Enter" && open(current?.links?.live)}
           >
@@ -89,6 +90,7 @@ export function WorkSwipe() {
             className={workStyles.slideSourceCode}
             role="button"
             tabIndex={0}
+            aria-label="Open source code"
             onClick={() => open(current?.links?.code)}
             onKeyDown={(e) => e.key === "Enter" && open(current?.links?.code)}
           >
