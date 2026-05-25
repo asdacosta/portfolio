@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Select from "react-select";
 import connectStyles from "./Connect.module.css";
 
@@ -46,20 +46,24 @@ function FetchCountries({
     return () => controller.abort();
   }, []);
 
-  const options = countries.map((country) => ({
-    value: country.name.common,
-    label: (
-      <div className={connectStyles.subCountry}>
-        <img
-          src={country.flags.png}
-          alt={`${country.name.common} flag`}
-          width="20"
-          style={{ marginRight: "10px" }}
-        />
-        {country.name.common}
-      </div>
-    ),
-  }));
+  const options = useMemo(
+    () =>
+      countries.map((country) => ({
+        value: country.name.common,
+        label: (
+          <div className={connectStyles.subCountry}>
+            <img
+              src={country.flags.png}
+              alt={`${country.name.common} flag`}
+              width="20"
+              style={{ marginRight: "10px" }}
+            />
+            {country.name.common}
+          </div>
+        ),
+      })),
+    [countries]
+  );
 
   const definedStyles = {
     control: (provided, state) => ({
