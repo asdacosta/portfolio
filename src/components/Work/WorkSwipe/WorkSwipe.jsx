@@ -78,7 +78,12 @@ export function WorkSwipe() {
             tabIndex={0}
             aria-label="Open live preview"
             onClick={() => open(current?.links?.live)}
-            onKeyDown={(e) => e.key === "Enter" && open(current?.links?.live)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                open(current?.links?.live);
+              }
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +100,12 @@ export function WorkSwipe() {
             tabIndex={0}
             aria-label="Open source code"
             onClick={() => open(current?.links?.code)}
-            onKeyDown={(e) => e.key === "Enter" && open(current?.links?.code)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                open(current?.links?.code);
+              }
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
