@@ -6,7 +6,6 @@ import workStyles from "../Work.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/effect-fade";
 import "./WorkSwipe.css";
 
 export function WorkSwipe() {
