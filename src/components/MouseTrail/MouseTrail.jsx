@@ -18,18 +18,11 @@ const MouseTrail = () => {
     const historyX = [];
     const historyY = [];
     const historySize = 4;
-    const ropeSize = 100;
-    const points = [];
 
     // Create history array
     for (let i = 0; i < historySize; i++) {
       historyX.push(0);
       historyY.push(0);
-    }
-
-    // Create rope points
-    for (let i = 0; i < ropeSize; i++) {
-      points.push(new PIXI.Point(0, 0));
     }
 
     // Create a graphics object for the trail
