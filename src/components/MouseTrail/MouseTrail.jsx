@@ -5,6 +5,10 @@ const MouseTrail = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
     // Create a new application
     const app = new PIXI.Application({
       backgroundAlpha: 0, // Make the background transparent
