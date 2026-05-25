@@ -4,7 +4,7 @@ import { Nav } from "./components/Nav/Nav";
 import { Load } from "./components/Load/Load";
 import { About } from "./components/About/About";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
-import { createContext, useEffect, useRef, useState } from "react";
+import { createContext, useState } from "react";
 import { Skill } from "./components/Skill/Skill";
 import { Work } from "./components/Work/Work";
 import { Connect } from "./components/Connect/Connect";
