@@ -52,7 +52,7 @@ function FetchCountries({
       <div className={connectStyles.subCountry}>
         <img
           src={country.flags.png}
-          alt="Flag"
+          alt={`${country.name.common} flag`}
           width="20"
           style={{ marginRight: "10px" }}
         />
