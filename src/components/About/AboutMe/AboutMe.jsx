@@ -20,6 +20,7 @@ function AboutMe() {
 
   const aboutMeRef = useRef(null);
   const helloRef = useRef(null);
+  const resumeFeedbackTimeoutRef = useRef();
   const aboutMeControls = useAnimation();
   const aboutMeInView = useInView(aboutMeRef);
 
@@ -74,9 +75,18 @@ function AboutMe() {
   };
   useEffect(slideUpWhenTypingLapses, [slideUpNow]);
 
+  useEffect(
+    () => () => clearTimeout(resumeFeedbackTimeoutRef.current),
+    []
+  );
+
   const indicateResumeDownloaded = () => {
     setResumeDownloaded(true);
-    setTimeout(() => setResumeDownloaded(false), 2000);
+    clearTimeout(resumeFeedbackTimeoutRef.current);
+    resumeFeedbackTimeoutRef.current = setTimeout(
+      () => setResumeDownloaded(false),
+      2000
+    );
   };
 
   return (
