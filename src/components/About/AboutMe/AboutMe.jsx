@@ -28,31 +28,31 @@ function AboutMe() {
   };
   useEffect(displayAboutMeOnView, [aboutMeInView, aboutMeControls]);
 
-  const handleTypingExpertiseText = () => {
-    const clearAboutWhenExpertiseTextIsTyped = (() => {
-      if (expertise.charAt(expertise.length - 1) === ".") {
-        setHideCursor(true);
-        setFillProgress(true);
-        const timeoutId = setTimeout(() => {
-          setSlideUpNow(true);
-        }, 9000);
-        return () => {
-          clearTimeout(timeoutId);
-        };
-      }
-    })();
+  useEffect(() => {
+    let slideUpTimeoutId;
 
-    // Type expertise text
+    if (expertise.charAt(expertise.length - 1) === ".") {
+      setHideCursor(true);
+      setFillProgress(true);
+      slideUpTimeoutId = setTimeout(() => {
+        setSlideUpNow(true);
+      }, 9000);
+    }
+
     const currentText = aboutMeStrings.expertise[expertiseIndex];
+    let typingTimeoutId;
     if (expertiseCharIndex < currentText.length) {
-      const timeoutId = setTimeout(() => {
+      typingTimeoutId = setTimeout(() => {
         setExpertise((prev) => prev + currentText[expertiseCharIndex]);
         setExpertiseCharIndex(expertiseCharIndex + 1);
       }, 100);
-      return () => clearTimeout(timeoutId);
     }
-  };
-  useEffect(handleTypingExpertiseText, [expertise, expertiseIndex]);
+
+    return () => {
+      if (slideUpTimeoutId) clearTimeout(slideUpTimeoutId);
+      if (typingTimeoutId) clearTimeout(typingTimeoutId);
+    };
+  }, [expertise, expertiseIndex, expertiseCharIndex]);
 
   const slideUpWhenTypingLapses = () => {
     if (slideUpNow) {
