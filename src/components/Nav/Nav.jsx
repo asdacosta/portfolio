@@ -60,9 +60,8 @@ const Nav = React.memo(function Nav() {
       if (typeof player.setDirection === "function")
         player.setDirection(nextOpen ? 1 : -1);
       if (typeof player.play === "function") player.play();
-    } catch (err) {
+    } catch {
       // silent fail — player might be a different DOM element in some environments
-      // console.debug("dotlottie control failed", err);
     }
   }, [isMenuOpen]);
 
@@ -72,7 +71,7 @@ const Nav = React.memo(function Nav() {
       const player = menuRef.current;
       try {
         if (player && typeof player.stop === "function") player.stop();
-      } catch (e) {
+      } catch {
         /* ignore */
       }
     };
