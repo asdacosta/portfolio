@@ -6,12 +6,14 @@ function ConnectFeedback() {
   const [hideLottie, setHideLottie] = useState(false);
   const sentLottieRef = useRef(null);
 
-  const hideAnimationOnComplete = () => {
+  useEffect(() => {
     const sent = sentLottieRef.current;
     if (!sent) return;
-    sent.addEventListener("complete", () => setHideLottie(true));
-  };
-  useEffect(hideAnimationOnComplete, []);
+
+    const handleComplete = () => setHideLottie(true);
+    sent.addEventListener("complete", handleComplete);
+    return () => sent.removeEventListener("complete", handleComplete);
+  }, []);
 
   return (
     <section className={feedbackStyles.body}>
