@@ -5,7 +5,6 @@ import tictacImg from "../../assets/Works/tictacWork.png";
 import shopCartImg from "../../assets/Works/shoppingCartWork.png";
 import battleShipImg from "../../assets/Works/battleshipWork.png";
 import memoryImg from "../../assets/Works/memoryWork.png";
-import dashboardImg from "../../assets/Works/dashBoardWork.png";
 import digiairxImg from "../../assets/Works/digiairxWork.png";
 import messageBoardImg from "../../assets/Works/messageboard.jpg";
 import inventoryImg from "../../assets/Works/inventory.jpg";
